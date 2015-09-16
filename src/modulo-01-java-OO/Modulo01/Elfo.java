@@ -32,7 +32,7 @@ public class Elfo {
         
             if( quantidadeDeFlechas <= 3 && quantidadeDeFlechas > 0  ){ 
         
-                if(  acertar() == true){ //Executa um teste baseado na experiência deste elfo
+                if(  acertar() ){ //Executa um teste baseado na experiência deste elfo
                     
                     System.out.println("+"+ adquireExperiencia( quantidadeDeFlechas ) +"xp     Total: " + this.experiencia ); 
                    
