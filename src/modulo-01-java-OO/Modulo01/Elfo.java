@@ -1,7 +1,6 @@
 /**
  * Representa objetos do tipo Elfo.
  */
- 
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
@@ -34,10 +33,10 @@ public class Elfo {
      *      public void atirarFlechaDeFogo
     */
    
-    public void atirarFlecha( Dwarf alvo ) {
+    public void atirarFlecha(Dwarf dwarf) {
         flechas--;
         experiencia++;
-        alvo.sofreDano();
+        dwarf.receberFlechada();
         //experiencia += 1;
         //experiencia = experiencia + 1;
     }
@@ -64,11 +63,6 @@ public class Elfo {
     public String getNome() {
         return nome;
     }
-    
-    /*
-    public void setNome(String novoNome) {
-        this.nome = novoNome;
-    }*/
     
     public int getFlechas() {
         return this.flechas;

@@ -1,37 +1,11 @@
-
-/**
- * Escreva a descrição da classe Dwarves aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
-public class Dwarf
-{
-    private String nome;
-    private int vida;
+public class Dwarf {
+    private int vida = 115;
     
-    {
-        this.vida = 110;
+    public void receberFlechada() {
+        this.vida -= 10;
     }
     
-    public Dwarf( String nome ){
-    
-        this.nome = nome;
-    
-    }
-    
-
-    
-    public int getVida(){
-    
+    public int getVida() {
         return this.vida;
-    
     }
-    
-    public void sofreDano(){
-
-         this.vida -= 10;
- 
-    }
-    
 }
