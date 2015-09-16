@@ -9,11 +9,17 @@ public class Elfo {
     
     public Elfo( String nome ){ //Construtor pedindo somente o nome do elfo
         
-        this.nome = nome; //Atribui o nome à variavel 'nome' deste elfo
+        iniciaElfo( nome, 0 );
     
     }
     
-    public Elfo( String nome, int flechas ) { //construtor pedindo o nome e a quantidade de flechas deste elfo
+    public Elfo( String nome, int flechas ){
+    
+        iniciaElfo( nome, flechas );
+    
+    }
+    
+    public void iniciaElfo( String nome, int flechas ) { //construtor pedindo o nome e a quantidade de flechas deste elfo
         
         this.nome = nome; //Atribui o nome à variavel 'nome' deste elfo
         
