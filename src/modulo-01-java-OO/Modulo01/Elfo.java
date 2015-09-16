@@ -9,18 +9,12 @@ public class Elfo {
     
     public Elfo( String nome ){ 
         
-        iniciaElfo( nome, 0 );
+        this( nome, 0 );
     
     }
     
     public Elfo( String nome, int flechas ){
     
-        iniciaElfo( nome, flechas );
-    
-    }
-    
-    public void iniciaElfo( String nome, int flechas ) {
-        
         this.nome = nome; 
         
         if( flechas > 0 ){
@@ -28,18 +22,19 @@ public class Elfo {
             this.flechas = flechas; 
                                    
         }
+    
     }
     
     
-    public void atirarFlechaRefactory( int f ){ 
+    public void atirarFlechaRefactory( int quantidadeDeFlechas ){ 
         
-        if ( this.flechas >= f ){ 
+        if ( this.flechas >= quantidadeDeFlechas ){ 
         
-            if( f <= 3 && f > 0  ){ 
+            if( quantidadeDeFlechas <= 3 && quantidadeDeFlechas > 0  ){ 
         
                 if(  acertar() == true){ //Executa um teste baseado na experiência deste elfo
                     
-                    System.out.println("+"+ adquireExperiencia( f ) +"xp     Total: " + this.experiencia ); 
+                    System.out.println("+"+ adquireExperiencia( quantidadeDeFlechas ) +"xp     Total: " + this.experiencia ); 
                    
                 }else{
                     
@@ -48,7 +43,7 @@ public class Elfo {
                 
                 }
                 
-                 this.flechas -= f; 
+                 this.flechas -= quantidadeDeFlechas; 
               
             }else{ 
             
@@ -104,17 +99,17 @@ public class Elfo {
             
                 retorno = true; 
                 
-                System.out.println("Acertou!!");
+                System.out.println( this.nome + " acertou!!");
             
             }else{ 
             
-                System.out.println("Errou!!");
+                System.out.println( this.nome + " errou!!");
             
             }
             
         }else{ 
         
-           System.out.println("Acertou!!"); 
+           System.out.println( this.nome + " acertou!!"); 
            retorno = true;
         
         }
