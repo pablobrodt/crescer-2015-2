@@ -25,6 +25,13 @@ public class Elfo {
     
     }
     
+    public void atirarFlecha(){
+    
+        this.experiencia++;
+        this.flechas--;
+        
+    }
+    
     
     public void atirarFlechaRefactory( int quantidadeDeFlechas ){ 
         
