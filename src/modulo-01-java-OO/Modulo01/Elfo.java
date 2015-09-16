@@ -7,7 +7,7 @@ public class Elfo {
     private int experiencia = 10; //Experiência default para todo elfo, porque se nao tem o minimo de experiencia em arquearia, não é elfo
     private int maximoDeExperiencia = 100; //Define o numero maximo de experiência possivel de adquirir
     
-    public Elfo( String nome ){ //Construtor pedindo somente o nome do elfo
+    public Elfo( String nome ){ 
         
         iniciaElfo( nome, 0 );
     
@@ -19,44 +19,44 @@ public class Elfo {
     
     }
     
-    public void iniciaElfo( String nome, int flechas ) { //construtor pedindo o nome e a quantidade de flechas deste elfo
+    public void iniciaElfo( String nome, int flechas ) {
         
-        this.nome = nome; //Atribui o nome à variavel 'nome' deste elfo
+        this.nome = nome; 
         
-        if( flechas > 0 ){//Se o numero de flechas informadas for maior que zero
+        if( flechas > 0 ){
         
-            this.flechas = flechas; //Atribui a quantidade de flechas à variavel 'flechas' deste elfo
-                                    //Caso contrario continua valendo o default
+            this.flechas = flechas; 
+                                   
         }
     }
     
     
-    public void atirarFlechaRefactory( int f ){ //Ação (método) de atirar flechas, deste elfo
+    public void atirarFlechaRefactory( int f ){ 
         
-        if ( this.flechas >= f ){ //Verifica se a quantidade de flechas que o elfo tem é maior do que a quantidade que deseja atirar
+        if ( this.flechas >= f ){ 
         
-            if( f <= 3 && f > 0  ){ //Limita o número de flechas no maximo 3, porque ate elfos tem limites
+            if( f <= 3 && f > 0  ){ 
         
                 if(  acertar() == true){ //Executa um teste baseado na experiência deste elfo
                     
-                    System.out.println("+"+ adquireExperiencia( f ) +"xp     Total: " + this.experiencia ); //Se acertou, adquire a experiência referente`ao numero de flechas lançadas 
+                    System.out.println("+"+ adquireExperiencia( f ) +"xp     Total: " + this.experiencia ); 
                    
                 }else{
                     
                     
-                    System.out.println("+"+ adquireExperiencia( 1 ) +"xp     Total: " + this.experiencia ); //Se errou, adquire somente 1 ponto de experiência
+                    System.out.println("+"+ adquireExperiencia( 1 ) +"xp     Total: " + this.experiencia ); 
                 
                 }
                 
-                 this.flechas -= f; //Reduz o número de flechas que o elfo possui, de acordo com as flechas lançadas
+                 this.flechas -= f; 
               
-            }else{ //Caso tente atirar mais de 3 flechas juntas tempo...
+            }else{ 
             
                 System.out.println("Serio? Atirar mais de 3 flechas juntas?");
             
             }
             
-        }else{ //Caso você não tenha tantas flechas quanto queira atirar
+        }else{
         
             System.out.println("Você não tem tantas flechas.");
         
@@ -68,25 +68,25 @@ public class Elfo {
         
         int retorno = 0; 
     
-        if( this.experiencia < maximoDeExperiencia ){ //Este teste restringe a experiência ao maximo definido na classe
+        if( this.experiencia < maximoDeExperiencia ){ 
         
-            this.experiencia += xp; //Soma a experiencia total à experiencia adquirida
+            this.experiencia += xp; 
             
-            if( this.experiencia >= maximoDeExperiencia ){ //Verifica se a experiencia atual, apos a soma, é maior ou igual ao meu maximoDeExperiencia     
+            if( this.experiencia >= maximoDeExperiencia ){   
                 
-                this.experiencia = maximoDeExperiencia; //Caso verdadeiro, minha experiencia recebe o maximo possivel
+                this.experiencia = maximoDeExperiencia; 
             
             }
             
-            retorno = xp; //Atribui a quantidade de experiência obtida à variável de retorno
+            retorno = xp;
         
-        }else{ //Caso a experiência já seja 100 pontos
+        }else{
             
             System.out.println("Você já possui o máximo de experiência.");
         
         }
     
-        return retorno; //Retorna o valor para que o algoritmo acima posso exibir na tela
+        return retorno; 
         
     }
     
@@ -97,22 +97,22 @@ public class Elfo {
         
         Random r = new Random(); //Instancia um objeto Random, para gerarmos um numero aleatorio
         
-        if( this.experiencia <= maximoDeExperiencia ){ //verifica se minha experiencia ja esta no maximo
+        if( this.experiencia <= maximoDeExperiencia ){ 
         
             if( r.nextInt(maximoDeExperiencia) <= this.experiencia ){ //gera um numero aleatorio entre 0 e o maximo de experiencia do elfo, 
                                                                       //e verifica se este número é menor ou igual à experiencia atual do mesmo
             
-                retorno = true; //Se o numero gerado foi menor ou igual então acertou
+                retorno = true; 
                 
                 System.out.println("Acertou!!");
             
-            }else{ //caso contrario, o elfo errou
+            }else{ 
             
                 System.out.println("Errou!!");
             
             }
             
-        }else{ //caso minha experiencia já esteja no seu maximo, o elfo vai acertar sempre, porque ele é foda
+        }else{ 
         
            System.out.println("Acertou!!"); 
            retorno = true;
