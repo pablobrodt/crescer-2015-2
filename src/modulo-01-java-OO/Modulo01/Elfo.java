@@ -17,8 +17,11 @@ public class Elfo {
         
         this.nome = nome; //Atribui o nome à variavel 'nome' deste elfo
         
-        this.flechas = flechas; //Atribui a quantidade de flechas à variavel 'flechas' deste elfo
+        if( flechas > 0 ){//Se o numero de flechas informadas for maior que zero
         
+            this.flechas = flechas; //Atribui a quantidade de flechas à variavel 'flechas' deste elfo
+                                    //Caso contrario continua valendo o default
+        }
     }
     
     
