@@ -90,6 +90,18 @@ public class ElfoTest
     }
     
     
+    @Test
+    public void elfoToString(){
+        for( Elfo elfo : elfos ){
+            String teste;
+            teste = elfo.getNome() + " possui ";
+            teste += elfo.getFlechas() + " flechas e ";
+            teste += elfo.getExperiencia() + " niveis de experiência.";
+            
+            assertEquals( teste, elfo.toString() );
+        }
+    }
+    
 
    
     

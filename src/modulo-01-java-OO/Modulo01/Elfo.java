@@ -1,6 +1,7 @@
 /**
  * Representa objetos do tipo Elfo.
  */
+
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
@@ -70,6 +71,19 @@ public class Elfo {
     
     public int getExperiencia(){
         return this.experiencia;
+    }
+    
+    public String toString(){
+        String retorno = "";
+        
+        retorno += this.nome;
+        retorno += " possui ";
+        retorno += this.flechas;
+        retorno += " flechas e ";
+        retorno += this.experiencia;
+        retorno += " niveis de experiência.";
+        
+        return retorno;
     }
     
     /* 
