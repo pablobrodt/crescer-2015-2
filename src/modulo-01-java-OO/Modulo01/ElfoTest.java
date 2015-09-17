@@ -54,6 +54,14 @@ public class ElfoTest
     
     
     @Test
+    public void elfoNasceSemXp(){
+        Elfo galadriel = new Elfo( "Galadriel" );
+        assertTrue(galadriel.getExperiencia() == 0 );
+    }
+        
+    
+    
+    @Test
     public void elfoAtiraFlechaMachucaDwarfEGanhaXp(){     
         int flechas = legolas.getFlechas();
         int exp = legolas.getExperiencia();
@@ -152,6 +160,15 @@ public class ElfoTest
             assertEquals( teste, elfo.toString() );
         }
     }
+    
+    @Test
+    public void elfoNaoEstaAtirandoFlechas(){
+        int flechas = legolas.getFlechas();
+        legolas.atirarFlecha(gimli);
+        assertTrue(flechas == legolas.getFlechas());
+    }
+    
+    
     
     
 
