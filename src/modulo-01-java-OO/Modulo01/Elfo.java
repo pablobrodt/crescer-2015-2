@@ -12,23 +12,25 @@ public class Elfo {
         flechas = 42;
     }
     */
+   
+    public Elfo(String nome) {
+        this(nome, 42);
+    }
+   
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
     }
+    /*
+     * Exemplo de construtor com Integer, para que possa receber parametro null
+     * public Elfo(String nome, Integer flechas) {
+     *  this(nome);
+     *  if (flechas != null) {
+     *      this.flechas = flechas;
+     *  }
+     * }
     
-    public Elfo(String nome, Integer flechas) {
-        this(nome);
-        if (flechas != null) {
-            this.flechas = flechas;
-        }
-    }
-    
-    public Elfo(String nome) {
-        this(nome, 42);
-    }
-
-    /* PascalCase (C#, VB.NET)
+     * PascalCase (C#, VB.NET)
      *      public void AtirarFlechaDeFogo
      * camelCase (Java, JavaScript)
      *      public void atirarFlechaDeFogo
@@ -42,25 +44,7 @@ public class Elfo {
         //experiencia = experiencia + 1;
     }
     
-    /*
-     * 
-     * public atirarFlechaRefactory(this.flechas, this.experiencia){
-     *     if(boolean acertar == true){
-     *         flechas--;
-     *         experiencia++;
-     *      }else{
-     *          flechas--;
-     *      }
-     *  }
-     *
-     * public void atirarFlechaRefactory(){
-     *  boolean acertar = true;
-     *  if (acertar) {
-     *      experiencia++;
-     *  }
-     *  flechas--;
-     * }
-    */
+
     public String getNome() {
         return nome;
     }
@@ -86,10 +70,24 @@ public class Elfo {
         return retorno;
     }
     
-    /* 
-    public void setFlechas(int flechas) {
-        if (flechas > this.flechas)
-            this.flechas = flechas;
-    }
+    /*
+     * 
+     * public atirarFlechaRefactory(this.flechas, this.experiencia){
+     *     if(boolean acertar == true){
+     *         flechas--;
+     *         experiencia++;
+     *      }else{
+     *          flechas--;
+     *      }
+     *  }
+     *
+     * public void atirarFlechaRefactory(){
+     *  boolean acertar = true;
+     *  if (acertar) {
+     *      experiencia++;
+     *  }
+     *  flechas--;
+     * }
     */
+   
 }
