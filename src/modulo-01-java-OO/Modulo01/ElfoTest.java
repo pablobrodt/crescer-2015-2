@@ -153,7 +153,7 @@ public class ElfoTest
     }
     
     @Test
-    public void elfosToStringAposAtirarFlechas(){
+    public void elfosToStringAposAtirarFlechasEGanharXp(){
         for( Elfo elfo : elfos ){
             
             elfo.atirarFlecha(gimli);
