@@ -12,7 +12,7 @@ public class DwarfTest
     }
     
     @Test
-    public void dwarfRecebeFlechada(){
+    public void dwarfSofreDanoDeFlechada(){
         Dwarf gimli = new Dwarf();
         int vida = gimli.getVida();
         gimli.receberFlechada();

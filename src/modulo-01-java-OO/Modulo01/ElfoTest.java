@@ -28,66 +28,33 @@ public class ElfoTest
     
 
     @Test
-    public void elfoTemNome(){
+    public void elfoTemNomeEFlechas(){
         
         for( Elfo elfo : elfos){
-            assertNotNull(elfo.getNome());    
+            assertNotNull(elfo.getNome());
+            assertNotSame("",elfo.getNome());
+            assertTrue( elfo.getFlechas() > 0);
         }
 
     }
     
     @Test
-    public void elfoTemFlechas(){
-    
-        for( Elfo elfo : elfos){
-            assertTrue( elfo.getFlechas() > 0);    
-        }
-    
-    }
-    
-    @Test
-    public void elfoAtiraFlecha(){
+    public void elfoAtiraFlechaMachucaDwarfEGanhaXp(){
     
         Dwarf gimli = new Dwarf();
         
         for( Elfo elfo : elfos ){
             int flechas = elfo.getFlechas();
+            int exp = elfo.getExperiencia();
+            int vidaDwarf = gimli.getVida();
             elfo.atirarFlecha(gimli);
             assertTrue( flechas > elfo.getFlechas());
-        }
-    
-    }
-    
-    @Test
-    public void elfoGanhaXp(){
-    
-        Dwarf gimli = new Dwarf();
-        
-        for( Elfo elfo : elfos ){
-            int exp = elfo.getExperiencia();
-            elfo.atirarFlecha(gimli);
             assertTrue( exp < elfo.getExperiencia());
+            assertTrue( vidaDwarf > gimli.getVida() );
         }
     
     }
-    
-    @Test
-    public void elfoAtiraFlechaRefactory(){
-        for( Elfo elfo : elfos){
-            int flechas = elfo.getFlechas();
-            elfo.atirarFlechaRefactory();
-            assertTrue( flechas > elfo.getFlechas());
-        }
-    }
-    
-    @Test
-    public void elfoGanhaXpRefactory(){
-        for( Elfo elfo : elfos){
-            int exp = elfo.getExperiencia();
-            elfo.atirarFlechaRefactory();
-            assertTrue( exp < elfo.getExperiencia());
-        }
-    }
+
     
     
     @Test

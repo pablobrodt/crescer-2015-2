@@ -52,15 +52,15 @@ public class Elfo {
      *          flechas--;
      *      }
      *  }
-     */
-    public void atirarFlechaRefactory(){
-        boolean acertar = true;
-        if (acertar) {
-            experiencia++;
-        }
-        flechas--;
-    }
-    
+     *
+     * public void atirarFlechaRefactory(){
+     *  boolean acertar = true;
+     *  if (acertar) {
+     *      experiencia++;
+     *  }
+     *  flechas--;
+     * }
+    */
     public String getNome() {
         return nome;
     }
