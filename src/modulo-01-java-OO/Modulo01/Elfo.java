@@ -1,7 +1,6 @@
 /**
  * Representa objetos do tipo Elfo.
  */
-
 public class Elfo {
     private String nome;
     private int flechas, experiencia;
@@ -12,25 +11,25 @@ public class Elfo {
         flechas = 42;
     }
     */
-   
-    public Elfo(String nome) {
-        this(nome, 42);
-    }
-   
     public Elfo(String nome, int flechas) {
         this.nome = nome;
         this.flechas = flechas;
     }
-    /*
-     * Exemplo de construtor com Integer, para que possa receber parametro null
-     * public Elfo(String nome, Integer flechas) {
-     *  this(nome);
-     *  if (flechas != null) {
-     *      this.flechas = flechas;
-     *  }
-     * }
     
-     * PascalCase (C#, VB.NET)
+    /* Apenas para elucidar as diferenças entre int X Integer, esta duplicação não faz sentido.
+    public Elfo(String nome, Integer flechas) {
+        this(nome);
+        if (flechas != null) {
+            this.flechas = flechas;
+        }
+    }
+    */
+    
+    public Elfo(String nome) {
+        this(nome, 42);
+    }
+
+    /* PascalCase (C#, VB.NET)
      *      public void AtirarFlechaDeFogo
      * camelCase (Java, JavaScript)
      *      public void atirarFlechaDeFogo
@@ -44,34 +43,8 @@ public class Elfo {
         //experiencia = experiencia + 1;
     }
     
-
-    public String getNome() {
-        return nome;
-    }
-    
-    public int getFlechas() {
-        return this.flechas;
-    }
-    
-    public int getExperiencia(){
-        return this.experiencia;
-    }
-    
-    public String toString(){
-        String retorno = "";
-        
-        retorno += this.nome;
-        retorno += " possui ";
-        retorno += this.flechas;
-        retorno += " flechas e ";
-        retorno += this.experiencia;
-        retorno += " niveis de experiência.";
-        
-        return retorno;
-    }
-    
     /*
-     * 
+     * ANTES:
      * public atirarFlechaRefactory(this.flechas, this.experiencia){
      *     if(boolean acertar == true){
      *         flechas--;
@@ -80,14 +53,35 @@ public class Elfo {
      *          flechas--;
      *      }
      *  }
-     *
-     * public void atirarFlechaRefactory(){
-     *  boolean acertar = true;
-     *  if (acertar) {
-     *      experiencia++;
-     *  }
-     *  flechas--;
-     * }
+    
+     *  DEPOIS:
+
+        public void atirarFlechaRefactory(){
+            boolean acertar = true;
+            if (acertar) {
+                experiencia++;
+            }
+            flechas--;
+        }
+    
     */
-   
+    
+    public String getNome() {
+        return nome;
+    }
+    
+    public int getFlechas() {
+        return this.flechas;
+    }
+    
+    public int getExperiencia() {
+        return this.experiencia;
+    }
+    
+    /* 
+    public void setFlechas(int flechas) {
+        if (flechas > this.flechas)
+            this.flechas = flechas;
+    }
+    */
 }
