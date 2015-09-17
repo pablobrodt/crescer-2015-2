@@ -52,6 +52,12 @@ public class ElfoTest
 
     }
     
+    @Test
+    public void elfoNasceCom42Flechas(){
+        Elfo elfis = new Elfo("Elfis");
+        assertEquals(42, elfis.getFlechas());
+    }
+    
     
     @Test
     public void elfoNasceSemXp(){
