@@ -87,6 +87,26 @@ public class DwarfTest
     }
     
     @Test
+    public void dwarfRecebe12FlechadasEFicaCom0DeVida(){
+        Dwarf gimli = new Dwarf ( "Gimli" );
+        
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        
+        assertEquals(0, gimli.getVida());
+    }
+    
+    @Test
     public void dwarfCriadoComNomeNaoNulo() {
         Dwarf gimli = new Dwarf("Gimli");
         assertEquals("Gimli", gimli.getNome());

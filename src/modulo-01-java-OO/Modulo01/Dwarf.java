@@ -9,11 +9,11 @@ public class Dwarf {
     }
     
     public void receberFlechada() {
-        this.vida -= 10;
-        if( this.vida == 0 ){
-            
+        if( this.vida > 0 ){
+            this.vida -= 10;
+        }
+        if( this.vida ==  0){
             this.status = Status.MORTO;
-        
         }
     }
     
