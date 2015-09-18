@@ -123,4 +123,10 @@ public class DwarfTest
         Dwarf gimli = new Dwarf("Gimli");
         assertEquals(0, gimli.getExperiencia());
     }
+    
+    @Test
+    public void dwarfTemDataDeNascimento(){
+        Dwarf gimli = new Dwarf("Gimli", new DataTerceiraEra(10, 10, 1200));
+        assertFalse(gimli.getDataNascimento().equals(null));
+    }
 }
