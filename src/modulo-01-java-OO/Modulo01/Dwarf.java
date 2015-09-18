@@ -56,7 +56,7 @@ public class Dwarf {
        
         if( this.dataNascimento.ehBissexto() && vidaDeSorte ){
             sorte *= -33;
-        }else if( !this.dataNascimento.ehBissexto() && nomeDeSorte ){
+        }else if( !this.dataNascimento.ehBissexto() && this.nome != null && nomeDeSorte ){
             sorte *= 33;
             sorte = sorte%100;
         }
