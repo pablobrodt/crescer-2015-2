@@ -42,4 +42,24 @@ public class Dwarf {
     public DataTerceiraEra getDataNascimento(){
         return this.dataNascimento;
     }
+    /*
+    Se o campo dataNascimento do objeto Dwarf for bissexto 
+    e a vida do Dwarf estiver entre 80 e 90 (incluindo 80 e 90), 
+    multiplique o número a ser retornado por -33   
+    */
+    public double getNumeroSorte(){
+        double sorte = 101.0;
+        boolean vidaDeSorte = this.vida >= 80 && this.vida <=90;
+        boolean nomeDeSorte = this.nome.equals("Seixas") || this.nome.equals("Meireles");
+       
+        
+        if( this.dataNascimento.ehBissexto() && vidaDeSorte ){
+            sorte = sorte * -33;
+        }else if( !this.dataNascimento.ehBissexto() && nomeDeSorte ){
+            sorte = sorte * 33;
+            sorte = sorte%100;
+        }
+        
+        return sorte;
+    }
 }
