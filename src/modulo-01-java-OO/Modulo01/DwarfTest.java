@@ -144,7 +144,7 @@ public class DwarfTest
     }
     
     @Test
-    public void dwarfSeixasNaoÉDeBissextoETemSorte(){
+    public void dwarfSeixasDeAnoNormalTemSorte(){
         Dwarf seixas = new Dwarf("Seixas");
         double sorteEsperada = 33.00;
         
@@ -158,4 +158,55 @@ public class DwarfTest
         
         assertTrue(sorteEsperada == azarado.getNumeroSorte());
     }
+    
+    @Test
+    public void dwarfDeAnoBissextoNaoRecebeMaisFlechadasCom90DeVidaEGanhaXp(){
+        Dwarf sortudo = new Dwarf("Sortudo", new DataTerceiraEra(10,10,2008));
+        int vidaEsperada = 90;
+        int experienciaEsperada = 2;
+        
+        sortudo.receberFlechada();
+        sortudo.receberFlechada();
+        sortudo.receberFlechada();
+        
+        assertEquals(vidaEsperada, sortudo.getVida());
+        assertEquals(experienciaEsperada, sortudo.getExperiencia());
+    }
+    
+    @Test
+    public void dwarfDeAnoNormalRecebeFlechadasAteMorrerENaoGanhaXp(){
+        Dwarf comum = new Dwarf("Comum", new DataTerceiraEra(10,10,2005));
+        int vidaEsperada = 0;
+        int experienciaEsperada = 0;
+        Status statusEsperado = Status.MORTO;
+        
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        comum.receberFlechada();
+        
+        assertEquals(vidaEsperada, comum.getVida());
+        assertEquals(statusEsperado, comum.getStatus());
+        assertEquals(experienciaEsperada, comum.getExperiencia());
+    }
+    
+    @Test
+    public void dwarfMeirelesDeAnoNormalNaoRecebeFlechadas(){
+        Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(10,10,1993));
+        int vidaEsperada = 110;
+        
+        meireles.receberFlechada();
+        meireles.receberFlechada();
+        meireles.receberFlechada();
+        
+        assertEquals(vidaEsperada, meireles.getVida());
+    }
+    
 }
