@@ -38,16 +38,18 @@ public class ItemTest
     }
     
     @Test
-    public void itemTemquantidadeNegativa(){
+    public void itemTemQuantidadeNegativa(){
         Item pocao = new Item("Poção", -10);
         int quantidadeEsperada = -10;
         assertEquals(quantidadeEsperada, pocao.getQuantidade());
     }
+    
     @Test
     public void itemTemQuantidadeOver9000(){
         Item pocao = new Item("Poção", 9001);
         int quantidadeEsperada = 9001;
         assertEquals(quantidadeEsperada, pocao.getQuantidade());
     }
+    
       
 }
