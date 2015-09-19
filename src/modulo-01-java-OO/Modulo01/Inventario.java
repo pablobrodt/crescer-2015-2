@@ -51,4 +51,22 @@ public class Inventario{
 
         return itemComMaisQuantidade;
     }
+   
+   public void ordenarItens(){
+        int i;
+        int j;
+    
+        for(i=0;i<this.itens.size();i++){
+            
+            for(j=0;j<this.itens.size()-1;j++){
+                
+                if( this.itens.get(j).getQuantidade() > this.itens.get(j+1).getQuantidade()  ){
+                    Item itemAux = this.itens.get(j);
+    
+                    this.itens.set( j, this.itens.get(j+1));
+                    this.itens.set(j+1, itemAux);
+                }
+            }
+        }
+    }
 }
