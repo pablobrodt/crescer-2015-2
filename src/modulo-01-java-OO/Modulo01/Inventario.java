@@ -13,8 +13,8 @@ public class Inventario{
         this.itens.remove(item);
     }
     
-    public ArrayList<Item> getItens(){
-        return this.itens;
+    public int getQuantidadeItens(){
+        return this.itens.size();
     }
     
 }

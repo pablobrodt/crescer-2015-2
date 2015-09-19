@@ -14,7 +14,7 @@ public class InventarioTest
         //Act
         mochila.adicionarItem(lembas);
         //Assert
-        assertEquals(qtdItensEsperados,mochila.getItens().size());
+        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
     }
     
     @Test
@@ -34,7 +34,7 @@ public class InventarioTest
         mochila.adicionarItem(new Item("Lembas", 1));
         mochila.adicionarItem(new Item("Lembas", 1));
         //Assert
-        assertEquals(qtdItensEsperados,mochila.getItens().size());
+        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
     }
     
     @Test
@@ -46,7 +46,7 @@ public class InventarioTest
         //Act
         mochila.perderItem(lembas);
         //Assert
-        assertEquals(0,mochila.getItens().size());
+        assertEquals(0,mochila.getQuantidadeItens());
     }
     
     @Test
@@ -75,6 +75,6 @@ public class InventarioTest
         mochila.perderItem(luzEarendil);
         mochila.perderItem(cabeloGaladriel);        
         //Assert
-        assertEquals(qtdItensEsperados,mochila.getItens().size());
+        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
     }
 }
