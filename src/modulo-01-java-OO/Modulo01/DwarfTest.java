@@ -208,5 +208,59 @@ public class DwarfTest
         assertEquals(100, dwarf.getVida());
         assertEquals(0, dwarf.getExperiencia());
     }
-
+    
+    @Test
+    public void dwarfGanha1Item(){
+        //Arrang
+        Dwarf gimli = new Dwarf();
+        int quantidadeItensEsperada = 1;
+        //Act
+        gimli.ganhaItem(new Item("Fio de Cabelo de Galadriel", 3));
+        //Assert
+        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());
+    }
+    
+    @Test
+    public void dwarfGanha10Itens(){
+        //Arrang
+        Dwarf gimli = new Dwarf();
+        int quantidadeItensEsperada = 10;
+        //Act
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(new Item("Lembas", 1));
+        //Assert
+        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());
+    }
+    
+    @Test
+    public void dwarfTem5ItensPerde3EFicaCom2(){
+        //Arrang
+        Dwarf gimli = new Dwarf();
+        
+        Item machado = new Item("Machado", 1);
+        Item lembas = new Item("Lembas", 1);
+        Item elmo = new Item("Elmo", 1);
+        
+        gimli.ganhaItem(machado);
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(lembas);
+        gimli.ganhaItem(new Item("Lembas", 1));
+        gimli.ganhaItem(elmo);
+        
+        int quantidadeItensEsperada = 2;
+        //Act
+        gimli.perdeItem(machado);
+        gimli.perdeItem(lembas);
+        gimli.perdeItem(elmo);
+        //Assert
+        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());  
+    }
 }

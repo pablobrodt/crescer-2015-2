@@ -3,6 +3,7 @@ public class Dwarf {
     private int vida, experiencia;
     private Status status;
     private DataTerceiraEra dataNascimento;
+    private Inventario inventario = new Inventario();
 
     public Dwarf() {
         this.vida = 110;
@@ -37,6 +38,18 @@ public class Dwarf {
                 this.vida = vidaAposFlechada;
             }
         }
+    }
+    
+    public void ganhaItem(Item item){
+        this.inventario.adicionarItem( item );
+    }
+    
+    public void perdeItem(Item item){
+        this.inventario.perderItem(item);
+    }
+    
+    public int getQuantidadeItens(){
+        return this.inventario.getQuantidadeItens();
     }
 
     public int getVida() {
