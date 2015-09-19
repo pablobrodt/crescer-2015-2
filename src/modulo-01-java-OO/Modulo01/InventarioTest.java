@@ -116,5 +116,39 @@ public class InventarioTest
         
         assertEquals(descricaoEsperada, mochila.getDescricoesItens());
     }
+    
+    @Test
+    public void obterEscudoDoInventario(){
+        //Arrange
+        Inventario mochila = new Inventario();
+        Item escudo = new Item("Escudo", 1);
+        mochila.adicionarItem(escudo);
+        Item itemEsperado = escudo;
+        Item itemObtido;
+        //Act
+        itemObtido = mochila.getItem(0);
+        //Assert
+        assertSame(itemEsperado, itemObtido);
+    }
+    
+    @Test
+    public void obterEscudoEEspadaDoInventario(){
+        //Arrange
+        Inventario mochila = new Inventario();
+        Item escudo = new Item("Escudo", 1);
+        Item espada = new Item("Espada", 1);
+        mochila.adicionarItem(escudo);
+        mochila.adicionarItem(espada);
+        Item itemEsperado1 = escudo;
+        Item itemEsperado2 = espada;
+        Item itemObtido1;
+        Item itemObtido2;
+        //Act
+        itemObtido1 = mochila.getItem(0);
+        itemObtido2 = mochila.getItem(1);
+        //Assert
+        assertSame(itemEsperado1, itemObtido1);
+        assertSame(itemEsperado2, itemObtido2);
+    }
 
 }
