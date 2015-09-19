@@ -7,15 +7,49 @@ public class DwarfTest
 {
     @Test
     public void dwarfNasceCom110DeVida() {
-        Dwarf gimli = new Dwarf( "Gimli" );
+        Dwarf gimli = new Dwarf();
         assertEquals(110, gimli.getVida());
+    }
+
+    @Test
+    public void dwarfNasceVivo() {
+        Dwarf balin = new Dwarf();
+        assertEquals(Status.VIVO, balin.getStatus());
+    }
+
+    @Test
+    public void dwarfNasceCom0DeExperiencia() {
+        Dwarf balin = new Dwarf();
+        assertEquals(0, balin.getExperiencia());
+    }
+
+    @Test
+    public void dwarfNasceComDataNascimentoPadrão() {
+        Dwarf bofur = new Dwarf();
+        DataTerceiraEra esperada = new DataTerceiraEra(1,1,1);
+        DataTerceiraEra obtida = bofur.getDataNascimento();
+        assertEquals(esperada, obtida);
+    }
+
+    @Test
+    public void dwarfNasceComNomeEDataDeNascimento() {
+        DataTerceiraEra esperada = new DataTerceiraEra(12,11,1987);
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(12, 11, 1987));
+        assertEquals(esperada, bernardin.getDataNascimento());
+        assertEquals("Bernardin", bernardin.getNome());
+    }
+
+    @Test
+    public void dwarfNasceComNome() {
+        Dwarf oin = new Dwarf("Oin II");
+        assertEquals("Oin II", oin.getNome());
     }
 
     @Test
     public void dwarfRecebeFlechaEPerde10Vida() {
         // AAA
         // Arrange
-        Dwarf gimli = new Dwarf( "Gimli" );
+        Dwarf gimli = new Dwarf();
         int vidaEsperada = 100;
         // Act
         gimli.receberFlechada();
@@ -25,7 +59,7 @@ public class DwarfTest
 
     @Test
     public void dwarfRecebeFlecha11VezesEVidaÉ0() {
-        Dwarf gimli = new Dwarf( "Gimli" );
+        Dwarf gimli = new Dwarf();
         int vidaEsperada = 0;
         // Act
         gimli.receberFlechada();
@@ -45,7 +79,7 @@ public class DwarfTest
 
     @Test
     public void dwarfRecebeFlecha7VezesEVidaÉ40() {
-        Dwarf gimli = new Dwarf( "Gimli" );
+        Dwarf gimli = new Dwarf();
         int vidaEsperada = 40;
         // Act
         gimli.receberFlechada();
@@ -58,18 +92,24 @@ public class DwarfTest
         // Assert
         assertEquals(vidaEsperada, gimli.getVida());
     }
-    
+
     @Test
-    public void dwarfNasceVivo(){
-        Dwarf gloin = new Dwarf( "Gloin" );
-        assertEquals(Status.VIVO, gloin.getStatus());
+    public void dwarfRecebeFlecha5VezesESobrevive() {
+        Dwarf gimli = new Dwarf();
+        // Act
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        gimli.receberFlechada();
+        // Assert
+        assertEquals(Status.VIVO, gimli.getStatus());
     }
 
-    
     @Test
-    public void quandoAVidaDoDwarfÉ0EleMorre(){
-        Dwarf gimli = new Dwarf ( "Gimli" );
-        
+    public void dwarfRecebeFlecha12VezesEMorre() {
+        Dwarf gimli = new Dwarf();
+        // Act
         gimli.receberFlechada();
         gimli.receberFlechada();
         gimli.receberFlechada();
@@ -81,15 +121,15 @@ public class DwarfTest
         gimli.receberFlechada();
         gimli.receberFlechada();
         gimli.receberFlechada();
-        
-        assertEquals( Status.MORTO, gimli.getStatus() );
-        
+        gimli.receberFlechada();
+        // Assert
+        assertEquals(Status.MORTO, gimli.getStatus());
     }
-    
+
     @Test
-    public void dwarfRecebe12FlechadasEFicaCom0DeVida(){
-        Dwarf gimli = new Dwarf ( "Gimli" );
-        
+    public void dwarfRecebeFlecha13VezesEVidaFicaZerada() {
+        Dwarf gimli = new Dwarf();
+        // Act
         gimli.receberFlechada();
         gimli.receberFlechada();
         gimli.receberFlechada();
@@ -102,111 +142,71 @@ public class DwarfTest
         gimli.receberFlechada();
         gimli.receberFlechada();
         gimli.receberFlechada();
-        
+        gimli.receberFlechada();
+        // Assert
         assertEquals(0, gimli.getVida());
     }
-    
+
     @Test
-    public void dwarfCriadoComNomeNaoNulo() {
-        Dwarf gimli = new Dwarf("Gimli");
-        assertEquals("Gimli", gimli.getNome());
+    public void gerarNumeroAnoBissextoVidaEntre80e90() {
+        // Arrange
+        Dwarf uru = new Dwarf("Uru", new DataTerceiraEra(01, 01, 2016));
+        uru.receberFlechada();
+        uru.receberFlechada();
+        uru.receberFlechada();
+        // Act
+        double resultado = uru.gerarNumero();
+        // Assert
+        assertEquals(-3333.0, resultado, 0.00001);
     }
 
     @Test
-    public void dwarfCriadoComNomeNulo() {
-        Dwarf gimli = new Dwarf(null);
-        assertNull(gimli.getNome());
+    public void gerarNumeroAnoNaoBissextoNomeSeixas() {
+        // Arrange
+        Dwarf seixas = new Dwarf("Seixas", new DataTerceiraEra(01, 01, 2015));
+        // Act
+        double resultado = seixas.gerarNumero();
+        // Assert
+        assertEquals(33.0, resultado, 0.00001);
     }
 
     @Test
-    public void dwarfCriadoNasceCom0DeExperiencia() {
-        Dwarf gimli = new Dwarf("Gimli");
-        assertEquals(0, gimli.getExperiencia());
+    public void gerarNumeroSemEntrarNasCondicoes() {
+        // Arrange
+        Dwarf balin = new Dwarf();
+        // Act
+        double resultado = balin.gerarNumero();
+        // Assert
+        assertEquals(101.0, resultado, 0.00001);
+    }
+
+    @Test
+    public void dwarfRecebeFlechaComNumeroSorteNegativo() {
+        // Arrange
+        Dwarf dwarf = new Dwarf("Gimli", new DataTerceiraEra(1,1,2000));
+        dwarf.receberFlechada();
+        dwarf.receberFlechada();
+        // Act
+        dwarf.receberFlechada();
+        // Assert
+        assertEquals(2, dwarf.getExperiencia());
+        assertEquals(90, dwarf.getVida());   
     }
     
     @Test
-    public void dwarfTemDataDeNascimento(){
-        Dwarf gimli = new Dwarf("Gimli", new DataTerceiraEra(10, 10, 1200));
-        assertFalse(gimli.getDataNascimento().equals(null));
-    }
-    
-    @Test
-    public void dwarfDeAnoBissextoTemSorteCom80DeVida(){
-        Dwarf sortudo = new Dwarf("Sortudo", new DataTerceiraEra(10,10,2000));
-        double sorteEsperada = -3333.0;
-        
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        
-        assertTrue(sorteEsperada == sortudo.getNumeroSorte());
-        
-    }
-    
-    @Test
-    public void dwarfSeixasDeAnoNormalTemSorte(){
-        Dwarf seixas = new Dwarf("Seixas");
-        double sorteEsperada = 33.00;
-        
-        assertTrue(sorteEsperada == seixas.getNumeroSorte());
-    }
-    
-    @Test
-    public void dwarfDeAnoBissextoNaoTemSorteCom110DeVida(){
-        Dwarf azarado = new Dwarf("Azarado", new DataTerceiraEra(10,10,2004));
-        double sorteEsperada = 101.0;
-        
-        assertTrue(sorteEsperada == azarado.getNumeroSorte());
-    }
-    
-    @Test
-    public void dwarfDeAnoBissextoNaoRecebeMaisFlechadasCom90DeVidaEGanhaXp(){
-        Dwarf sortudo = new Dwarf("Sortudo", new DataTerceiraEra(10,10,2008));
-        int vidaEsperada = 90;
-        int experienciaEsperada = 2;
-        
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        
-        assertEquals(vidaEsperada, sortudo.getVida());
-        assertEquals(experienciaEsperada, sortudo.getExperiencia());
-    }
-    
-    @Test
-    public void dwarfDeAnoNormalRecebeFlechadasAteMorrerENaoGanhaXp(){
-        Dwarf comum = new Dwarf("Comum", new DataTerceiraEra(10,10,2005));
-        int vidaEsperada = 0;
-        int experienciaEsperada = 0;
-        Status statusEsperado = Status.MORTO;
-        
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        comum.receberFlechada();
-        
-        assertEquals(vidaEsperada, comum.getVida());
-        assertEquals(statusEsperado, comum.getStatus());
-        assertEquals(experienciaEsperada, comum.getExperiencia());
-    }
-    
-    @Test
-    public void dwarfMeirelesDeAnoNormalNaoRecebeFlechadas(){
-        Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(10,10,1993));
-        int vidaEsperada = 110;
-        
+    public void dwarfReceberFlechadaComAnoNormalMeireles() {
+        Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(2, 3, 2015));
         meireles.receberFlechada();
-        meireles.receberFlechada();
-        meireles.receberFlechada();
-        
-        assertEquals(vidaEsperada, meireles.getVida());
+        assertEquals(0, meireles.getExperiencia());
+        assertEquals(110, meireles.getVida());
     }
     
+    @Test
+    public void dwarfReceberFlechadaNormal(){
+        Dwarf dwarf = new Dwarf();
+        dwarf.receberFlechada();
+        assertEquals(100, dwarf.getVida());
+        assertEquals(0, dwarf.getExperiencia());
+    }
+
 }
