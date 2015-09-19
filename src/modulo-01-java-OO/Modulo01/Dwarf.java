@@ -87,4 +87,8 @@ public class Dwarf {
 
         return resultado;
     }
+    
+    public String getDescricaoItens(){
+        return this.inventario.getDescricoesItens();
+    }
 }

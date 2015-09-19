@@ -77,4 +77,44 @@ public class InventarioTest
         //Assert
         assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
     }
+    
+    @Test
+    public void descricaoDoInventarioSemItens(){
+        Inventario mochila = new Inventario();
+        String descricaoEsperada = "";
+        
+        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
+    }
+    
+    @Test
+    public void descricaoDoInventarioCom3Itens(){
+        Inventario mochila = new Inventario();
+        mochila.adicionarItem(new Item("Lembas", 1));
+        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
+        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
+        
+        String descricaoEsperada = "Lembas,Fio de Cabelo de Galadriel,Arco de Galadhrim";
+        
+        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
+    }
+    
+    @Test
+    public void descricaoDoInventarioCom10Itens(){
+        Inventario mochila = new Inventario();
+        mochila.adicionarItem(new Item("Lembas", 1));
+        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
+        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
+        mochila.adicionarItem(new Item("Corda Élfica", 1));
+        mochila.adicionarItem(new Item("Luz de Eärendil", 1));
+        mochila.adicionarItem(new Item("Adaga Élfica", 1));
+        mochila.adicionarItem(new Item("Outras Lembas", 1));
+        mochila.adicionarItem(new Item("Especiaria do Condado", 1));
+        mochila.adicionarItem(new Item("Mais Lembas", 1));
+        mochila.adicionarItem(new Item("Item qualquer", 1));
+        
+        String descricaoEsperada = "Lembas,Fio de Cabelo de Galadriel,Arco de Galadhrim,Corda Élfica,Luz de Eärendil,Adaga Élfica,Outras Lembas,Especiaria do Condado,Mais Lembas,Item qualquer";
+        
+        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
+    }
+
 }
