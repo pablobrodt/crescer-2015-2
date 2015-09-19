@@ -150,5 +150,33 @@ public class InventarioTest
         assertSame(itemEsperado1, itemObtido1);
         assertSame(itemEsperado2, itemObtido2);
     }
+    
+    @Test
+    public void itemComMaiorQuantidadeÉAdaga(){
+        //Arrange
+        Inventario mochila = new Inventario();
+        Item adaga = new Item("Adaga", 2);
+        mochila.adicionarItem(new Item("Corda", 1));
+        mochila.adicionarItem(adaga);
+        Item itemEsperado = adaga;
+        //Act
+        //Assert
+        assertSame(itemEsperado, mochila.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void inventarioTemDoisItensComQuantidadeIgualOMaiorÉOPrimeiroAdicionado(){
+        //Arrange
+        Inventario mochila = new Inventario();
+        Item adaga = new Item("Adaga", 2);
+        
+        mochila.adicionarItem(adaga);
+        mochila.adicionarItem(new Item("Corda", 2));
+        
+        Item itemEsperado = adaga;
+        //Act
+        //Assert
+        assertSame(itemEsperado, mochila.getItemComMaiorQuantidade());
+    }
 
 }

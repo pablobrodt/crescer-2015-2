@@ -34,4 +34,21 @@ public class Inventario{
         return listaDeItens;
     }
     
+    public Item getItemComMaiorQuantidade(){
+        Item itemComMaisQuantidade = null;
+        int maiorQuantidade = 0;
+        
+        for(Item item : this.itens){
+        
+            if( item.getQuantidade() > maiorQuantidade ){
+            
+                itemComMaisQuantidade = item;
+                maiorQuantidade = item.getQuantidade();
+            
+            }
+        
+        }
+
+        return itemComMaisQuantidade;
+    }
 }
