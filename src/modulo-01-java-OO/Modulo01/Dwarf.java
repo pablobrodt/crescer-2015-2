@@ -3,7 +3,7 @@ public class Dwarf {
     private int vida, experiencia;
     private Status status;
     private DataTerceiraEra dataNascimento;
-    private Inventario inventario = new Inventario();
+    protected Inventario inventario = new Inventario();
 
     public Dwarf() {
         this.vida = 110;
@@ -50,6 +50,10 @@ public class Dwarf {
     
     public int getQuantidadeItens(){
         return this.inventario.getQuantidadeItens();
+    }
+    
+    public Item getItem(int itemIndex){
+        return this.inventario.getItem(itemIndex);
     }
 
     public int getVida() {
