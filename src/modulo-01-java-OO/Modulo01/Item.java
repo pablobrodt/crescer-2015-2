@@ -26,6 +26,20 @@ public class Item
         this.quantidade += 1000;
     }
     
+    public void aumentar1000X(){
+        this.quantidade += 1000 * this.somaQtdItem();
+    }
+    
+    public int somaQtdItem(){
+        int qtdSomada = 0;
+  
+        for(int i=0;i<=this.quantidade;i++){
+            qtdSomada += i; 
+        }
+        
+        return qtdSomada;
+    }
+    
     public boolean equals(Object obj) {
         Item outro = (Item)obj;
         return this.descricao.equals(outro.getDescricao()) && this.quantidade == outro.getQuantidade();

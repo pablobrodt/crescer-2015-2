@@ -31,6 +31,12 @@ public class Inventario {
         }
     }
     
+    public void aumenta1000XEmCadaItem(){
+        for (Item item : this.itens) {
+            item.aumentar1000X();
+        }
+    }
+    
     public Item getItemComMaiorQuantidade() {
         int indice = 0, maiorQtd = 0;
         
