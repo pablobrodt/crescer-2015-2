@@ -27,18 +27,14 @@ public class Item
     }
     
     public void aumentar1000X(){
-        this.quantidade += 1000 * this.somaQtdItem();
+        this.quantidade += 1000 * ( this.quantidade * (this.quantidade+1) / 2 );
     }
     
-    public int somaQtdItem(){
-        int qtdSomada = 0;
-  
-        for(int i=0;i<=this.quantidade;i++){
-            qtdSomada += i; 
-        }
-        
-        return qtdSomada;
-    }
+    /*ex simbalaie
+    public void pa() {
+        int pa = this.quantidade * (this.quantidade+1) / 2;
+        this.quantidade += (1000 * pa);
+    }*/
     
     public boolean equals(Object obj) {
         Item outro = (Item)obj;
