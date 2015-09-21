@@ -54,26 +54,5 @@ public class IrishDwarfTest
         assertEquals(esperado, inventarioDoSortudo);
     }
     
-    @Test
-    public void irishDwarfMuitoSortudoComItemDeQuantidadeNegativa(){
-        //Arrange
-        IrishDwarf sortudo = new IrishDwarf("Sortudo", new DataTerceiraEra(1,1,2000));
-        
-        Item chapeu = new Item(-3, "Chapéu");
-        
-        sortudo.adicionarItem( chapeu );
-        
-        sortudo.receberFlechada();
-        sortudo.receberFlechada();
-        
-        Inventario inventarioDoSortudo = sortudo.getInventario();
-        Inventario esperado = new Inventario();
-        esperado.adicionarItem( new Item(-3, "Chapéu"));
 
-        //Act
-        sortudo.tentarSorte();
-        
-        //Assert
-        assertEquals(esperado, inventarioDoSortudo);
-    }
 }
