@@ -52,9 +52,7 @@ public class Dwarf {
         return this.inventario.getQuantidadeItens();
     }
     
-    public Item getItem(int itemIndex){
-        return this.inventario.getItem(itemIndex);
-    }
+//
 
     public int getVida() {
         return this.vida;

@@ -21,4 +21,8 @@ public class Leprechaun extends Dwarf
         }
     }
 
+    public Item getItem(int itemIndex){
+        return this.inventario.getItem(itemIndex);
+    }
+    
 }
