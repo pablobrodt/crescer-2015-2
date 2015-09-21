@@ -192,7 +192,7 @@ public class DwarfTest
         assertEquals(2, dwarf.getExperiencia());
         assertEquals(90, dwarf.getVida());   
     }
-    
+
     @Test
     public void dwarfReceberFlechadaComAnoNormalMeireles() {
         Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(2, 3, 2015));
@@ -200,7 +200,7 @@ public class DwarfTest
         assertEquals(0, meireles.getExperiencia());
         assertEquals(110, meireles.getVida());
     }
-    
+
     @Test
     public void dwarfReceberFlechadaNormal(){
         Dwarf dwarf = new Dwarf();
@@ -208,59 +208,37 @@ public class DwarfTest
         assertEquals(100, dwarf.getVida());
         assertEquals(0, dwarf.getExperiencia());
     }
-    
+
     @Test
-    public void dwarfGanha1Item(){
-        //Arrang
-        Dwarf gimli = new Dwarf();
-        int quantidadeItensEsperada = 1;
-        //Act
-        gimli.ganhaItem(new Item("Fio de Cabelo de Galadriel", 3));
-        //Assert
-        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());
+    public void dwarfTentarSorteComSorte() {
+        Dwarf dwarf = new Dwarf("Leprechaun sortudo", new DataTerceiraEra(1, 1, 2000));
+        dwarf.receberFlechada();
+        dwarf.receberFlechada();
+        dwarf.adicionarItem(new Item(5, "Lança"));
+        dwarf.adicionarItem(new Item(25, "Poção"));
+        
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(1005, "Lança"));
+        esperado.adicionarItem(new Item(1025, "Poção"));
+        
+        dwarf.tentarSorte();
+        
+        assertEquals(esperado, dwarf.getInventario());
     }
-    
+
     @Test
-    public void dwarfGanha10Itens(){
-        //Arrang
-        Dwarf gimli = new Dwarf();
-        int quantidadeItensEsperada = 10;
-        //Act
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(new Item("Lembas", 1));
-        //Assert
-        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());
+    public void dwarfTentarSorteSemSorte() {
+        Dwarf dwarf = new Dwarf();
+        dwarf.adicionarItem(new Item(5, "Lança"));
+        dwarf.adicionarItem(new Item(25, "Poção"));
+        
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(5, "Lança"));
+        esperado.adicionarItem(new Item(25, "Poção"));
+        
+        dwarf.tentarSorte();
+        
+        assertEquals(esperado, dwarf.getInventario());
     }
-    
-    @Test
-    public void dwarfTem5ItensPerde3EFicaCom2(){
-        //Arrang
-        Dwarf gimli = new Dwarf();
-        
-        Item machado = new Item("Machado", 1);
-        Item lembas = new Item("Lembas", 1);
-        Item elmo = new Item("Elmo", 1);
-        
-        gimli.ganhaItem(machado);
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(lembas);
-        gimli.ganhaItem(new Item("Lembas", 1));
-        gimli.ganhaItem(elmo);
-        
-        int quantidadeItensEsperada = 2;
-        //Act
-        gimli.perdeItem(machado);
-        gimli.perdeItem(lembas);
-        gimli.perdeItem(elmo);
-        //Assert
-        assertEquals(quantidadeItensEsperada, gimli.getQuantidadeItens());  
-    }
+
 }

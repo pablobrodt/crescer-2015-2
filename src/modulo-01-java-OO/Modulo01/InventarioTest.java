@@ -2,205 +2,130 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.*;
 
 public class InventarioTest
-{   
+{
     @Test
-    public void inventarioAdiciona1Item(){
-        //Arrange
+    public void adicionarItemNoInventario() {
         Inventario mochila = new Inventario();
-        Item lembas = new Item("Lembas", 1);
-        int qtdItensEsperados = 1;
-        //Act
-        mochila.adicionarItem(lembas);
-        //Assert
-        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(1, "Adaga"));
+
+        mochila.adicionarItem(new Item(1, "Adaga"));
+
+        assertEquals(esperado, mochila);
     }
-    
+
     @Test
-    public void inventarioAdiciona10Itens(){
-        //Arrang
+    public void adicionarDoisItensNoInventario() {
         Inventario mochila = new Inventario();
-        int qtdItensEsperados = 10;
-        //Act
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Corda Élfica", 1));
-        mochila.adicionarItem(new Item("Outra Lemba", 1));
-        mochila.adicionarItem(new Item("Luz de Eärendil", 1));
-        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
-        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
-        mochila.adicionarItem(new Item("Adaga Élfica", 1));
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Lembas", 1));
-        //Assert
-        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(2, "Poções"));
+        esperado.adicionarItem(new Item(1, "Machado"));
+
+        mochila.adicionarItem(new Item(2, "Poções"));
+        mochila.adicionarItem(new Item(1, "Machado"));
+
+        assertEquals(esperado, mochila);
     }
-    
+
     @Test
-    public void inventarioTem1ItemPerde1EFicaCom0(){
-        //Arrange
+    public void perderItemDoInventario() {
         Inventario mochila = new Inventario();
-        Item lembas = new Item("Lembas", 1);
-        mochila.adicionarItem(lembas);
-        //Act
-        mochila.perderItem(lembas);
-        //Assert
-        assertEquals(0,mochila.getQuantidadeItens());
+        Inventario esperado = new Inventario();
+        Item adaga = new Item(1, "Adaga");
+        mochila.adicionarItem(adaga);
+
+        mochila.perderItem(adaga);
+
+        assertEquals(esperado, mochila);
     }
-    
+
     @Test
-    public void inventarioTem10ItensPerde3EFicaCom7(){
-        //Arrange
+    public void perderItemComDoisNoInventario() {
         Inventario mochila = new Inventario();
-        
-        Item corda = new Item("Corda Élfica", 1);
-        Item luzEarendil = new Item("Luz de Eärendil", 1);
-        Item cabeloGaladriel = new Item("Fio de Cabelo de Galadriel", 1);
-        
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Outras Lembas", 1));
-        mochila.adicionarItem(corda);
-        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
-        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
-        mochila.adicionarItem(luzEarendil);
-        mochila.adicionarItem(new Item("Adaga Élfica", 1));
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(cabeloGaladriel);
-        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
-        
-        int qtdItensEsperados = 7;
-        //Act
-        mochila.perderItem(corda);
-        mochila.perderItem(luzEarendil);
-        mochila.perderItem(cabeloGaladriel);        
-        //Assert
-        assertEquals(qtdItensEsperados,mochila.getQuantidadeItens());
-    }
-    
-    @Test
-    public void descricaoDoInventarioSemItens(){
-        Inventario mochila = new Inventario();
-        String descricaoEsperada = "";
-        
-        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
-    }
-    
-    @Test
-    public void descricaoDoInventarioCom3Itens(){
-        Inventario mochila = new Inventario();
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
-        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
-        
-        String descricaoEsperada = "Lembas,Fio de Cabelo de Galadriel,Arco de Galadhrim";
-        
-        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
-    }
-    
-    @Test
-    public void descricaoDoInventarioCom10Itens(){
-        Inventario mochila = new Inventario();
-        mochila.adicionarItem(new Item("Lembas", 1));
-        mochila.adicionarItem(new Item("Fio de Cabelo de Galadriel", 1));
-        mochila.adicionarItem(new Item("Arco de Galadhrim", 1));
-        mochila.adicionarItem(new Item("Corda Élfica", 1));
-        mochila.adicionarItem(new Item("Luz de Eärendil", 1));
-        mochila.adicionarItem(new Item("Adaga Élfica", 1));
-        mochila.adicionarItem(new Item("Outras Lembas", 1));
-        mochila.adicionarItem(new Item("Especiaria do Condado", 1));
-        mochila.adicionarItem(new Item("Mais Lembas", 1));
-        mochila.adicionarItem(new Item("Item qualquer", 1));
-        
-        String descricaoEsperada = "Lembas,Fio de Cabelo de Galadriel,Arco de Galadhrim,Corda Élfica,Luz de Eärendil,Adaga Élfica,Outras Lembas,Especiaria do Condado,Mais Lembas,Item qualquer";
-        
-        assertEquals(descricaoEsperada, mochila.getDescricoesItens());
-    }
-    
-    @Test
-    public void obterEscudoDoInventario(){
-        //Arrange
-        Inventario mochila = new Inventario();
-        Item escudo = new Item("Escudo", 1);
+        Inventario esperado = new Inventario();
+        Item adaga = new Item(1, "Adaga");
+        Item escudo = new Item(2, "Escudo");
+        esperado.adicionarItem(escudo);
+        mochila.adicionarItem(adaga);
         mochila.adicionarItem(escudo);
-        Item itemEsperado = escudo;
-        Item itemObtido;
-        //Act
-        itemObtido = mochila.getItem(0);
-        //Assert
-        assertSame(itemEsperado, itemObtido);
+
+        mochila.perderItem(adaga);
+
+        assertEquals(esperado, mochila);
+    }
+
+    @Test
+    public void perderItemQueNãoEstáNoInventário() {
+        Inventario mochila = new Inventario();
+        Inventario esperado = new Inventario();
+        mochila.perderItem(new Item(1, "Luvas de prata"));
+        assertEquals(esperado, mochila);
+    }
+
+    @Test
+    public void getDescricoesItensComDoisItens() {
+        Inventario mochila = new Inventario();
+        mochila.adicionarItem(new Item(2, "Poções"));
+        mochila.adicionarItem(new Item(1, "Machado"));
+        String esperado = "Poções,Machado";
+        String obtido = mochila.getDescricoesItens();
+        assertEquals(esperado, obtido);
+    }
+
+    @Test
+    public void aumentar1000UnidadesEmCadaItem() {
+        Inventario mochila = new Inventario();
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(1002, "Poções"));
+        esperado.adicionarItem(new Item(1001, "Machado"));
+        mochila.adicionarItem(new Item(2, "Poções"));
+        mochila.adicionarItem(new Item(1, "Machado"));
+        mochila.aumentar1000UnidadesEmCadaItem();
+        
+        assertEquals(esperado, mochila);
     }
     
     @Test
-    public void obterEscudoEEspadaDoInventario(){
-        //Arrange
+    public void obterItemComMaiorQuantidade() {
         Inventario mochila = new Inventario();
-        Item escudo = new Item("Escudo", 1);
-        Item espada = new Item("Espada", 1);
-        mochila.adicionarItem(escudo);
-        mochila.adicionarItem(espada);
-        Item itemEsperado1 = escudo;
-        Item itemEsperado2 = espada;
-        Item itemObtido1;
-        Item itemObtido2;
-        //Act
-        itemObtido1 = mochila.getItem(0);
-        itemObtido2 = mochila.getItem(1);
-        //Assert
-        assertSame(itemEsperado1, itemObtido1);
-        assertSame(itemEsperado2, itemObtido2);
+        mochila.adicionarItem(new Item(9, "Elder Scroll"));
+        mochila.adicionarItem(new Item(99, "Escudo"));
+        mochila.adicionarItem(new Item(2, "Canivete suíço"));
+        Item esperado = new Item(99, "Escudo");
+        Item obtido = mochila.getItemComMaiorQuantidade();
+        
+        assertEquals(esperado, obtido);
     }
     
     @Test
-    public void itemComMaiorQuantidadeÉAdaga(){
-        //Arrange
+    public void obterItemComMaiorQuantidadeTodosIguais() {
         Inventario mochila = new Inventario();
-        Item adaga = new Item("Adaga", 2);
-        mochila.adicionarItem(new Item("Corda", 1));
-        mochila.adicionarItem(adaga);
-        Item itemEsperado = adaga;
-        //Act
-        //Assert
-        assertSame(itemEsperado, mochila.getItemComMaiorQuantidade());
+        mochila.adicionarItem(new Item(99, "Elder Scroll"));
+        mochila.adicionarItem(new Item(99, "Escudo"));
+        mochila.adicionarItem(new Item(99, "Canivete suíço"));
+        Item esperado = new Item(99, "Elder Scroll");
+        Item obtido = mochila.getItemComMaiorQuantidade();
+        
+        assertEquals(esperado, obtido);
     }
     
     @Test
-    public void inventarioTemDoisItensComQuantidadeIgualOMaiorÉOPrimeiroAdicionado(){
-        //Arrange
+    public void ordenarItens() {
         Inventario mochila = new Inventario();
-        Item adaga = new Item("Adaga", 2);
+        mochila.adicionarItem(new Item(9, "Elder Scroll"));
+        mochila.adicionarItem(new Item(99, "Escudo"));
+        mochila.adicionarItem(new Item(2, "Canivete suíço"));
+        Inventario esperado = new Inventario();
+        esperado.adicionarItem(new Item(2, "Canivete suíço"));
+        esperado.adicionarItem(new Item(9, "Elder Scroll"));
+        esperado.adicionarItem(new Item(99, "Escudo"));
         
-        mochila.adicionarItem(adaga);
-        mochila.adicionarItem(new Item("Corda", 2));
-        
-        Item itemEsperado = adaga;
-        //Act
-        //Assert
-        assertSame(itemEsperado, mochila.getItemComMaiorQuantidade());
-    }
-    
-    @Test
-    public void ordena3Itens(){
-        //Arrange
-        Inventario mochila = new Inventario();
-        
-        Item adaga = new Item("Adaga", 2);
-        Item lembas = new Item("Lembas", 3);
-        Item corda = new Item("Corda", 1);
-        
-        mochila.adicionarItem(lembas);
-        mochila.adicionarItem(adaga);
-        mochila.adicionarItem(corda);
-        
-        Item itemEsperadoPos0 = corda;
-        Item itemEsperadoPos1 = adaga;
-        Item itemEsperadoPos2 = lembas;
-        //Act
         mochila.ordenarItens();
-        //Assert
-        assertSame(itemEsperadoPos0, mochila.getItem(0));
-        assertSame(itemEsperadoPos1, mochila.getItem(1));
-        assertSame(itemEsperadoPos2, mochila.getItem(2));
+        
+        assertEquals(esperado, mochila);
     }
 
 }

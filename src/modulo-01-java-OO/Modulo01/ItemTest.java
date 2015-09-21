@@ -1,55 +1,38 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class ItemTest
 {
-    
     @Test
-    public void itemTemDescricaoCurta(){
-        Item pocao = new Item("Poção", 1);
-        String descricaoEsperada = "Poção";
-        assertEquals(descricaoEsperada, pocao.getDescricao());
+    public void criarItemComQuantidadeDescricaoInformadas() {
+        // Arrange
+        int quantidadeEsperada = 12;
+        String descricaoEsperada = "Martelo de Thor - Mjollnir";
+        // Act
+        Item item = new Item(quantidadeEsperada, descricaoEsperada);
+        // Assert
+        assertEquals(quantidadeEsperada, item.getQuantidade());
+        assertEquals(descricaoEsperada, item.getDescricao());
     }
     
     @Test
-    public void itemTemDescricaoNull(){
-        Item pocao = new Item(null, 1);
+    public void criarItemComQuantidadeNegativaDescricaoNula() {
+        // Arrange
+        int quantidadeEsperada = -3456;
         String descricaoEsperada = null;
-        assertEquals(descricaoEsperada, pocao.getDescricao());
+        // Act
+        Item item = new Item(quantidadeEsperada, descricaoEsperada);
+        // Assert
+        assertEquals(quantidadeEsperada, item.getQuantidade());
+        assertEquals(descricaoEsperada, item.getDescricao());
     }
     
     @Test
-    public void itemTemDescricaoNemLonga(){
-        Item pocao = new Item("Este item tem uma descriçao bem grande para podermos testa-lo.", 1);
-        String descricaoEsperada = "Este item tem uma descriçao bem grande para podermos testa-lo.";
-        assertEquals(descricaoEsperada, pocao.getDescricao());
+    public void aumentar1000Unidades() {
+        Item espada = new Item(42, "Espada");
+        espada.aumentar1000Unidades();
+        assertEquals(1042, espada.getQuantidade());
     }
-    
-    @Test
-    public void itemTemQuantidade10(){
-        Item pocao = new Item("Poção", 10);
-        int quantidadeEsperada = 10;
-        assertEquals(quantidadeEsperada, pocao.getQuantidade());
-    }
-    
-    @Test
-    public void itemTemQuantidadeNegativa(){
-        Item pocao = new Item("Poção", -10);
-        int quantidadeEsperada = -10;
-        assertEquals(quantidadeEsperada, pocao.getQuantidade());
-    }
-    
-    @Test
-    public void itemTemQuantidadeOver9000(){
-        Item pocao = new Item("Poção", 9001);
-        int quantidadeEsperada = 9001;
-        assertEquals(quantidadeEsperada, pocao.getQuantidade());
-    }
-    
-      
 }
