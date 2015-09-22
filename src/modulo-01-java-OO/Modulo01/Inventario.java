@@ -11,20 +11,6 @@ public class Inventario {
         this.itens.remove(item);
     }
     
-    public void reduz1UnidadeDeItem(Item item){
-        this.itens.get( this.itens.indexOf(item)).perder1Unidade();
-    }
-    
-    public Item getItemPorDescricao(String descricao){
-        Item retorno = null;
-        for(Item item : this.itens){
-            if( item.getDescricao().equals( descricao )){
-                return item;
-            }
-        }
-        return retorno;
-    }
-    
     public ArrayList<Item> getItens() {
         return this.itens;
     }
@@ -52,12 +38,6 @@ public class Inventario {
     public void aumentar1000UnidadesEmCadaItem() {
         for (Item item : this.itens) {
             item.aumentar1000Unidades();
-        }
-    }
-    
-    public void aumenta1000XEmCadaItem(){
-        for (Item item : this.itens) {
-            item.aumentar1000X();
         }
     }
     

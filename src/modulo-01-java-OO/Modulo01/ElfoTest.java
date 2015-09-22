@@ -22,6 +22,12 @@ public class ElfoTest
         Elfo legolas = new Elfo("Legolas");
         assertEquals(Status.VIVO, legolas.getStatus());
     }
+    
+    @Test
+    public void elfoNasceComInventarioVazio() {
+        Elfo legolas = new Elfo("Legolas");
+        assertEquals(new Inventario(), legolas.getInventario());
+    }
 
     @Test
     public void elfoCriadoNasceCom0DeExperiencia() {
@@ -158,32 +164,7 @@ public class ElfoTest
         assertEquals(72, elfo.getVida());
     }
     
-    @Test
-    public void elfoGanha2Itens(){
-        Elfo legolas = new Elfo("Legolas");
-        int qtdItensEsperada = 2;
-        legolas.adicionarItem(new Item(1, "Corda"));
-        legolas.adicionarItem(new Item(1, "Arco"));
-        int quantidadeDeItens = legolas.getInventario().getItens().size();
-        
-        assertEquals(qtdItensEsperada, quantidadeDeItens);
-    }
     
-    @Test
-    public void elfoTem3ItensMasPerde2FicandoCom1(){
-        Elfo legolas = new Elfo("Legolas");
-        int qtdItensEsperada = 1;
-        legolas.adicionarItem(new Item(1, "Corda"));
-        legolas.adicionarItem(new Item(1, "Adaga"));
-        legolas.adicionarItem(new Item(1, "Arco"));
-        
-        legolas.perderItem(new Item(1, "Corda"));
-        legolas.perderItem(new Item(1, "Adaga"));
-        
-        int quantidadeDeItens = legolas.getInventario().getItens().size();
-        
-        assertEquals(qtdItensEsperada, quantidadeDeItens);
-    }
     
     
     
