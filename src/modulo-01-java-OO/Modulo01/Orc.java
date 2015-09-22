@@ -119,8 +119,11 @@ public class Orc
     
     public void perder1UnidadeDeFlecha(){
         for(Item item : this.inventario.getItens()){
-            if( item.getDescricao().equals("Flecha")){
+            if( item.getDescricao().equals("Flecha") && item.getQuantidade() > 0){
                 item.perder1Unidade();
+                if(item.getQuantidade() == 0){
+                    this.inventario.perderItem(item);
+                }
             }
         }
     }
