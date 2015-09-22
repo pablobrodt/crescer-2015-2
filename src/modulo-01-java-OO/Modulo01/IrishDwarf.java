@@ -7,13 +7,11 @@ public class IrishDwarf extends Dwarf
     }
     
     public IrishDwarf(String nome) {
-        this();
-        this.nome = nome;
+        super(nome);
     }
 
     public IrishDwarf(String nome, DataTerceiraEra dataNascimento) {
-        this(nome);
-        this.dataNascimento = dataNascimento;
+        super(nome, dataNascimento);
     }
         
     
