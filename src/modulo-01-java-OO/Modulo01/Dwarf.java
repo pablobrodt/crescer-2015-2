@@ -41,15 +41,13 @@ public class Dwarf {
         }
     }
     
-    public void confereVida(){
-        if(this.vida == 0){
-            status = Status.MORTO;
-        }
+    public void receberAtaqueDoOrc(Orc orc){
+        int danoCausado = orc.getDanoDeAtaque();
+        this.vida -= danoCausado;
     }
     
-    public void receberAtaqueOrc(Orc orc){
-        this.vida -= orc.danoDoOrc();
-        confereVida();
+    public void atacarOrc(Orc orc){
+        orc.levarAtaqueDeAnao();
     }
 
     public int getVida() {
