@@ -11,7 +11,6 @@ public class Orc
     protected int vida;
     protected Status status = Status.VIVO;
     protected Inventario inventario = new Inventario();
-    protected int dano;
 
     /**
      * COnstrutor para objetos da classe orc
@@ -68,13 +67,14 @@ public class Orc
         return this.inventario;
     }
     
-    public boolean temEscudo(){
+    public boolean verificarItens(String descricaoDoItem){
         boolean retorno = false;
         for(Item item : this.inventario.getItens()){
-            if(item.getDescricao().equals("Escudo Uruk-Hai") && item.getQuantidade() > 0){
+            if(item.getDescricao().equals(descricaoDoItem) && item.getQuantidade() > 0){
                 retorno = true;
             }
         }
+        
         return retorno;
     }
     
@@ -86,7 +86,7 @@ public class Orc
     }
     
     public void receberAtaqueDeAnao() {
-        if(this.temEscudo()) {
+        if(this.verificarItens("Escudo Uruk-Hai")){
             this.vida -= 5;
         }else{
             this.vida -= 10;
@@ -101,43 +101,27 @@ public class Orc
     }
     
     public int danoDoOrc(){
-        this.dano = 0;
-        Item arco = null;
-        Item flecha = null;
-        Item espada = null;
-        
-        for(Item item : inventario.getItens()){
-            if( item.getDescricao().equals("Arco")){
-                arco = item;
-            }
-            if( item.getDescricao().equals("Flecha")){
-                flecha = item;
-            }
-            if( item.getDescricao().equals("Espada")){
-                espada = item;
-            }
-        }
+        int dano = 0;
        
-        if( espada != null && espada.getQuantidade() > 0){
-            this.dano = 12;
-            return this.dano;
+        if( this.verificarItens("Espada") ){
+            dano = 12;
+            return dano;
         }
-        if( flecha != null && flecha.getQuantidade() > 0 && arco != null && arco.getQuantidade() > 0){
-            this.dano = 8;
-            perder1UnidadeDeFlecha(flecha);
-            return this.dano;
+        if( this.verificarItens("Arco") && this.verificarItens("Flecha") ){
+            dano = 8;
+            perder1UnidadeDeFlecha();
+            return dano;
         }
         
-        return this.dano;
+        return dano;
        
     }
     
-    public void perder1UnidadeDeFlecha(Item flecha){
-        int quantidade = flecha.getQuantidade() -1;
-        String descricao = flecha.getDescricao();
-        inventario.getItens().remove(flecha);
-        if( quantidade > 0){
-            inventario.adicionarItem(new Item(quantidade, descricao));
+    public void perder1UnidadeDeFlecha(){
+        for(Item item : this.inventario.getItens()){
+            if( item.getDescricao().equals("Flecha")){
+                item.perder1Unidade();
+            }
         }
     }
     
