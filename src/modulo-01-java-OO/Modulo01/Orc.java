@@ -15,14 +15,14 @@ public class Orc
     /**
      * COnstrutor para objetos da classe orc
      */ 
-    /*
+    
     public Orc(){
-        gerarVida();
-        
-        gerarItens();
+        if( !verificarItens("Espada") && !verificarItens("Arco")){
+            this.status = Status.FUGINDO;
+        }
     }
     
-    
+    /*
     public void gerarVida() {
         Random geraVida = new Random();
         this.vida = geraVida.nextInt( 150 );
@@ -66,6 +66,8 @@ public class Orc
     public Inventario getInventario(){
         return this.inventario;
     }
+    
+    
     
     public boolean verificarItens(String descricaoDoItem){
         boolean retorno = false;
@@ -111,10 +113,8 @@ public class Orc
             dano = 8;
             perder1UnidadeDeFlecha();
             return dano;
-        }
-        
+        }        
         return dano;
-       
     }
     
     public void perder1UnidadeDeFlecha(){

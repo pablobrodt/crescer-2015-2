@@ -52,7 +52,7 @@ public class OrcTest
     @Test
     public void orcMorreQuandoVidaAcaba(){
         Orc orc = new Orc();
-        while(orc.getStatus() == Status.VIVO){
+        while(orc.getStatus() != Status.MORTO){
             orc.receberAtaqueDeAnao();
         }
         
