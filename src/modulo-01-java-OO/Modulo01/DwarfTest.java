@@ -266,5 +266,32 @@ public class DwarfTest
         
         assertEquals(102, gimli.getVida());
     }
+    
+    @Test
+    public void dwarfGanha2Itens(){
+        Dwarf gimli = new Dwarf();
+        int qtdItensEsperada = 2;
+        gimli.adicionarItem(new Item(1, "Corda"));
+        gimli.adicionarItem(new Item(1, "Adaga"));
+        int quantidadeDeItens = gimli.getInventario().getItens().size();
+        
+        assertEquals(qtdItensEsperada, quantidadeDeItens);
+    }
+    
+    @Test
+    public void dwarfTem3ItensMasPerde2FicandoCom1(){
+        Dwarf gimli = new Dwarf();
+        int qtdItensEsperada = 1;
+        gimli.adicionarItem(new Item(1, "Corda"));
+        gimli.adicionarItem(new Item(1, "Adaga"));
+        gimli.adicionarItem(new Item(1, "Escudo"));
+        
+        gimli.perderItem(new Item(1, "Corda"));
+        gimli.perderItem(new Item(1, "Adaga"));
+        
+        int quantidadeDeItens = gimli.getInventario().getItens().size();
+        
+        assertEquals(qtdItensEsperada, quantidadeDeItens);
+    }
 
 }
