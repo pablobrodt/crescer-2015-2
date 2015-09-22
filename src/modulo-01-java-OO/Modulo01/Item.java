@@ -22,6 +22,10 @@ public class Item
         return this.quantidade;
     }
     
+    public void perder1Unidade(){
+        this.quantidade--;
+    }
+    
     public void aumentar1000Unidades() {
         this.quantidade += 1000;
     }
