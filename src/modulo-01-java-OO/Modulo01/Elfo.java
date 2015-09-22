@@ -3,7 +3,7 @@
  */
 public class Elfo {
     private String nome;
-    private int flechas, experiencia;
+    private int flechas, vida, experiencia;
     private Status status;
 
     /* Type initializer
@@ -14,10 +14,15 @@ public class Elfo {
      */
     public Elfo(String nome, int flechas) {
         this.nome = nome;
+        this.vida = 80;
         this.flechas = flechas;
         this.status = Status.VIVO;
     }
-
+    
+    public int getVida(){
+        return this.vida;
+    }
+    
     /* Apenas para elucidar as diferenças entre int X Integer, esta duplicação não faz sentido.
     public Elfo(String nome, Integer flechas) {
     this(nome);
@@ -44,7 +49,17 @@ public class Elfo {
         //experiencia += 1;
         //experiencia = experiencia + 1;
     }
-
+    
+    public void confereVida(){
+        if(this.vida == 0){
+            status = Status.MORTO;
+        }
+    }
+    
+    public void receberAtaqueOrc(Orc orc){
+        this.vida -= orc.danoDoOrc();
+        confereVida();
+    }
     /*
      * ANTES:
      * public atirarFlechaRefactory(this.flechas, this.experiencia){

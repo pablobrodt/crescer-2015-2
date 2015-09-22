@@ -138,7 +138,31 @@ public class ElfoTest
         assertEquals(textoEsperado, elfo1.toString());
     }
     
+    @Test
+    public void elfoRecebe12DeDanoDoOrc(){
+        Elfo legolas = new Elfo("Legolas");
+        Orc orc = new Orc();
+        orc.getInventario().adicionarItem(new Item(1,"Espada"));
+        orc.atacaElfo(legolas);
+        
+        assertEquals(68, legolas.getVida());
+    }
     
+    @Test
+    public void elfoRecebe8DeDanoDoOrc(){
+        Elfo legolas = new Elfo("Legolas");
+        Orc orc = new Orc();
+        for(Item item : orc.getInventario().getItens()){
+            if(item.getDescricao().equals("Espada")){
+                orc.getInventario().perderItem(item);
+            }
+        }
+        orc.getInventario().adicionarItem(new Item(1,"Arco"));
+        orc.getInventario().adicionarItem(new Item(12,"Flecha"));
+        orc.atacaElfo(legolas);
+        
+        assertEquals(72, legolas.getVida());
+    }
     
     
     
