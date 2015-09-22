@@ -22,39 +22,6 @@ public class Orc
         }
     }
     
-    /*
-    public void gerarVida() {
-        Random geraVida = new Random();
-        this.vida = geraVida.nextInt( 150 );
-    }
-    
-    public void gerarItens(){
-        Random item = new Random();
-        Random quantidade = new Random();
-        int qtd;
-        
-        qtd = quantidade.nextInt(2);
-        if(item.nextInt(2) > 1 && qtd > 0){
-            inventario.adicionarItem(new Item(qtd,"Escudo Uruk-Hai"));
-        }
-        
-        qtd = quantidade.nextInt(2);
-        if(item.nextInt(2) < 1 && qtd > 0){
-            inventario.adicionarItem(new Item(qtd,"Espada"));
-        }
-        
-        qtd = quantidade.nextInt(2);
-        if(item.nextInt(2) > 1 && qtd > 0){
-            inventario.adicionarItem(new Item(qtd,"Arco"));
-        }
-        
-        qtd = quantidade.nextInt(100);
-        if(item.nextInt(2) < 1 && qtd > 0){
-            inventario.adicionarItem(new Item(qtd,"Flecha"));
-        }
-
-    }*/
-    
     public int getVida(){
         return this.vida;
     }
@@ -66,8 +33,6 @@ public class Orc
     public Inventario getInventario(){
         return this.inventario;
     }
-    
-    
     
     public boolean verificarItens(String descricaoDoItem){
         boolean retorno = false;

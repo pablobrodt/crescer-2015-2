@@ -69,19 +69,6 @@ public class OrcTest
         assertEquals(12, orc.danoDoOrc());
     }
     
-    @Test
-    public void orcComArcoEFlechasTem8DeDano(){
-        Orc orc = new Orc();
-        for(Item item : orc.getInventario().getItens()){
-            if(item.getDescricao().equals("Espada")){
-                orc.getInventario().perderItem(item);
-            }
-        }
-        orc.getInventario().adicionarItem(new Item(1, "Arco"));
-        orc.getInventario().adicionarItem(new Item(1, "Flecha"));
-        
-        assertEquals(8, orc.danoDoOrc());
-    }
     
   
 }
