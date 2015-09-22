@@ -240,5 +240,31 @@ public class DwarfTest
         
         assertEquals(esperado, dwarf.getInventario());
     }
+    
+    @Test
+    public void dwarfRecebe12DeDanoDoOrc(){
+        Dwarf gimli = new Dwarf("gimli");
+        Orc orc = new Orc();
+        orc.getInventario().adicionarItem(new Item(1,"Espada"));
+        orc.atacaAnao(gimli);
+        
+        assertEquals(98, gimli.getVida());
+    }
+    
+    @Test
+    public void dwarfRecebe8DeDanoDoOrc(){
+        Dwarf gimli = new Dwarf("gimli");
+        Orc orc = new Orc();
+        for(Item item : orc.getInventario().getItens()){
+            if(item.getDescricao().equals("Espada")){
+                orc.getInventario().perderItem(item);
+            }
+        }
+        orc.getInventario().adicionarItem(new Item(1,"Arco"));
+        orc.getInventario().adicionarItem(new Item(12,"Flecha"));
+        orc.atacaAnao(gimli);
+        
+        assertEquals(102, gimli.getVida());
+    }
 
 }

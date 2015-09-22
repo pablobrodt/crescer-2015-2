@@ -40,6 +40,17 @@ public class Dwarf {
             }
         }
     }
+    
+    public void confereVida(){
+        if(this.vida == 0){
+            status = Status.MORTO;
+        }
+    }
+    
+    public void receberAtaqueOrc(Orc orc){
+        this.vida -= orc.danoDoOrc();
+        confereVida();
+    }
 
     public int getVida() {
         return this.vida;
