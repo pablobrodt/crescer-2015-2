@@ -1,61 +1,36 @@
 
 
-public class Orc
+public class Orc extends Personagem
 {
-    private int vida;
-    private Inventario inventario;
-    private Status status;
-    private TipoOrc tipoOrc;
-
-    public Orc(TipoOrc tipoOrc)
-    {
+    
+    public Orc()
+    {   
         this.inventario = new Inventario();
-        this.tipoOrc = tipoOrc;
-        gerarVidaInicial();
-        gerarInventario();
         this.status = Status.VIVO;
     }
     
-    public void levarAtaqueDeAnao() {
-        
+    public void levarAtaque(){
         if(getItem("Escudo Uruk-Hai") == null){
             perderVida(10);
         }
         else {
-            perderVida(5);
+            perderVida(6);
         }
     }
     
-    public void levarAtaqueDeElfo() {
-        perderVida(8);
-    }
-    
-    public void atacarAnao(Dwarf anao){
+    public void atacar(Personagem alvo){
         if(podeAtacarComEspada()){
-            anao.receberAtaqueDoOrc(this);
+            alvo.receberAtaqueDoOrc(this);
         }
         else if(podeAtacarComArco()) {
-            anao.receberAtaqueDoOrc(this);
+            alvo.receberAtaqueDoOrc(this);
             debitarFlecha();
         }
         else {
             this.status = Status.FUGINDO;
         }
     }
-    
-    public void atacarElfo(Elfo elfo){
-        if(podeAtacarComEspada()){
-            elfo.receberAtaqueDoOrc(this);
-        }
-        else if(podeAtacarComArco()) {
-            elfo.receberAtaqueDoOrc(this);
-            debitarFlecha();
-        }
-        else {
-            this.status = Status.FUGINDO;
-        }
-    }
-    
+
     public int getDanoDeAtaque(){
         if(podeAtacarComEspada()){
             return 12;
@@ -119,28 +94,7 @@ public class Orc
         return this.inventario.getItemPorDescricao(descricao);
     }
     
-    private void gerarInventario() {
-        if(this.tipoOrc == TipoOrc.URUKHAI) {
-            Item escudoUrukHai = new Item(1, "Escudo Uruk-Hai");
-            Item espada = new Item(1, "Espada");
-            this.inventario.adicionarItem(escudoUrukHai);
-            this.inventario.adicionarItem(espada);
-        }
-        else if(this.tipoOrc == TipoOrc.SNAGA){
-            Item arco = new Item(1, "Arco");
-            Item flechas = new Item(5, "Flecha");
-            this.inventario.adicionarItem(arco);
-            this.inventario.adicionarItem(flechas);
-        }
-    }
+
     
-    private void gerarVidaInicial() {
-        if(this.tipoOrc == TipoOrc.URUKHAI) {
-            this.vida = 150;
-        }
-        else if(this.tipoOrc == TipoOrc.SNAGA){
-            this.vida = 70;
-        }
-    }
     
 }

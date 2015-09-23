@@ -8,91 +8,70 @@ import org.junit.Test;
 public class OrcTest
 {
     @Test
-    public void criaUrukHai(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+    public void orcAtacaElfoComEspada(){
+        Orc orc = new Orc();
+        Elfo elfo = new Elfo("Legolas");
+        int vidaEsperada = 68;
+        orc.getInventario().adicionarItem(new Item(1, "Espada"));
         
-        int vidaEsperada = 150;
-        Inventario inventarioEsperado = new Inventario();
-        inventarioEsperado.adicionarItem(new Item(1, "Escudo Uruk-Hai"));
-        inventarioEsperado.adicionarItem(new Item(1, "Espada"));
+        orc.atacar(elfo);
         
-        assertEquals(vidaEsperada, orc.getVida());
-        assertEquals(inventarioEsperado, orc.getInventario());
+        assertEquals(vidaEsperada, elfo.getVida());
     }
     
     @Test
-    public void criaSnaga(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+    public void orcAtacaElfoComArco(){
+        Orc orc = new Orc();
+        Elfo elfo = new Elfo("Legolas");
+        int vidaEsperada = 72;
+        orc.getInventario().adicionarItem(new Item(1, "Arco"));
+        orc.getInventario().adicionarItem(new Item(2, "Flecha"));
         
-        int vidaEsperada = 70;
-        Inventario inventarioEsperado = new Inventario();
-        inventarioEsperado.adicionarItem(new Item(1, "Arco"));
-        inventarioEsperado.adicionarItem(new Item(5, "Flecha"));
+        orc.atacar(elfo);
         
-        assertEquals(vidaEsperada, orc.getVida());
-        assertEquals(inventarioEsperado, orc.getInventario());
+        assertEquals(vidaEsperada, elfo.getVida());
     }
     
     @Test
-    public void orcUrukHaiRecebeDanoDeAnao(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+    public void orcAtacaAnaoComEspada(){
+        Orc orc = new Orc();
+        Dwarf anao = new Dwarf();
+        int vidaEsperada = 98;
+        orc.getInventario().adicionarItem(new Item(1, "Espada"));
         
-        orc.levarAtaqueDeAnao();
+        orc.atacar(anao);
         
-        assertEquals(145, orc.getVida());
+        assertEquals(vidaEsperada, anao.getVida());
     }
-    
+        
     @Test
-    public void orcUrukHaiRecebeDanoDeElfo(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+    public void orcAtacaAnaoComArco(){
+        Orc orc = new Orc();
+        Dwarf anao = new Dwarf();
+        int vidaEsperada = 102;
+        orc.getInventario().adicionarItem(new Item(1, "Arco"));
+        orc.getInventario().adicionarItem(new Item(2, "Flecha"));
         
-        orc.levarAtaqueDeElfo();
+        orc.atacar(anao);
         
-        assertEquals(142, orc.getVida());
+        assertEquals(vidaEsperada, anao.getVida());
     }
-    
+        
     @Test
-    public void orcSnagaRecebeDanoDeAnao(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+    public void orcPerdeFlechas(){
+        Orc orc = new Orc();
+        Dwarf anao = new Dwarf();
+        Item flecha = new Item(3, "Flecha");
+        orc.getInventario().adicionarItem(new Item(1, "Arco"));
+        orc.getInventario().adicionarItem(flecha);
         
-        orc.levarAtaqueDeAnao();
+        orc.atacar(anao);
+        orc.atacar(anao);
         
-        assertEquals(60, orc.getVida());
+        assertEquals(1, flecha.getQuantidade());
     }
-    
-    @Test
-    public void orcSnagaRecebeDanoDeElfo(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
-        
-        orc.levarAtaqueDeElfo();
-        
-        assertEquals(62, orc.getVida());
-    }
-    
-    @Test
-    public void orcSnagaFicaSemFlechasParaAtirarEFoge(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
-        Elfo elfo = new Elfo(null);
-        
-        for(int i = 0; i < 6; i++){
-            orc.atacarElfo(elfo);
-        }
-        
-        assertEquals(Status.FUGINDO, orc.getStatus());
-    }
-    
-    @Test
-    public void orcSnagaAtiraFlechaEmElfoEFicaCom4Flechas(){
-    
-        Orc orc = new Orc(TipoOrc.SNAGA);
-        Elfo elfo = new Elfo(null);
-        
-        orc.atacarElfo(elfo);
-        
-        int qtdFlechas = orc.getInventario().getItemPorDescricao("Flecha").getQuantidade();
-        
-        assertEquals(4, qtdFlechas);
-        
-    }
+
+
+
     
 }
