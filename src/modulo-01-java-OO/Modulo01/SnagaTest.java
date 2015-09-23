@@ -20,4 +20,24 @@ public class SnagaTest
         
         assertEquals(esperado, orc.getInventario());
     }
+    
+    @Test
+    public void snagaAtacaUrukHai(){
+        Snaga orc = new Snaga();
+        UrukHai uruk = new UrukHai();
+        
+        orc.atacar(uruk);
+        
+        assertEquals(144, uruk.getVida());
+    }
+    
+    @Test
+    public void snagaAtacaSnaga(){
+        Snaga orc = new Snaga();
+        Snaga orcAlvo = new Snaga();
+        
+        orc.atacar(orcAlvo);
+        
+        assertEquals(60, orcAlvo.getVida());
+    }
 }
