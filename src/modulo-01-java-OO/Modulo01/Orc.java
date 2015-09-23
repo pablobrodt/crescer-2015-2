@@ -9,13 +9,17 @@ public class Orc extends Personagem
         this.status = Status.VIVO;
     }
     
-    public void levarAtaque(){
+    public void receberAtaque(){
         if(getItem("Escudo Uruk-Hai") == null){
             perderVida(10);
         }
         else {
             perderVida(6);
         }
+    }
+    
+    public void receberAtaqueDoOrc(Orc atacante){
+        this.receberAtaque();
     }
     
     public void atacar(Personagem alvo){
