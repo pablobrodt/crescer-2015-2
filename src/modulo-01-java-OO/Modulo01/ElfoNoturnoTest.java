@@ -43,7 +43,7 @@ public class ElfoNoturnoTest
     @Test
     public void elfoNoturnoMorreAoAtirarMuitasFlechas(){
         ElfoNoturno elfo = new ElfoNoturno("Danoite");
-        for(int i = 0; i <= 45; i++){
+        while(elfo.getStatus() != Status.MORTO){
             elfo.atirarFlecha(new Dwarf());
         }
         assertEquals(Status.MORTO, elfo.getStatus());
