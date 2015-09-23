@@ -5,7 +5,7 @@ public class Orc extends Personagem
     
     public Orc()
     {   
-        this.inventario = new Inventario();
+        super();
         this.status = Status.VIVO;
     }
     
