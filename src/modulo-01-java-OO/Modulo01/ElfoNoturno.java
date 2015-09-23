@@ -13,6 +13,20 @@ public class ElfoNoturno extends Elfo{
         super.atirarFlecha(alvo);
         this.experiencia += 2;
         this.vida -= this.vida*0.05;
+        verificaVida();
     }
+    
+    public void verificaVida(){
+        if(this.vida <= 0){
+            this.status = Status.MORTO;
+            this.vida = 0;
+        }
+    }
+    
+    /**
+     * Atualmente não há nenhum metodo que altere
+     * o status de um elfo
+    */
+   
     
 }
