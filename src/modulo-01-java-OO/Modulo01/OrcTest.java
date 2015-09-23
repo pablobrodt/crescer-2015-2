@@ -11,7 +11,7 @@ public class OrcTest
     public void orcAtacaElfoComEspada(){
         Orc orc = new Orc();
         Elfo elfo = new Elfo("Legolas");
-        int vidaEsperada = 68;
+        int vidaEsperada = 88;
         orc.getInventario().adicionarItem(new Item(1, "Espada"));
         
         orc.atacar(elfo);
@@ -23,7 +23,7 @@ public class OrcTest
     public void orcAtacaElfoComArco(){
         Orc orc = new Orc();
         Elfo elfo = new Elfo("Legolas");
-        int vidaEsperada = 72;
+        int vidaEsperada = 92;
         orc.getInventario().adicionarItem(new Item(1, "Arco"));
         orc.getInventario().adicionarItem(new Item(2, "Flecha"));
         

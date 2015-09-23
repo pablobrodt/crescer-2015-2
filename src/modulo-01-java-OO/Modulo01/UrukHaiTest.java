@@ -12,16 +12,6 @@ public class UrukHaiTest
     }
 
     @Test
-    public void urukHaiNasceCom1EspadaE1EscudoUH(){
-        UrukHai orc = new UrukHai();
-        Inventario esperado = new Inventario();
-        esperado.adicionarItem(new Item(1, "Espada"));
-        esperado.adicionarItem(new Item(1, "Escudo Uruk-Hai"));
-        
-        assertEquals(esperado, orc.getInventario());
-    }
-    
-    @Test
     public void urukHaiAtacaSnaga(){
         Snaga orc = new Snaga();
         UrukHai uruk = new UrukHai();
