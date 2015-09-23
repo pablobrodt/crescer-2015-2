@@ -242,9 +242,8 @@ public class DwarfTest
     }
     
     @Test
-    public void dwarfRecebeEspadadaDoOrc(){
-        Orc orc = new Orc();
-        orc.getInventario().adicionarItem(new Item(1, "Espada"));
+    public void dwarfRecebeEspadadaDoOrcUrukHai(){
+        Orc orc = new UrukHai();
         Dwarf dwarf = new Dwarf();
         
         orc.atacar(dwarf);
@@ -253,10 +252,8 @@ public class DwarfTest
     }
     
     @Test
-    public void dwarfRecebeFlechadaDoOrc(){
-        Orc orc = new Orc();
-        orc.getInventario().adicionarItem(new Item(1, "Arco"));
-        orc.getInventario().adicionarItem(new Item(4, "Flecha"));
+    public void dwarfRecebeFlechadaDoOrcSnaga(){
+        Orc orc = new Snaga();
         Dwarf dwarf = new Dwarf();
         
         orc.atacar(dwarf);
@@ -266,25 +263,32 @@ public class DwarfTest
     
     @Test
     public void dwarfMataOrcUrukHai(){
-        Orc orc = new Orc();
+        Orc orc = new UrukHai();
         Dwarf dwarf = new Dwarf();
         
-        while(orc.getStatus() != Status.MORTO){
-            dwarf.atacarOrc(orc);
-        }
+        int golpesAteMatarOrc = 24;
         
+        for(int i = 0; i < golpesAteMatarOrc; i++){
+            dwarf.atacarOrc(orc);
+            assertEquals(Status.FERIDO, orc.getStatus());
+        }
+        dwarf.atacarOrc(orc);
         assertEquals(Status.MORTO, orc.getStatus());
     }
     
     @Test
     public void dwarfMataOrcSnaga(){
-        Orc orc = new Orc();
+        Orc orc = new Snaga();
         Dwarf dwarf = new Dwarf();
         
-         while(orc.getStatus() != Status.MORTO){
+        int golpesAteMatarOrc = 6;
+        
+        for(int i = 0; i < golpesAteMatarOrc; i++){
             dwarf.atacarOrc(orc);
+            assertEquals(Status.FERIDO, orc.getStatus());
         }
         
+        dwarf.atacarOrc(orc);
         assertEquals(Status.MORTO, orc.getStatus());
     }
 

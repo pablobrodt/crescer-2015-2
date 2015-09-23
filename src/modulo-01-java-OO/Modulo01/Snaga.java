@@ -1,11 +1,17 @@
 
+/**
+ * Escreva a descrição da classe Snaga aqui.
+ * 
+ * @author (seu nome) 
+ * @version (número de versão ou data)
+ */
 public class Snaga extends Orc
 {
-    //Um Snaga devem continuar começando com 70 de vida, um item Arco e 5 itens Flecha.
     public Snaga(){
-        super();
-        this.vida = 70;
-        this.inventario.adicionarItem(new Item(1, "Arco"));
-        this.inventario.adicionarItem(new Item(5, "Flecha"));
+        Item arco = new Item(1, "Arco");
+        Item flechas = new Item(5, "Flecha");
+        super.adicionarItem(arco);
+        super.adicionarItem(flechas);
+        super.vida = 70;
     }
 }

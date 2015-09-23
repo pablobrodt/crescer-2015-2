@@ -145,9 +145,8 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoRecebeEspadadaDoOrc(){
-        Orc orc = new Orc();
-        orc.getInventario().adicionarItem(new Item(1, "Espada"));
+    public void elfoRecebeEspadadaDoOrcUrukHai(){
+        Orc orc = new UrukHai();
         Elfo elfo = new Elfo(null);
         
         orc.atacar(elfo);
@@ -156,10 +155,8 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoRecebeFlechadaDoOrc(){
-        Orc orc = new Orc();
-        orc.getInventario().adicionarItem(new Item(1, "Arco"));
-        orc.getInventario().adicionarItem(new Item(4, "Flecha"));
+    public void elfoRecebeFlechadaDoOrcSnaga(){
+        Orc orc = new Snaga();
         Elfo elfo = new Elfo(null);
         
         orc.atacar(elfo);
