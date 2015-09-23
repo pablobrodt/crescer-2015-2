@@ -99,4 +99,9 @@ public class Elfo extends Personagem {
             this.experiencia,
             nivelNoSingular ? "nível" : "níveis");
     }
+    
+    public boolean equals(Object obj) {
+        Elfo outro = (Elfo)obj;
+        return this.nome.equals(outro.getNome()) && this.flechas == outro.getFlechas() && this.status == outro.getStatus() && this.vida == outro.getVida();
+    }
 }
