@@ -145,21 +145,24 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoRecebeEspadadaDoOrcUrukHai(){
-        Orc orc = new Orc(TipoOrc.URUKHAI);
+    public void elfoRecebeEspadadaDoOrc(){
+        Orc orc = new Orc();
+        orc.getInventario().adicionarItem(new Item(1, "Espada"));
         Elfo elfo = new Elfo(null);
         
-        orc.atacarElfo(elfo);
+        orc.atacar(elfo);
         
         assertEquals(68, elfo.getVida());
     }
     
     @Test
-    public void elfoRecebeFlechadaDoOrcSnaga(){
-        Orc orc = new Orc(TipoOrc.SNAGA);
+    public void elfoRecebeFlechadaDoOrc(){
+        Orc orc = new Orc();
+        orc.getInventario().adicionarItem(new Item(1, "Arco"));
+        orc.getInventario().adicionarItem(new Item(4, "Flecha"));
         Elfo elfo = new Elfo(null);
         
-        orc.atacarElfo(elfo);
+        orc.atacar(elfo);
         
         assertEquals(72, elfo.getVida());
     }
