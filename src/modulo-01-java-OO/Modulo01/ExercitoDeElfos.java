@@ -1,47 +1,45 @@
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.*;
 
-public class ExercitoDeElfos
-{
+public class ExercitoDeElfos {
+
     private HashMap<String, Elfo> exercito = new HashMap<>();
-    private HashMap<Status, ArrayList<Elfo>> exercitoPorStatus = new HashMap<>();;
-    
-    public void alistarElfo(ElfoVerde elfo){
-        this.exercito.put(elfo.getNome(), elfo);
-    }
-    
-    public void alistarElfo(ElfoNoturno elfo){
-        this.exercito.put(elfo.getNome(), elfo);
-    }
-    
-    public Elfo getElfoByNome(String nome){
-        return this.exercito.get(nome);
-    }
-    
-    public HashMap<String, Elfo> getExercito(){
-        return this.exercito;
-    }
-    
-    public HashMap<Status, ArrayList<Elfo>> getExercitoPorStatus(){
-        return this.exercitoPorStatus;
-    }
-    
-    public ArrayList<Elfo> buscar(Status status){
-        return this.exercitoPorStatus.get(status);
-    }
-    
-    public void agruparPorStatus(){
-        exercitoPorStatus.clear();
-        for(Elfo elfo : this.exercito.values()){
-            if( !exercitoPorStatus.containsKey(elfo.getStatus())){
-                exercitoPorStatus.put(elfo.getStatus(), new ArrayList<Elfo>());
-            }
-            exercitoPorStatus.get(elfo.getStatus()).add(elfo);
+    private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+
+    public void alistar(Elfo elfo) {
+        boolean podeAlistar =
+            elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
+
+        if (podeAlistar) {
+            this.exercito.put(elfo.getNome(), elfo);
         }
     }
     
-    public boolean equals(Object obj) {
-        ExercitoDeElfos outro = (ExercitoDeElfos)obj;
-        return this.exercito.equals(outro.getExercito());
+    public Elfo buscar(String nome) {
+        return this.exercito.get(nome);
+    }
+    
+    public HashMap<String, Elfo> getExercito() {
+        return this.exercito;
+    }
+    
+    public void agruparPorStatus() {
+        porStatus.clear();
+        
+        for (Map.Entry<String, Elfo> parChaveValor : this.exercito.entrySet()) {
+            
+            Elfo elfo = parChaveValor.getValue();
+            Status status = elfo.getStatus();
+            
+            if (!porStatus.containsKey(status)) {
+                porStatus.put(status, new ArrayList<Elfo>(Arrays.asList(elfo)));
+            } else {
+                porStatus.get(status).add(elfo);
+            }
+            
+        }
+    }
+    
+    public ArrayList<Elfo> buscar(Status status) {
+        return this.porStatus.get(status);
     }
 }
