@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class ExercitoDeElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<>();
-    private HashMap<Status, ArrayList<Elfo>> exercitoPorStatus;
+    private HashMap<Status, ArrayList<Elfo>> exercitoPorStatus = new HashMap<>();;
     
     public void alistarElfo(ElfoVerde elfo){
         this.exercito.put(elfo.getNome(), elfo);
@@ -31,7 +31,7 @@ public class ExercitoDeElfos
     }
     
     public void agruparPorStatus(){
-        exercitoPorStatus = new HashMap<>();
+        exercitoPorStatus.clear();
         for(Elfo elfo : this.exercito.values()){
             if( !exercitoPorStatus.containsKey(elfo.getStatus())){
                 exercitoPorStatus.put(elfo.getStatus(), new ArrayList<Elfo>());
