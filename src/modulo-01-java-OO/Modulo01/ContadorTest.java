@@ -7,7 +7,9 @@ public class ContadorTest
 {
     @Test
     public void existemMuitosElfos(){
-        int quantidadeEsperada = Contador.getQtdElfos()+1;
+        Contador.resetar();
+        
+        int quantidadeEsperada = 1;
         
         new Elfo("mais um");
         

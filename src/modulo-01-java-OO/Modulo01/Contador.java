@@ -10,4 +10,8 @@ public class Contador
   public static int getQtdElfos(){
       return qtdElfos;
   }
+  
+  public static void resetar(){
+      qtdElfos = 0;
+  }
 }
