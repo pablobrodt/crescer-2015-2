@@ -1,6 +1,13 @@
 
 public class Contador
 {
-  public static int quantidadeDeElfos;
-
+  private static int qtdElfos;
+  
+  public static void addElfo(){
+      qtdElfos++;
+  }
+  
+  public static int getQtdElfos(){
+      return qtdElfos;
+  }
 }

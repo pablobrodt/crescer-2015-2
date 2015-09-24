@@ -7,10 +7,10 @@ public class ContadorTest
 {
     @Test
     public void existemMuitosElfos(){
-        int quantidadeEsperada = Contador.quantidadeDeElfos+1;
+        int quantidadeEsperada = Contador.getQtdElfos()+1;
         
         new Elfo("mais um");
         
-        assertEquals(quantidadeEsperada, Contador.quantidadeDeElfos);
+        assertEquals(quantidadeEsperada, Contador.getQtdElfos());
     }
 }

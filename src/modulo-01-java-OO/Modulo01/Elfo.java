@@ -14,7 +14,7 @@ public class Elfo extends Personagem {
         this.flechas = flechas;
         this.status = Status.VIVO;
         this.vida = 100;
-        Contador.quantidadeDeElfos++;
+        Contador.addElfo();
     }
 
     /* Apenas para elucidar as diferenças entre int X Integer, esta duplicação não faz sentido.
