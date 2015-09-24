@@ -170,4 +170,76 @@ public class ExercitoDeElfosTest
         assertEquals(esperado, exercito.getExercitoPorStatus());
         
     }
+    
+    /**
+     * Obter a lista de elfos vivos
+     */
+    @Test
+    public void obterElfosVivos(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        
+        exercito.alistarElfo(new ElfoVerde("v1"));
+        exercito.alistarElfo(new ElfoVerde("v2"));
+        exercito.alistarElfo(new ElfoVerde("v3"));
+        
+        ElfoNoturno morto1 = new ElfoNoturno("n1");
+        ElfoNoturno morto2 = new ElfoNoturno("n2");
+        ElfoNoturno morto3 = new ElfoNoturno("n3");
+        
+        while(morto1.getStatus() != Status.MORTO && morto2.getStatus() != Status.MORTO && morto2.getStatus() != Status.MORTO ){
+            morto1.atirarFlecha(new Dwarf());
+            morto2.atirarFlecha(new Dwarf());
+            morto3.atirarFlecha(new Dwarf());
+        }
+        
+        exercito.alistarElfo(morto1);
+        exercito.alistarElfo(morto2);
+        exercito.alistarElfo(morto3);
+        
+        ArrayList<Elfo> vivos = new ArrayList<>();
+        
+        vivos.add(new ElfoVerde("v1"));
+        vivos.add(new ElfoNoturno("v2"));
+        vivos.add(new ElfoVerde("v3"));
+        
+        exercito.agruparPorStatus();
+        
+        assertEquals(vivos, exercito.buscar(Status.VIVO));
+    }
+    
+    /**
+     * Obter a lista de elfos mortos
+     */
+    @Test
+    public void obterElfosMortos(){
+        ExercitoDeElfos exercito = new ExercitoDeElfos();
+        
+        exercito.alistarElfo(new ElfoVerde("v1"));
+        exercito.alistarElfo(new ElfoVerde("v2"));
+        exercito.alistarElfo(new ElfoVerde("v3"));
+        
+        ElfoNoturno morto1 = new ElfoNoturno("n1");
+        ElfoNoturno morto2 = new ElfoNoturno("n2");
+        ElfoNoturno morto3 = new ElfoNoturno("n3");
+        
+        while(morto1.getStatus() != Status.MORTO && morto2.getStatus() != Status.MORTO && morto2.getStatus() != Status.MORTO ){
+            morto1.atirarFlecha(new Dwarf());
+            morto2.atirarFlecha(new Dwarf());
+            morto3.atirarFlecha(new Dwarf());
+        }
+        
+        exercito.alistarElfo(morto1);
+        exercito.alistarElfo(morto2);
+        exercito.alistarElfo(morto3);
+      
+        ArrayList<Elfo> mortos = new ArrayList<>();
+        
+        mortos.add(morto1);
+        mortos.add(morto2);
+        mortos.add(morto3);
+        
+        exercito.agruparPorStatus();
+        
+        assertEquals(mortos, exercito.buscar(Status.MORTO));
+    }
 }

@@ -26,6 +26,10 @@ public class ExercitoDeElfos
         return this.exercitoPorStatus;
     }
     
+    public ArrayList<Elfo> buscar(Status status){
+        return this.exercitoPorStatus.get(status);
+    }
+    
     public void agruparPorStatus(){
         exercitoPorStatus = new HashMap<>();
         for(Elfo elfo : this.exercito.values()){
