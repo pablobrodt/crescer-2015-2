@@ -16,7 +16,7 @@ public class OrcTest
         
         orc.atacar(elfo);
         
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), 0.0);
     }
     
     @Test
@@ -29,7 +29,7 @@ public class OrcTest
         
         orc.atacar(elfo);
         
-        assertEquals(vidaEsperada, elfo.getVida());
+        assertEquals(vidaEsperada, elfo.getVida(), 0.0);
     }
     
     @Test
@@ -41,7 +41,7 @@ public class OrcTest
         
         orc.atacar(anao);
         
-        assertEquals(vidaEsperada, anao.getVida());
+        assertEquals(vidaEsperada, anao.getVida(), 0.0);
     }
         
     @Test
@@ -54,7 +54,7 @@ public class OrcTest
         
         orc.atacar(anao);
         
-        assertEquals(vidaEsperada, anao.getVida());
+        assertEquals(vidaEsperada, anao.getVida(), 0.0);
     }
         
     @Test
