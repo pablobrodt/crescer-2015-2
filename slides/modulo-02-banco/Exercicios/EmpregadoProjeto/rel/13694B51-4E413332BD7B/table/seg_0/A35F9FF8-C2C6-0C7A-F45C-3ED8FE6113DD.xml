@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A35F9FF8-C2C6-0C7A-F45C-3ED8FE6113DD" name="Projeto">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>633D85B1-4733-B275-1BC1-DA0553AAB1D9</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDProjeto" id="2D7FC736-5109-5DB2-8809-BA0EFA85E828">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>C22E6C78-732A-15AF-638C-5D3B7F23607E</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="C2840CE4-1459-9BD2-2BEF-ECA452355AAA">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>E64435DA-06BE-C0DD-1B6C-0ED811A0F03E</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataInicio" id="0C3DECB9-DEBD-E98B-65C9-6320B4E01BA1">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>AC9BE5B2-4FF2-4B43-4E5D-C03D7FD092A3</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataFim" id="069A59A0-9AFF-09AB-41D4-B9CACC352D3B">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>0D8A4303-62DC-A9C9-7F6E-33C0054CEA8E</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BD89F659-1078-2871-74C4-16D1DE27992F" name="Projeto_PK">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:01:13 UTC</createdTime>
+<generatorID>F04ABDBA-E544-3B6F-9871-EA218DB0BF94</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2D7FC736-5109-5DB2-8809-BA0EFA85E828"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

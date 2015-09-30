@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="Relational_1" id="5C96DEEF-70FB-2901-C925-36159DA1E746">
+<createdBy>pablo.brodt</createdBy>
+<modifiedBy>pablo.brodt</modifiedBy>
+<createdTime>2015-09-30 19:53:24 UTC</createdTime>
+<autoRoute>false</autoRoute>
+<boxInbox>true</boxInbox>
+<showLegend>false</showLegend>
+<showLabels>false</showLabels>
+<showRelAttributes>false</showRelAttributes>
+<gridEnabled>false</gridEnabled>
+<showGrid>false</showGrid>
+<diagramColor>-1</diagramColor>
+<display>false</display>
+<notation>1</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="714B55EB-36A1-4054-B9F7-7CFB4FAF935A" otype="Table" vid="345DE9AE-4CBB-077B-33C7-A3D75CA7070F">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="33" y="50" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="A35F9FF8-C2C6-0C7A-F45C-3ED8FE6113DD" otype="Table" vid="F635584F-1665-ABAF-8AC4-980D3FFFF02E">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="582" y="41" width="170" height="110"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="C736ECBE-44B0-9237-BE24-BFEEA014CE37" otype="Table" vid="600E00B4-026D-D7C2-E8ED-34A7C6A592DE">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="322" y="40" width="170" height="132"/>
+</OView>
+</objectViews>
+<connectors>
+<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="6057E079-94FB-7119-D31B-95EE37D04904" otype="FKIndexAssociation" vid_source="F635584F-1665-ABAF-8AC4-980D3FFFF02E" vid_target="600E00B4-026D-D7C2-E8ED-34A7C6A592DE">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="582" y="96"/>
+<point x="492" y="96"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="FFDF9B27-543D-C301-E47F-390ADCC96FFE" otype="FKIndexAssociation" vid_source="345DE9AE-4CBB-077B-33C7-A3D75CA7070F" vid_target="600E00B4-026D-D7C2-E8ED-34A7C6A592DE">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="203" y="105"/>
+<point x="322" y="105"/>
+</points>
+</Connector>
+</connectors>
+</Diagram>

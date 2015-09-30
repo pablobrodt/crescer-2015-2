@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Empregado_Projeto" directorySegmentName="seg_0" id="E5331739-F1E1-0E83-D015-2FED019AA7B1">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-09-30 20:00:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>EmpregadoProjeto</ownerDesignName>
+<engineerTo>
+<item key="13694B51-60A2-557B-8288-4E413332BD7B" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>A821AC62-84D8-D543-AE12-21738CD6D236</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>633D85B1-4733-B275-1BC1-DA0553AAB1D9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
