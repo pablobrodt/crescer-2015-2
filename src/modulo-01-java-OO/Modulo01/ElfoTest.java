@@ -54,7 +54,7 @@ public class ElfoTest
     public void elfoAtiraFlechaEmDwarf() {
         // Arrange
         Elfo elfo = new Elfo("Elfo caçador");
-        Dwarf balin = new Dwarf("Balin");
+        Dwarf balin = new Dwarf();
         int qtdFlechasEsperada = 41;
         int experienciaEsperada = 1;
         int vidaEsperada = 100;
@@ -70,8 +70,8 @@ public class ElfoTest
     public void elfoAtiraEmDoisAnoes() {
         // Arrange
         Elfo elfo = new Elfo("Elfo caçador");
-        Dwarf balin = new Dwarf("Balin");
-        Dwarf filhoDeBalin = new Dwarf("Filho de Balin");
+        Dwarf balin = new Dwarf();
+        Dwarf filhoDeBalin = new Dwarf();
         int qtdFlechasEsperada = 40;
         int experienciaEsperada = 2;
         int vidaEsperada = 100;
@@ -90,8 +90,8 @@ public class ElfoTest
         // Arrange
         Elfo elfo1 = new Elfo("Elfo caçador");
         Elfo elfo2 = new Elfo("Segundo elfo");
-        Dwarf balin = new Dwarf("Balin");
-        Dwarf filhoDeBalin = new Dwarf("Filho de Balin");
+        Dwarf balin = new Dwarf();
+        Dwarf filhoDeBalin = new Dwarf();
         int qtdFlechasEsperada = 40;
         int experienciaEsperada = 2;
         int vidaEsperada = 90;
