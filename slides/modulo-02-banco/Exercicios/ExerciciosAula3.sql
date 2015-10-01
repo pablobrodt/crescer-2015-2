@@ -82,3 +82,15 @@ WHERE Nome IN(
 
 --12)Faça uma consulta que liste o nome do Associado e a descrição da coluna Sexo, 
 --informando: Masculino ou Feminino.
+SELECT Nome,
+	CASE
+		WHEN sexo = 'F' THEN 'Feminino'
+		WHEN sexo = 'M' THEN 'Masculino'
+	END AS Genero
+FROM Associado
+
+
+--13)Faça uma consulta que mostre o nome do empregado, o Salario e percentual a ser 
+--descontado do Imposto de Renda, considerando a tabela abaixo:
+--Até R$ 1.164,00 = 0%De R$ 1.164,00 a R$ 2.326,00 = 15%
+--Acima de R$ 2.326,00 = 27,5%.
