@@ -94,3 +94,28 @@ FROM Associado
 --descontado do Imposto de Renda, considerando a tabela abaixo:
 --Até R$ 1.164,00 = 0%De R$ 1.164,00 a R$ 2.326,00 = 15%
 --Acima de R$ 2.326,00 = 27,5%.
+
+SELECT e.NomeEmpregado, e.Salario,
+								CASE
+									WHEN e.Salario <= 1164 THEN '0%'
+									WHEN e.Salario > 1164 AND e.Salario <= 2326 THEN '15%'
+									WHEN e.Salario > 2326 THEN '27,5%'
+								END Imposto_Renda
+FROM Empregado e
+
+--14)Elimine as cidades duplicadas (mantendo 1 registro para cada).
+begin transaction
+DELETE FROM Cidade
+WHERE IDCidade IN (
+	SELECT max(IDCidade)
+	FROM Cidade
+	GROUP BY Nome
+	HAVING COUNT(Nome) >1
+)
+
+
+--15)Adicione uma regra que impeça exista mais de uma cidade com o mesmo nome em um estado.
+begin transaction
+
+ALTER TABLE Cidade
+	ADD CONSTRAINT UK_Cidade_UF UNIQUE (Nome, UF)
