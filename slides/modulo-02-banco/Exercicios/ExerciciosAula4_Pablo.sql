@@ -1,4 +1,9 @@
 
+/*
+Exercícios relacionados ao pdf 05 - Crescer CWI - Banco de dados - SQL - joins
+*/
+
+
 --1)Selecione o nome do empregado e nome do departamento que cada um está associado.
 SELECT e.NomeEmpregado, d.NomeDepartamento
 FROM Empregado e

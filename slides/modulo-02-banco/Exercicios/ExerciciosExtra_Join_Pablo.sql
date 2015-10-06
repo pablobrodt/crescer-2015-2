@@ -1,3 +1,10 @@
+
+
+/*
+	Exercícios referentes ao pdf SQL - Exercícios Adicionais - SQL joins
+*/
+
+
 --1)Liste o total de pedidos realizados no mês de setembro de 2015.
 SELECT COUNT(1)
 FROM Pedido
