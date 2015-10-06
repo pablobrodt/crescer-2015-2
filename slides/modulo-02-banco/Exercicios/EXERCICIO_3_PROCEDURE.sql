@@ -4,12 +4,19 @@
 
 SELECT DATEPART(MONTH, P.DataPedido) AS MES, 
 	   COUNT(DISTINCT P.IDPedido ) AS TOTAL_PEDIDOS, 
-	   SUM(P.ValorPedido) AS VALOR_TOTAL,
-	   COUNT(PIT.IDProduto) AS TOTAL_PRODUTOS
+	   SUM(P.ValorPedido) AS VALOR_TOTAL--,
+	   --COUNT(PIT.IDProduto) AS TOTAL_PRODUTOS
 FROM Pedido P
-	INNER JOIN PedidoItem PIT ON PIT.IDPedido = P.IDPedido
+	--LEFT JOIN PedidoItem PIT ON PIT.IDPedido = P.IDPedido
 WHERE IDCliente = 149
 AND MONTH(P.DataPedido) BETWEEN MONTH(GETDATE())-6 
 							AND MONTH(GETDATE()) 
 							AND YEAR(GETDATE()) = YEAR(P.DataPedido) 
 GROUP BY MONTH(P.DataPedido)
+
+select *
+FROM Pedido P
+WHERE IDCliente = 149
+AND MONTH(P.DataPedido) BETWEEN MONTH(GETDATE())-6 
+							AND MONTH(GETDATE()) 
+							AND YEAR(GETDATE()) = YEAR(P.DataPedido) 
