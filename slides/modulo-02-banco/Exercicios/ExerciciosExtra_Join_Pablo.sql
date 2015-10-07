@@ -8,7 +8,7 @@
 --1)Liste o total de pedidos realizados no mês de setembro de 2015.
 SELECT COUNT(1)
 FROM Pedido
-WHERE DataPedido BETWEEN CONVERT(datetime, '01/09/2015', 103) AND CONVERT(datetime, '30/09/2015', 103);
+WHERE DataPedido BETWEEN CONVERT(datetime, '01/09/2015', 103) AND CONVERT(datetime, '30/09/2015', 103)+.99999;
 
 --2)Liste todos os clientes que tenham o LTDA no nome ou razao social.
 SELECT *
