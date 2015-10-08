@@ -55,7 +55,7 @@ public class ExercitoDeElfos {
         return this.estrategia.getOrdemDoUltimoAtaque();
     }
     
-    public void mudarEstrategia(EstrategiaDeAtaque estrategia){
+    public void mudarEstrategia(EstrategiaDeAtaque estrategia) {
         this.estrategia = estrategia;
     }
 }
