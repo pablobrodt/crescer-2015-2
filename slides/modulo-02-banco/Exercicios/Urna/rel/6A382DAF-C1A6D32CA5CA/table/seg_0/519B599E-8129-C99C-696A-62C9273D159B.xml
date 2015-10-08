@@ -1,0 +1,181 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="519B599E-8129-C99C-696A-62C9273D159B" name="Candidato">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>090D2222-EC6D-A5D4-BDAD-745D3B965B5C</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCandidato" id="0EC1D0BE-6E0A-32A6-1ADE-F316B3EBFCAB">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>EF159F18-F9BD-B89D-5B33-B3BD9714351F</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomePopular" id="412B0272-9F7F-A71E-70D4-2854D21FF47A">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>8B565BC7-C75E-71C5-F1D7-772E4C5A2087</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cidade" id="944F85DC-27E1-21D8-B001-42ABAEF055D0">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>91031BDE-EA8C-1714-FCD9-5D9931D320C8</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="3F62B77E-2D34-7B60-4B7D-755EA1B2BA29">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>805ABCEB-262C-B033-6958-069945335D80</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RegistroTER" id="15D1B26D-78F4-7189-007B-2F29D89958A2">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>79DD70F8-B805-D548-0A02-A0102BDC09A2</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Foto" id="4C9C8900-EFBB-0DE3-F70A-F8B15293487A">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>483AE858-9EED-5F12-C709-DAD2C6D07253</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CargoConcorrido" id="DD5C6EFB-9C21-BC52-0817-3C2BA66574E4">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>D84924D0-1E4B-CBE8-C0BC-52347CEA6DA7</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="E185FDA2-705E-FACA-3D9B-EC0DB8BA973D">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>37600C28-A23A-D4E0-B206-6A190CF4ADCD</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1E1F42EC-790E-5346-2862-182B0FEA456F" referredColumn="849E1F5C-B130-C626-2626-480C7FE797EF"/>
+</associations>
+</Column>
+<Column name="Eleitor_IDEleitor" id="34B1291B-07DF-38FB-6298-66D392B354A6">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>710F47C5-004C-071D-1467-40262FA3F59B</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A669C859-4773-DD90-3390-DDAC58127EF1" referredColumn="7CDC6546-1720-B578-36E3-DE8883B03291"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="311FCAE6-B697-8556-3CE1-56B8C6E42995" name="PK_Candidato">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>993F24D3-5F86-AC08-D199-19509CFC5055</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0EC1D0BE-6E0A-32A6-1ADE-F316B3EBFCAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C52E9806-410C-09A4-09DF-135CC6308558" name="IDX_Candidato">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>B4E6F6D3-1E5B-9FCC-D0FF-DD03E3899728</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="34B1291B-07DF-38FB-6298-66D392B354A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5737A47D-E0ED-D23A-FCBF-1809E346645F" name="FK_Candidato_Eleitor">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>B4E6F6D3-1E5B-9FCC-D0FF-DD03E3899728</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34B1291B-07DF-38FB-6298-66D392B354A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CF4EEA87-30C0-FD70-E91E-3E6A62C70B92" name="FK_Candidato_Partido">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>E8231E65-A2C2-F770-EF7D-35114D9AB2FF</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E185FDA2-705E-FACA-3D9B-EC0DB8BA973D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="CC_CargoConcorrido" directorySegmentName="seg_0" id="987011DB-4C59-CDDB-1043-5F4F15D4CD49">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:53:26 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<rule>CargoConcorrigo in (&apos;Presidente&apos;, &apos;Governador&apos;, &apos;Prefeito&apos;)</rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

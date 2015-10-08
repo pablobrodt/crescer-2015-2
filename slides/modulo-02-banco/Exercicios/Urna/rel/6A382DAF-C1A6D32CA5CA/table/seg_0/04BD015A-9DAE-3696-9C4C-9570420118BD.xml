@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04BD015A-9DAE-3696-9C4C-9570420118BD" name="Eleitor">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>D8BCD23C-A11C-E706-6637-31E518269518</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEleitor" id="7CDC6546-1720-B578-36E3-DE8883B03291">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>C9EDA96A-198A-FB9B-180D-D107C3E68F95</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="16BDD492-6A4B-7B0C-7AD8-747E5EAD4F37">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>15FB3912-332E-3107-7E98-32C15A4B9BF7</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="C4081207-151E-251C-1A75-363422690BB3">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>362BBFC6-6918-D1AA-F52B-8AE2DF39586D</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNascimento" id="87B16A23-F193-61BC-88B9-54DCF80075A5">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>68A325BE-D1D3-41EB-CF41-5607A61645CC</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TituloEleitoral" id="E51A32A0-32E9-896E-532D-9409AE418016">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>75CB95C6-2E36-CDB2-3AAD-CF61E5EF076D</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BE4CC807-AA11-D492-D403-544ABA63A446" referredColumn="D4D1D489-DC86-A394-9E41-B58B4582121A"/>
+</associations>
+</Column>
+<Column name="Voto" id="39B94255-3ACC-DFAA-3360-BA61E2721D37">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>E48EC341-B8C2-1A7A-7911-CAF08056B359</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F5CDC087-570D-764D-626D-7AF59CEEC1E7" name="PK_Eleitor">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>4098BA58-3FFC-CCE5-08A1-EAB43341418F</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7CDC6546-1720-B578-36E3-DE8883B03291"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC24F42D-45FC-3FEC-62AF-1D2653E59B7D" name="Eleitor__IDX">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>973D88F2-5A8F-8C49-A2FA-1B9F699E0BF6</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="E51A32A0-32E9-896E-532D-9409AE418016"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2B041C7B-D84B-8027-4D9F-103E7324C372" name="FK_Eleitor_TituloEleitoral">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>973D88F2-5A8F-8C49-A2FA-1B9F699E0BF6</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E51A32A0-32E9-896E-532D-9409AE418016"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

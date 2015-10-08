@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Partido_Candidato" directorySegmentName="seg_0" id="E8231E65-A2C2-F770-EF7D-35114D9AB2FF">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:32:44 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<sourcePk>20C51CD2-F602-EFD8-C43C-21B764D59F33</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5AE3F239-D640-218B-2655-E35609C1F115</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>090D2222-EC6D-A5D4-BDAD-745D3B965B5C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

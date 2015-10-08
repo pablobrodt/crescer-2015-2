@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6927A4DD-2441-F45C-C2ED-13D3EB5151B6" name="TituloEleitoral">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>62675452-BF1B-13EA-E1B4-90AD67C24852</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDTituloEleitor" id="D4D1D489-DC86-A394-9E41-B58B4582121A">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>1A84E355-AC49-676F-606A-0A77E1FEEAE2</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="ECA3DB20-7697-5D7C-97A3-BE4B32030896">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>48A8591E-7B10-9AF6-CA03-1BCEE8D45418</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zona" id="180B4C1E-8C9E-A151-F1A4-BC2C4646A110">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>1510B947-3DB8-7C6D-E931-F0934A1C80CE</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Secao" id="62C33DF4-2297-D7EF-D6B4-837C4EF9E1DB">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>E577CC13-01B3-9A21-A701-5A16BEBF8F8D</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataEmissao" id="9F493077-FAF5-C1DB-738A-2EC921982AAA">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:59:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="599D8280-C69C-F8E4-F23C-D1FA41AB0146" name="PK_TituloEleitoral">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>FBD04BB9-25FD-3462-0B47-548BD065BD2A</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4D1D489-DC86-A394-9E41-B58B4582121A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

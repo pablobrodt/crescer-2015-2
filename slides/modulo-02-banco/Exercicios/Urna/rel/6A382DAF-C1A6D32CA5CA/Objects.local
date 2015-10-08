@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="519B599E-8129-C99C-696A-62C9273D159B" name="Candidato" seqName="seg_0"/>
+   <object objectType="Table" objectID="04BD015A-9DAE-3696-9C4C-9570420118BD" name="Eleitor" seqName="seg_0"/>
+   <object objectType="Table" objectID="6EA6B251-6384-8D8A-C72D-E17F4F90440F" name="Partido" seqName="seg_0"/>
+   <object objectType="Table" objectID="6927A4DD-2441-F45C-C2ED-13D3EB5151B6" name="TituloEleitoral" seqName="seg_0"/>
+   <object objectType="Table" objectID="EBB10390-40C0-6014-FA60-613319C19F25" name="Voto" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A669C859-4773-DD90-3390-DDAC58127EF1" name="FK_Candidato_Eleitor" seqName="seg_0" containerID="519B599E-8129-C99C-696A-62C9273D159B" refContainerID="04BD015A-9DAE-3696-9C4C-9570420118BD"/>
+   <object objectType="FKIndexAssociation" objectID="1E1F42EC-790E-5346-2862-182B0FEA456F" name="FK_Candidato_Partido" seqName="seg_0" containerID="519B599E-8129-C99C-696A-62C9273D159B" refContainerID="6EA6B251-6384-8D8A-C72D-E17F4F90440F"/>
+   <object objectType="FKIndexAssociation" objectID="BE4CC807-AA11-D492-D403-544ABA63A446" name="FK_Eleitor_TituloEleitoral" seqName="seg_0" containerID="04BD015A-9DAE-3696-9C4C-9570420118BD" refContainerID="6927A4DD-2441-F45C-C2ED-13D3EB5151B6"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

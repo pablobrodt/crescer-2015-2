@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EBB10390-40C0-6014-FA60-613319C19F25" name="Voto">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>DBB5A158-C5F0-3DA8-3589-5DE238907D93</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDVoto" id="78F80B5E-65CE-3A4C-FC8A-3D1EFFFE3E56">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>B3DE9287-EDF2-4845-0C84-A13E93A812E0</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumeroCandidato" id="959EA256-22B9-4A8D-F847-719213F406BE">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>CC16BFC0-301D-9017-11F1-417B6C20305A</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B6C62646-77EC-8ABC-5B7E-C7CBFFA7296D" name="PK_Voto">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:42:47 UTC</createdTime>
+<generatorID>A967FEDD-DD76-A0F1-03E0-65BBD9F69626</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78F80B5E-65CE-3A4C-FC8A-3D1EFFFE3E56"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

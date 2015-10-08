@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="090D2222-EC6D-A5D4-BDAD-745D3B965B5C" name="Candidato">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:17:02 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDCandidato" id="EF159F18-F9BD-B89D-5B33-B3BD9714351F">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:17:13 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NomePopular" id="8B565BC7-C75E-71C5-F1D7-772E4C5A2087">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:17:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cidade" id="91031BDE-EA8C-1714-FCD9-5D9931D320C8">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:18:51 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Estado" id="805ABCEB-262C-B033-6958-069945335D80">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:19:28 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RegistroTER" id="79DD70F8-B805-D548-0A02-A0102BDC09A2">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:19:43 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Foto" id="483AE858-9EED-5F12-C709-DAD2C6D07253">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:20:39 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT010</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Numero" id="E4EEC204-2A5F-0BFF-177B-E9A1FA044B30">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:41:25 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cargo" id="D84924D0-1E4B-CBE8-C0BC-52347CEA6DA7">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:21:10 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDPartido" id="37600C28-A23A-D4E0-B206-6A190CF4ADCD">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:32:45 UTC</createdTime>
+<generatorID>E8231E65-A2C2-F770-EF7D-35114D9AB2FF</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<referedAttribute>3551CEF3-4943-C9D5-4B7D-1D2A60C1E118</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IDEleitor" id="710F47C5-004C-071D-1467-40262FA3F59B">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:33:38 UTC</createdTime>
+<generatorID>B4E6F6D3-1E5B-9FCC-D0FF-DD03E3899728</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<referedAttribute>C9EDA96A-198A-FB9B-180D-D107C3E68F95</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="993F24D3-5F86-AC08-D199-19509CFC5055" name="Candidato PK">
+<createdBy>pablo.brodt</createdBy>
+<createdTime>2015-10-08 16:17:25 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Urna</ownerDesignName>
+<engineerTo>
+<item key="6A382DAF-72DB-8FAF-F203-C1A6D32CA5CA" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EF159F18-F9BD-B89D-5B33-B3BD9714351F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
