@@ -53,7 +53,7 @@ public class EstrategiaAntiNoturnosTest {
         // Arrange
         Dwarf balin = new Dwarf("Balin");
         Dwarf stalin = new Dwarf("Stalin");
-        double vidaEsperada = 90;
+        double vidaEsperada = 80;
         Elfo noturno1 = new ElfoNoturno("Night Elf1");
         Elfo noturno2 = new ElfoNoturno("Night Elf2");
         Elfo noturno3 = new ElfoNoturno("Night Elf3");
@@ -79,7 +79,7 @@ public class EstrategiaAntiNoturnosTest {
             }
         }
 
-        assertEquals(1, noturnosQueAtiraram);
+        assertEquals(2, noturnosQueAtiraram);
         assertEquals(vidaEsperada, balin.getVida(), .0);
         assertEquals(vidaEsperada, stalin.getVida(), .0);
     }
