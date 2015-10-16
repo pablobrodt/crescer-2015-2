@@ -1,0 +1,55 @@
+.cabeca{
+	width: 400px;
+	height: 400px;
+	background: yellow;
+
+	margin: 0 auto;
+
+	-moz-border-radius: 50px / 120px;
+	-webkit-border-radius: 200px;
+	border-radius: 200px;
+}
+
+.olho-esquerdo{
+	width: 50px;
+	height: 120px;
+
+	background: black;
+
+	margin-left: 100px;
+	margin-top: 100px;
+
+	-moz-border-radius: 50px / 120px;
+	-webkit-border-radius: 50px / 120px;
+	border-radius: 50px / 120px;
+}
+
+.olho-direito{
+	width: 50px;
+	height: 120px;
+
+	background: black;
+
+	margin-right: 100px;
+	margin-top: 100px;
+
+	-moz-border-radius: 50px / 120px;
+	-webkit-border-radius: 50px / 120px;
+	border-radius: 50px / 120px;
+}
+
+
+.boca{
+	width: 300px;
+	height: 120px;
+
+	margin-left: 40px;
+
+	border: solid 10px #000;
+	border-top-color: transparent;
+
+	-moz-border-radius: 50px / 120px;
+	-webkit-border-radius: 50% / 0 0 150px 150px;
+
+	
+}

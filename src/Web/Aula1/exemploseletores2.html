@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+  </head>
+    <meta charset="utf-8" />
+
+    <title> Exemplo Seletores</title>
+
+    <style>
+
+      p{
+        color: red;
+      }
+
+      p > span{
+        color: purple;
+      }
+      p > span + span > span{
+        color: yellow;
+      }
+
+      p + p{
+        color: green;
+      }
+
+      p + p + p{
+        color: gray;
+      }
+
+      p + p + p > span{
+        color: orange;
+      }
+
+      p + p + p + p{
+        color: blue;
+      }
+
+      p > span > span > span{
+        color:black;
+      }
+
+    </style>
+
+  <body>
+    <h1>Exemplo de Seletores</h1>
+
+    <p>
+        Este texto será vermelho, mas este <span>roxo</span> e esse
+        <span>
+          <span>amarelo</span>
+        </span>
+
+    </p>
+    <p>Este texto será verde.</p>
+    <p>
+      Este texto será cinza, e este <span>laranja</span>
+    </p>
+    <p>
+      Este texto será azul, e este
+      <span>
+        <span>
+          <span>preto</span>
+        </span>
+      </span>
+    </p>
+
+
+  </body>
+</html>
