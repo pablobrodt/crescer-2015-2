@@ -28,3 +28,15 @@ function maiorTexto( arrai ){
 }
 
 
+/*Exercicio 3*/
+
+function imprime( arrai, fn ){
+	if( typeof fn === 'function' ){
+		for( texto of arrai ){
+			fn(texto);
+		}
+	}else{
+		console.log('Jabulani');
+		console.log('TypeError: ' + typeof fn + ' is not a function.');
+	}
+}
