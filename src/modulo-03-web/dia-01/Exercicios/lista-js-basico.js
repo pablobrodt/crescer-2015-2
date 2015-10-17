@@ -1,4 +1,3 @@
-
 /*Exercicio 1
 	Faça uma função chamada daisyGame que receba por argumento o número de pétalas 
 	da margarida e retorne 'Love me' ou 'Love me not' (Lembre do jogo "Bem me quer, 
@@ -40,3 +39,5 @@ function imprime( arrai, fn ){
 		console.log('TypeError: ' + typeof fn + ' is not a function.');
 	}
 }
+
+
