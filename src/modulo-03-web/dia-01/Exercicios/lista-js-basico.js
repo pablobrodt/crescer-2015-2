@@ -41,3 +41,28 @@ function imprime( arrai, fn ){
 }
 
 
+/*Exercicio 4
+	Faça uma função fiboSum que calcule a soma da sequência de Fibonacci para n números informados.
+*/
+function fiboSum( numero ){
+
+	var vlrNr1 = 0;
+	var vlrNr2 = 1;
+	var vlrNovo;
+	var vlrTotal = 1;
+
+	for(var i=2; i<=numero; i++)
+	{	
+
+	   vlrNovo = (vlrNr1 + vlrNr2);
+
+	   vlrNr1 = vlrNr2;
+
+	   vlrNr2 = vlrNovo;
+
+	   vlrTotal += vlrNovo;
+	}
+
+	return vlrTotal;
+}
+
