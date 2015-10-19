@@ -4,9 +4,13 @@
 	mal me quer").
 */
 function daisyGame( numeroPetalas ){
-	var resultado = ( numeroPetalas % 2 === 0 ) ? 'Love me not' : 'Love me';
-	return resultado;
-}
+	if ( typeof numeroPetalas === 'number' ){
+		var resultado = ( numeroPetalas % 2 === 0 ) ? 'Love me not' : 'Love me';
+		return resultado;
+	}else{
+		return typeof numeroPetalas + ' não é number.'
+	};
+};
 
 
 
@@ -24,7 +28,7 @@ function maiorTexto( arrai ){
 	}
 
 	return maiorTexto;
-}
+};
 
 
 /*Exercicio 3*/
@@ -38,7 +42,7 @@ function imprime( arrai, fn ){
 		console.log('Jabulani');
 		console.log('TypeError: ' + typeof fn + ' is not a function.');
 	}
-}
+};
 
 
 /*Exercicio 4
@@ -64,7 +68,7 @@ function fiboSum( numero ){
 	}
 
 	return vlrTotal;
-}
+};
 
 
 
@@ -79,7 +83,6 @@ excelis('AZ'); // 52
 excelis('BA'); // 53
 Dica: utilize a função charCodeAt para te ajudar!
 */
-
 function excelis( texto ){
 
 	var soma = 0;
@@ -100,5 +103,42 @@ function excelis( texto ){
 	}
 
 	return soma;
-}
+};
 
+
+
+/*Exercicio 6
+Escreva uma função queroCafe que recebe dois parâmetros:
+
+mascada: Valor numérico
+precos: Lista de preços de café
+A sua implementação deve retornar uma string com todos os preços que estão abaixo ou igual ao valor mascada ordenados de forma ascendente e separados por ,. Ex:
+
+queroCafe(3.14, [ 5.16, 2.12, 1.15, 3.11, 17.5 ]);
+// deve retornar "1.15,2.12,3.11"
+*/
+
+function queroCafe( mascada, precos ){
+	var retorno = [];
+	if( typeof mascada === 'number' ){
+		for( preco of precos ){
+			if( preco <= mascada ){
+				retorno.push( preco );
+			}
+		}
+	}
+	return retorno.sort().toString();
+};
+
+
+
+function mergeSort( array ){
+
+	for( args of arguments ){
+
+		if( args.length < 2 ){
+		//se o tamanho do array for 1, não há necessidade de
+
+		}		
+	}
+};
