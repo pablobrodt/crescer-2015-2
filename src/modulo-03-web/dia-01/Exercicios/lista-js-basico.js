@@ -79,26 +79,22 @@ excelis('AZ'); // 52
 excelis('BA'); // 53
 Dica: utilize a função charCodeAt para te ajudar!
 */
-
 function excelis( texto ){
 
 	var soma = 0;
 
-	if( texto.length > 1 ){
+		if( typeof texto === 'string' ){
 
-		for( var i = 1; i < texto.length; i++ ){
+			for( var i = 0; i < texto.length; i++ ){
 
-			if( texto.charCodeAt(i) > 64 && texto.charCodeAt(i) < 91 ){			
+				if( texto.charCodeAt(i) > 64 && texto.charCodeAt(i) < 91 ){			
 
-				soma += ( (((texto.charCodeAt(i-1)-64)*26)+(texto.charCodeAt(i)-64)) );
+					soma += (texto.charCodeAt(i)-64) * Math.pow(26, texto.length-i-1);
+				}
 			}
+		}else{
+			console.log(typeof texto + ' não é texto.')
 		}
-
-	}else{
-
-		soma = (texto.charCodeAt(0)-64);
-	}
 
 	return soma;
 }
-
