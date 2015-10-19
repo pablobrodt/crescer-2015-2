@@ -86,11 +86,11 @@ function excelis( texto ){
 
 	if( texto.length > 1 ){
 
-		for( var i = 0; i < texto.length; i++ ){
+		for( var i = 1; i < texto.length; i++ ){
 
 			if( texto.charCodeAt(i) > 64 && texto.charCodeAt(i) < 91 ){			
 
-				soma = soma * 26 +(texto.charCodeAt(i)-64);
+				soma += ( (((texto.charCodeAt(i-1)-64)*26)+(texto.charCodeAt(i)-64)) );
 			}
 		}
 
