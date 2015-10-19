@@ -66,3 +66,39 @@ function fiboSum( numero ){
 	return vlrTotal;
 }
 
+
+
+/*Exercicio 5
+Faça uma função excelis que receba uma string que seja uma referência válida para uma coluna Excel e retorne o valor que representa aquela coluna. Exemplos:
+
+excelis('A'); // 1
+excelis('Z'); // 26
+excelis('AA'); // 27
+excelis('AZ'); // 52
+
+excelis('BA'); // 53
+Dica: utilize a função charCodeAt para te ajudar!
+*/
+
+function excelis( texto ){
+
+	var soma = 0;
+
+	if( texto.length > 1 ){
+
+		for( var i = 1; i < texto.length; i++ ){
+
+			if( texto.charCodeAt(i) > 64 && texto.charCodeAt(i) < 91 ){			
+
+				soma += ( (((texto.charCodeAt(i-1)-64)*26)+(texto.charCodeAt(i)-64)) );
+			}
+		}
+
+	}else{
+
+		soma = (texto.charCodeAt(0)-64);
+	}
+
+	return soma;
+}
+
