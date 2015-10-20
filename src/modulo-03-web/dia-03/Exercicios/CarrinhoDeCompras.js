@@ -1,3 +1,10 @@
 function CarrinhoDeCompras(){
-	var this.itens = [];
+	this.itens = [];
+
+
+}
+
+
+CarrinhoDeCompras.prototype.adicionarItem(item){
+	this.itens.push(item);
 }
