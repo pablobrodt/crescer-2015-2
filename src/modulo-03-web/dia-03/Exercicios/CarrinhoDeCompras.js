@@ -21,3 +21,9 @@ CarrinhoDeCompras.prototype.removerItem = function(sku){
 CarrinhoDeCompras.prototype.atualizarQuantidade = function( sku, quantidade ){
 	this.itens[this.indiceDoItem(sku)].quantidade = quantidade;
 }
+
+CarrinhoDeCompras.prototype.calcularTotal = function(){
+	return this.itens.reduce(function(acumulador, item){
+		return acumulador + item.subTotal();
+	}, 0);
+}
