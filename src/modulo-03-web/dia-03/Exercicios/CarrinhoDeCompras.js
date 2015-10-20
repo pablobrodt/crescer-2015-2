@@ -1,3 +1,3 @@
 function CarrinhoDeCompras(){
-	var this.itens = [];
+	this.itens = [];
 }

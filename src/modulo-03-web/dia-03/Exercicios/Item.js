@@ -1,6 +1,6 @@
 function Item(sku, descricao, quantidade, valorUnitario){
-	var this.sku = sku;
-	var this.descricao = descricao;
-	var this.quantidade = quantidade;
-	var this.valorUnitario = valorUnitario;
+	this.sku = sku;
+	this.descricao = descricao;
+	this.quantidade = quantidade;
+	this.valorUnitario = valorUnitario;
 }
