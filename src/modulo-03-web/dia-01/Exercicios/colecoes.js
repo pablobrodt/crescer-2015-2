@@ -67,7 +67,23 @@ var clubes = [
 
     });
 
+    return clubes;
+
   };
+
+
+  function somarTitulos( clubes, titulo ){
+
+    var soma = 0;
+
+    clubes.forEach(function(clube){
+
+      soma += qtdTitulos(titulo, clube);
+
+    });
+
+    return soma;
+  }
 
 
 
@@ -83,7 +99,7 @@ var clubes = [
 
   function ordenaPorNacionais( clubes ){
 
-    ordenar( clubes, 'Nacionais');
+    return ordenar( clubes, 'Nacionais');
 
   };
 
@@ -95,7 +111,7 @@ var clubes = [
 
   function ordenaPorContinentais( clubes ){
 
-    ordenar( clubes, 'Continentais');
+    return ordenar( clubes, 'Continentais');
 
   };
 
@@ -108,7 +124,7 @@ var clubes = [
 
    function ordenaPorMundiais( clubes ){
 
-    ordenar( clubes, 'Mundiais');
+    return ordenar( clubes, 'Mundiais');
 
   };
 
@@ -122,15 +138,7 @@ var clubes = [
 
  function somarPorNacionais( clubes ){
 
-    var soma = 0;
-
-    clubes.forEach(function(clube){
-
-        soma += qtdTitulos('Nacionais', clube);
-
-    });
-
-    return soma;
+  return somarTitulos(clubes, 'Nacionais');
 
  };
 
@@ -143,15 +151,7 @@ var clubes = [
 
  function somarPorContinentais( clubes ){
 
-    var soma = 0;
-
-    clubes.forEach(function(clube){
-
-        soma += qtdTitulos('Continentais', clube);
-
-    });
-
-    return soma;
+    return somarTitulos(clubes, 'Continentais');
 
  };
 
@@ -164,15 +164,7 @@ var clubes = [
 
   function somarPorTodosTitulos( clubes ){
 
-    var soma = 0;
-
-    clubes.forEach(function(clube){
-
-      soma += qtdTitulos('Todos', clube);
-
-    });
-
-    return soma;
+    return somarTitulos(clubes, 'Todos');
 
  };
 
