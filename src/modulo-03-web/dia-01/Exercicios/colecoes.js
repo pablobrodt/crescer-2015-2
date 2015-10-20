@@ -74,15 +74,11 @@ var clubes = [
 
   function somarTitulos( clubes, titulo ){
 
-    var soma = 0;
+   return clubes.reduce(function(acumulador, clubeAtual){
 
-    clubes.forEach(function(clube){
+      return acumulador + qtdTitulos( titulo, clubeAtual );
 
-      soma += qtdTitulos(titulo, clube);
-
-    });
-
-    return soma;
+    }, 0);
   }
 
 
