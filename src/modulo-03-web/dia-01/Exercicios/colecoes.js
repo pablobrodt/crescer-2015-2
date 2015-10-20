@@ -170,18 +170,10 @@ var clubes = [
 
  function apenasOsMelhores( clubes ){
 
-  var melhor;
+  return clubes.filter(function(elem){
 
-  clubes.forEach(function(clube){
+    return qtdTitulos('Nacionais', elem) > 18;
 
-      if( qtdTitulos('Nacionais', clube) > 18 ){
-
-        melhor = clube;
-
-      }
-
-    });
-
-   return melhor;
+  });
 
  }
