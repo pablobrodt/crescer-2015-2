@@ -14,6 +14,10 @@ CarrinhoDeCompras.prototype.indiceDoItem = function(sku){
 }
 
 CarrinhoDeCompras.prototype.removerItem = function(sku){
-	var indiceDoItem = this.indiceDoItem(sku);
-	this.itens.splice(indiceDoItem, 1);
+	this.itens.splice(this.indiceDoItem(sku), 1);
+}
+
+
+CarrinhoDeCompras.prototype.atualizarQuantidade = function( sku, quantidade ){
+	this.itens[this.indiceDoItem(sku)].quantidade = quantidade;
 }
