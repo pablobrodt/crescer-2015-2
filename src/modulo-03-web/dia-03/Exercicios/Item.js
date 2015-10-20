@@ -1,6 +1,8 @@
 function Item(sku, descricao, quantidade, valorUnitario){
-	this.sku = sku;
-	this.descricao = descricao;
-	this.quantidade = quantidade;
-	this.valorUnitario = valorUnitario;
+	if( isString(sku) && isString(descricao) && isNumber(quantidade) && isNumber(valorUnitario) ){
+		this.sku = sku;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+		this.valorUnitario = valorUnitario;
+	}
 }
