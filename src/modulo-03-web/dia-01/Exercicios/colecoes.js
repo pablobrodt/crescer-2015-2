@@ -59,6 +59,18 @@ var clubes = [
   };
 
 
+  function ordenar( clubes, titulo ){
+
+    clubes.sort(function(clube1, clube2){
+
+      return qtdTitulos(titulo, clube1) < qtdTitulos(titulo, clube2);
+
+    });
+
+  };
+
+
+
 /*
  *Exercicio 1
  */
@@ -71,11 +83,7 @@ var clubes = [
 
   function ordenaPorNacionais( clubes ){
 
-    clubes.sort(function(clube1, clube2){
-
-      return qtdTitulos('Nacionais', clube1) < qtdTitulos('Nacionais', clube2);
-
-    });
+    ordenar( clubes, 'Nacionais');
 
   };
 
@@ -87,11 +95,7 @@ var clubes = [
 
   function ordenaPorContinentais( clubes ){
 
-    clubes.sort(function(clube1, clube2){
-
-      return qtdTitulos('Continentais', clube1) < qtdTitulos('Continentais', clube2);
-
-    });
+    ordenar( clubes, 'Continentais');
 
   };
 
@@ -104,11 +108,7 @@ var clubes = [
 
    function ordenaPorMundiais( clubes ){
 
-    clubes.sort(function(clube1, clube2){
-
-      return qtdTitulos('Mundiais', clube1) < qtdTitulos('Mundiais', clube2);
-
-    });
+    ordenar( clubes, 'Mundiais');
 
   };
 
