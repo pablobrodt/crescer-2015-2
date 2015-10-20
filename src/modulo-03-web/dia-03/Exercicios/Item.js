@@ -6,3 +6,8 @@ function Item(sku, descricao, quantidade, valorUnitario){
 		this.valorUnitario = valorUnitario;
 	}
 }
+
+
+Item.prototype.subtotal = function(){
+	return this.quantidade * this.valorUnitario;
+}
