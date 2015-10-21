@@ -4,8 +4,11 @@ function CarrinhoDeCompras(){
 
 
 CarrinhoDeCompras.prototype.adicionarItem = function(item){
-	if( item instanceof Item )
+	if( item instanceof Item ){
 		this.itens.push(item);
+	}else{
+		throw new Error( 'Informe um item.');
+	}
 };
 
 CarrinhoDeCompras.prototype.indiceDoItem = function(sku){
@@ -28,7 +31,7 @@ CarrinhoDeCompras.prototype.calcularTotal = function(){
 		return acumulador + item.subTotal();
 	}, 0);
 
-	return this.sortearDesconto() ? total-(total*0.1) : total;
+	return this.sortearDesconto() ? total*0.9 : total;
 };
 
 CarrinhoDeCompras.prototype.sortearDesconto = function(){

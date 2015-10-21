@@ -4,6 +4,8 @@ function Item(sku, descricao, quantidade, valorUnitario){
 		this.descricao = descricao;
 		this.quantidade = quantidade;
 		this.valorUnitario = valorUnitario;
+	}else{
+		throw new Error('Parâmetros inválidos.');
 	}
 };
 
