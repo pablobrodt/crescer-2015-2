@@ -38,20 +38,3 @@ CarrinhoDeCompras.prototype.sortearDesconto = function(){
 	var random = Math.floor(Math.random() * 9) + 1;
 	return random > 6;
 };
-
-CarrinhoDeCompras.prototype.forcarCompra = function(){
-	if(!this.intervalId){
-		var _this = this;
-		//guardar o id do intervalo
-		this.intervalId = setInterval(function() {
-			_this.itens.forEach(function(item){
-				item.valorUnitario *= 1.1;
-			});
-		}, 5000);
-	}
-};
-
-CarrinhoDeCompras.prototype.concluirPedido = function(){
-	clearInterval(this.intervalId);
-	delete this.intervalId;// 'remover a propriedade intervalId do objeto
-}
