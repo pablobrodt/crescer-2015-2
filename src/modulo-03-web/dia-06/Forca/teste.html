@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <style type="text/css">
+      h2 {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Olá ajax!</h2>
+    
+    <button id="btnConsultar">Consultar</button>
+    <button id="btnInserir">Inserir</button>
+
+    <section>
+      <ul id="pessoas"></ul>
+    </section>
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+
+        var urlUsuarios = 'http://localhost:3000/usuarios';
+
+        function consultarPessoas() {
+          var $usuarios = $('#pessoas');
+          $usuarios.html('');
+          $.get(urlUsuarios).done(function(usuarios) {
+            usuarios.forEach(function(usuario) {
+              $usuarios.append(
+                $('<li>').html(usuario)
+              );
+            });
+          });
+        }
+
+        $('#btnConsultar').click(consultarPessoas);
+
+        $('#btnInserir').click(function() {
+          $.post(urlPessoas, 
+            {"nome":"teste", "pontos":0, "dificuldade":"nunez"}
+          );
+          consultarPessoas();
+        });
+        
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
