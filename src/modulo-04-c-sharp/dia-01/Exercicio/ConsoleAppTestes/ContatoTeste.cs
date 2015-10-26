@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ConsoleAPP;
 
 namespace ConsoleAppTestes
 {
@@ -7,8 +8,19 @@ namespace ConsoleAppTestes
     public class ContatoTeste
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ContatoTemNome()
         {
+            var contato = new Contato("Teste", 12345);
+
+            Assert.AreEqual(contato.Nome, "Teste");
+        }
+
+        [TestMethod]
+        public void ContatoTemNumero()
+        {
+            var contato = new Contato("Teste", 12345);
+
+            Assert.AreEqual(contato.Numero, 12345);
         }
     }
 }
