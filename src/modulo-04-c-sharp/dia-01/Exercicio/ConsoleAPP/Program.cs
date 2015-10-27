@@ -10,23 +10,7 @@ namespace ConsoleAPP
     {
         static void Main(string[] args)
         {
-            var contato1 = new Contato("Fabricio", 12345);
-
-            var contato2 = new Contato("Ben-hur", 54321);
-
-
-            var agenda = new Agenda();
-
-            agenda.AdicionarContato(contato1);
-            agenda.AdicionarContato(contato2);
-
-            string contatosDaAgenda = agenda.ListarContatos();
-
-            Console.WriteLine(contatosDaAgenda);
-
-            Console.WriteLine(agenda.ListarContatosOrdenadoPorNome());
-
-            Console.ReadLine();
+            new Main();
         }
     }
 }

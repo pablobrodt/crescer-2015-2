@@ -60,7 +60,7 @@ namespace ConsoleAPP
 
         public string ListarContatos()
         {
-            return ListarContatos( contatos );
+            return ListarContatos(contatos);
         }
 
         private string ListarContatos(List<Contato> contatos)
@@ -99,7 +99,7 @@ namespace ConsoleAPP
                 }   
             }
 
-            return ListarContatos( contatosOrdenados );
+            return ListarContatos(contatosOrdenados);
         }   
 
     }
