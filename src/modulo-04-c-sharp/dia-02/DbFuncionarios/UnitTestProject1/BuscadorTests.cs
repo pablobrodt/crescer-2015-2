@@ -31,5 +31,33 @@ namespace DbFuncionariosTest
             }
 
         }
+
+        [TestMethod]
+        public void BuscadorEncontraUmFuncionarioComNzNonome()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios;
+
+            int funcionariosEsperados = 1;
+
+            funcionarios = buscador.BuscarPorNome("nz");
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
+
+        [TestMethod]
+        public void BuscadorEncontraDezFuncionariosComANoNome()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios;
+
+            int funcionariosEsperados = 10;
+
+            funcionarios = buscador.BuscarPorNome("a");
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
     }
 }

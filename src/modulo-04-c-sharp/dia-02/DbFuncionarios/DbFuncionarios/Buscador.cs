@@ -25,5 +25,11 @@ namespace DbFuncionarios
         }
 
         //Exercício B
+        public IList<Funcionario> BuscarPorNome(string nome)
+        {
+            var resultado = funcionarios.Where(funcionario => funcionario.Nome.ToLower().Contains(nome.ToLower()));
+
+            return resultado.ToList();
+        }
     }
 }
