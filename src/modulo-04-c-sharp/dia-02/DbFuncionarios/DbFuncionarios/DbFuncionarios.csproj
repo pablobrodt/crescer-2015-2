@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDeDados.cs" />
+    <Compile Include="Buscador.cs" />
     <Compile Include="Cargo.cs" />
     <Compile Include="Funcionario.cs" />
     <Compile Include="Program.cs" />
