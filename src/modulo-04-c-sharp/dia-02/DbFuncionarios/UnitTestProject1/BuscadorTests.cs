@@ -37,11 +37,9 @@ namespace DbFuncionariosTest
         {
             Buscador buscador = new Buscador();
 
-            IList<Funcionario> funcionarios;
+            IList<Funcionario> funcionarios = buscador.BuscarPorNome("nz");
 
             int funcionariosEsperados = 1;
-
-            funcionarios = buscador.BuscarPorNome("nz");
 
             Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
         }
@@ -51,11 +49,9 @@ namespace DbFuncionariosTest
         {
             Buscador buscador = new Buscador();
 
-            IList<Funcionario> funcionarios;
+            IList<Funcionario> funcionarios = buscador.BuscarPorNome("a");
 
             int funcionariosEsperados = 10;
-
-            funcionarios = buscador.BuscarPorNome("a");
 
             Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
         }
