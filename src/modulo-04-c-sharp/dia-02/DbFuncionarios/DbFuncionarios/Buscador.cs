@@ -32,5 +32,17 @@ namespace DbFuncionarios
             return query.ToList();
         }
 
+        //Exercício C
+        public IList<dynamic> BuscaRapida()
+        {
+            var query = from funcionario in funcionarios
+                        select new
+                        {   
+                            Nome = funcionario.Nome,
+                            TituloCargo = funcionario.Cargo.Titulo
+                        };
+
+            return query.ToArray();
+        }
     }
 }

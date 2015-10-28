@@ -55,5 +55,40 @@ namespace DbFuncionariosTest
 
             Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
         }
+
+
+
+        /*
+        private T Cast<T>(Object obj, T tipo)
+        {
+            return (T)obj;
+        }
+
+        [TestMethod]
+        public void BuscadorRetornaNomeECargoDeTodosOsFuncionarios()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<dynamic> funcionarios = buscador.BuscaRapida();
+
+            string[] nomesEsperados = { "Lucas Leal", "Jean Pinzon", "Rafael Benetti",
+                                        "Maurício Borges", "Leandro Andreolli", "Felipe Nervo",
+                                        "Lucas Kauer", "Eduardo Arnold", "Gabriel Alboy",
+                                        "Carlos Henrique", "Margarete Ricardo"};
+
+            string[] cargosEsperados = { "Desenvolvedor", "Desenvolvedor", "Desenvolvedor",
+                                         "Desenvolvedor", "Desenvolvedor", "Desenvolvedor",
+                                         "Desenvolvedor", "Desenvolvedor", "Analista",
+                                         "Analista", "Gerente"};
+
+            for (int i = 0; i < funcionarios.Count; i++)
+            {
+                var funcionarioAtual = Cast(funcionarios[i], new { Nome = "", TituloCargo = "" });
+
+                Assert.AreEqual(funcionarioAtual.Nome, nomesEsperados[i]);
+                Assert.AreEqual(funcionarioAtual.TituloCargo, cargosEsperados[i]);
+            }
+        }
+        */
     }
 }
