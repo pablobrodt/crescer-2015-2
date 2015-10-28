@@ -52,5 +52,22 @@ namespace DbFuncionarios
 
             return query.ToList(); ;
         }
+
+        //Exercício E
+        public IList<dynamic> QtdFuncionariosPorTurno()
+        {
+            var manha = contarFuncionariosPorTurno(TurnoTrabalho.Manha);
+            var tarde = contarFuncionariosPorTurno(TurnoTrabalho.Tarde);
+            var noite = contarFuncionariosPorTurno(TurnoTrabalho.Noite);
+
+            dynamic[] retorno = { new { Manha = manha }, new { Tarde = tarde }, new { Noite = noite } };
+
+            return retorno;
+        }
+
+        private int contarFuncionariosPorTurno(TurnoTrabalho turno)
+        {
+            return funcionarios.Count(funcionario => funcionario.TurnoTrabalho == turno);
+        }
     }
 }
