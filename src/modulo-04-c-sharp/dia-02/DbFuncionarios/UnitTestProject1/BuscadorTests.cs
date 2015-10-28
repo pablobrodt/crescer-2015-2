@@ -92,6 +92,30 @@ namespace DbFuncionariosTest
             Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
         }
 
+        [TestMethod]
+        public void BuscadorRetornaDoisFuncionariosDoCargoAnalista()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios = buscador.BuscarPorCargo( new Cargo("Analista", 550.0) );
+
+            int funcionariosEsperados = 2;
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
+
+        [TestMethod]
+        public void BuscadorRetornaDoisFuncionariosDoCargoDesenvolvedor()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios = buscador.BuscarPorCargo(new Cargo("Desenvolvedor", 550.0));
+
+            int funcionariosEsperados = 8;
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
+
         /*
         private T Cast<T>(Object obj, T tipo)
         {

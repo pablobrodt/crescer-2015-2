@@ -69,5 +69,12 @@ namespace DbFuncionarios
         {
             return funcionarios.Count(funcionario => funcionario.TurnoTrabalho == turno);
         }
+
+        //Exercício F
+        public IList<Funcionario> BuscarPorCargo(Cargo cargo)
+        {
+            var query = funcionarios.Where(funcionario => funcionario.Cargo.Titulo == cargo.Titulo);
+            return query.ToList(); ;
+        }
     }
 }
