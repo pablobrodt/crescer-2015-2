@@ -44,5 +44,13 @@ namespace DbFuncionarios
 
             return query.ToArray();
         }
+
+        //Exercício D
+        public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
+        {   
+            var query = funcionarios.Where(funcionario => turnos.Any(turno => turno == funcionario.TurnoTrabalho));
+
+            return query.ToList(); ;
+        }
     }
 }

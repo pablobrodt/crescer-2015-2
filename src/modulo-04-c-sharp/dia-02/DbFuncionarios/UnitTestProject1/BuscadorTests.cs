@@ -56,7 +56,41 @@ namespace DbFuncionariosTest
             Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
         }
 
+        [TestMethod]
+        public void BuscadorRetornaCincoFuncionariosDoTurnoManha()
+        {
+            Buscador buscador = new Buscador();
 
+            IList<Funcionario> funcionarios = buscador.BuscarPorTurno(TurnoTrabalho.Manha);
+
+            int funcionariosEsperados = 5;
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
+
+        [TestMethod]
+        public void BuscadorRetornaNoveFuncionariosDosTurnosManhaETarde()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios = buscador.BuscarPorTurno(TurnoTrabalho.Manha, TurnoTrabalho.Tarde);
+
+            int funcionariosEsperados = 9;
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
+
+        [TestMethod]
+        public void BuscadorRetornaOnzeFuncionariosDosTurnosManhaTardeENoite()
+        {
+            Buscador buscador = new Buscador();
+
+            IList<Funcionario> funcionarios = buscador.BuscarPorTurno(TurnoTrabalho.Manha, TurnoTrabalho.Tarde, TurnoTrabalho.Noite);
+
+            int funcionariosEsperados = 11;
+
+            Assert.AreEqual(funcionarios.Count, funcionariosEsperados);
+        }
 
         /*
         private T Cast<T>(Object obj, T tipo)
