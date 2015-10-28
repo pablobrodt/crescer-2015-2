@@ -11,7 +11,7 @@ namespace DbFuncionariosTest
         [TestMethod]
         public void BuscadorBuscaTresFuncionariosOrdenadosPorCargo()
         {
-            Buscador buscador = new DbFuncionarios.Buscador();
+            Buscador buscador = new Buscador();
 
             IList<Funcionario> funcionarios;
 
