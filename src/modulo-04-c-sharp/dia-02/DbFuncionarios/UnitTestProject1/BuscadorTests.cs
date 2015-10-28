@@ -7,7 +7,7 @@ namespace DbFuncionariosTest
 {
     [TestClass]
     public class BuscadorTests
-    {
+    {   
         [TestMethod]
         public void BuscadorBuscaTresFuncionariosOrdenadosPorCargo()
         {

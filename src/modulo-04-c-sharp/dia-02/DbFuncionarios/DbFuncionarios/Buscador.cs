@@ -19,17 +19,18 @@ namespace DbFuncionarios
         //Exercício A
         public IList<Funcionario> OrdenadosPorCargo()
         {
-            var ordenados = this.funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo);
+            var query = this.funcionarios.OrderBy(funcionario => funcionario.Cargo.Titulo);
 
-            return ordenados.ToList();
+            return query.ToList();
         }
 
         //Exercício B
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            var resultado = funcionarios.Where(funcionario => funcionario.Nome.ToLower().Contains(nome.ToLower()));
+            var query = funcionarios.Where(funcionario => funcionario.Nome.ToLower().Contains(nome.ToLower()));
 
-            return resultado.ToList();
+            return query.ToList();
         }
+
     }
 }
