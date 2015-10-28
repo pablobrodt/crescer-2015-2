@@ -8,12 +8,11 @@ namespace DbFuncionarios
 {
     public class Buscador
     {
-        BaseDeDados baseDeDados;
         List<Funcionario> funcionarios;
 
         public Buscador()
         {
-            baseDeDados = new BaseDeDados();
+            BaseDeDados baseDeDados = new BaseDeDados();
             funcionarios = baseDeDados.Funcionarios;
         }
 
