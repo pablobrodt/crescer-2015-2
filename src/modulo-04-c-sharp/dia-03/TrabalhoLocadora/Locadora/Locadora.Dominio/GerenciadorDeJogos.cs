@@ -19,10 +19,35 @@ namespace Locadora.Dominio
             this.jogos = new List<Jogo>();
         }
 
-        public Jogo[] pesquisarPorNome(string nomeJogo)
+        public void inserirNovoJogo(string titulo, double preco, string categoria, bool disponibilidade)
         {
+            int id = obterUltimoId() + 1;
 
-            XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("jogo").Where(jogo => jogo.Element("nome").Value.Contains(nomeJogo)).ToArray();
+            var jogo = new Jogo(id, titulo, preco, categoria, disponibilidade);
+
+            XElement jogosDaBase = XElement.Load(BaseDeDados.Caminho);
+
+            jogosDaBase.Add(jogo.ToXElement());
+
+            jogosDaBase.Save(BaseDeDados.Caminho);
+        }
+
+        private int obterUltimoId()
+        {
+            int ultimoId;
+
+            try
+            {
+                ultimoId = XmlConvert.ToInt32(XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Attributes().Last().Value);
+            }
+            catch (InvalidOperationException e)
+            {
+                ultimoId = 0;
+            }
+            
+            return ultimoId;
+        }
+
         public Jogo[] pesquisarPorNome(string titulo)
         {
             XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
@@ -41,6 +66,5 @@ namespace Locadora.Dominio
             
             return this.jogos.ToArray();
         }
-
     }
 }
