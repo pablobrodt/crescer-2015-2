@@ -23,13 +23,16 @@ namespace Locadora.Dominio
         {
 
             XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("jogo").Where(jogo => jogo.Element("nome").Value.Contains(nomeJogo)).ToArray();
+        public Jogo[] pesquisarPorNome(string titulo)
+        {
+            XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
 
             foreach (XElement jogo in jogosPesquisados)
             {
-                string nome = jogo.Element("nome").Value;
-                double preco = XmlConvert.ToDouble(jogo.Element("preco").Value);
-                string categoria = jogo.Element("categoria").Value;
-                bool disponibilidade = true;
+                string nome = jogo.Element("Nome").Value;
+                double preco = XmlConvert.ToDouble(jogo.Element("Preco").Value);
+                string categoria = jogo.Element("Categoria").Value;
+                bool disponibilidade = XmlConvert.ToBoolean(jogo.Element("Disponibilidade").Value);
 
                 var objJogo = new Jogo(nome, preco, categoria, disponibilidade);
 
