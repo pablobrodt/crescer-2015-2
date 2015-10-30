@@ -9,19 +9,33 @@ namespace Locadora.Tests
     {
         [TestMethod]
         public void BuscaPorNomeChronoTriggerRetornaChronoTrigger()
-        {
+        {   
+            //Arrange
             GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+            Jogo jogoEsperado1 = new Jogo(1, "Chrono Trigger", 60, "RPG", true);
 
-            Jogo jogo = gerenciador.pesquisarPorNome("Chrono Trigger")[0];
+            //Act
+            Jogo jogoObtido = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
 
-            Assert.AreEqual(jogo.Nome, "Chrono Trigger");
-            Assert.AreEqual(jogo.Preco, 60);
-            Assert.AreEqual(jogo.Categoria, "RPG");
-
+            //Assert
+            Assert.AreEqual(jogoEsperado1, jogoObtido);
         }
 
         [TestMethod]
         public void BuscaPorNomeFinalRetornaFinalFantasyEFinalFight()
+        {   
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+            Jogo jogoEsperado1 = new Jogo(10 , "Final Fight", 12, "AVENTURA", true);
+            Jogo jogoEsperado2 = new Jogo(15, "Final Fantasy VI", 30.5, "RPG", true);
+
+            //Act
+            Jogo[] jogosObtidos = gerenciador.PesquisarPorNome("Final");
+
+            //Assert
+            Assert.AreEqual(jogoEsperado1, jogosObtidos[0]);
+            Assert.AreEqual(jogoEsperado2, jogosObtidos[1]);
+        }
         {
             GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
 
