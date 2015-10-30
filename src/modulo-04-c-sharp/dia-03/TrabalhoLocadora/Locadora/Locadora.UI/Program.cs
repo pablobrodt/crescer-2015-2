@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,11 @@ namespace Locadora.UI
     {
         static void Main(string[] args)
         {
+
+            GerenciadorDeJogos gj = new GerenciadorDeJogos();
+
+            //gj.inserirNovoJogo("testeComToXelement", 30, "AVENTURA", true);
+
         }
     }
 }
