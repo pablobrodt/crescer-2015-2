@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Locadora.Dominio
 {
-    class BaseDeDados
+    public class BaseDeDados
     {
         public static string Caminho = @"C:\locadora\game_store.xml";
     }
