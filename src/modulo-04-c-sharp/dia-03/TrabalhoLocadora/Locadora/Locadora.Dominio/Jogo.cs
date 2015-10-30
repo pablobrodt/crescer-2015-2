@@ -13,16 +13,16 @@ namespace Locadora.Dominio
         public int Id { get; }
         public string Nome { get; set; }
         public double Preco { get; set; }
-        public string Categoria { get; set; }
+        public Categoria Categoria { get; set; }
         public bool Disponibilidade { get; set; }
 
 
-        public Jogo(int id, string nome, double preco, string categoria, bool disponibilidade) : this(nome, preco, categoria, disponibilidade)
+        public Jogo(int id, string nome, double preco, Categoria categoria, bool disponibilidade) : this(nome, preco, categoria, disponibilidade)
         {
             this.Id = id;
         }
 
-        public Jogo(string nome, double preco, string categoria, bool disponibilidade)
+        public Jogo(string nome, double preco, Categoria categoria, bool disponibilidade)
         {
             this.Nome = nome;
             this.Preco = preco;
@@ -41,7 +41,7 @@ namespace Locadora.Dominio
 
             XElement preco = new XElement("Preco", this.Preco);
 
-            XElement categoria = new XElement("Categoria", this.Categoria);
+            XElement categoria = new XElement("Categoria", this.Categoria.ToString());
 
             XElement disponibilidade = new XElement("Disponibilidade", this.Disponibilidade);
 
