@@ -45,13 +45,27 @@ namespace Locadora.Dominio
 
             XElement disponibilidade = new XElement("Disponibilidade", this.Disponibilidade);
 
-            
             jogo.Add(nome);
             jogo.Add(preco);
             jogo.Add(categoria);
             jogo.Add(disponibilidade);
 
             return jogo;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            Jogo comparado = (Jogo)obj;
+
+            bool idIgual = (comparado.Id == this.Id);
+            bool nomeIgual = (comparado.Nome == this.Nome);
+            bool precoIgual = (comparado.Preco == this.Preco);
+            bool categoriaIgual = (comparado.Categoria == this.Categoria);
+            bool disponibilidadeIgual = (comparado.Disponibilidade == this.Disponibilidade);
+
+            bool resultado = (idIgual && nomeIgual && precoIgual && categoriaIgual && disponibilidadeIgual);
+
+            return resultado;
         }
 
     }
