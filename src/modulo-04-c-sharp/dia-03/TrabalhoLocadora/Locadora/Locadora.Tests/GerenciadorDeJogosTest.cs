@@ -53,18 +53,44 @@ namespace Locadora.Tests
             Assert.AreEqual(jogoEsperado1, jogosObtidos[0]);
             Assert.AreEqual(jogoEsperado2, jogosObtidos[1]);
         }
-        {
+
+        [TestMethod]
+        public void InsereJogoManeiro()
+        {   
+            //Arrange
             GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+            Jogo jogoEsperado = new Jogo(21,"Jogo Maneiro", 20.5, "AVENTURA", true);
 
-            Jogo[] jogo = gerenciador.pesquisarPorNome("Final");
+            //Act
+            gerenciador.InserirNovoJogo("Jogo Maneiro", 20.5, "AVENTURA", true);
+            Jogo jogoObtido = gerenciador.PesquisarPorNome("Jogo Maneiro")[0];
 
-            Assert.AreEqual("Final Fight", jogo[0].Nome);
-            Assert.AreEqual(12, jogo[0].Preco);
-            Assert.AreEqual("AVENTURA", jogo[0].Categoria);
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoObtido);
+        }
 
-            Assert.AreEqual("Final Fantasy VI", jogo[1].Nome);
-            Assert.AreEqual(30.5, jogo[1].Preco);
-            Assert.AreEqual("RPG", jogo[1].Categoria);
+        [TestMethod]
+        public void InsereTresJogosManeiros()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+            Jogo jogoEsperado1 = new Jogo(21, "Jogo Maneiro 1", 20.5, "AVENTURA", true);
+            Jogo jogoEsperado2 = new Jogo(22, "Jogo Maneiro 2", 99.9, "AVENTURA", true);
+            Jogo jogoEsperado3 = new Jogo(23, "Jogo Maneiro 3", 50, "AVENTURA", true);
+
+            //Act
+            gerenciador.InserirNovoJogo("Jogo Maneiro 1", 20.5, "AVENTURA", true);
+            gerenciador.InserirNovoJogo("Jogo Maneiro 2", 99.9, "AVENTURA", true);
+            gerenciador.InserirNovoJogo("Jogo Maneiro 3", 50, "AVENTURA", true);
+
+            Jogo jogoObtido1 = gerenciador.PesquisarPorNome("Jogo Maneiro 1")[0];
+            Jogo jogoObtido2 = gerenciador.PesquisarPorNome("Jogo Maneiro 2")[1];
+            Jogo jogoObtido3 = gerenciador.PesquisarPorNome("Jogo Maneiro 3")[2];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado1, jogoObtido1);
+            Assert.AreEqual(jogoEsperado2, jogoObtido2);
+            Assert.AreEqual(jogoEsperado3, jogoObtido3);
         }
     }
 }
