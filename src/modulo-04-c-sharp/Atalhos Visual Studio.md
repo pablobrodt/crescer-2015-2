@@ -24,4 +24,3 @@
 - `cw + TAB + TAB` (Code Snippet) `Console.WriteLine();`
 - `CTRL + SHIFT+ U` Coloca o texto selecionado em Upper Case
 - `CTRL + U` Coloca o texto selecionado em Lower Case
-- 
