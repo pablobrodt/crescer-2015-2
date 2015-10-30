@@ -73,5 +73,48 @@ namespace Locadora.Dominio
             return this.jogos.ToArray();
         }
 
+        public void AlterarJogo(int id)
+        {
+            this.jogoASerAlterado = jogos.FirstOrDefault(jogo => jogo.Id == id);
+        }
+        
+        public void AlterarNomeJogo(string nome)
+        {
+            this.jogoASerAlterado.Nome = nome;
+        }
+
+        public void AlterarPrecoJogo(double preco)
+        {
+            this.jogoASerAlterado.Preco = preco;
+        }
+
+        public void AlterarCategoria(Categoria categoria)
+        {
+            this.jogoASerAlterado.Categoria = categoria;
+        }
+
+        public void AlternarDisponibilidade()
+        {
+            this.jogoASerAlterado.Disponibilidade = !this.jogoASerAlterado.Disponibilidade;
+        }
+
+        public void PersistirAlteracoes()
+        {
+            XElement todoOArquivoXml = XElement.Load(BaseDeDados.Caminho);
+
+            foreach (Jogo jogo in jogos)
+            {
+                XElement elementojogo = todoOArquivoXml.Elements("Jogo").FirstOrDefault(elemento => XmlConvert.ToInt32(elemento.Attribute("id").Value) == jogo.Id);
+
+                elementojogo.SetElementValue("Nome", jogo.Nome);
+                elementojogo.SetElementValue("Preco", jogo.Preco);
+                elementojogo.SetElementValue("Categoria", jogo.Categoria.ToString());
+                elementojogo.SetElementValue("Disponibilidade", jogo.Disponibilidade);
+            }
+
+            todoOArquivoXml.Save(BaseDeDados.Caminho);
+
+            this.jogos = new List<Jogo>();
+        }
     }
 }

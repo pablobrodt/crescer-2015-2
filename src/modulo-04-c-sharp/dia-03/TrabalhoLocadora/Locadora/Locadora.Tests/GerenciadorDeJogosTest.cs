@@ -92,5 +92,210 @@ namespace Locadora.Tests
             Assert.AreEqual(jogoEsperado2, jogoObtido2);
             Assert.AreEqual(jogoEsperado3, jogoObtido3);
         }
+
+        [TestMethod]
+        public void AlternaDisponibilidadeParaFalse()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoAntesDeAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+
+            gerenciador.AlterarJogo(jogoAntesDeAlterado.Id);
+            
+            bool disponibilidadeEsperada = false;
+
+            //Act
+            gerenciador.AlternarDisponibilidade();
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+
+            //Assert
+            Assert.AreEqual(disponibilidadeEsperada, jogoAlterado.Disponibilidade);
+        }
+
+        [TestMethod]
+        public void AlternaDisponibilidadeParaTrue()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoAntesDeAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+
+            gerenciador.AlterarJogo(jogoAntesDeAlterado.Id);
+
+            gerenciador.AlternarDisponibilidade();
+
+            bool disponibilidadeEsperada = true;
+
+            //Act
+            gerenciador.AlternarDisponibilidade();
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+
+            //Assert
+            Assert.AreEqual(disponibilidadeEsperada, jogoAlterado.Disponibilidade);
+        }
+
+        [TestMethod]
+        public void AlteraNomeFinalFantasyVIParaFantasiaFinalSeis()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado = new Jogo(15, "Fantasia Final Seis", 30.5, Categoria.Rpg, true);
+
+            Jogo finalFantasy = gerenciador.PesquisarPorNome("Final Fantasy VI")[0];
+
+            gerenciador.AlterarJogo(finalFantasy.Id);
+
+            //Act
+            gerenciador.AlterarNomeJogo("Fantasia Final Seis");
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Fantasia Final Seis")[0];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
+        }
+
+        [TestMethod]
+        public void AlteraPrecoSunsetRidersPara1000()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado = new Jogo(18, "Sunset Riders", 1000, Categoria.Aventura, true);
+
+            Jogo sunsetRiders = gerenciador.PesquisarPorNome("Sunset Riders")[0];
+
+            gerenciador.AlterarJogo(sunsetRiders.Id);
+
+            //Act
+            gerenciador.AlterarPrecoJogo(1000);
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Sunset Riders")[0];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
+        }
+
+        [TestMethod]
+        public void AlteraCategoriaDeTopGearParaEsporte()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado = new Jogo(2, "Top Gear", 20, Categoria.Esporte, true);
+
+            Jogo topGear = gerenciador.PesquisarPorNome("Top Gear")[0];
+
+            gerenciador.AlterarJogo(topGear.Id);
+
+            //Act
+            gerenciador.AlterarCategoria(Categoria.Esporte);
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Top Gear")[0];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
+        }
+
+        [TestMethod]
+        public void AlteraDisponibilidadeDeMegamanXParaFalse()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado = new Jogo(3, "Megaman X", 40, Categoria.Aventura, false);
+
+            Jogo megamanX = gerenciador.PesquisarPorNome("Megaman X")[0];
+
+            gerenciador.AlterarJogo(megamanX.Id);
+
+            //Act
+            gerenciador.AlternarDisponibilidade();
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Megaman X")[0];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
+        }
+
+        [TestMethod]
+        public void AlteraJogoContraIIIParaJogoLokoComPreco90CategoriaEsporteEDisponibilidadeFalse()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado = new Jogo(17, "Jogo Loko", 90, Categoria.Esporte, false);
+
+            Jogo contraIII = gerenciador.PesquisarPorNome("Contra III")[0];
+
+            gerenciador.AlterarJogo(contraIII.Id);
+
+            //Act
+            gerenciador.AlterarNomeJogo("Jogo Loko");
+
+            gerenciador.AlterarPrecoJogo(90);
+
+            gerenciador.AlterarCategoria(Categoria.Esporte);
+
+            gerenciador.AlternarDisponibilidade();
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Jogo Loko")[0];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
+        }
+
+        [TestMethod]
+        public void AlteraMarioKartEMarioRpgParaMarioCorridaMarioLokoPreco1001EPreco1002CategoriaAventuraECategoriaEsporteEDisponibilidadeFalse()
+        {
+            //Arrange
+            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+
+            Jogo jogoEsperado1 = new Jogo(6, "Mario Corrida", 1001, Categoria.Aventura, false);
+            Jogo jogoEsperado2 = new Jogo(11, "Mario Loko", 1002, Categoria.Esporte, false);
+
+            Jogo[] marios = gerenciador.PesquisarPorNome("Mario");
+            Jogo marioKart = marios[0];
+            Jogo marioRpg = marios[1];
+
+            //Act
+            gerenciador.AlterarJogo(marioKart.Id);
+            gerenciador.AlterarNomeJogo("Mario Corrida");
+            gerenciador.AlterarPrecoJogo(1001);
+            gerenciador.AlterarCategoria(Categoria.Aventura);
+            gerenciador.AlternarDisponibilidade();
+
+            gerenciador.AlterarJogo(marioRpg.Id);
+            gerenciador.AlterarNomeJogo("Mario Loko");
+            gerenciador.AlterarPrecoJogo(1002);
+            gerenciador.AlterarCategoria(Categoria.Esporte);
+            gerenciador.AlternarDisponibilidade();
+
+            gerenciador.PersistirAlteracoes();
+
+            Jogo[] jogosAlterados = gerenciador.PesquisarPorNome("Mario");
+
+            Jogo jogoObtido1 = jogosAlterados[0];
+            Jogo jogoObtido2 = jogosAlterados[1];
+
+            //Assert
+            Assert.AreEqual(jogoEsperado1, jogoObtido1);
+            Assert.AreEqual(jogoEsperado2, jogoObtido2);
+        }
     }
 }
