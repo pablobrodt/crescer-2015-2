@@ -13,15 +13,16 @@ namespace Locadora.Dominio
     public class GerenciadorDeJogos
     {
         public List<Jogo> jogos = new List<Jogo>();
+        Jogo jogoASerAlterado;
 
         public GerenciadorDeJogos()
         {
             this.jogos = new List<Jogo>();
         }
 
-        public void inserirNovoJogo(string titulo, double preco, string categoria, bool disponibilidade)
+        public void InserirNovoJogo(string titulo, double preco, Categoria categoria, bool disponibilidade)
         {
-            int id = obterUltimoId() + 1;
+            int id = ObterUltimoId() + 1;
 
             var jogo = new Jogo(id, titulo, preco, categoria, disponibilidade);
 
@@ -32,7 +33,7 @@ namespace Locadora.Dominio
             jogosDaBase.Save(BaseDeDados.Caminho);
         }
 
-        private int obterUltimoId()
+        private int ObterUltimoId()
         {
             int ultimoId;
 
@@ -40,7 +41,7 @@ namespace Locadora.Dominio
             {
                 ultimoId = XmlConvert.ToInt32(XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Attributes().Last().Value);
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 ultimoId = 0;
             }
@@ -48,23 +49,29 @@ namespace Locadora.Dominio
             return ultimoId;
         }
 
-        public Jogo[] pesquisarPorNome(string titulo)
-        {
+        public Jogo[] PesquisarPorNome(string titulo)
+        { 
             XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
 
             foreach (XElement jogo in jogosPesquisados)
             {
+                int id = XmlConvert.ToInt32(jogo.Attribute("id").Value);
+
                 string nome = jogo.Element("Nome").Value;
+
                 double preco = XmlConvert.ToDouble(jogo.Element("Preco").Value);
-                string categoria = jogo.Element("Categoria").Value;
+
+                Categoria categoria = (Categoria)Enum.Parse(typeof(Categoria), jogo.Element("Categoria").Value, true);
+
                 bool disponibilidade = XmlConvert.ToBoolean(jogo.Element("Disponibilidade").Value);
 
-                var objJogo = new Jogo(nome, preco, categoria, disponibilidade);
+                var objJogo = new Jogo(id, nome, preco, categoria, disponibilidade);
 
                 jogos.Add(objJogo);
             }
             
             return this.jogos.ToArray();
         }
+
     }
 }
