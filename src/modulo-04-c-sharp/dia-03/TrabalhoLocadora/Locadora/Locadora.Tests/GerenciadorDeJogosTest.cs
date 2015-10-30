@@ -1,12 +1,29 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Locadora.Dominio;
+using System.Xml.Linq;
 
 namespace Locadora.Tests
 {
     [TestClass]
     public class GerenciadorDeJogosTest
     {
+        XElement baseTesteOriginal;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            BaseDeDados.Caminho = @"C:\locadora\tests\testsdb.xml";
+            baseTesteOriginal = XElement.Load(BaseDeDados.Caminho);
+        }
+
+        [TestCleanup]
+        public void TearDown()
+        {
+            baseTesteOriginal.Save(BaseDeDados.Caminho);
+            BaseDeDados.Caminho = @"C:\locadora\game_store.xml";
+        }
+
         [TestMethod]
         public void BuscaPorNomeChronoTriggerRetornaChronoTrigger()
         {   
