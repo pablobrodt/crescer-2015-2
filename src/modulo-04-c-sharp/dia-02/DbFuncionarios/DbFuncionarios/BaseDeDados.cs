@@ -91,7 +91,7 @@ namespace DbFuncionarios
 
         public dynamic FuncionarioMaisComplexo()
         {
-            int tamanhoMaiorNomeComConsoantes = this.Funcionarios.Max(f => Regex.Replace(f.Nome.ToUpper(), "AEIOU", "").Length);
+            int tamanhoMaiorNomeComConsoantes = this.Funcionarios.Max(f => Regex.Replace(f.Nome, "aouieyAOUIEY", "").Length);
             CultureInfo ptCulture = new CultureInfo("pt-BR");
             CultureInfo entCulture = new CultureInfo("en-US");
 
