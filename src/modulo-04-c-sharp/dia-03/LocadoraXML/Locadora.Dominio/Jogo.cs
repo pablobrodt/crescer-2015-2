@@ -48,5 +48,20 @@ namespace Locadora.Dominio
 
             return builder.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj.GetType() == typeof(Jogo))
+            {
+                Jogo jogoComp = (Jogo)obj;
+
+                return this.Id == jogoComp.Id
+                    && this.Nome == jogoComp.Nome
+                    && this.Preco == jogoComp.Preco
+                    && this.Categoria == jogoComp.Categoria;
+            }
+
+            return false;
+        }
     }
 }

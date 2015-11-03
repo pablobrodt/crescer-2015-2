@@ -7,7 +7,17 @@ namespace Locadora.Dominio
 {
     public class BaseDeDados
     {
-        private const string CAMINHO_XML = @"C:\Temp\game_store.xml";
+        private string caminhoDbXML = "game_store.xml";
+
+        public BaseDeDados()
+        {
+
+        }
+
+        public BaseDeDados(string caminhoDbXml)
+        {
+            this.caminhoDbXML = caminhoDbXml;
+        }
 
         public IList<Jogo> BuscarTodos()
         {
@@ -119,12 +129,12 @@ namespace Locadora.Dominio
 
         private XElement CarregarBaseXML()
         {
-            return XElement.Load(CAMINHO_XML);
+            return XElement.Load(this.caminhoDbXML);
         }
 
         private void SalvarNaBaseXML(XElement xml)
         {
-            xml.Save(CAMINHO_XML);
+            xml.Save(this.caminhoDbXML);
         }
     }
 }

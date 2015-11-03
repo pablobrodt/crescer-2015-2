@@ -26,9 +26,16 @@ namespace Locadora.UI
 
         protected override void Iniciar()
         {
-            MostrarMenu();
-            int menuEscolhido = EscolherMenu();
-            AbrirMenu(menuEscolhido);
+            try
+            {
+                MostrarMenu();
+                int menuEscolhido = EscolherMenu();
+                AbrirMenu(menuEscolhido);
+            }
+            catch (Exception)
+            {
+                ImprimirErro("Ocorreu um erro não tratado. Por favor, contate o administrador.");
+            }
         }
 
         private int EscolherMenu()
