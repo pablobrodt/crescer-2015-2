@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio.Repositorio;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -6,10 +7,9 @@ namespace Locadora.Dominio
 {
     public class Relatorio
     {
-        public void Gerar(string caminhoPastaRelatorio)
+        public void Gerar(string caminhoPastaRelatorio, IJogoRepositorio jogoRepositorio)
         {
-            var db = new BaseDeDados();
-            IList<Jogo> todosOsJogos = db.BuscarTodos();
+            IList<Jogo> todosOsJogos = jogoRepositorio.BuscarTodos();
 
             string caminhoRelatorio = Path.Combine(caminhoPastaRelatorio, "relatorio_jogos.txt");
 

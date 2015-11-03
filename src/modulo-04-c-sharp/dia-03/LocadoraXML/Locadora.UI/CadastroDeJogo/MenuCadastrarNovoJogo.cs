@@ -1,4 +1,5 @@
 ﻿using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 
 namespace Locadora.UI.CadastroDeJogo
 {
@@ -22,8 +23,7 @@ namespace Locadora.UI.CadastroDeJogo
 
         protected override void SalvarJogo(Jogo jogo)
         {
-            var db = new BaseDeDados();
-            db.CadastrarNovoJogo(jogo);
+            JogoRepositorio.Criar(jogo);
 
             ImprimirMensagem("Jogo cadastrado com sucesso.");
         }

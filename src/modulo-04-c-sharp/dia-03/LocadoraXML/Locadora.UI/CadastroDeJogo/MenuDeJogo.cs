@@ -17,7 +17,7 @@ namespace Locadora.UI.CadastroDeJogo
         {
             Console.WriteLine("Insira os dados do jogo:");
             string nome = LerNome();
-            double preco = LerPreco();
+            decimal preco = LerPreco();
             Categoria categoria = LerCaregoria();
 
             jogo.Nome = nome;
@@ -27,14 +27,14 @@ namespace Locadora.UI.CadastroDeJogo
 
         protected abstract void SalvarJogo(Jogo jogo);
 
-        private double LerPreco()
+        private decimal LerPreco()
         {
             while (true)
             {
                 string preco = LerDados("Preço");
-                double precoConvertido = 0;
+                decimal precoConvertido = 0;
 
-                if (double.TryParse(preco, out precoConvertido))
+                if (decimal.TryParse(preco, out precoConvertido))
                 {
                     return precoConvertido;
                 }

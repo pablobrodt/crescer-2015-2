@@ -1,4 +1,5 @@
 ﻿using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 using Locadora.UI.CadastroDeJogo;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,8 @@ namespace Locadora.UI
         protected override void Iniciar()
         {
             string nome = LerNomeParaPesquisa();
-
-            var db = new BaseDeDados();
-            jogosEncontrados = db.BuscarPorNome(nome);
+            
+            jogosEncontrados = this.JogoRepositorio.BuscarPorNome(nome);
 
             Console.WriteLine("ID   JOGO");
             Console.WriteLine("---- -------------------------------");
@@ -79,8 +79,7 @@ namespace Locadora.UI
                 {
                     if (idJogo > 0)
                     {
-                        var db = new BaseDeDados();
-                        Jogo jogoParaEditar = db.BuscarPorId(idJogo);
+                        Jogo jogoParaEditar = JogoRepositorio.BuscarPorId(idJogo);
 
                         if(jogoParaEditar != null)
                         {
@@ -104,10 +103,9 @@ namespace Locadora.UI
                 {
                     if (idJogo > 0)
                     {
-                        var db = new BaseDeDados();
-                        if (db.BuscarPorId(idJogo) != null)
+                        if (JogoRepositorio.BuscarPorId(idJogo) != null)
                         {
-                            db.ExcluirJogo(idJogo);
+                            JogoRepositorio.Excluir(idJogo);
                             ImprimirMensagem("Jogo excluído com sucesso.");
                             return;
                         }

@@ -6,14 +6,18 @@ namespace Locadora.UI
 {
     class MenuPrincipal : TelaBase
     {
+        private const int MENU_CADASTRAR_NOVO_JOGO = 1;
+        private const int MENU_PESQUISAR_JOGO = 2;
+        private const int MENU_IMPRIMIR_RELATORIO = 3;
+
         private Dictionary<int, string> menus;
 
         public MenuPrincipal()
         {
             menus = new Dictionary<int, string>();
-            menus.Add(1, "Cadastrar Novo Jogo");
-            menus.Add(2, "Pesquisar Jogo");
-            menus.Add(3, "Imprimir Relatório");
+            menus.Add(MENU_CADASTRAR_NOVO_JOGO, "Cadastrar Novo Jogo");
+            menus.Add(MENU_PESQUISAR_JOGO, "Pesquisar Jogo");
+            menus.Add(MENU_IMPRIMIR_RELATORIO, "Imprimir Relatório");
         }
 
         public override string Titulo
@@ -32,7 +36,7 @@ namespace Locadora.UI
                 int menuEscolhido = EscolherMenu();
                 AbrirMenu(menuEscolhido);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ImprimirErro("Ocorreu um erro não tratado. Por favor, contate o administrador.");
             }
@@ -70,13 +74,13 @@ namespace Locadora.UI
         {
             switch (menuEscolhido)
             {
-                case 1:
+                case MENU_CADASTRAR_NOVO_JOGO:
                     new MenuCadastrarNovoJogo().Exibir();
                     break;
-                case 2:
+                case MENU_PESQUISAR_JOGO:
                     new MenuPesquisarJogo().Exibir();
                     break;
-                case 3:
+                case MENU_IMPRIMIR_RELATORIO:
                     new MenuRelatorio().Exibir();
                     break;
                 default:

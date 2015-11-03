@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio.Repositorio;
+using System;
 using System.Threading;
 
 namespace Locadora.UI
@@ -8,6 +9,20 @@ namespace Locadora.UI
         private const int TEMPO_MENSAGEM = 3000;
 
         public abstract string Titulo { get; }
+
+        private IJogoRepositorio jogoRepositorio = null;
+        protected IJogoRepositorio JogoRepositorio
+        {
+            get
+            {
+                if(jogoRepositorio == null)
+                {
+                    jogoRepositorio = new Locadora.Repositorio.XML.JogoRepositorio();
+                }
+
+                return jogoRepositorio;
+            }
+        }
 
         protected void ImprimirMensagem(string mensagem)
         {

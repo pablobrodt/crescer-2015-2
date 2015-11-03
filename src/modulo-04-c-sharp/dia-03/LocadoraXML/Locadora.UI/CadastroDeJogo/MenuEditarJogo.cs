@@ -1,5 +1,6 @@
 ﻿using System;
 using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 
 namespace Locadora.UI.CadastroDeJogo
 {
@@ -31,8 +32,8 @@ namespace Locadora.UI.CadastroDeJogo
 
         protected override void SalvarJogo(Jogo jogo)
         {
-            var db = new BaseDeDados();
-            db.AtualizarJogo(jogo);
+            IJogoRepositorio jogoRepositorio = JogoRepositorio;
+            jogoRepositorio.Atualizar(jogo);
 
             ImprimirMensagem("Jogo salvo com sucesso.");
         }

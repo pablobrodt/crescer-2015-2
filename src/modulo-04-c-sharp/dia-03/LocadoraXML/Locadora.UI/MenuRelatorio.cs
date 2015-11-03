@@ -47,7 +47,7 @@ namespace Locadora.UI
                 Directory.CreateDirectory(caminhoPastaRelatorio);
             }
 
-            new Relatorio().Gerar(caminhoPastaRelatorio);
+            new Relatorio().Gerar(caminhoPastaRelatorio, JogoRepositorio);
         }
         
     }
