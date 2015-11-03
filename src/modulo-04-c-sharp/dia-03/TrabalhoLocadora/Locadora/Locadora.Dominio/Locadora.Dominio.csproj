@@ -49,6 +49,7 @@
     <Compile Include="Relatorio.cs" />
     <Compile Include="RelatorioDeJogos.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Doc\extrato.txt" />
