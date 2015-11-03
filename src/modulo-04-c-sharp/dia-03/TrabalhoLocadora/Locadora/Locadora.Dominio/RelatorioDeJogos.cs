@@ -82,20 +82,24 @@ namespace Locadora.Dominio
 
             foreach (Jogo jogo in jogos)
             {
-                int idLenght = jogo.Id.ToString().Length;
+                int idLength = jogo.Id.ToString().Length;
                 int categoriaLength = jogo.Categoria.ToString().Length;
                 int nomeLength = TruncString(jogo.Nome).Length;
                 int precoLength = jogo.Preco.ToString().Length;
                 int disponibilidadeLength = BoolToString(jogo.Disponibilidade).Length;
 
                 texto.Append(jogo.Id);
-                texto.AddSpaces(CalcularEspacos(9, idLenght));
+                texto.AddSpaces(CalcularEspacos(9, idLength));
+
                 texto.Append(jogo.Categoria.ToString());
                 texto.AddSpaces(CalcularEspacos(17, categoriaLength));
+
                 texto.Append(TruncString(jogo.Nome));
                 texto.AddSpaces(CalcularEspacos(30, nomeLength));
+
                 texto.Append("R$ " + jogo.Preco.ToString());
                 texto.AddSpaces(CalcularEspacos(18, precoLength));
+
                 texto.Append(BoolToString(jogo.Disponibilidade));
 
                 texto.BreakLine();
@@ -104,10 +108,45 @@ namespace Locadora.Dominio
 
         private void gerarEstatisticas()
         {
+            texto.AddHorizontalSeparator(80, "-");
+
+            texto.BreakLine();
+
+            int disponiveis = 0;
+            double somaPrecos = 0;
+
             foreach (Jogo jogo in jogos)
             {
-
+                disponiveis = jogo.Disponibilidade ? disponiveis + 1 : disponiveis;
+                somaPrecos += jogo.Preco; 
             }
+
+            string totalJogos = "Quantidade total de jogos: " + this.jogos.Count;
+
+            string jogosDisponiveis = "Quantidade de jogos disponiveis: " + disponiveis;
+
+            string mediaPrecos = "Valor médio por jogo: " + somaPrecos / this.jogos.Count;
+
+            double valorMaisAlto = this.jogos.Max(jogo => jogo.Preco);
+            string jogoMaisCaro = "Jogo mais caro: " + this.jogos.FirstOrDefault(jogo => jogo.Preco == valorMaisAlto).Nome;
+
+            double valorMaisBaixo = this.jogos.Min(jogo => jogo.Preco);
+            string jogoMaisBarato = "Jogo mais barato: " + this.jogos.FirstOrDefault(jogo => jogo.Preco == valorMaisBaixo).Nome; ;
+
+            texto.Append(totalJogos);
+            texto.BreakLine();
+
+            texto.Append(jogosDisponiveis);
+            texto.BreakLine();
+
+            texto.Append(mediaPrecos);
+            texto.BreakLine();
+
+            texto.Append(jogoMaisCaro);
+            texto.BreakLine();
+
+            texto.Append(jogoMaisBarato);
+            texto.BreakLine();
         }
         
         private void gerarRodape()
