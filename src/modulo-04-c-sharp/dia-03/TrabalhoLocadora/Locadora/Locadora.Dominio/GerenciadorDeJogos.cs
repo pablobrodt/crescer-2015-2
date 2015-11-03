@@ -12,25 +12,29 @@ namespace Locadora.Dominio
 {
     public class GerenciadorDeJogos
     {
-        public List<Jogo> jogos = new List<Jogo>();
-        Jogo jogoASerAlterado;
+        XElement dadosDoArquivoXml;
 
-        public GerenciadorDeJogos()
+        private void CarregarDadosDoXml()
         {
-            this.jogos = new List<Jogo>();
+            dadosDoArquivoXml = XElement.Load(BaseDeDados.Caminho);
+        }
+
+        private void SalvarXml()
+        {
+            dadosDoArquivoXml.Save(BaseDeDados.Caminho);
         }
 
         public void InserirNovoJogo(string titulo, double preco, Categoria categoria, bool disponibilidade)
         {
+            CarregarDadosDoXml();
+
             int id = ObterUltimoId() + 1;
 
             var jogo = new Jogo(id, titulo, preco, categoria, disponibilidade);
 
-            XElement jogosDaBase = XElement.Load(BaseDeDados.Caminho);
+            dadosDoArquivoXml.Add(Util.ConverterJogoParaXElement(jogo));
 
-            jogosDaBase.Add(jogo.ToXElement());
-
-            jogosDaBase.Save(BaseDeDados.Caminho);
+            SalvarXml();
         }
 
         private int ObterUltimoId()
@@ -39,7 +43,7 @@ namespace Locadora.Dominio
 
             try
             {
-                ultimoId = XmlConvert.ToInt32(XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Attributes().Last().Value);
+                ultimoId = XmlConvert.ToInt32(dadosDoArquivoXml.Elements("Jogo").Attributes().Last().Value);
             }
             catch (InvalidOperationException)
             {
@@ -50,71 +54,35 @@ namespace Locadora.Dominio
         }
 
         public Jogo[] PesquisarPorNome(string titulo)
-        { 
-            XElement[] jogosPesquisados = XElement.Load(BaseDeDados.Caminho).Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
+        {
+            List<Jogo> jogos = new List<Jogo>();
 
-            foreach (XElement jogo in jogosPesquisados)
+            CarregarDadosDoXml();
+
+            XElement[] jogosPesquisados = dadosDoArquivoXml.Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
+
+            foreach (XElement xmlJogo in jogosPesquisados)
             {
-                int id = XmlConvert.ToInt32(jogo.Attribute("id").Value);
+                Jogo jogo = Util.ConverterXElementParaJogo(xmlJogo);
 
-                string nome = jogo.Element("Nome").Value;
-
-                double preco = XmlConvert.ToDouble(jogo.Element("Preco").Value);
-
-                Categoria categoria = (Categoria)Enum.Parse(typeof(Categoria), jogo.Element("Categoria").Value, true);
-
-                bool disponibilidade = XmlConvert.ToBoolean(jogo.Element("Disponibilidade").Value);
-
-                var objJogo = new Jogo(id, nome, preco, categoria, disponibilidade);
-
-                jogos.Add(objJogo);
+                jogos.Add(jogo);
             }
             
-            return this.jogos.ToArray();
+            return jogos.ToArray();
         }
 
-        public void AlterarJogo(int id)
+        public void AlterarJogo(Jogo jogo)
         {
-            this.jogoASerAlterado = jogos.FirstOrDefault(jogo => jogo.Id == id);
-        }
-        
-        public void AlterarNomeJogo(string nome)
-        {
-            this.jogoASerAlterado.Nome = nome;
-        }
+            CarregarDadosDoXml();
 
-        public void AlterarPrecoJogo(double preco)
-        {
-            this.jogoASerAlterado.Preco = preco;
-        }
+            XElement jogoXml = dadosDoArquivoXml.Elements("Jogo").FirstOrDefault(j => XmlConvert.ToInt32(j.Attribute("id").Value) == jogo.Id);
 
-        public void AlterarCategoria(Categoria categoria)
-        {
-            this.jogoASerAlterado.Categoria = categoria;
-        }
+            jogoXml.Element("Nome").SetValue(jogo.Nome);
+            jogoXml.Element("Preco").SetValue(jogo.Preco);
+            jogoXml.Element("Categoria").SetValue(jogo.Categoria.ToString());
+            jogoXml.Element("Disponibilidade").SetValue(Convert.ToBoolean(jogo.Disponibilidade));
 
-        public void AlternarDisponibilidade()
-        {
-            this.jogoASerAlterado.Disponibilidade = !this.jogoASerAlterado.Disponibilidade;
-        }
-
-        public void PersistirAlteracoes()
-        {
-            XElement todoOArquivoXml = XElement.Load(BaseDeDados.Caminho);
-
-            foreach (Jogo jogo in jogos)
-            {
-                XElement elementojogo = todoOArquivoXml.Elements("Jogo").FirstOrDefault(elemento => XmlConvert.ToInt32(elemento.Attribute("id").Value) == jogo.Id);
-
-                elementojogo.SetElementValue("Nome", jogo.Nome);
-                elementojogo.SetElementValue("Preco", jogo.Preco);
-                elementojogo.SetElementValue("Categoria", jogo.Categoria.ToString());
-                elementojogo.SetElementValue("Disponibilidade", jogo.Disponibilidade);
-            }
-
-            todoOArquivoXml.Save(BaseDeDados.Caminho);
-
-            this.jogos = new List<Jogo>();
+            SalvarXml();
         }
     }
 }
