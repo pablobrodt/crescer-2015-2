@@ -79,5 +79,39 @@ namespace Locadora.Test
 
             Assert.AreEqual(novoJogo, jogoSalvo);
         }
+
+        [TestMethod]
+        public void ExcluirJogoComSucesso()
+        {
+            var db = new BaseDeDados(CAMINHO_DB_XML);
+            db.ExcluirJogo(1);
+
+            Assert.AreEqual(19, db.BuscarTodos().Count);
+        }
+
+        [TestMethod]
+        public void AtualizarJogoComSucesso()
+        {
+            var db = new BaseDeDados(CAMINHO_DB_XML);
+
+            string novoNome = "Goof Troop Ultimate";
+
+            Jogo jogo = db.BuscarPorId(1);
+            jogo.Nome = novoNome;
+
+            db.AtualizarJogo(jogo);
+
+            Jogo jogoAtualizado = db.BuscarPorId(1);
+
+            Assert.AreEqual(novoNome, jogoAtualizado.Nome);
+        }
+
+        [TestMethod]
+        public void BuscarTodosRetorna20Registros()
+        {
+            var db = new BaseDeDados(CAMINHO_DB_XML);
+
+            Assert.AreEqual(20, db.BuscarTodos().Count);
+        }
     }
 }
