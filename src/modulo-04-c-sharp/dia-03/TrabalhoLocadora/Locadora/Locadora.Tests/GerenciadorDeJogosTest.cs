@@ -84,8 +84,8 @@ namespace Locadora.Tests
             gerenciador.InserirNovoJogo("Jogo Maneiro 3", 50, Categoria.Aventura, true);
 
             Jogo jogoObtido1 = gerenciador.PesquisarPorNome("Jogo Maneiro 1")[0];
-            Jogo jogoObtido2 = gerenciador.PesquisarPorNome("Jogo Maneiro 2")[1];
-            Jogo jogoObtido3 = gerenciador.PesquisarPorNome("Jogo Maneiro 3")[2];
+            Jogo jogoObtido2 = gerenciador.PesquisarPorNome("Jogo Maneiro 2")[0];
+            Jogo jogoObtido3 = gerenciador.PesquisarPorNome("Jogo Maneiro 3")[0];
 
             //Assert
             Assert.AreEqual(jogoEsperado1, jogoObtido1);
@@ -99,20 +99,17 @@ namespace Locadora.Tests
             //Arrange
             GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
 
-            Jogo jogoAntesDeAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
-
-            gerenciador.AlterarJogo(jogoAntesDeAlterado.Id);
-            
-            bool disponibilidadeEsperada = false;
+            Jogo jogo = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
 
             //Act
-            gerenciador.AlternarDisponibilidade();
-            gerenciador.PersistirAlteracoes();
+            jogo.Disponibilidade = false;
 
-            Jogo jogoAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+            gerenciador.AlterarJogo(jogo);
+
+            Jogo jogoEsperado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
 
             //Assert
-            Assert.AreEqual(disponibilidadeEsperada, jogoAlterado.Disponibilidade);
+            Assert.AreEqual(jogo, jogoEsperado);
         }
 
         [TestMethod]
@@ -121,22 +118,21 @@ namespace Locadora.Tests
             //Arrange
             GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
 
-            Jogo jogoAntesDeAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+            Jogo jogo = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
 
-            gerenciador.AlterarJogo(jogoAntesDeAlterado.Id);
+            jogo.Disponibilidade = false;
 
-            gerenciador.AlternarDisponibilidade();
-
-            bool disponibilidadeEsperada = true;
+            gerenciador.AlterarJogo(jogo);
 
             //Act
-            gerenciador.AlternarDisponibilidade();
-            gerenciador.PersistirAlteracoes();
+            jogo.Disponibilidade = true;
 
-            Jogo jogoAlterado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
+            gerenciador.AlterarJogo(jogo);
+
+            Jogo jogoEsperado = gerenciador.PesquisarPorNome("Chrono Trigger")[0];
 
             //Assert
-            Assert.AreEqual(disponibilidadeEsperada, jogoAlterado.Disponibilidade);
+            Assert.AreEqual(jogo, jogoEsperado);
         }
 
         [TestMethod]
@@ -149,12 +145,10 @@ namespace Locadora.Tests
 
             Jogo finalFantasy = gerenciador.PesquisarPorNome("Final Fantasy VI")[0];
 
-            gerenciador.AlterarJogo(finalFantasy.Id);
-
             //Act
-            gerenciador.AlterarNomeJogo("Fantasia Final Seis");
+            finalFantasy.Nome = "Fantasia Final Seis";
 
-            gerenciador.PersistirAlteracoes();
+            gerenciador.AlterarJogo(finalFantasy);
 
             Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Fantasia Final Seis")[0];
 
@@ -172,12 +166,10 @@ namespace Locadora.Tests
 
             Jogo sunsetRiders = gerenciador.PesquisarPorNome("Sunset Riders")[0];
 
-            gerenciador.AlterarJogo(sunsetRiders.Id);
-
             //Act
-            gerenciador.AlterarPrecoJogo(1000);
+            sunsetRiders.Preco = 1000;
 
-            gerenciador.PersistirAlteracoes();
+            gerenciador.AlterarJogo(sunsetRiders);
 
             Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Sunset Riders")[0];
 
@@ -195,37 +187,12 @@ namespace Locadora.Tests
 
             Jogo topGear = gerenciador.PesquisarPorNome("Top Gear")[0];
 
-            gerenciador.AlterarJogo(topGear.Id);
-
             //Act
-            gerenciador.AlterarCategoria(Categoria.Esporte);
+            topGear.Categoria = Categoria.Esporte;
 
-            gerenciador.PersistirAlteracoes();
+            gerenciador.AlterarJogo(topGear);
 
             Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Top Gear")[0];
-
-            //Assert
-            Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
-        }
-
-        [TestMethod]
-        public void AlteraDisponibilidadeDeMegamanXParaFalse()
-        {
-            //Arrange
-            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
-
-            Jogo jogoEsperado = new Jogo(3, "Megaman X", 40, Categoria.Aventura, false);
-
-            Jogo megamanX = gerenciador.PesquisarPorNome("Megaman X")[0];
-
-            gerenciador.AlterarJogo(megamanX.Id);
-
-            //Act
-            gerenciador.AlternarDisponibilidade();
-
-            gerenciador.PersistirAlteracoes();
-
-            Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Megaman X")[0];
 
             //Assert
             Assert.AreEqual(jogoEsperado, jogoAlteradoObtido);
@@ -241,18 +208,13 @@ namespace Locadora.Tests
 
             Jogo contraIII = gerenciador.PesquisarPorNome("Contra III")[0];
 
-            gerenciador.AlterarJogo(contraIII.Id);
-
             //Act
-            gerenciador.AlterarNomeJogo("Jogo Loko");
+            contraIII.Nome = "Jogo Loko";
+            contraIII.Preco = 90;
+            contraIII.Categoria = Categoria.Esporte;
+            contraIII.Disponibilidade = false;
 
-            gerenciador.AlterarPrecoJogo(90);
-
-            gerenciador.AlterarCategoria(Categoria.Esporte);
-
-            gerenciador.AlternarDisponibilidade();
-
-            gerenciador.PersistirAlteracoes();
+            gerenciador.AlterarJogo(contraIII);
 
             Jogo jogoAlteradoObtido = gerenciador.PesquisarPorNome("Jogo Loko")[0];
 
@@ -274,19 +236,18 @@ namespace Locadora.Tests
             Jogo marioRpg = marios[1];
 
             //Act
-            gerenciador.AlterarJogo(marioKart.Id);
-            gerenciador.AlterarNomeJogo("Mario Corrida");
-            gerenciador.AlterarPrecoJogo(1001);
-            gerenciador.AlterarCategoria(Categoria.Aventura);
-            gerenciador.AlternarDisponibilidade();
+            marioKart.Nome = "Mario Corrida";
+            marioKart.Preco = 1001;
+            marioKart.Categoria = Categoria.Aventura;
+            marioKart.Disponibilidade = false;
+            
+            marioRpg.Nome = "Mario Loko";
+            marioRpg.Preco = 1002;
+            marioRpg.Categoria = Categoria.Esporte;
+            marioRpg.Disponibilidade = false;
 
-            gerenciador.AlterarJogo(marioRpg.Id);
-            gerenciador.AlterarNomeJogo("Mario Loko");
-            gerenciador.AlterarPrecoJogo(1002);
-            gerenciador.AlterarCategoria(Categoria.Esporte);
-            gerenciador.AlternarDisponibilidade();
-
-            gerenciador.PersistirAlteracoes();
+            gerenciador.AlterarJogo(marioKart);
+            gerenciador.AlterarJogo(marioRpg);
 
             Jogo[] jogosAlterados = gerenciador.PesquisarPorNome("Mario");
 
