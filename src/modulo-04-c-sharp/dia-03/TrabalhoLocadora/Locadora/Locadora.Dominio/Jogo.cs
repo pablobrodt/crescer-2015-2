@@ -30,29 +30,6 @@ namespace Locadora.Dominio
             this.Disponibilidade = disponibilidade;
         }
 
-
-        public XElement ToXElement()
-        {
-            XElement jogo = new XElement("Jogo");
-
-            jogo.SetAttributeValue("id", Id);
-
-            XElement nome = new XElement("Nome", this.Nome);
-
-            XElement preco = new XElement("Preco", this.Preco);
-
-            XElement categoria = new XElement("Categoria", this.Categoria.ToString());
-
-            XElement disponibilidade = new XElement("Disponibilidade", this.Disponibilidade);
-
-            jogo.Add(nome);
-            jogo.Add(preco);
-            jogo.Add(categoria);
-            jogo.Add(disponibilidade);
-
-            return jogo;
-        }
-
         public override bool Equals(Object obj)
         {
             Jogo comparado = (Jogo)obj;
