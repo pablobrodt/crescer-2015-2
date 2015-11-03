@@ -122,10 +122,9 @@ namespace Locadora.Repositorio.XML
                     id: Convert.ToInt32(jogoXml.Attribute("id").Value),
                     nome: jogoXml.Element("nome").Value,
                     preco: Convert.ToDecimal(jogoXml.Element("preco").Value),
-                    categoria: ConverterXmlCategoriaEmEnum(jogoXml.Element("categoria"))
+                    categoria: ConverterXmlCategoriaEmEnum(jogoXml.Element("categoria")),
+                    idClienteLocacao: jogoXml.Element("id_cliente_locacao").Value.ToNullable<int>()
                     );
-
-            jogo.IdClienteLocacao = jogoXml.Element("id_cliente_locacao").Value.ToNullable<int>();
 
             return jogo;
         }

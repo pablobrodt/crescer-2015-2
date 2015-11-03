@@ -36,7 +36,7 @@ namespace Locadora.UI
                 int menuEscolhido = EscolherMenu();
                 AbrirMenu(menuEscolhido);
             }
-            catch (Exception ex)
+            catch
             {
                 ImprimirErro("Ocorreu um erro não tratado. Por favor, contate o administrador.");
             }
