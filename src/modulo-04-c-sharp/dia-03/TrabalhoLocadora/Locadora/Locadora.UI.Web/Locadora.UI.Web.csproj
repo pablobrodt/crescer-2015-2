@@ -95,6 +95,7 @@
     <Content Include="Content\img\charmander.gif" />
     <Content Include="Content\img\dangerous.gif" />
     <Content Include="Content\img\flareon.gif" />
+    <Content Include="Content\img\runpikachu.gif" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
