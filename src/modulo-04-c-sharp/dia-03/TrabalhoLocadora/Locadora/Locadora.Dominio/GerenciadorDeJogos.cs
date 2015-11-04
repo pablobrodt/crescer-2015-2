@@ -53,13 +53,13 @@ namespace Locadora.Dominio
             return ultimoId;
         }
 
-        public Jogo[] PesquisarPorNome(string titulo)
+        public Jogo[] BuscarTodosJogos()
         {
             List<Jogo> jogos = new List<Jogo>();
 
             CarregarDadosDoXml();
 
-            XElement[] jogosPesquisados = dadosDoArquivoXml.Elements("Jogo").Where(jogo => jogo.Element("Nome").Value.Contains(titulo)).ToArray();
+            XElement[] jogosPesquisados = dadosDoArquivoXml.Elements("Jogo").ToArray();
 
             foreach (XElement xmlJogo in jogosPesquisados)
             {
@@ -67,8 +67,18 @@ namespace Locadora.Dominio
 
                 jogos.Add(jogo);
             }
-            
+
             return jogos.ToArray();
+        }
+
+        public Jogo[] PesquisarPorNome(string titulo)
+        {
+            return BuscarTodosJogos().Where(jogo => jogo.Nome.Contains(titulo)).ToArray();
+        }
+
+        public Jogo[] BuscarJogosDisponiveis()
+        {
+            return BuscarTodosJogos().Where(jogo => jogo.Disponibilidade).ToArray();
         }
 
         public void AlterarJogo(Jogo jogo)
@@ -79,7 +89,7 @@ namespace Locadora.Dominio
 
             jogoXml.Element("Nome").SetValue(jogo.Nome);
             jogoXml.Element("Preco").SetValue(jogo.Preco);
-            jogoXml.Element("Categoria").SetValue(jogo.Categoria.ToString());
+            jogoXml.Element("Categoria").SetValue(jogo.Categoria.ToString().ToUpper());
             jogoXml.Element("Disponibilidade").SetValue(Convert.ToBoolean(jogo.Disponibilidade));
 
             SalvarXml();
