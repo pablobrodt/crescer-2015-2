@@ -18,7 +18,7 @@ namespace Locadora.Dominio
 
             XElement nome = new XElement("Nome", jogo.Nome);
             XElement preco = new XElement("Preco", jogo.Preco);
-            XElement categoria = new XElement("Categoria", jogo.Categoria.ToString());
+            XElement categoria = new XElement("Categoria", jogo.Categoria.ToString().ToUpper());
             XElement disponibilidade = new XElement("Disponibilidade", jogo.Disponibilidade);
 
             elementoXml.Add(nome);
