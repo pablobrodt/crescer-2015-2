@@ -1,0 +1,15 @@
+﻿
+@model Locadora.UI.Web.Models.JogoModel
+@{
+    ViewBag.Title = "Listar";
+}
+
+<ul class="list-group">
+    @{ 
+        foreach (var jogo in @Model.jogos)
+        {
+            <li class="list-group-item">@jogo.Nome</li>
+        }
+    }
+</ul>
+
