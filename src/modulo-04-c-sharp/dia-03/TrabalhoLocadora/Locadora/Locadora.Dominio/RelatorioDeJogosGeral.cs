@@ -13,7 +13,7 @@ namespace Locadora.Dominio
 
         //Estatísticas
         public int QuantidadeTotalDeJogos { get; private set; }
-        public int QuantidadeDeJogosDisponíveis { get; private set; }
+        public int QuantidadeDeJogosDisponiveis { get; private set; }
         public double ValorMedioPorJogo { get; private set; }
         public Jogo JogoMaisCaro { get; private set; }
         public Jogo JogoMaisBarato { get; private set; }
@@ -35,8 +35,21 @@ namespace Locadora.Dominio
         {
             ObterTotalJogos();
             ObterTotalJogosDisponiveis();
+            ObterValorMedioPorJogo();
             ObterJogoMaisCaro();
             ObterJogoMaisBarato();
+        }
+
+        private void ObterValorMedioPorJogo()
+        {
+            double soma = 0;
+
+            foreach (var jogo in Jogos)
+            {
+                soma += jogo.Preco;
+            }
+
+            this.ValorMedioPorJogo = (soma/this.Jogos.Count());
         }
 
         private void ObterJogoMaisCaro()
@@ -53,7 +66,7 @@ namespace Locadora.Dominio
 
         private void ObterTotalJogosDisponiveis()
         {
-            this.QuantidadeDeJogosDisponíveis = this.Jogos.Count(jogo => jogo.Disponibilidade);
+            this.QuantidadeDeJogosDisponiveis = this.Jogos.Count(jogo => jogo.Disponibilidade);
         }
 
         private void ObterTotalJogos()
