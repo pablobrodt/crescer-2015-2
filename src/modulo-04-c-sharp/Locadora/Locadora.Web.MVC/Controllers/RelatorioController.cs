@@ -4,19 +4,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Locadora.Dominio.Repositorio;
+using Locadora.Dominio;
 
 namespace Locadora.Web.MVC.Controllers
 {
     public class RelatorioController : Controller
     {
+        // GET: Relatorio
         public ActionResult JogosDisponiveis()
         {
-            var model = new List<JogoModel>()
+            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
+
+            List<Jogo> jogosDominio = repositorio.BuscarTodos().ToList();
+
+            decimal soma = 0;
+            decimal maiorPreco = jogosDominio.Max(jogo => jogo.Preco);
+            decimal menorPreco = jogosDominio.Min(jogo => jogo.Preco);
+
+            var model = new RelatorioModel();
+
+            foreach (var jogo in jogosDominio)
             {
-                new JogoModel() { Id = 1, Nome = "Teste", Preco = 9.9m, Categoria="RPG" },
-                new JogoModel() { Id = 1, Nome = "dasd", Preco = 5m, Categoria="Aventura" },
-                new JogoModel() { Id = 1, Nome = "dasda", Preco = 10m, Categoria="RPG" }
-            };
+                JogoModel jogoModel = new JogoModel()
+                {
+                    Nome = jogo.Nome,
+                    Categoria = jogo.Categoria.ToString(),
+                    Preco = jogo.Preco
+                };
+
+                soma += jogo.Preco;
+
+                model.Jogos.Add(jogoModel);
+            }
+
+            model.QuantidadeTotalJogos = model.Jogos.Count;
+            model.ValorMedioJogos = soma / model.QuantidadeTotalJogos;
+            model.JogoMaisCaro = model.Jogos.FirstOrDefault(jogo => jogo.Preco == maiorPreco).Nome;
+            model.JogoMaisBarato = model.Jogos.FirstOrDefault(jogo => jogo.Preco == menorPreco).Nome;
 
             return View(model);
         }
