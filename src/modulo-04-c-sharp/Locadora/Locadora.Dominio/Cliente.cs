@@ -10,10 +10,14 @@ namespace Locadora.Dominio
     {
         public string Nome { get; set; }
 
-        public Cliente(int id, string nome)
+        public Cliente()
+        {
+
+        }
+
+        public Cliente(int id)
         {
             this.Id = id;
-            this.Nome = nome;
         }
     }
 }

@@ -120,12 +120,13 @@ namespace Locadora.Repositorio.XML
 
             var jogo = new Jogo(
                     id: Convert.ToInt32(jogoXml.Attribute("id").Value),
-                    nome: jogoXml.Element("nome").Value,
-                    preco: Convert.ToDecimal(jogoXml.Element("preco").Value),
-                    categoria: ConverterXmlCategoriaEmEnum(jogoXml.Element("categoria")),
                     idClienteLocacao: jogoXml.Element("id_cliente_locacao").Value.ToNullable<int>()
                     );
 
+            jogo.Nome = jogoXml.Element("nome").Value;
+            jogo.Preco = Convert.ToDecimal(jogoXml.Element("preco").Value);
+            jogo.Categoria = ConverterXmlCategoriaEmEnum(jogoXml.Element("categoria"));
+            
             return jogo;
         }
 

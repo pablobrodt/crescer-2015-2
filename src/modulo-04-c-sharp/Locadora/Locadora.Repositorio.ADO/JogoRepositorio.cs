@@ -131,14 +131,17 @@ namespace Locadora.Repositorio.ADO
 
         private Jogo ConverterDataReaderEmJogo(IDataReader reader)
         {
-            return new Jogo
-                (
-                    // você pode nomear os parâmetros no construtor =), facilita a leitura.
-                    id: Convert.ToInt32(reader["Id"]),
-                    nome: reader["Nome"].ToString(),
-                    preco: Convert.ToDecimal(reader["Preco"]),
-                    categoria: (Categoria)Convert.ToInt32(reader["IdCategoria"])
+            var jogo = new Jogo(
+                // você pode nomear os parâmetros no construtor =), facilita a leitura.
+                id: Convert.ToInt32(reader["Id"]),
+                idClienteLocacao: reader["IdClienteLocacao"].ToString().ToNullable<int>()
                 );
+
+            jogo.Nome = reader["Nome"].ToString();
+            jogo.Preco = Convert.ToDecimal(reader["Preco"]);
+            jogo.Categoria = (Categoria)Convert.ToInt32(reader["IdCategoria"]);
+
+            return jogo;
         }
 
     }

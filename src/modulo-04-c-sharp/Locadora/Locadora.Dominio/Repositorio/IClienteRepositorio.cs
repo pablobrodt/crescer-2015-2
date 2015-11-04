@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Locadora.Dominio.Repositorio
 {
-    public interface IClienteRepositorio : IRepositorioBase<Cliente>
+    public interface IClienteRepositorio
     {
         IList<Cliente> BuscarPorNome(string nome);
     }
