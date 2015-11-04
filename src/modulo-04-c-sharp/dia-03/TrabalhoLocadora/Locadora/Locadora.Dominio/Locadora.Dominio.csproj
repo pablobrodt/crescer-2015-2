@@ -47,12 +47,14 @@
     <Compile Include="Jogo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relatorio.cs" />
-    <Compile Include="RelatorioDeJogos.cs" />
+    <Compile Include="RelatorioDeJogosGeral.cs" />
+    <Compile Include="RelatorioJogosDisponiveis.cs" />
     <Compile Include="StringBuilderExtensions.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Doc\extrato.txt" />
+    <Content Include="TextFile1.txt" />
     <Content Include="xml\game_store.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
