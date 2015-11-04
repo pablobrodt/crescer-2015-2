@@ -14,8 +14,6 @@ namespace Locadora.UI.Web.Controllers
         {
             var model = new RelatorioModel();
 
-            model.RelatorioJogosDisponiveis();
-
             return View(model);
         }
     }

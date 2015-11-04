@@ -15,9 +15,9 @@ namespace Locadora.UI.Web.Models
             this.gerenciador = new GerenciadorDeRelatorios();
         }
 
-        public RelatorioJogosDisponiveis RelatorioJogosDisponiveis()
+        public RelatorioDeJogosGeral Relatorio()
         {
-            return gerenciador.ObterRelatorioJogosDisponiveis();
+            return gerenciador.ObterRelatorioDeJogosGeral();
         }
     }
 }
