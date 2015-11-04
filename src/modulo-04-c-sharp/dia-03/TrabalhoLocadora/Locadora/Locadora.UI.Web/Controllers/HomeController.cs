@@ -13,12 +13,5 @@ namespace Locadora.UI.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult Listar()
-        {
-            var model = new JogoModel();
-
-            return View(model);
-        }
     }
 }
