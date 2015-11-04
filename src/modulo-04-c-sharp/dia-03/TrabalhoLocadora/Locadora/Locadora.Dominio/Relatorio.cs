@@ -9,6 +9,10 @@ namespace Locadora.Dominio
     public abstract class Relatorio
     {
         protected string nomeLocadora = "LOCADORA NUNES GAMES";
-        protected static DateTime DataAtual = DateTime.Now;
+        protected DateTime DataAtual = DateTime.Now;
+        public Jogo[] Jogos { get; protected set; }
+        public string Data { get; protected set; }
+        public string Hora { get; protected set; }
+        public string Titulo { get; protected set; }
     }
 }
