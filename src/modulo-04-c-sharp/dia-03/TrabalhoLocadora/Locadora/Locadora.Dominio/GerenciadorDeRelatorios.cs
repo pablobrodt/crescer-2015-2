@@ -9,15 +9,14 @@ namespace Locadora.Dominio
 {
     public class GerenciadorDeRelatorios
     {
-        public void GerarRelatorioDeJogos()
+        public RelatorioDeJogosGeral ObterRelatorioDeJogosGeral()
         {
-            GerenciadorDeJogos gerenciador = new GerenciadorDeJogos();
+            return new RelatorioDeJogosGeral();
+        }
 
-            Jogo[] lista = gerenciador.PesquisarPorNome("");
-
-            RelatorioDeJogos relatorio = new RelatorioDeJogos(lista.ToList());
-
-            relatorio.gerarRelatorio();
+        public RelatorioJogosDisponiveis ObterRelatorioJogosDisponiveis()
+        {
+            return new RelatorioJogosDisponiveis();
         }
     }
 }
