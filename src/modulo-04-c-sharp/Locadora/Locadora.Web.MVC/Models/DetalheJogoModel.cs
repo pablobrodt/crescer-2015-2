@@ -21,7 +21,7 @@ namespace Locadora.Web.MVC.Models
             this.Nome = jogo.Nome;
             this.Preco = jogo.Preco;
             this.Categoria = jogo.Categoria.ToString();
-            this.UrlImagem = jogo.UrlImagem;
+            this.UrlImagem = !String.IsNullOrEmpty(jogo.UrlImagem) ? jogo.UrlImagem : "http://cdn.123i.com.br/img/sem-foto-vertical.jpg";
             this.TagVideo = jogo.TagVideo;
         }
     }

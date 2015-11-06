@@ -11,6 +11,7 @@
             <th>Nome</th>
             <th>Categoria</th>
             <th>Preço</th>
+            <th>Selo</th>
         </tr>
     </thead>
     @foreach (var jogo in Model.Jogos)
@@ -19,10 +20,16 @@
             <td>@Html.ActionLink(jogo.Nome, "DetalhesDoJogo", "Jogo", new { id = jogo.IdJogo }, null)</td>
             <td>@jogo.Categoria</td>
             <td>@jogo.Preco.ToString("c")</td>
+            <td>@jogo.Selo</td>
         </tr>
     }
 </table>
 
 Quantidade de jogos: @Model.QuantidadeTotalDeJogos <br />
-Jogo mais caro: @Model.JogoMaisCaro <br />
-Jogo mais barato: @Model.JogoMaisBarato
+
+@if (Model.JogoMaisBarato != null && Model.JogoMaisCaro != null)
+{
+    <span>Jogo mais caro:</span> @Model.JogoMaisCaro.Nome <br />
+    <span>Jogo mais barato:</span> @Model.JogoMaisBarato.Nome <br />
+}
+

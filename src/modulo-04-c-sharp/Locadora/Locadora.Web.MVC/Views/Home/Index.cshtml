@@ -4,5 +4,13 @@
 }
 
 <h2>Locadora - CWI Crescer</h2>
+<form action="@Url.Action("JogosDisponiveis", "Relatorio")" method="get">
+    <label for="nome">Pesquisa por nome: </label>
+    <input type="text" name="nome" value="" />
+
+    <input type="submit" value="Pesquisar" />
+</form>
+
 
 <img src="@Url.Content("~/Content/Images/logo.png")" />
+

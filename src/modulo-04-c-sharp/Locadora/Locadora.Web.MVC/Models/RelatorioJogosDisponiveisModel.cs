@@ -23,14 +23,7 @@ namespace Locadora.Web.MVC.Models
             {
                 foreach (Jogo jogo in jogosDisponiveis)
                 {
-                    var jogoModel = new JogoDisponivelModel()
-                    {
-                        IdJogo = jogo.Id,
-                        Nome = jogo.Nome,
-                        Preco = jogo.Preco,
-                        Categoria = jogo.Categoria.ToString()
-                    };
-
+                    var jogoModel = new JogoDisponivelModel(jogo);
                     this.Jogos.Add(jogoModel);
                 }
 
@@ -48,9 +41,19 @@ namespace Locadora.Web.MVC.Models
 
     public class JogoDisponivelModel
     {
-        public int IdJogo { get; set; }
-        public string Nome { get; set; }
-        public decimal Preco { get; set; }
-        public string Categoria { get; set; }
+        public int IdJogo { get; private set; }
+        public string Nome { get; private set; }
+        public decimal Preco { get; private set; }
+        public string Categoria { get; private set; }
+        public string Selo { get; private set; }
+
+        public JogoDisponivelModel(Jogo jogo)
+        {
+            this.IdJogo = jogo.Id;
+            this.Nome = jogo.Nome;
+            this.Preco = jogo.Preco;
+            this.Categoria = jogo.Categoria.ToString();
+            this.Selo = jogo.Selo.ToString();
+        }
     }
 }
