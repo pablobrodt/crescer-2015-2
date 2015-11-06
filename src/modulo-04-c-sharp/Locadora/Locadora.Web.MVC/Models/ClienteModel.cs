@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Locadora.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -28,5 +29,9 @@ namespace Locadora.Web.MVC.Models
         [Required]
         [Compare("Email")]
         public string EmailConfimacao { get; set; }
+
+        public Categoria Categoria { get; set; }
+
+        public int IdJogo { get; set; }
     }
 }

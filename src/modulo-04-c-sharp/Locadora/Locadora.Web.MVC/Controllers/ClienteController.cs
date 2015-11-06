@@ -1,6 +1,7 @@
 ﻿using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,13 +10,27 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class ClienteController : Controller
     {
+        //Só pra teste! Não façam uma coisa dessas!
+        List<JogoDisponivelModel> exemploDeLista = new List<JogoDisponivelModel>
+        {
+            new JogoDisponivelModel(new Dominio.Jogo(1) { Nome = "Mario" }),
+            new JogoDisponivelModel(new Dominio.Jogo(2) { Nome = "Mario 2" })
+
+        };
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Manter(int? id)
-        {
+        {            
+            ViewBag.ListaJogos = new SelectList(exemploDeLista, "IdJogo", "Nome");
+            //OU:
+            //ViewBag.ListaJogos = exemploDeLista.Select(x => new SelectListItem() { Value = x.IdJogo.ToString(), Text = x.Nome });
+
             if (id.HasValue)
             {
                 //Busca cliente do banco
@@ -36,10 +51,12 @@ namespace Locadora.Web.MVC.Controllers
             }
         }
 
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public ActionResult Salvar(ClienteModel model)
         {
-            ModelState.AddModelError("Nome", "Nome já existe no banco de dados!");
-            ModelState.AddModelError("", "Tem coisa errada aí...");
+            //ModelState.AddModelError("Nome", "Nome já existe no banco de dados!");
+            //ModelState.AddModelError("", "Tem coisa errada aí...");
 
             if (ModelState.IsValid)
             {
@@ -50,6 +67,11 @@ namespace Locadora.Web.MVC.Controllers
             }
             else
             {
+                //Exemplo de modificação dos dados da model antes de retornar!
+                //ModelState.SetModelValue("Nome", new ValueProviderResult("Bob Esponja", "", CultureInfo.InvariantCulture));
+
+                ViewBag.ListaJogos = new SelectList(exemploDeLista, "IdJogo", "Nome");
+
                 return View("Manter", model);
             }
         }
