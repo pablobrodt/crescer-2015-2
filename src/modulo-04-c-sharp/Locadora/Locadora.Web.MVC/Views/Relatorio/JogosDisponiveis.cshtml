@@ -14,13 +14,14 @@
             <th>Selo</th>
         </tr>
     </thead>
+
     @foreach (var jogo in Model.Jogos)
     {
         <tr>
             <td>@Html.ActionLink(jogo.Nome, "DetalhesDoJogo", "Jogo", new { id = jogo.IdJogo }, null)</td>
             <td>@jogo.Categoria</td>
             <td>@jogo.Preco.ToString("c")</td>
-            <td>@jogo.Selo</td>
+            <td class="text-center">@Html.Partial("~/Views/Shared/Jogo/_SeloJogo.cshtml", jogo.Selo)</td>
         </tr>
     }
 </table>

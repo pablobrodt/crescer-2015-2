@@ -11,7 +11,8 @@ namespace Locadora.Web.MVC.Models
         public int IdJogo { get; private set; }
         public string Nome { get; private set; }
         public decimal Preco { get; private set; }
-        public string Categoria { get; private set; }
+        public Categoria Categoria { get; private set; }
+        public Selo Selo { get; private set; }
         public string UrlImagem { get; private set; }
         public string TagVideo { get; private set; }
 
@@ -20,7 +21,8 @@ namespace Locadora.Web.MVC.Models
             this.IdJogo = jogo.Id;
             this.Nome = jogo.Nome;
             this.Preco = jogo.Preco;
-            this.Categoria = jogo.Categoria.ToString();
+            this.Categoria = jogo.Categoria;
+            this.Selo = jogo.Selo;
             this.UrlImagem = !String.IsNullOrEmpty(jogo.UrlImagem) ? jogo.UrlImagem : "http://cdn.123i.com.br/img/sem-foto-vertical.jpg";
             this.TagVideo = jogo.TagVideo;
         }
