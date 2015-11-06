@@ -17,7 +17,7 @@ namespace Locadora.Web.MVC.Models
 
         public RelatorioJogosDisponiveisModel(IList<Jogo> jogosDisponiveis)
         {
-            Jogos = new List<JogoDisponivelModel>();
+            this.Jogos = new List<JogoDisponivelModel>();
 
             if(jogosDisponiveis != null && jogosDisponiveis.Count > 0)
             {
@@ -27,8 +27,8 @@ namespace Locadora.Web.MVC.Models
                     this.Jogos.Add(jogoModel);
                 }
 
-                QuantidadeTotalDeJogos = jogosDisponiveis.Count;
-                ValorMedio = jogosDisponiveis.Average(j => j.Preco);
+                this.QuantidadeTotalDeJogos = jogosDisponiveis.Count;
+                this.ValorMedio = jogosDisponiveis.Average(j => j.Preco);
                 decimal maiorPreco = jogosDisponiveis.Max(j => j.Preco);
                 decimal menorPreco = jogosDisponiveis.Min(j => j.Preco);
 
@@ -44,16 +44,16 @@ namespace Locadora.Web.MVC.Models
         public int IdJogo { get; private set; }
         public string Nome { get; private set; }
         public decimal Preco { get; private set; }
-        public string Categoria { get; private set; }
-        public string Selo { get; private set; }
+        public Categoria Categoria { get; private set; }
+        public Selo Selo { get; private set; }
 
         public JogoDisponivelModel(Jogo jogo)
         {
             this.IdJogo = jogo.Id;
             this.Nome = jogo.Nome;
             this.Preco = jogo.Preco;
-            this.Categoria = jogo.Categoria.ToString();
-            this.Selo = jogo.Selo.ToString();
+            this.Categoria = jogo.Categoria;
+            this.Selo = jogo.Selo;
         }
     }
 }

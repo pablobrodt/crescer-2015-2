@@ -16,10 +16,22 @@ textarea {
     max-width: 280px;
 }
 
+.color-white {
+    color: #fff;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
 .fb-page {
     float: right;
 }
 
 .imagem-detalhe-jogo {
     width: 100%;
+}
+
+.imagem-selo-jogo {
+    width: 32px;
 }
