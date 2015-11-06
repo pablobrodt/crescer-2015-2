@@ -1,9 +1,9 @@
 ﻿@model RelatorioModel
 @{
-    ViewBag.Title = "JogosDisponiveis";
+    ViewBag.Title = "Jogos Disponiveis";
 }
 
-<h2>JogosDisponiveis</h2>
+<h2>Jogos Disponiveis</h2>
 
 <table class="table">
     <thead>
@@ -21,6 +21,9 @@
                     <td>@jogo.Nome</td>
                     <td>@jogo.Categoria</td>
                     <td>@jogo.Preco.ToString("c")</td>
+                    <td>
+                        <a href="~/Jogo/DetalhesDoJogo/@jogo.Id">Detalhes</a>
+                    </td>
                 </tr>
             }
         }

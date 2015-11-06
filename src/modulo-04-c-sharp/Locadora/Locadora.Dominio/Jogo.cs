@@ -13,7 +13,15 @@ namespace Locadora.Dominio
         public Categoria Categoria { get; set; }
 
         public int? IdClienteLocacao { get; private set; }
-        
+
+        public string Descricao { get; set; }
+
+        public Selo Selo { get; set; }
+
+        public string Imagem { get; set; }
+
+        public string Video { get; set; }
+
         public Jogo()
         {
 
@@ -48,7 +56,7 @@ namespace Locadora.Dominio
 
         public override bool Equals(object obj)
         {
-            if(obj.GetType() == typeof(Jogo))
+            if (obj.GetType() == typeof(Jogo))
             {
                 Jogo jogoComp = (Jogo)obj;
 

@@ -12,11 +12,11 @@ namespace Locadora.Web.MVC.Controllers
     public class RelatorioController : Controller
     {
         // GET: Relatorio
-        public ActionResult JogosDisponiveis()
+        public ActionResult JogosDisponiveis(string nome)
         {
             IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
 
-            List<Jogo> jogosDominio = repositorio.BuscarTodos().ToList();
+            List<Jogo> jogosDominio = (nome == null) ? repositorio.BuscarTodos().ToList() : repositorio.BuscarPorNome(nome).ToList();
 
             decimal soma = 0;
             decimal maiorPreco = jogosDominio.Max(jogo => jogo.Preco);
@@ -26,12 +26,7 @@ namespace Locadora.Web.MVC.Controllers
 
             foreach (var jogo in jogosDominio)
             {
-                JogoModel jogoModel = new JogoModel()
-                {
-                    Nome = jogo.Nome,
-                    Categoria = jogo.Categoria.ToString(),
-                    Preco = jogo.Preco
-                };
+                JogoModel jogoModel = Util.ConverterJogoParaJogoModel(jogo);
 
                 soma += jogo.Preco;
 
