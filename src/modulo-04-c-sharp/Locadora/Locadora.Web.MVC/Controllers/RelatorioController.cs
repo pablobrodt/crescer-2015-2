@@ -1,4 +1,5 @@
-﻿using Locadora.Dominio.Repositorio;
+﻿using Locadora.Dominio;
+using Locadora.Dominio.Repositorio;
 using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -8,33 +9,32 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    public class RelatorioController : Controller
+    public class RelatorioController : BaseController
     {
-        private IJogoRepositorio repositorio = new Locadora.Repositorio.ADO.JogoRepositorio();
-        
         public ActionResult JogosFiltradosPorId(int id)
         {
             return View();
         }
-
-        public ActionResult JogosFiltradosPorNome(string nome)
+        
+        public ActionResult JogosDisponiveis(string nome)
         {
-            return View();
-        }
+            IList<Jogo> jogosEncontrados = null;
+            IJogoRepositorio jogoRepositorio = CriarJogoRepositorio();
 
-        public ActionResult JogosDisponiveis()
-        {
-            var model = new RelatorioModel();
-
-            foreach (var jogo in repositorio.BuscarTodos())
+            if(string.IsNullOrEmpty(nome))
             {
-                var jogoModel = new JogoModel() { Nome = jogo.Nome, Preco = jogo.Preco, Categoria = jogo.Categoria.ToString() };
-                model.Jogos.Add(jogoModel);
+                jogosEncontrados = jogoRepositorio.BuscarTodos();
+            }
+            else
+            {
+                jogosEncontrados = jogoRepositorio.BuscarPorNome(nome);
             }
 
-            model.QuantidadeTotalDeJogos = model.Jogos.Count();
+            RelatorioJogosDisponiveisModel model = new RelatorioJogosDisponiveisModel(jogosEncontrados);
 
             return View(model);
-        }        
+        }
+        
+
     }
 }

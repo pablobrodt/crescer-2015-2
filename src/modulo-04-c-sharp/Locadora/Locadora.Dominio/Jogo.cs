@@ -11,15 +11,23 @@ namespace Locadora.Dominio
         public decimal Preco { get; set; }
 
         public Categoria Categoria { get; set; }
+        
+        public Selo Selo { get; set; }
+
+        public string Descricao { get; set; }
+
+        public string UrlImagem { get; set; }
+
+        public string TagVideo { get; set; }
 
         public int? IdClienteLocacao { get; private set; }
         
         public Jogo()
         {
-
+            this.Selo = Selo.Bronze;
         }
 
-        public Jogo(int id, int? idClienteLocacao = null)
+        public Jogo(int id, int? idClienteLocacao = null) : base()
         {
             this.Id = id;
             this.IdClienteLocacao = idClienteLocacao;

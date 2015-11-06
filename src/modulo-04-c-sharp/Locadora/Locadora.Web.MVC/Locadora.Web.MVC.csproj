@@ -105,13 +105,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\JogoModel.cs" />
-    <Compile Include="Models\RelatorioModel.cs" />
+    <Compile Include="Models\DetalheJogoModel.cs" />
+    <Compile Include="Models\RelatorioJogosDisponiveisModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +129,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Relatorio\JogosDisponiveis.cshtml" />
+    <Content Include="Views\Jogo\DetalhesDoJogo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,10 +148,6 @@
     <ProjectReference Include="..\Locadora.Repositorio.ADO\Locadora.Repositorio.ADO.csproj">
       <Project>{14105bc9-3336-43bc-b394-6e0aa2a29751}</Project>
       <Name>Locadora.Repositorio.ADO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Locadora.Repositorio.XML\Locadora.Repositorio.XML.csproj">
-      <Project>{94e11ed9-d5fd-4339-9fcd-dd1d3ff1badd}</Project>
-      <Name>Locadora.Repositorio.XML</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

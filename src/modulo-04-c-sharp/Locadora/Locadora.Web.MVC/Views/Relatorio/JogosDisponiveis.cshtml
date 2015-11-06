@@ -1,4 +1,4 @@
-﻿@model RelatorioModel
+﻿@model RelatorioJogosDisponiveisModel
 @{
     ViewBag.Title = "JogosDisponiveis";
 }
@@ -16,11 +16,13 @@
     @foreach (var jogo in Model.Jogos)
     {
         <tr>
-            <td>@jogo.Nome</td>
+            <td>@Html.ActionLink(jogo.Nome, "DetalhesDoJogo", "Jogo", new { id = jogo.IdJogo }, null)</td>
             <td>@jogo.Categoria</td>
             <td>@jogo.Preco.ToString("c")</td>
         </tr>
     }
 </table>
 
-QUantidade de jogos: @Model.QuantidadeTotalDeJogos
+Quantidade de jogos: @Model.QuantidadeTotalDeJogos <br />
+Jogo mais caro: @Model.JogoMaisCaro <br />
+Jogo mais barato: @Model.JogoMaisBarato
