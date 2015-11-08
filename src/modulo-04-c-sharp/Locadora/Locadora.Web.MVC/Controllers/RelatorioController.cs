@@ -18,25 +18,37 @@ namespace Locadora.Web.MVC.Controllers
 
             List<Jogo> jogosDominio = (nome == null) ? repositorio.BuscarTodos().ToList() : repositorio.BuscarPorNome(nome).ToList();
 
-            decimal soma = 0;
-            decimal maiorPreco = jogosDominio.Max(jogo => jogo.Preco);
-            decimal menorPreco = jogosDominio.Min(jogo => jogo.Preco);
-
             var model = new RelatorioModel();
 
-            foreach (var jogo in jogosDominio)
+            if (jogosDominio.Count > 0)
             {
-                JogoModel jogoModel = this.JogoToJogoModel(jogo);
+                decimal soma = 0;
+                decimal maiorPreco = jogosDominio.Max(jogo => jogo.Preco);
+                decimal menorPreco = jogosDominio.Min(jogo => jogo.Preco);
 
-                soma += jogo.Preco;
+                foreach (var jogo in jogosDominio)
+                {
+                    JogoModel jogoModel = this.JogoToJogoModel(jogo);
 
-                model.Jogos.Add(jogoModel);
+                    soma += jogo.Preco;
+
+                    model.Jogos.Add(jogoModel);
+                }
+
+                model.QuantidadeTotalJogos = model.Jogos.Count;
+                model.ValorMedioJogos = soma / model.QuantidadeTotalJogos;
+                model.JogoMaisCaro = model.Jogos.FirstOrDefault(jogo => jogo.Preco == maiorPreco).Nome;
+                model.JogoMaisBarato = model.Jogos.FirstOrDefault(jogo => jogo.Preco == menorPreco).Nome;
             }
+            else
+            {
+                model.QuantidadeTotalJogos = 0;
+                model.ValorMedioJogos = 0;
+                model.JogoMaisCaro = "";
+                model.JogoMaisBarato = "";
 
-            model.QuantidadeTotalJogos = model.Jogos.Count;
-            model.ValorMedioJogos = soma / model.QuantidadeTotalJogos;
-            model.JogoMaisCaro = model.Jogos.FirstOrDefault(jogo => jogo.Preco == maiorPreco).Nome;
-            model.JogoMaisBarato = model.Jogos.FirstOrDefault(jogo => jogo.Preco == menorPreco).Nome;
+                ViewBag.Mensagem = "Nenhum jogo encontrado.";
+            }
 
             return View(model);
         }

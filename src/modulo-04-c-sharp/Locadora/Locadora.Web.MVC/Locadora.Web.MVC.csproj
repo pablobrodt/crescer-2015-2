@@ -132,7 +132,7 @@
     <Compile Include="Models\ManterJogoModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ControllerExtensions\ExtencaoController.cs" />
+    <Compile Include="ControllerExtensions\ExtencoesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
