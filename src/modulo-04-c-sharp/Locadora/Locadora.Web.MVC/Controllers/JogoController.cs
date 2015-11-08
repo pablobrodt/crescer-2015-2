@@ -11,16 +11,61 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class JogoController : Controller
     {
-        // GET: Jogo
         public ActionResult DetalhesDoJogo(int id)
-        {   
-            IJogoRepositorio repositorio = new Locadora.Repositorio.ADO.JogoRepositorio();
+        {
+            Jogo jogo = ObterJogoPorId(id);
 
-            Jogo jogo = repositorio.BuscarPorId(id);
+            DetalheJogoModel model = this.JogoToDetalheJogoModel(jogo);
 
-            JogoModel jogoModel = Util.ConverterJogoParaJogoModel(jogo);
+            return View(model);
+        }
 
-            return View(jogoModel);
+        public ActionResult Manter(int? id)
+        {
+            if (id.HasValue)
+            {
+                Jogo jogo = ObterJogoPorId((int)id);
+
+                var model = this.JogoToManterJogoModel(jogo);
+
+                return View(model);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Salvar(ManterJogoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Jogo jogo = this.ManterJogoModelToJogo(model);
+
+                if(jogo.Id == 0)
+                {
+                    this.ObterJogoRepositorio().Criar(jogo);
+
+                    TempData["Mensagem"] = "Jogo inserido com sucesso!";
+                }
+                else
+                {
+                    this.ObterJogoRepositorio().Atualizar(jogo);
+
+                    TempData["Mensagem"] = "Jogo atualizado com sucesso!";
+                }
+
+                return RedirectToAction("JogosDisponiveis", "Relatorio");
+            }
+            else
+            {
+                return View("Manter", model);
+            }
+        }
+
+        private Jogo ObterJogoPorId(int id)
+        {
+            return this.ObterJogoRepositorio().BuscarPorId(id);
         }
     }
 }

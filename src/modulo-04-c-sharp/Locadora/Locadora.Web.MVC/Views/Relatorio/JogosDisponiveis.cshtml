@@ -5,6 +5,15 @@
 
 <h2>Jogos Disponiveis</h2>
 
+@{
+    if (TempData.ContainsKey("Mensagem"))
+    {
+        <div class="alert alert-success" role="alert">@TempData["Mensagem"]</div>
+    }
+}
+
+
+
 <table class="table">
     <thead>
         <tr>
