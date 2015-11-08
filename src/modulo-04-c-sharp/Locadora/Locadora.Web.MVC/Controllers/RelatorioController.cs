@@ -14,7 +14,7 @@ namespace Locadora.Web.MVC.Controllers
         // GET: Relatorio
         public ActionResult JogosDisponiveis(string nome)
         {
-            IJogoRepositorio repositorio = new Repositorio.ADO.JogoRepositorio();
+            IJogoRepositorio repositorio = this.ObterJogoRepositorio();
 
             List<Jogo> jogosDominio = (nome == null) ? repositorio.BuscarTodos().ToList() : repositorio.BuscarPorNome(nome).ToList();
 
@@ -26,7 +26,7 @@ namespace Locadora.Web.MVC.Controllers
 
             foreach (var jogo in jogosDominio)
             {
-                JogoModel jogoModel = Util.ConverterJogoParaJogoModel(jogo);
+                JogoModel jogoModel = this.JogoToJogoModel(jogo);
 
                 soma += jogo.Preco;
 
