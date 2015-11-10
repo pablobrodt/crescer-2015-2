@@ -18,6 +18,7 @@ namespace Locadora.Repositorio.EF.Mapping
 
             Property(u => u.Email).IsRequired().HasMaxLength(200);
             Property(u => u.Senha).IsRequired().HasMaxLength(200);
+            Property(u => u.NomeCompleto).IsRequired().HasMaxLength(200);
 
             HasMany(u => u.Permissoes).WithMany(p => p.Usuarios)
                                       .Map(m =>

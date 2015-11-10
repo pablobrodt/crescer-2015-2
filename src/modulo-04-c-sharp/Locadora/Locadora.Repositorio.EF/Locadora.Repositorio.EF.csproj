@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201511100144065_Usuario_Com_Permissao.Designer.cs">
       <DependentUpon>201511100144065_Usuario_Com_Permissao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511102325175_NomeCompletoParaUsuario.cs" />
+    <Compile Include="Migrations\201511102325175_NomeCompletoParaUsuario.Designer.cs">
+      <DependentUpon>201511102325175_NomeCompletoParaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\JogoRepositorio.cs" />
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511100144065_Usuario_Com_Permissao.resx">
       <DependentUpon>201511100144065_Usuario_Com_Permissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511102325175_NomeCompletoParaUsuario.resx">
+      <DependentUpon>201511102325175_NomeCompletoParaUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
