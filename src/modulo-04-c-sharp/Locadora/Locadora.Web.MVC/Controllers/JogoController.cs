@@ -1,5 +1,7 @@
 ﻿using Locadora.Dominio;
+using Locadora.Web.MVC.Helpers;
 using Locadora.Web.MVC.Models;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +10,12 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    public class JogoController : BaseController
+    [Autorizador]
+    public class JogoController : Controller
     {
         public ActionResult DetalhesDoJogo(int id)
         {
-            Jogo jogoEncontrado = CriarJogoRepositorio().BuscarPorId(id);
+            Jogo jogoEncontrado = FabricaDeModulos.CriarJogoRepositorio().BuscarPorId(id);
 
             var jogoModel = new DetalheJogoModel(jogoEncontrado);
 

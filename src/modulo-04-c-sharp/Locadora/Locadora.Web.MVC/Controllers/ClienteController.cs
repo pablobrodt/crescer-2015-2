@@ -1,4 +1,5 @@
 ﻿using Locadora.Web.MVC.Models;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
+    [Autorizador]
     public class ClienteController : Controller
     {
         //Só pra teste! Não façam uma coisa dessas!

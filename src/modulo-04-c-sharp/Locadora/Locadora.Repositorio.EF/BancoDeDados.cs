@@ -18,12 +18,16 @@ namespace Locadora.Repositorio.EF
 
         public DbSet<Jogo> Jogo { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Permissao> Permissao { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new JogoMap());
             modelBuilder.Configurations.Add(new ClienteMap());
+            modelBuilder.Configurations.Add(new PermissaoMap());
+            modelBuilder.Configurations.Add(new UsuarioMap());
 
             base.OnModelCreating(modelBuilder);
         }

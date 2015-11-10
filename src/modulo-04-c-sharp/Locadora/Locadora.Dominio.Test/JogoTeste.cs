@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Locadora.Dominio.Test
 {
     [TestClass]
-    public class JogoTest
+    public class JogoTeste
     {
         [TestMethod]
         public void JogoADeveSerIgualJogoB()

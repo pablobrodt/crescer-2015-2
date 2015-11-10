@@ -1,6 +1,8 @@
 ﻿using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
+using Locadora.Web.MVC.Helpers;
 using Locadora.Web.MVC.Models;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,8 @@ using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
 {
-    public class RelatorioController : BaseController
+    [Autorizador]
+    public class RelatorioController : Controller
     {
         public ActionResult JogosFiltradosPorId(int id)
         {
@@ -19,7 +22,7 @@ namespace Locadora.Web.MVC.Controllers
         public ActionResult JogosDisponiveis(string nome)
         {
             IList<Jogo> jogosEncontrados = null;
-            IJogoRepositorio jogoRepositorio = CriarJogoRepositorio();
+            IJogoRepositorio jogoRepositorio = FabricaDeModulos.CriarJogoRepositorio();
 
             if(string.IsNullOrEmpty(nome))
             {
