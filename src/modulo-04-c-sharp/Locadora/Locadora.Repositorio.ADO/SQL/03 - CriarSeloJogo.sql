@@ -4,12 +4,12 @@ CREATE TABLE dbo.Selo
     Descricao        VARCHAR(250)    NOT NULL UNIQUE
 )
 
-GO;
+GO
 
 INSERT INTO SELO(Id, Descricao) VALUES (1, 'Bronze');
 INSERT INTO SELO(Id, Descricao) VALUES (2, 'Prata');
 INSERT INTO SELO(Id, Descricao) VALUES (3, 'Ouro');
 
-GO;
+GO
 
 
