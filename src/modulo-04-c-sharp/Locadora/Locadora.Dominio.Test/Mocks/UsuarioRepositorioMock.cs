@@ -24,7 +24,7 @@ namespace Locadora.Dominio.Test.Mocks
                 Senha = "123" + ServicoCriptografiaMock.SALT
             };
 
-            usuario1.Permissoes.Add(new Permissao("ADMIN"));
+            usuario1.Permissoes.Add(new Permissao(Permissao.ADMIN));
 
             usuarios.Add(usuario1);
             return usuarios;

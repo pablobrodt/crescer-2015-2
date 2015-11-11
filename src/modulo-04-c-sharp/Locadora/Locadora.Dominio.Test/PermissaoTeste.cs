@@ -9,15 +9,16 @@ namespace Locadora.Dominio.Test
         [TestMethod]
         public void PermissaoAdminEhCriada()
         {
-            var permissao = new Permissao("Admin");
-            Assert.AreEqual("Admin", permissao.Nome);
+            var permissao = new Permissao(Permissao.ADMIN);
+            Assert.AreEqual(Permissao.ADMIN, permissao.Nome);
+            Assert.IsNull(permissao.Usuarios);
         }
 
         [TestMethod]
         public void PermissaoEhIgualAOutra()
         {
-            var permissaoA = new Permissao("Admin");
-            var permissaoB = new Permissao("Admin");
+            var permissaoA = new Permissao(Permissao.ADMIN);
+            var permissaoB = new Permissao(Permissao.ADMIN);
 
             Assert.AreEqual(permissaoA, permissaoB);
         }

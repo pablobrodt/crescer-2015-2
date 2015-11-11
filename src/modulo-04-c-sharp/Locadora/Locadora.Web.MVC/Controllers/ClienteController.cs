@@ -1,4 +1,5 @@
-﻿using Locadora.Web.MVC.Models;
+﻿using Locadora.Dominio;
+using Locadora.Web.MVC.Models;
 using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Locadora.Web.MVC.Controllers
         }
 
         [HttpGet]
+        [Autorizador(Roles = Permissao.ADMIN)]
         public ActionResult Manter(int? id)
         {            
             ViewBag.ListaJogos = new SelectList(exemploDeLista, "IdJogo", "Nome");

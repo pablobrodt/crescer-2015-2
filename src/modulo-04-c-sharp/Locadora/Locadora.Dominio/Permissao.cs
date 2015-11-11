@@ -8,6 +8,8 @@ namespace Locadora.Dominio
 {
     public class Permissao : EntidadeBase
     {
+        public const string ADMIN = "ADMIN";
+
         public string Nome { get; private set; }
 
         public ICollection<Usuario> Usuarios { get; private set; }
@@ -18,7 +20,7 @@ namespace Locadora.Dominio
         }
 
         private Permissao() { }
-
+        
         public override bool Equals(object obj)
         {
             if(obj != null)

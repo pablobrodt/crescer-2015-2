@@ -20,6 +20,7 @@ namespace Locadora.Web.MVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel loginModel)
         {
             if (ModelState.IsValid)

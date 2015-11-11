@@ -10,7 +10,7 @@ namespace Locadora.Dominio
     {
         public Usuario()
         {
-            this.Permissoes = new List<Permissao>();
+            this.Permissoes = new HashSet<Permissao>();
         }
 
         public string NomeCompleto { get; set; }
@@ -34,7 +34,7 @@ namespace Locadora.Dominio
                 this.Permissoes = new List<Permissao>();
             }
 
-            if(!this.Permissoes.Contains(permissao))
+            if(!TemPermissao(permissao.Nome))
             {
                 this.Permissoes.Add(permissao);
             }

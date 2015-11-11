@@ -17,5 +17,12 @@ namespace Locadora.Web.MVC.Seguranca
             this.Email = usuario.Email;
             this.Permissoes = usuario.Permissoes.Select(p => p.Nome).ToArray();
         }
+
+        public bool TemPermissao(string nomePermissao)
+        {
+            return this.Permissoes != null 
+                && this.Permissoes.Contains(nomePermissao);
+        }
+
     }
 }

@@ -5,6 +5,7 @@
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form" }))
 {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true);
     
 
