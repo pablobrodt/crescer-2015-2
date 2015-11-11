@@ -10,7 +10,7 @@ namespace Locadora.Web.MVC.Models
     {   
         [Required(ErrorMessage = "Campo Email precisa ser preenchido.")]
         [StringLength(200, ErrorMessage = "O email deve ter no máximo 200 caracteres.")]
-        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email em formato inválido.")]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Campo Senha precisa ser preenchido.")]

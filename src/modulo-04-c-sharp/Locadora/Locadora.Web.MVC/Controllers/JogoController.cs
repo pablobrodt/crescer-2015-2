@@ -13,8 +13,8 @@ namespace Locadora.Web.MVC.Controllers
     [Autorizador]
     public class JogoController : Controller
     {   
-        [Autorizador(Roles = "DetalhesDoJogo")]
         [HttpGet]
+        [Autorizador(Roles = Permissao.DETALHES)]
         public ActionResult DetalhesDoJogo(int id)
         {
             Jogo jogo = ObterJogoPorId(id);
@@ -24,8 +24,8 @@ namespace Locadora.Web.MVC.Controllers
             return View(model);
         }
 
-        [Autorizador(Roles = "ADMIN")]
         [HttpGet]
+        [Autorizador(Roles = Permissao.ADMIN)]
         public ActionResult Manter(int? id)
         {
             if (id.HasValue)
@@ -42,8 +42,8 @@ namespace Locadora.Web.MVC.Controllers
             }
         }
 
-        [Autorizador(Roles = "ADMIN")]
         [HttpPost]
+        [Autorizador(Roles = Permissao.ADMIN)]
         public ActionResult Salvar(ManterJogoModel model)
         {
             if (ModelState.IsValid)

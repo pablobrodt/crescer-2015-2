@@ -3,6 +3,7 @@ using Locadora.Dominio.Repositorio;
 using Locadora.Dominio.Servicos;
 using Locadora.Repositorio.EF;
 using Locadora.Servicos.ServicosCriptografia;
+using Locadora.Web.MVC.Helpers;
 using Locadora.Web.MVC.Models;
 using Locadora.Web.MVC.Seguranca;
 using System;
@@ -27,11 +28,7 @@ namespace Locadora.Web.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                IUsuarioRepositorio repositorio = new UsuarioRepositorio();
-
-                IServicoCriptografia criptografia = new CriptografiaSHA1();
-
-                var autenticador = new ServicoAutenticacao(repositorio, criptografia);
+                var autenticador = FabricaDeModulos.CriarServicoAutenticacao();
 
                 Usuario usuario = autenticador.BuscarPorAutenticacao(model.Email, model.Senha);
 

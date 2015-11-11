@@ -17,7 +17,6 @@ namespace Locadora.Web.MVC
 
             jogo.Nome = model.Nome;
             jogo.Categoria = model.Categoria;
-            jogo.Preco = model.Preco;
             jogo.Descricao = model.Descricao;
             jogo.Selo = model.Selo;
             jogo.Imagem = model.Imagem;
@@ -33,7 +32,6 @@ namespace Locadora.Web.MVC
                 Id = jogo.Id,
                 Nome = jogo.Nome,
                 Categoria = jogo.Categoria,
-                Preco = jogo.Preco
             };
         }
 
@@ -44,7 +42,6 @@ namespace Locadora.Web.MVC
                 Id = jogo.Id,
                 Nome = jogo.Nome,
                 Categoria = jogo.Categoria,
-                Preco = jogo.Preco,
                 Descricao = jogo.Descricao,
                 Selo = jogo.Selo,
                 Imagem = jogo.Imagem,
@@ -59,7 +56,6 @@ namespace Locadora.Web.MVC
                 Id = jogo.Id,
                 Nome = jogo.Nome,
                 Categoria = jogo.Categoria,
-                Preco = jogo.Preco,
                 Descricao = jogo.Descricao,
                 Selo = jogo.Selo,
                 Imagem = jogo.Imagem,

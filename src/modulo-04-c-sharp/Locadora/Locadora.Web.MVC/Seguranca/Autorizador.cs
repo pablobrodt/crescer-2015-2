@@ -13,18 +13,17 @@ namespace Locadora.Web.MVC.Seguranca
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
+            UsuarioLogado usuario = ControleDeSessao.UsuarioLogado;
             var httpContext = filterContext.HttpContext;
-            var session = httpContext.Session["USUARIO_LOGADO"];
 
             bool temAutorizacao = AuthorizeCore(httpContext);
-            bool temSession = session != null;
+            bool temSession = usuario != null;
 
             if (temSession && temAutorizacao)
             {
-                UsuarioLogado usuarioLogado = session as UsuarioLogado;
-                string[] roles = usuarioLogado.Permissoes;
+                string[] roles = usuario.Permissoes;
 
-                var identidade = new GenericIdentity(usuarioLogado.UserName);
+                var identidade = new GenericIdentity(usuario.Email);
                 var principal = new GenericPrincipal(identidade, roles);
 
                 Thread.CurrentPrincipal = principal;

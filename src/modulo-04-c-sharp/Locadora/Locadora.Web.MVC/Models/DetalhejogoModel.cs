@@ -14,8 +14,6 @@ namespace Locadora.Web.MVC.Models
 
         public Categoria Categoria { get; set; }
 
-        public decimal Preco { get; set; }
-
         public string Descricao { get; set; }
 
         public Selo Selo { get; set; }

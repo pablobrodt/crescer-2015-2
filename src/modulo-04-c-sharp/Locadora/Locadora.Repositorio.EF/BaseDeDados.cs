@@ -43,7 +43,6 @@ namespace Locadora.Repositorio.EF
             HasKey(j => j.Id);
 
             Property(j => j.Nome).IsRequired().HasMaxLength(250);
-            Property(j => j.Preco).IsRequired();
             Property(j => j.Categoria).IsRequired().HasColumnName("idCategoria");
             Property(j => j.Descricao).IsRequired().HasMaxLength(500);
             Property(j => j.Selo).IsOptional().HasColumnName("idSelo");

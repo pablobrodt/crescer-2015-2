@@ -8,7 +8,9 @@
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
 {   
-    @Html.ValidationSummary(false)
+    @Html.ValidationSummary(true)
+
+    @Html.ValidationMessage("INVALID_LOGIN")
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-sm-2 control-label" })

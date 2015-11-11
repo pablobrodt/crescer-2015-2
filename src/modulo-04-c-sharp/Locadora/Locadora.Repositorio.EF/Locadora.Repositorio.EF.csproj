@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201511110017052_AlteracaoUsuario.Designer.cs">
       <DependentUpon>201511110017052_AlteracaoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511111918045_RemoverPrecoJogo.cs" />
+    <Compile Include="Migrations\201511111918045_RemoverPrecoJogo.Designer.cs">
+      <DependentUpon>201511111918045_RemoverPrecoJogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioRepositorio.cs" />
@@ -93,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511110017052_AlteracaoUsuario.resx">
       <DependentUpon>201511110017052_AlteracaoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511111918045_RemoverPrecoJogo.resx">
+      <DependentUpon>201511111918045_RemoverPrecoJogo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

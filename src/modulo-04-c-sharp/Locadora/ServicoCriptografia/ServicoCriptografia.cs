@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace Locadora.Servicos.ServicosCriptografia
 {
-    public class CriptografiaSHA1 : IServicoCriptografia
+    public class ServicoCriptografia : IServicoCriptografia
     {
         public string CriptografarSenha(string senha)
         {

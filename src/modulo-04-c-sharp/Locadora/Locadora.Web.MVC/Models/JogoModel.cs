@@ -13,7 +13,5 @@ namespace Locadora.Web.MVC.Models
         public string Nome { get; set; }
 
         public Categoria Categoria { get; set; }
-
-        public decimal Preco { get; set; }
     }
 }

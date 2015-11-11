@@ -7,15 +7,21 @@ namespace Locadora.Web.MVC.Models
 {
     public class UsuarioLogado
     {
-        public string UserName { get; set; }
+        public string Email { get; set; }
         public string NomeCompleto { get; set; }
         public string[] Permissoes { get; set; }
-
-        public UsuarioLogado(string userName, string nomeCompleto, string[] permissoes)
+        
+        public UsuarioLogado(string email, string nomeCompleto, string[] permissoes)
         {
-            this.UserName = userName;
+            this.Email = email;
             this.NomeCompleto = nomeCompleto;
             this.Permissoes = permissoes;
+        }
+
+        public bool TemPermissao(string nomePermissao)
+        {
+            return this.Permissoes != null
+                && this.Permissoes.Contains(nomePermissao);
         }
     }
 }

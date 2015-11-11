@@ -33,7 +33,6 @@ namespace Locadora.Repositorio.ADO
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
                 comando.AddParam("paramNome", entidade.Nome);
-                comando.AddParam("paramPreco", entidade.Preco);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
                 comando.AddParam("paramIdClienteLocacao", entidade.ClienteLocacao.Id);
                 comando.AddParam("paramDescricao", entidade.Descricao);
@@ -98,12 +97,11 @@ namespace Locadora.Repositorio.ADO
             {
                 var sql = new StringBuilder();
                 sql.Append(" INSERT INTO Jogo (Nome, Preco, IdCategoria, IdClienteLocacao, Descricao, IdSelo, Imagem, Video) ");
-                sql.Append(" VALUES (@paramNome, @paramPreco, @paramIdCategoria, @paramIdClienteLocacao, @paramDescricao, @paramIdSelo, @paramImagem, @paramVideo) ");
+                sql.Append(" VALUES (@paramNome, @paramIdCategoria, @paramIdClienteLocacao, @paramDescricao, @paramIdSelo, @paramImagem, @paramVideo) ");
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
                 comando.AddParam("paramNome", entidade.Nome);
-                comando.AddParam("paramPreco", entidade.Preco);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
                 comando.AddParam("paramIdClienteLocacao", entidade.ClienteLocacao.Id);
                 comando.AddParam("paramDescricao", entidade.Descricao);
@@ -149,7 +147,6 @@ namespace Locadora.Repositorio.ADO
                 );
 
             jogo.Nome = reader["Nome"].ToString();
-            jogo.Preco = Convert.ToDecimal(reader["Preco"]);
             jogo.Categoria = (Categoria)Convert.ToInt32(reader["IdCategoria"]);
             jogo.Descricao = reader["Descricao"].ToString();
             jogo.Selo = ((Selo)Convert.ToInt32(reader["IdSelo"]));
