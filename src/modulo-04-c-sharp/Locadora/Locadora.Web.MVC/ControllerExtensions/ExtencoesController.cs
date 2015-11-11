@@ -69,7 +69,7 @@ namespace Locadora.Web.MVC
 
         public static IJogoRepositorio ObterJogoRepositorio(this Controller controller)
         {
-            return new Locadora.Repositorio.ADO.JogoRepositorio();
+            return new Locadora.Repositorio.EF.JogoRepositorio();
         }
     }
 }

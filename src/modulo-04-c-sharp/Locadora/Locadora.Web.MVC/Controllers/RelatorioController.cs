@@ -6,12 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using Locadora.Dominio.Repositorio;
 using Locadora.Dominio;
+using Locadora.Web.MVC.Seguranca;
 
 namespace Locadora.Web.MVC.Controllers
 {
     public class RelatorioController : Controller
     {
-        // GET: Relatorio
+        [Autorizador]
         public ActionResult JogosDisponiveis(string nome)
         {
             IJogoRepositorio repositorio = this.ObterJogoRepositorio();
