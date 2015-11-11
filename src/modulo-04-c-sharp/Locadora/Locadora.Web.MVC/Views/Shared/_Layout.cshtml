@@ -23,6 +23,16 @@
                     <li>
                         @Html.ActionLink("Lista de Jogos", "JogosDisponiveis", "Relatorio")
                     </li>
+                    @{  var session = Session["USUARIO_LOGADO"] as UsuarioLogado;
+
+                        if (session != null)
+                        {
+                            if (session.Permissoes.Any(p => p == "ADMIN"))
+                            {
+                                @Html.Partial("MenuAdmin")
+                            }
+                        }
+                    }
                 </ul>
                 <form class="navbar-form navbar-right" role="search" method="GET" action="~/Relatorio/JogosDisponiveis">
                     <div class="form-group">

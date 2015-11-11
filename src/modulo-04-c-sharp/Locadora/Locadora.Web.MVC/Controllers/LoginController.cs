@@ -4,6 +4,7 @@ using Locadora.Dominio.Servicos;
 using Locadora.Repositorio.EF;
 using Locadora.Servicos.ServicosCriptografia;
 using Locadora.Web.MVC.Models;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,28 +24,27 @@ namespace Locadora.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-            IUsuarioRepositorio repositorio = new UsuarioRepositorio();
 
-            IServicoCriptografia criptografia = new CriptografiaSHA1();
-
-            var autenticador = new ServicoAutenticacao(repositorio, criptografia);
-
-            Usuario usuario = autenticador.BuscarPorAutenticacao(model.Email, model.Senha);
-
-            if(usuario != null)
+            if (ModelState.IsValid)
             {
-                string email = usuario.Email;
-                string nomeCompleto = usuario.NomeCompleto;
-                string[] permissoes = usuario.Permissoes.Select(p => p.Nome).ToArray();
+                IUsuarioRepositorio repositorio = new UsuarioRepositorio();
 
-                var usuarioLogado = new UsuarioLogado(email, nomeCompleto, permissoes);
+                IServicoCriptografia criptografia = new CriptografiaSHA1();
 
-                FormsAuthentication.SetAuthCookie(email, true);
+                var autenticador = new ServicoAutenticacao(repositorio, criptografia);
 
-                Session["USUARIO_LOGADO"] = usuarioLogado;
+                Usuario usuario = autenticador.BuscarPorAutenticacao(model.Email, model.Senha);
+
+                if (usuario != null)
+                {
+                    ControleDeSessao.CriarSessao(usuario);
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
-            return RedirectToAction("Index", "Home");
+            ModelState.AddModelError("INVALID_LOGIN", "Usuário ou senha inválidos.");
+            return View("Index", model);
         }
     }
 }

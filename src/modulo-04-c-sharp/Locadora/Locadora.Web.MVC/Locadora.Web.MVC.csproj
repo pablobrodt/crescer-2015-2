@@ -153,6 +153,7 @@
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RelatorioController.cs" />
+    <Compile Include="Extensions\HtmlExtensions\PartialExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,9 +162,10 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ManterJogoModel.cs" />
     <Compile Include="Models\RelatorioModel.cs" />
+    <Compile Include="Seguranca\ControleDeSessao.cs" />
     <Compile Include="Seguranca\UsuarioLogado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ControllerExtensions\ExtencoesController.cs" />
+    <Compile Include="Extensions\ControllerExtensions\ExtencoesController.cs" />
     <Compile Include="Seguranca\Autorizador.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +179,7 @@
     <Content Include="Views\Jogo\Manter.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\MenuAdmin.cshtml" />
+    <Content Include="Views\Shared\Botoes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
