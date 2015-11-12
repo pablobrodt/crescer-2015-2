@@ -52,6 +52,10 @@
     <Compile Include="BaseDeDados.cs" />
     <Compile Include="ClienteRepositorio.cs" />
     <Compile Include="JogoRepositorio.cs" />
+    <Compile Include="Maps\ClienteMap.cs" />
+    <Compile Include="Maps\JogoMap.cs" />
+    <Compile Include="Maps\PermissaoMap.cs" />
+    <Compile Include="Maps\UsuarioMap.cs" />
     <Compile Include="Migrations\201511101514386_initial.cs" />
     <Compile Include="Migrations\201511101514386_initial.Designer.cs">
       <DependentUpon>201511101514386_initial.cs</DependentUpon>
