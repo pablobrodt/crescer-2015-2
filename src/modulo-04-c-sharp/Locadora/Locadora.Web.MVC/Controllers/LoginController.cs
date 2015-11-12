@@ -51,6 +51,6 @@ namespace Locadora.Web.MVC.Controllers
             ControleDeSessao.Encerrar();
             RedirectToAction("Index", "Login");
         }
-        
+
     }
 }
