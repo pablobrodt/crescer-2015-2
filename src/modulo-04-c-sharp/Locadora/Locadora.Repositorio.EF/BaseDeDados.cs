@@ -25,12 +25,15 @@ namespace Locadora.Repositorio.EF
 
         public DbSet<Permissao> Permissao { get; set; }
 
+        public DbSet<Locacao> Locacao { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new JogoMap());
             modelBuilder.Configurations.Add(new ClienteMap());
             modelBuilder.Configurations.Add(new UsuarioMap());
             modelBuilder.Configurations.Add(new PermissaoMap());
+            modelBuilder.Configurations.Add(new LocacaoMap());
             base.OnModelCreating(modelBuilder);
         }
     }
