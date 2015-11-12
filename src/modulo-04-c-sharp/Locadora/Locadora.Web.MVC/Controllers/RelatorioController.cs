@@ -21,40 +21,30 @@ namespace Locadora.Web.MVC.Controllers
         
         public ActionResult JogosDisponiveis(string nome)
         {
-            IList<Jogo> jogosEncontrados = null;
-            IJogoRepositorio jogoRepositorio = FabricaDeModulos.CriarJogoRepositorio();
-
-            if(string.IsNullOrEmpty(nome))
-            {
-                jogosEncontrados = jogoRepositorio.BuscarTodos();
-            }
-            else
-            {
-                jogosEncontrados = jogoRepositorio.BuscarPorNome(nome);
-            }
+            IList<Jogo> jogosEncontrados = ObterJogosPorFiltro(nome);
 
             RelatorioJogosDisponiveisModel model = new RelatorioJogosDisponiveisModel(jogosEncontrados);
 
             return View(model);
-        }
+        }        
 
         public JsonResult JogosAutocomplete(string term)
         {
-            IList<Jogo> jogosEncontrados = null;
-            IJogoRepositorio jogoRepositorio = FabricaDeModulos.CriarJogoRepositorio();
-
-            if (string.IsNullOrEmpty(term))
-            {
-                jogosEncontrados = jogoRepositorio.BuscarTodos();
-            }
-            else
-            {
-                jogosEncontrados = jogoRepositorio.BuscarPorNome(term);
-            }
+            IList<Jogo> jogosEncontrados = ObterJogosPorFiltro(term);
 
             var json = jogosEncontrados.Select(x => new { label = x.Nome });
 
             return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+        private IList<Jogo> ObterJogosPorFiltro(string nome)
+        {
+            IJogoRepositorio jogoRepositorio = FabricaDeModulos.CriarJogoRepositorio();
+
+            if (string.IsNullOrEmpty(nome))
+                return jogoRepositorio.BuscarTodos();
+            else
+                return jogoRepositorio.BuscarPorNome(nome);
         }
     }
 }
