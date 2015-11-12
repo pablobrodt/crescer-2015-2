@@ -14,8 +14,14 @@ namespace Locadora.Web.MVC.Controllers
 {
     public class LoginController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
+            if(ControleDeSessao.UsuarioLogado != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -36,13 +42,14 @@ namespace Locadora.Web.MVC.Controllers
                 }
             }
 
-            ModelState.AddModelError("INVALID_LOGIN", "Usuário ou senha inválidos.");
+            ModelState.AddModelError("ERRO_LOGIN", "Usuário ou senha inválidos.");
             return View("Index", loginModel);
         }
 
         public void Sair()
         {
             ControleDeSessao.Encerrar();
+            RedirectToAction("Index", "Login");
         }
         
     }

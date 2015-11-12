@@ -24,7 +24,11 @@ namespace Locadora.Web.MVC.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var model = new ClienteIndexModel();
+
+            UsuarioLogado usuarioLogado = ControleDeSessao.UsuarioLogado;
+            model.PodeCadastrar = usuarioLogado.TemPermissao(Permissao.ADMIN);
+            return View(model);
         }
 
         [HttpGet]

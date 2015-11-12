@@ -1,4 +1,5 @@
 ﻿using Locadora.Web.MVC.App_Start;
+using Locadora.Web.MVC.Seguranca;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.Security;
 
 namespace Locadora.Web.MVC
 {
@@ -19,5 +21,6 @@ namespace Locadora.Web.MVC
 
             //BundleTable.EnableOptimizations = true;
         }
+        
     }
 }

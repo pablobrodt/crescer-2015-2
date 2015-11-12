@@ -15,7 +15,14 @@ namespace Locadora.Web.MVC.Seguranca
         {
             get
             {
-                return HttpContext.Current.Session[USUARIO_LOGADO] as UsuarioLogado;
+                UsuarioLogado usuarioLogado = null;
+                
+                if(HttpContext.Current.Session != null)
+                {
+                    usuarioLogado = HttpContext.Current.Session[USUARIO_LOGADO] as UsuarioLogado;
+                }
+
+                return usuarioLogado;
             }
         }
 
