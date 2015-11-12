@@ -10,6 +10,8 @@ namespace Locadora.Dominio
     {
         public string Nome { get; set; }
 
+        public ICollection<Jogo> JogosLocados { get; set; }
+
         public Cliente()
         {
 

@@ -48,8 +48,6 @@ namespace Locadora.Repositorio.EF
             Property(j => j.Selo).IsOptional().HasColumnName("idSelo");
             Property(j => j.Imagem).IsOptional().HasMaxLength(500);
             Property(j => j.Video).IsOptional().HasMaxLength(500);
-
-            HasOptional(p => p.ClienteLocacao).WithOptionalDependent().Map(m => m.MapKey("idClienteLocacao"));
         }
     }
 
@@ -62,6 +60,8 @@ namespace Locadora.Repositorio.EF
             HasKey(c => c.Id);
 
             Property(c => c.Nome).IsRequired().HasMaxLength(250);
+
+            HasMany(c => c.JogosLocados).WithOptional(j => j.ClienteLocacao).Map(m => m.MapKey("idClienteLocacao"));
         }
     }
 
