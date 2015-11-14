@@ -16,10 +16,10 @@ namespace Locadora.Dominio
 
         public Usuario()
         {
-
+            this.Permissoes = new List<Permissao>();
         }
 
-        public Usuario(int id)
+        public Usuario(int id) : this()
         {
             this.Id = id;
         }

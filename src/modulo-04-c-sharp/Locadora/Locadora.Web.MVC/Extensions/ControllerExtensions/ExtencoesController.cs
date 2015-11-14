@@ -1,5 +1,6 @@
 ﻿using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
+using Locadora.Web.MVC.Helpers;
 using Locadora.Web.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Locadora.Web.MVC
             jogo.Selo = model.Selo;
             jogo.Imagem = model.Imagem;
             jogo.Video = model.Video;
+            jogo.DataLocacao = model.DataLocacao;
 
             return jogo;
         }
@@ -59,13 +61,50 @@ namespace Locadora.Web.MVC
                 Descricao = jogo.Descricao,
                 Selo = jogo.Selo,
                 Imagem = jogo.Imagem,
-                Video = jogo.Video
+                Video = jogo.Video,
+                DataLocacao = jogo.DataLocacao
             };
         }
 
-        public static IJogoRepositorio ObterJogoRepositorio(this Controller controller)
+        public static LocarJogoModel JogoToLocarJogoModel(this Controller controller, Jogo jogo)
         {
-            return new Locadora.Repositorio.EF.JogoRepositorio();
+            LocarJogoModel locarModel = new LocarJogoModel();
+
+            locarModel.Id = jogo.Id;
+            locarModel.NomeJogo = jogo.Nome;
+            locarModel.Descricao = jogo.Descricao;
+            locarModel.Imagem = jogo.Imagem;
+            locarModel.DataEntrega = FabricaDeModulos.CriarServicoLocacao().ObterDataPrevistaEntrega(jogo);
+            locarModel.Preco = jogo.Preco;
+            locarModel.Selo = jogo.Selo;
+
+            return locarModel;
+        }
+
+        public static ClienteModel ClienteToClienteModel(Cliente cliente)
+        {
+            ClienteModel clienteModel = new ClienteModel();
+
+            clienteModel.Id = cliente.Id;
+            clienteModel.Nome = cliente.Nome;
+
+            return clienteModel;
+        }
+
+        public static IList<ClienteModel> ListClientesToListClienteModel(this Controller controller, IList<Cliente> clientes)
+        {
+            IList<ClienteModel> listClienteModel = new List<ClienteModel>();
+
+            foreach (var cliente in clientes)
+            {
+                var clienteModel = new ClienteModel();
+                clienteModel.Id = cliente.Id;
+                clienteModel.Nome = cliente.Nome;
+
+                listClienteModel.Add(clienteModel);
+            }
+
+            return listClienteModel;
         }
     }
 }

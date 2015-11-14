@@ -10,7 +10,9 @@ namespace Locadora.Dominio
 
         public Categoria Categoria { get; set; }
 
-        public Cliente ClienteLocacao { get; private set; }
+        public Cliente ClienteLocacao { get; set; }
+
+        public DateTime? DataLocacao { get; set; }
 
         public string Descricao { get; set; }
 
@@ -19,6 +21,18 @@ namespace Locadora.Dominio
         public string Imagem { get; set; }
 
         public string Video { get; set; }
+
+        public bool PodeSerLocado { get { return ClienteLocacao == null && DataLocacao == null; } }
+
+        public double DiasLocacao
+        {
+            get { return GetDiasLocacao(); }
+        }
+
+        public decimal Preco
+        {
+            get { return GetPreco(); }
+        }
 
         public Jogo()
         {
@@ -34,6 +48,44 @@ namespace Locadora.Dominio
         public void LocarPara(Cliente cliente)
         {
             this.ClienteLocacao = cliente;
+        }
+
+        private decimal GetPreco()
+        {
+            decimal preco;
+
+            switch (this.Selo)
+            {
+                case Selo.OURO: preco = 15;
+                    break;
+                case Selo.PRATA: preco = 10;
+                    break;
+                case Selo.BRONZE:  preco = 5;
+                    break;
+                default:  preco = 0;
+                    break;
+            }
+
+            return preco;
+        }
+
+        private double GetDiasLocacao()
+        {
+            double dias;
+
+            switch (this.Selo)
+            {
+                case Selo.OURO: dias = 1;
+                    break;
+                case Selo.PRATA: dias = 2;
+                    break;
+                case Selo.BRONZE: dias = 3;
+                    break;
+                default: dias = 0;
+                    break;
+            }
+
+            return dias;
         }
 
         public override string ToString()

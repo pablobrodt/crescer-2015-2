@@ -9,5 +9,10 @@ namespace Locadora.Dominio.Repositorio
     public interface IClienteRepositorio
     {
         IList<Cliente> BuscarPorNome(string nome);
+
+        IList<Cliente> BuscarTodos();
+
+        Cliente BuscarPorId(int id);
+
     }
 }

@@ -16,3 +16,31 @@ textarea {
     max-width: 280px;
 }
 
+.selo{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.selo img{
+    width: 100px;
+    height: 100px;
+}
+
+.image-wraper{
+    position: relative;
+    top:0px; left:0px;
+}
+
+.image-wraper .main-image{
+    width: 100%;
+    heigth: 100%;
+}
+
+.teste{
+    border: 1px solid #000;
+}
+
+.inline-block{
+    display: inline-block;
+}

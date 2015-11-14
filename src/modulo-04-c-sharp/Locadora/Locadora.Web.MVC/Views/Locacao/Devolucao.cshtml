@@ -1,0 +1,21 @@
+﻿@model DevolucaoModel
+
+@{
+    if(Model.LoacarJogoModel != null)
+    {
+        Html.Partial("_DetalheLocacao", Model.LoacarJogoModel);
+    }
+}
+
+<form action="~/Locacao/Devolucao" method="post">
+    <select name="idJogo" id="jogos" class="form-control">
+        @{
+            foreach (var jogo in Model.Jogos)
+            {
+                <option value="@jogo.Id">@jogo.NomeJogo</option>
+            }
+        }
+    </select>
+
+    <input class="btn btn-primary" type="submit" value="Devolução" />
+</form>

@@ -1,0 +1,12 @@
+﻿
+@model IList<ClienteModel>
+
+<label>Cliente:</label>
+<select name="IdCliente" class="form-control inline-block">
+    @{
+        foreach (var cliente in Model)
+        {
+            <option value="@cliente.Id">@cliente.Nome</option>
+        }
+    }
+</select>

@@ -10,7 +10,9 @@ using System.Web;
 namespace Locadora.Web.MVC.Helpers
 {
     public class FabricaDeModulos
-    {
+    {   
+        //TODO: REVISAR FABRICA DE MODULOS: SERÁ UMA BOA FRAGMENTAR EM FABRICA DE REPOSITORIOS E FABRICA DE SERVICOS?
+
         public static IJogoRepositorio CriarJogoRepositorio()
         {
             return new JogoRepositorio();
@@ -21,6 +23,11 @@ namespace Locadora.Web.MVC.Helpers
             return new UsuarioRepositorio();
         }
 
+        public static IClienteRepositorio CriarClienteRepositorio()
+        {
+            return new ClienteRepositorio();
+        }
+
         public static IServicoCriptografia CriarCriptografia()
         {
             return new ServicoCriptografia();
@@ -29,6 +36,11 @@ namespace Locadora.Web.MVC.Helpers
         public static ServicoAutenticacao CriarServicoAutenticacao()
         {
             return new ServicoAutenticacao(CriarUsuarioRepositorio(), CriarCriptografia());
+        }
+
+        public static ServicoLocacao CriarServicoLocacao()
+        {
+            return new ServicoLocacao(CriarJogoRepositorio());
         }
     }
 }

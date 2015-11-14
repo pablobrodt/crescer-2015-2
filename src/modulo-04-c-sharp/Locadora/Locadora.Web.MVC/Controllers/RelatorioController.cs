@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Locadora.Dominio.Repositorio;
 using Locadora.Dominio;
 using Locadora.Web.MVC.Seguranca;
+using Locadora.Web.MVC.Helpers;
 
 namespace Locadora.Web.MVC.Controllers
 {
@@ -15,7 +16,7 @@ namespace Locadora.Web.MVC.Controllers
         [Autorizador]
         public ActionResult JogosDisponiveis(string nome)
         {
-            IJogoRepositorio repositorio = this.ObterJogoRepositorio();
+            IJogoRepositorio repositorio = FabricaDeModulos.CriarJogoRepositorio();
 
             List<Jogo> jogosDominio = (nome == null) ? repositorio.BuscarTodos().ToList() : repositorio.BuscarPorNome(nome).ToList();
 

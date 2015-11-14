@@ -54,7 +54,6 @@
     <Compile Include="JogoRepositorio.cs" />
     <Compile Include="Maps\ClienteMap.cs" />
     <Compile Include="Maps\JogoMap.cs" />
-    <Compile Include="Maps\LocacaoMap.cs" />
     <Compile Include="Maps\PermissaoMap.cs" />
     <Compile Include="Maps\UsuarioMap.cs" />
     <Compile Include="Migrations\201511101514386_initial.cs" />
@@ -80,6 +79,10 @@
     <Compile Include="Migrations\201511120440427_AdicionarEntidadeLocacao.cs" />
     <Compile Include="Migrations\201511120440427_AdicionarEntidadeLocacao.Designer.cs">
       <DependentUpon>201511120440427_AdicionarEntidadeLocacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511121703579_RemoverEntidadeLocacao.cs" />
+    <Compile Include="Migrations\201511121703579_RemoverEntidadeLocacao.Designer.cs">
+      <DependentUpon>201511121703579_RemoverEntidadeLocacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511120440427_AdicionarEntidadeLocacao.resx">
       <DependentUpon>201511120440427_AdicionarEntidadeLocacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511121703579_RemoverEntidadeLocacao.resx">
+      <DependentUpon>201511121703579_RemoverEntidadeLocacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

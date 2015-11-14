@@ -10,7 +10,7 @@ namespace Locadora.Dominio
     {   
         public const string ADMIN = "Admin";
 
-        public const string DETALHES = "DetalhesDoJogo";
+        public const string OPERADOR = ADMIN + ", Operador";
 
         public string Nome { get; set; }
 

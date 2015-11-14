@@ -25,7 +25,6 @@ namespace Locadora.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
-
             if (ModelState.IsValid)
             {
                 var autenticador = FabricaDeModulos.CriarServicoAutenticacao();

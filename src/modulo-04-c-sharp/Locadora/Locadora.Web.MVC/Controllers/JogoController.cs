@@ -1,5 +1,6 @@
 ﻿using Locadora.Dominio;
 using Locadora.Dominio.Repositorio;
+using Locadora.Web.MVC.Helpers;
 using Locadora.Web.MVC.Models;
 using Locadora.Web.MVC.Seguranca;
 using System;
@@ -14,7 +15,7 @@ namespace Locadora.Web.MVC.Controllers
     public class JogoController : Controller
     {   
         [HttpGet]
-        [Autorizador(Roles = Permissao.DETALHES)]
+        [Autorizador(Roles = Permissao.OPERADOR)]
         public ActionResult DetalhesDoJogo(int id)
         {
             Jogo jogo = ObterJogoPorId(id);
@@ -52,13 +53,13 @@ namespace Locadora.Web.MVC.Controllers
 
                 if(jogo.Id == 0)
                 {
-                    this.ObterJogoRepositorio().Criar(jogo);
+                    FabricaDeModulos.CriarJogoRepositorio().Criar(jogo);
 
                     TempData["Mensagem"] = "Jogo inserido com sucesso!";
                 }
                 else
                 {
-                    this.ObterJogoRepositorio().Atualizar(jogo);
+                    FabricaDeModulos.CriarJogoRepositorio().Atualizar(jogo);
 
                     TempData["Mensagem"] = "Jogo atualizado com sucesso!";
                 }
@@ -73,7 +74,7 @@ namespace Locadora.Web.MVC.Controllers
 
         private Jogo ObterJogoPorId(int id)
         {
-            return this.ObterJogoRepositorio().BuscarPorId(id);
+            return FabricaDeModulos.CriarJogoRepositorio().BuscarPorId(id);
         }
     }
 }

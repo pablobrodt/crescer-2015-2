@@ -17,5 +17,21 @@ namespace Locadora.Repositorio.EF
                 return db.Cliente.Include("JogosLocados").Where(c => c.Nome.Contains(nome)).ToList();
             }
         }
+
+        public IList<Cliente> BuscarTodos()
+        {
+            using (var db = new BaseDeDados())
+            {
+                return db.Cliente.Include("JogosLocados").ToList();
+            }
+        }
+
+        public Cliente BuscarPorId(int id)
+        {
+            using (var db = new BaseDeDados())
+            {
+                return db.Cliente.Include("JogosLocados").FirstOrDefault(c => c.Id == id);
+            }
+        }
     }
 }

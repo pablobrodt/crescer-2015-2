@@ -5,7 +5,9 @@ namespace Locadora.Dominio.Test
 {
     [TestClass]
     public class JogoTest
-    {
+    {   
+        //TODO: IMPLEMENTAR TESTES PARA TODOS OS RECURSOS DE DOMINIO
+
         [TestMethod]
         public void JogoADeveSerIgualJogoB()
         {   

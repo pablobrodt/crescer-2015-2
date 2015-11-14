@@ -34,5 +34,7 @@ namespace Locadora.Web.MVC.Models
 
         [StringLength(500, ErrorMessage = "O código não pode ter mais de 500 caracteres.")]
         public string Video { get; set; }
+
+        public DateTime? DataLocacao { get; set; }
     }
 }

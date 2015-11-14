@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Locadora.Web.MVC.Controllers
-{   [Autorizador]
+{
+    [Autorizador]
     public class HomeController : Controller
     {
-        
         public ActionResult Index()
         {
             return View();

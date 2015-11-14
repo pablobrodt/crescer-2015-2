@@ -1,0 +1,35 @@
+﻿@model LocarModel
+
+@{
+    ViewBag.Title = "Locação";
+}
+
+<div class="container text-center">
+
+    <div class="row">
+        <div class="col-lg-10  col-lg-offset-1">
+            <h1>Locação</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            @Html.Partial("_DetalheLocacao", Model.LocarJogoModel)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="row">
+                @using (Html.BeginForm("EfetuarLocacao", "Locacao", FormMethod.Post))
+                {
+                    <input type="hidden" name="idJogo" value="@Model.LocarJogoModel.Id" />
+                    <div class="col-lg-6 text-left">
+                        @Html.Partial("_DropDownListClientes", Model.Clientes)
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="submit" class="btn btn-primary">Finalizar Locação</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -37,6 +37,8 @@
         @Html.TextBoxFor(m => m.Video, new { @class = "form-control" })
     </div>
 
+    @Html.HiddenFor(m => m.DataLocacao)
+
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Salvar</button>

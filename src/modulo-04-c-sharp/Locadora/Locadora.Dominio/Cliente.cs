@@ -10,14 +10,17 @@ namespace Locadora.Dominio
     {
         public string Nome { get; set; }
 
+        //TODO: VERIFICAR RELACIONAMENTO ENTRE CLIENTE E JOGO
         public ICollection<Jogo> JogosLocados { get; set; }
+
+        public bool PodeLocar { get { return JogosLocados.Count < 3; } }
 
         public Cliente()
         {
-
+            this.JogosLocados = new List<Jogo>();
         }
 
-        public Cliente(int id)
+        public Cliente(int id) : this()
         {
             this.Id = id;
         }
