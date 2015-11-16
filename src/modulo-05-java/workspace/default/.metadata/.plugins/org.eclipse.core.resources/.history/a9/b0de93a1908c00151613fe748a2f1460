@@ -1,0 +1,9 @@
+package br.com.cwi.crescer.exceptions;
+
+
+public class EmptyListException extends Exception {
+
+    public EmptyListException() {
+
+    }
+}

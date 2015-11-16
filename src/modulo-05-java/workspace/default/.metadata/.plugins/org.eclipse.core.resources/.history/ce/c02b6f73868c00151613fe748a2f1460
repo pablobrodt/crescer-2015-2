@@ -1,0 +1,15 @@
+package br.com.cwi.crescer;
+
+
+public class Aplicacao {
+
+    public static void main(String[] args) {
+        LinkedList lista = new LinkedList();
+        lista.addFirst("Terceiro");
+        lista.addFirst("Segundo");
+        lista.addFirst("Primeiro");
+        System.out.println(lista.list());
+
+    }
+
+}

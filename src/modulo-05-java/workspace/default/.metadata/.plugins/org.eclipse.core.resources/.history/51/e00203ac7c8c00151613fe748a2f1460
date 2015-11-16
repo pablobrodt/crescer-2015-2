@@ -1,0 +1,21 @@
+package br.com.cwi.crescer;
+
+
+public class Node {
+
+    private String value;
+
+    private Node next;
+
+    public Node(String value, Node next){
+        
+    }
+
+    public Node getNext() {
+        return this.next;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+}
