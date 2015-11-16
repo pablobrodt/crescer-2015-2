@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="LinkedListTest" project="crescer" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.cwi.crescer.test.LinkedListTest" time="0.001">
+    <testcase name="adicionarUltimoDuasVezes" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="removeItemDeIndiceTrêsDeUmaListaDeCincoItens" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="linkedListListaTemNodosComValoresPrimeiroSegundoETerceiro" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionaPrimeiroNaLista" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="primeiroNodoTambémÉOÚltimo" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionaNodoAoFimDaLista" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionaUltimoCincoVezes" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.0"/>
+    <testcase name="adicionaNaTerceiraPosiçãoEmListaDeCinco" classname="br.com.cwi.crescer.test.LinkedListTest" time="0.001"/>
+  </testsuite>
+</testrun>

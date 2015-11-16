@@ -14,25 +14,50 @@ public class LinkedListTest {
     @Test
     public void adicionaPrimeiroNaLista() {
         // Arrange
-        String valorEsperado = "Segundo";
+        String valorEsperado = "Ni";
         LinkedList<String> lista = new LinkedList<String>();
-        lista.addFirst("primeiro");
+        lista.addFirst("Ichi");
 
         // Act
-        lista.addFirst("Segundo");
+        lista.addFirst("Ni");
 
         // Assert
         assertEquals(valorEsperado, lista.getFirst());
     }
 
     @Test
+    public void adiicionarPrimeiroNodoCincoVezes() {
+        // Arrange
+        ArrayList<String> listaEsperada = new ArrayList<>();
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
+        listaEsperada.add("San");
+        listaEsperada.add("Shi");
+        listaEsperada.add("Go");
+
+        LinkedList<String> lista = new LinkedList<>();
+
+        // Act
+        lista.addFirst("Go");
+        lista.addFirst("Shi");
+        lista.addFirst("San");
+        lista.addFirst("Ni");
+        lista.addFirst("Ichi");
+
+        List<String> listaObtida = lista.list();
+
+        // Assert
+        assertEquals(listaEsperada, listaObtida);
+    }
+
+    @Test
     public void primeiroNodoTambémÉOÚltimo() {
         // Arrange
-        String valorEsperado = "Primeiro";
+        String valorEsperado = "Ichi";
         LinkedList<String> lista = new LinkedList<String>();
 
         // Act
-        lista.addFirst("Primeiro");
+        lista.addFirst("Ichi");
 
         // Assert
         assertEquals(valorEsperado, lista.getLast());
@@ -42,30 +67,30 @@ public class LinkedListTest {
     public void adicionaNodoAoFimDaLista() {
         // Arrange
         LinkedList<String> lista = new LinkedList<String>();
-        lista.addFirst("Segundo");
-        lista.addFirst("Primeiro");
+        lista.addFirst("Ichi");
+        lista.addFirst("Ni");
 
-        String valorEsperado = "Terceiro";
+        String valorEsperado = "San";
 
         // Act
-        lista.addLast("Terceiro");
+        lista.addLast("San");
 
         // Assert
         assertEquals(valorEsperado, lista.getLast());
     }
 
     @Test
-    public void linkedListListaTemNodosComValoresPrimeiroSegundoETerceiro() {
+    public void linkedListListaTemNodosComValoresIchiNiSan() {
         //Arrange
         LinkedList<String> lista = new LinkedList<String>();
-        lista.addFirst("Terceiro");
-        lista.addFirst("Segundo");
-        lista.addFirst("Primeiro");
+        lista.addFirst("San");
+        lista.addFirst("Ni");
+        lista.addFirst("Ichi");
 
         ArrayList<String> listaEsperada = new ArrayList<>();
-        listaEsperada.add("Primeiro");
-        listaEsperada.add("Segundo");
-        listaEsperada.add("Terceiro");
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
+        listaEsperada.add("San");
         //Act
         List<String> listaObtida = lista.list();
 
@@ -74,20 +99,20 @@ public class LinkedListTest {
     }
 
     @Test
-    public void removeItemDeIndiceTrêsDeUmaListaDeCincoItens() {
+    public void removeNodoDeIndiceTrêsDeUmaListaDeCinco() {
         // Arrange
         LinkedList<String> lista = new LinkedList<String>();
-        lista.addFirst("Cinco");
-        lista.addFirst("Quatro");
-        lista.addFirst("Três");
-        lista.addFirst("Dois");
-        lista.addFirst("Um");
+        lista.addFirst("Go");
+        lista.addFirst("Shi");
+        lista.addFirst("San");
+        lista.addFirst("Ni");
+        lista.addFirst("Ichi");
 
         ArrayList<String> listaEsperada = new ArrayList<>();
-        listaEsperada.add("Um");
-        listaEsperada.add("Dois");
-        listaEsperada.add("Três");
-        listaEsperada.add("Cinco");
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
+        listaEsperada.add("San");
+        listaEsperada.add("Go");
 
         // Act
         lista.remove(3);
@@ -98,22 +123,22 @@ public class LinkedListTest {
     }
 
     @Test
-    public void adicionaNaTerceiraPosiçãoEmListaDeCinco() {
+    public void adicionaNodoNaTerceiraPosiçãoEmListaDeCinco() {
         // Arrange
         LinkedList<String> lista = new LinkedList<String>();
-        lista.addFirst("Cinco");
-        lista.addFirst("Quatro");
-        lista.addFirst("Três");
-        lista.addFirst("Dois");
-        lista.addFirst("Um");
+        lista.addFirst("Go");
+        lista.addFirst("Shi");
+        lista.addFirst("San");
+        lista.addFirst("Ni");
+        lista.addFirst("Ichi");
 
         ArrayList<String> listaEsperada = new ArrayList<>();
-        listaEsperada.add("Um");
-        listaEsperada.add("Dois");
-        listaEsperada.add("Três");
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
+        listaEsperada.add("San");
         listaEsperada.add("Novo Nodo");
-        listaEsperada.add("Quatro");
-        listaEsperada.add("Cinco");
+        listaEsperada.add("Shi");
+        listaEsperada.add("Go");
 
         // Act
         lista.add(3, "Novo Nodo");
@@ -124,17 +149,42 @@ public class LinkedListTest {
     }
 
     @Test
-    public void adicionarUltimoDuasVezes() {
+    public void adicionarUltimoNodoDuasVezes() {
         // Arrange
         ArrayList<String> listaEsperada = new ArrayList<>();
-        listaEsperada.add("Priveiro");
-        listaEsperada.add("Segundo");
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
 
         LinkedList<String> lista = new LinkedList<>();
 
         // Act
-        lista.addLast("Primeiro");
-        lista.addLast("Segundo");
+        lista.addLast("Ichi");
+        lista.addLast("Ni");
+
+        List<String> listaObtida = lista.list();
+
+        // Assert
+        assertEquals(listaEsperada, listaObtida);
+    }
+
+    @Test
+    public void adicionaUltimoNodoCincoVezes() {
+        // Arrange
+        ArrayList<String> listaEsperada = new ArrayList<>();
+        listaEsperada.add("Ichi");
+        listaEsperada.add("Ni");
+        listaEsperada.add("San");
+        listaEsperada.add("Shi");
+        listaEsperada.add("Go");
+
+        LinkedList<String> lista = new LinkedList<>();
+
+        // Act
+        lista.addLast("Ichi");
+        lista.addLast("Ni");
+        lista.addLast("San");
+        lista.addLast("Shi");
+        lista.addLast("Go");
 
         List<String> listaObtida = lista.list();
 
