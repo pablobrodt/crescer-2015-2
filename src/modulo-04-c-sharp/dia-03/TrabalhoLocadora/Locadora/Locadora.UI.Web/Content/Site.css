@@ -16,6 +16,28 @@ textarea {
     max-width: 280px;
 }
 
+<<<<<<< HEAD:src/modulo-04-c-sharp/dia-03/TrabalhoLocadora/Locadora/Locadora.UI.Web/Content/Site.css
 .banner{
     margin-top: 25px;
 }
+=======
+.color-white {
+    color: #fff;
+}
+
+.bg-black {
+    background-color: #000;
+}
+
+.fb-page {
+    float: right;
+}
+
+.imagem-detalhe-jogo {
+    width: 100%;
+}
+
+.imagem-selo-jogo {
+    width: 32px;
+}
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Web.MVC/Content/Site.css

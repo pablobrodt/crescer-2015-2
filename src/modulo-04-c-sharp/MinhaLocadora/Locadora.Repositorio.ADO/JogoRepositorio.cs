@@ -12,7 +12,13 @@ namespace Locadora.Repositorio.ADO
 {
     public class JogoRepositorio : RepositorioBase,  IJogoRepositorio
     {
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
         private const string BASE_SELECT = "SELECT Id, Nome, Preco, IdCategoria, IdClienteLocacao, Descricao, IdSelo, Imagem, Video FROM Jogo ";
+=======
+        private const string BASE_SELECT = " SELECT Id, Nome, Preco, IdCategoria, IdClienteLocacao, IdSelo, " +
+                                                  " Descricao, Url_Imagem, Tag_Video " +
+                                           " FROM Jogo ";
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
 
         public int Atualizar(Jogo entidade)
         {
@@ -24,21 +30,36 @@ namespace Locadora.Repositorio.ADO
                 sql.Append(" Preco = @paramPreco, ");
                 sql.Append(" IdCategoria = @paramIdCategoria, ");
                 sql.Append(" IdClienteLocacao = @paramIdClienteLocacao, ");
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 sql.Append(" Descricao = @paramDescricao, ");
                 sql.Append(" IdSelo = @paramIdSelo, ");
                 sql.Append(" Imagem = @paramImagem, ");
                 sql.Append(" Video = @paramVideo ");
+=======
+                sql.Append(" IdSelo = @paramIdSelo, ");
+                sql.Append(" Descricao = @paramDescricao, ");
+                sql.Append(" Url_Imagem = @paramUrlImagem, ");
+                sql.Append(" Tag_Video = @paramTagVideo ");
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 sql.Append(" WHERE Id = @paramId ");
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
                 comando.AddParam("paramNome", entidade.Nome);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 comando.AddParam("paramIdClienteLocacao", entidade.ClienteLocacao.Id);
                 comando.AddParam("paramDescricao", entidade.Descricao);
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramImagem", entidade.Imagem);
                 comando.AddParam("paramVideo", entidade.Video);
+=======
+                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdSelo", (int)entidade.Selo);
+                comando.AddParam("paramDescricao", entidade.Descricao);
+                comando.AddParam("paramUrlImagem", entidade.UrlImagem);
+                comando.AddParam("paramTagVideo", entidade.TagVideo);
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 comando.AddParam("paramId", entidade.Id);
 
                 conexao.Open();
@@ -96,18 +117,31 @@ namespace Locadora.Repositorio.ADO
             using (IDbConnection conexao = CriarConexao())
             {
                 var sql = new StringBuilder();
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 sql.Append(" INSERT INTO Jogo (Nome, Preco, IdCategoria, IdClienteLocacao, Descricao, IdSelo, Imagem, Video) ");
                 sql.Append(" VALUES (@paramNome, @paramIdCategoria, @paramIdClienteLocacao, @paramDescricao, @paramIdSelo, @paramImagem, @paramVideo) ");
+=======
+                sql.Append(" INSERT INTO Jogo (Nome, Preco, Categoria, IdClienteLocacao, IdSelo, Descricao, Url_Imagem, Tag_Video) ");
+                sql.Append(" VALUES (@paramNome, @paramPreco, @paramCategoria, @paramIdClienteLocacao, @paramIdSelo, @paramDescricao, @paramUrlImagem, @paramTagVideo) ");
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
 
                 IDbCommand comando = conexao.CreateCommand();
                 comando.CommandText = sql.ToString();
                 comando.AddParam("paramNome", entidade.Nome);
                 comando.AddParam("paramIdCategoria", (int)entidade.Categoria);
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
                 comando.AddParam("paramIdClienteLocacao", entidade.ClienteLocacao.Id);
                 comando.AddParam("paramDescricao", entidade.Descricao);
                 comando.AddParam("paramIdSelo", (int)entidade.Selo);
                 comando.AddParam("paramImagem", entidade.Imagem);
                 comando.AddParam("paramVideo", entidade.Video);
+=======
+                comando.AddParam("paramIdClienteLocacao", entidade.IdClienteLocacao);
+                comando.AddParam("paramIdSelo", (int)entidade.Selo);
+                comando.AddParam("paramDescricao", entidade.Descricao);
+                comando.AddParam("paramUrlImagem", entidade.UrlImagem);
+                comando.AddParam("paramTag_Video", entidade.TagVideo);
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
 
                 conexao.Open();
                 return comando.ExecuteNonQuery();
@@ -148,10 +182,17 @@ namespace Locadora.Repositorio.ADO
 
             jogo.Nome = reader["Nome"].ToString();
             jogo.Categoria = (Categoria)Convert.ToInt32(reader["IdCategoria"]);
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
             jogo.Descricao = reader["Descricao"].ToString();
             jogo.Selo = ((Selo)Convert.ToInt32(reader["IdSelo"]));
             jogo.Imagem = reader["Imagem"].ToString();
             jogo.Video = reader["Video"].ToString();
+=======
+            jogo.Selo = (Selo)Convert.ToInt32(reader["IdSelo"]);
+            jogo.Descricao = reader["Descricao"].ToString();
+            jogo.UrlImagem = reader["Url_Imagem"].ToString();
+            jogo.TagVideo = reader["Tag_Video"].ToString();
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/JogoRepositorio.cs
 
             return jogo;
         }

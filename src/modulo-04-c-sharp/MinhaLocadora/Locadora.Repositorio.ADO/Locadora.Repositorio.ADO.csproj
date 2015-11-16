@@ -59,9 +59,14 @@
   <ItemGroup>
     <Content Include="SQL\01 - CriarBase.sql" />
     <Content Include="SQL\02 - PopularJogos.sql" />
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Repositorio.ADO/Locadora.Repositorio.ADO.csproj
     <Content Include="SQL\03 - Criar Tabela Selo.sql" />
     <Content Include="SQL\04 - Popular Tabela Selo.sql" />
     <Content Include="SQL\05 - Alterar Tabela Jogo.sql" />
+=======
+    <Content Include="SQL\03 - CriarSeloJogo.sql" />
+    <Content Include="SQL\04 - Adicionar Campos Jogo.sql" />
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Repositorio.ADO/Locadora.Repositorio.ADO.csproj
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

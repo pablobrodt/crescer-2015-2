@@ -4,6 +4,8 @@ INSERT INTO dbo.Categoria VALUES (3, 'Aventura')
 INSERT INTO dbo.Categoria VALUES (4, 'Luta')
 INSERT INTO dbo.Categoria VALUES (5, 'Esporte')
 
+GO
+
 INSERT INTO dbo.Jogo VALUES ('Chrono Trigger',60,1, null)
 INSERT INTO dbo.Jogo VALUES ('Top Gear',20,2, null)
 INSERT INTO dbo.Jogo VALUES ('Megaman X',40,3, null)

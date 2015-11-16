@@ -1,0 +1,36 @@
+﻿@model RelatorioJogosDisponiveisModel
+@{
+    ViewBag.Title = "JogosDisponiveis";
+}
+
+<h2>Jogos Disponiveis</h2>
+
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Selo</th>
+        </tr>
+    </thead>
+
+    @foreach (var jogo in Model.Jogos)
+    {
+        <tr>
+            <td>@Html.ActionLink(jogo.Nome, "DetalhesDoJogo", "Jogo", new { id = jogo.IdJogo }, null)</td>
+            <td>@jogo.Categoria</td>
+            <td>@jogo.Preco.ToString("c")</td>
+            <td class="text-center">@Html.Partial("~/Views/Shared/Jogo/_SeloJogo.cshtml", jogo.Selo)</td>
+        </tr>
+    }
+</table>
+
+Quantidade de jogos: @Model.QuantidadeTotalDeJogos <br />
+
+@if (Model.JogoMaisBarato != null && Model.JogoMaisCaro != null)
+{
+    <span>Jogo mais caro:</span> @Model.JogoMaisCaro.Nome <br />
+    <span>Jogo mais barato:</span> @Model.JogoMaisBarato.Nome <br />
+}
+

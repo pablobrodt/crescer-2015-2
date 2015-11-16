@@ -3,15 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD:src/modulo-04-c-sharp/dia-03/TrabalhoLocadora/Locadora/Locadora.UI.Web/Views/Shared/_Layout.cshtml
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+=======
+    <title>Locadora - @ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
+
+    @Scripts.Render("~/bundles/modernizr")
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Web.MVC/Views/Shared/_Layout.cshtml
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -22,7 +34,14 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
+<<<<<<< HEAD:src/modulo-04-c-sharp/dia-03/TrabalhoLocadora/Locadora/Locadora.UI.Web/Views/Shared/_Layout.cshtml
                         <a href="~/Relatorio/JogosDisponiveis">Jogos</a>
+=======
+                        <a href="~/Relatorio/JogosDisponiveis">Listagem de jogos</a>
+                    </li>
+                    <li>
+                        <a href="~/Cliente/Index">Listagem de clientes</a>
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Web.MVC/Views/Shared/_Layout.cshtml
                     </li>
                 </ul>
             </div>
@@ -38,7 +57,13 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/themes/base")
+
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+    
+    @RenderSection("Scripts", false)
 </body>
 </html>

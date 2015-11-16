@@ -54,7 +54,10 @@
     <Compile Include="Selo.cs" />
     <Compile Include="Servicos\IServicoCriptografia.cs" />
     <Compile Include="Servicos\ServicoAutenticacao.cs" />
+<<<<<<< HEAD:src/modulo-04-c-sharp/MinhaLocadora/Locadora.Dominio/Locadora.Dominio.csproj
     <Compile Include="Servicos\ServicoLocacao.cs" />
+=======
+>>>>>>> 8980eb81f849470e6a5433747236b8a3a82bdc8a:src/modulo-04-c-sharp/Locadora/Locadora.Dominio/Locadora.Dominio.csproj
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
