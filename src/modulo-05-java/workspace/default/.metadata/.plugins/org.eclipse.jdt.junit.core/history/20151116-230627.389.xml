@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="DoubleLinkedListTest" project="crescer" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0">
-    <testcase name="adicionaUmNodoNoInicio" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
-    <testcase name="adicionaUmNodoNoFim" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
-    <testcase name="adicionaCincoNodosNoFim" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
-    <testcase name="adicionaCincoNodosNoInicio" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
-  </testsuite>
-</testrun>
