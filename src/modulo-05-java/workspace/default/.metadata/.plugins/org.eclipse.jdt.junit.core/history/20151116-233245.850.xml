@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="DoubleLinkedListTest" project="crescer" tests="10" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true">
+    <testcase name="ultimoNodoTemValueGo" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
+    <testcase name="primeiroNodoTemValueIchi" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" time="0.0"/>
+    <testcase name="removeONodoNaPosiçãoUmEmListaDeTrês" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="removendoOPrimeiroNodoOQueFicaNoLugarTemValueIlluminati" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionandoUmNodoNoInicioOValueDoPrimeiroEDoÚltimoÉOMesmo" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionaUmNodoNoInicio" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionandoUmNodoNoFimOValueDoPrimeiroEDoÚltimoÉOMesmo" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionaUmNodoNoFim" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionaCincoNodosNoFim" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+    <testcase name="adicionaCincoNodosNoInicio" classname="br.com.cwi.crescer.test.DoubleLinkedListTest" incomplete="true"/>
+  </testsuite>
+</testrun>

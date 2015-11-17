@@ -8,20 +8,25 @@ public class DoubleLinkedList<T> {
     private Node<T> first, last;
 
     public void addFirst(T value) {
-        Node<T> node = new Node<T>(value, first, null);
-        if (first == null) {
-            last = node;
+        Node<T> novoNodo = new Node<T>(value, this.first);
+        if (this.first == null) {
+            this.last = novoNodo;
+        } else {
+            this.first.setPrevious(novoNodo);
         }
-        first = node;
+        this.first = novoNodo;
     }
 
     public void addLast(T value) {
-        Node<T> novoNodo = new Node<T>(value);
-        if (this.first == null) {
+        Node<T> novoNodo = new Node<T>(value, null, this.last);
+        if (this.last == null) {
             this.first = novoNodo;
+            this.first.setNext(this.last);
+            this.last = novoNodo;
+        } else {
+            this.last.setNext(novoNodo);
             this.last = novoNodo;
         }
-
     }
 
     public T getFirst() {
@@ -34,7 +39,7 @@ public class DoubleLinkedList<T> {
 
     public List<T> list() {
         ArrayList<T> lista = new ArrayList<>();
-        Node<T> nodo = first;
+        Node<T> nodo = this.first;
         while (nodo != null) {
             lista.add(nodo.getValue());
             nodo = nodo.getNext();
@@ -49,19 +54,22 @@ public class DoubleLinkedList<T> {
     }
 
     public void remove(int index) {
-        int i = 0;
-        Node<T> nodo = getNode(index - 1);
-        Node<T> removido = nodo.getNext();
-        Node<T> proximoNodo = removido.getNext();
-        nodo.setNext(proximoNodo);
+        Node<T> removido = getNode(index);
+        Node<T> anterior = removido.getPrevious();
+        anterior.setNext(removido.getNext());
     }
 
     public void add(int index, T value) {
         Node<T> novoNodo = new Node<T>(value);
-        Node<T> nodo = getNode(index - 1);
-        Node<T> proximoNodo = nodo.getNext();
-        novoNodo.setNext(proximoNodo);
-        nodo.setNext(novoNodo);
+        Node<T> nodo = getNode(index);
+        Node<T> nodoAnterior = nodo.getPrevious();
+        Node<T> nodoPosterior = nodo.getNext();
+
+        nodoAnterior.setNext(novoNodo);
+        nodoPosterior.setPrevious(novoNodo);
+
+        novoNodo.setPrevious(nodo.getPrevious());
+        novoNodo.setNext(nodo);
     }
 
     public boolean isEmpty() {
@@ -90,22 +98,22 @@ public class DoubleLinkedList<T> {
             this.value = value;
         }
 
-        public Node(T value, Node next) {
+        public Node(T value, Node<T> next) {
             this.value = value;
             this.next = next;
         }
 
-        public Node(T value, Node next, Node previous) {
+        public Node(T value, Node<T> next, Node<T> previous) {
             this.value = value;
             this.next = next;
             this.previous = previous;
         }
 
-        public Node getNext() {
+        public Node<T> getNext() {
             return this.next;
         }
 
-        public Node getPrevious() {
+        public Node<T> getPrevious() {
             return this.previous;
         }
 
@@ -113,7 +121,7 @@ public class DoubleLinkedList<T> {
             return this.value;
         }
 
-        public void setNext(Node next) {
+        public void setNext(Node<T> next) {
             this.next = next;
         }
 
@@ -121,5 +129,4 @@ public class DoubleLinkedList<T> {
             this.previous = previous;
         }
     }
-
 }

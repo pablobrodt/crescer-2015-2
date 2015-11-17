@@ -1,0 +1,22 @@
+package br.com.cwi.crescer.test;
+
+import org.junit.Test;
+
+import br.com.cwi.crescer.DoubleLinkedList;
+
+
+public class DoubleLinkedListTest {
+
+    @Test
+    public void adicionaUmNodoNoInicio() {
+        // Arrang
+        DoubleLinkedList<String> lista = new DoubleLinkedList<>();
+        lista.addFirst("Ni");
+
+        // Act
+        lista.addFirst("Ichi");
+
+        // Assert
+    }
+
+}
