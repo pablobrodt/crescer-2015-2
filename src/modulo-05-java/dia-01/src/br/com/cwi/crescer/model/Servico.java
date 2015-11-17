@@ -10,7 +10,7 @@ public class Servico {
         return idServico;
     }
 
-    public void setIdServico(int idServico) {
+    public void setIdServico(long idServico) {
         this.idServico = idServico;
     }
 
