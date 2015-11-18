@@ -3,11 +3,11 @@ package br.com.cwi.crescer.model;
 
 public class Cliente {
 
-    private long idCliente;
+    private Long idCliente;
     private String nmCliente;
     private String nrCpf;
 
-    public long getIdCliente() {
+    public Long getIdCliente() {
         return idCliente;
     }
 
