@@ -9,17 +9,18 @@ import java.util.List;
 
 import br.com.cwi.crescer.jdbc.ConnectionFactory;
 import br.com.cwi.crescer.model.Cliente;
+import br.com.cwi.crescer.model.Interfaces.BaseDao;
 
-public class ClienteDao {
+public class ClienteDao implements BaseDao<Cliente> {
 
+    @Override
     public void insert(Cliente cliente) throws SQLException {
-        try (Connection conexao = new ConnectionFactory().getConnection()) {
+        try (Connection conexao = getConnection()) {
 
-            PreparedStatement statement = conexao.prepareStatement("INSERT INTO Cliente (idCliente, nmCliente, nrCpf) VALUES (?, ?, ?)");
+            PreparedStatement statement = conexao.prepareStatement("INSERT INTO Cliente (idCliente, nmCliente, nrCpf) VALUES (cliente_seq.nextval, ?, ?)");
 
-            statement.setLong(1, cliente.getIdCliente());
-            statement.setString(2, cliente.getNmCliente());
-            statement.setString(3, cliente.getNrCpf());
+            statement.setString(1, cliente.getNmCliente());
+            statement.setString(2, cliente.getNrCpf());
 
             statement.execute();
 
@@ -28,6 +29,7 @@ public class ClienteDao {
         }
     }
 
+    @Override
     public void update(Cliente cliente) throws SQLException {
         try (Connection conexao = getConnection()) {
 
@@ -47,6 +49,8 @@ public class ClienteDao {
             throw e;
         }
     }
+
+    @Override
     public List<Cliente> find(Cliente cliente) throws Exception {
         Long idCliente = cliente.getIdCliente();
         String nmCliente = cliente.getNmCliente();
@@ -121,6 +125,7 @@ public class ClienteDao {
         return resultado;
     }
 
+    @Override
     public void delete(Long idCliente) throws SQLException {
         try (Connection conexao = getConnection()) {
 
@@ -135,6 +140,8 @@ public class ClienteDao {
             throw e;
         }
     }
+
+    @Override
     public Cliente load(Long idCliente) throws SQLException {
         try (Connection conexao = getConnection()) {
 
@@ -163,9 +170,10 @@ public class ClienteDao {
         }
     }
 
+    @Override
     public List<Cliente> findAll() throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
-        try (Connection conexao = new ConnectionFactory().getConnection()) {
+        try (Connection conexao = getConnection()) {
 
             StringBuilder query = new StringBuilder();
             query.append("SELECT idCliente, nmCliente, nrCpf FROM Cliente");
@@ -188,5 +196,10 @@ public class ClienteDao {
         }
 
         return clientes;
+    }
+
+    // Util
+    private Connection getConnection() throws SQLException {
+        return ConnectionFactory.getConnection();
     }
 }
