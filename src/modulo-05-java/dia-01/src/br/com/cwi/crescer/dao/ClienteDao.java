@@ -121,6 +121,20 @@ public class ClienteDao {
         return resultado;
     }
 
+    public void delete(Long idCliente) throws SQLException {
+        try (Connection conexao = getConnection()) {
+
+            StringBuilder query = new StringBuilder();
+            query.append("DELETE FROM Cliente WHERE idCliente = ?");
+
+            PreparedStatement statement = conexao.prepareStatement(query.toString());
+            statement.setLong(1, idCliente);
+
+            statement.execute();
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
     public List<Cliente> findAll() throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
         try (Connection conexao = new ConnectionFactory().getConnection()) {
