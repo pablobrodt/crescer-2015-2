@@ -13,7 +13,7 @@ import br.com.cwi.crescer.model.Servico;
 public class ServicoDao {
 
     public void insert(Servico servico) throws SQLException {
-        try (Connection conexao = new ConnectionFactory().getConnection()) {
+        try (Connection conexao = ConnectionFactory.getConnection()) {
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO Servico (idServico, dsServico) ");
             query.append("VALUES(?, ?)");
@@ -34,7 +34,7 @@ public class ServicoDao {
 
         List<Servico> lista = new ArrayList<>();
 
-        try (Connection conexao = new ConnectionFactory().getConnection()) {
+        try (Connection conexao = ConnectionFactory.getConnection()) {
 
             StringBuilder query = new StringBuilder();
             query.append("SELECT idServico, dsServico FROM Servico");
