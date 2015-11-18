@@ -28,6 +28,25 @@ public class ClienteDao {
         }
     }
 
+    public void update(Cliente cliente) throws SQLException {
+        try (Connection conexao = getConnection()) {
+
+            StringBuilder query = new StringBuilder();
+            query.append("UPDATE Cliente SET nmCliente = ?, nrCpf = ? ");
+            query.append("WHERE idCliente = ?");
+
+            PreparedStatement statement = conexao.prepareStatement(query.toString());
+
+            statement.setString(1, cliente.getNmCliente());
+            statement.setString(2, cliente.getNrCpf());
+            statement.setLong(3, cliente.getIdCliente());
+
+            statement.execute();
+
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
     public List<Cliente> findAll() throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
         try (Connection conexao = new ConnectionFactory().getConnection()) {
