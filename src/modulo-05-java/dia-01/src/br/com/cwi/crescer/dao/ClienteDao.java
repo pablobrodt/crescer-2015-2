@@ -135,6 +135,34 @@ public class ClienteDao {
             throw e;
         }
     }
+    public Cliente load(Long idCliente) throws SQLException {
+        try (Connection conexao = getConnection()) {
+
+            StringBuilder query = new StringBuilder();
+            query.append("SELECT idCliente, nmCliente, nrCpf FROM Cliente ");
+            query.append("WHERE idCliente = ?");
+
+            PreparedStatement statement = conexao.prepareStatement(query.toString());
+            statement.setLong(1, idCliente);
+
+            ResultSet resultado = statement.executeQuery();
+
+            Cliente cliente = new Cliente();
+
+            if (resultado.next()) {
+                cliente.setIdCliente(resultado.getLong(1));
+                cliente.setNmCliente(resultado.getString(2));
+                cliente.setNrCpf(resultado.getString(3));
+            } else {
+                throw new RuntimeException("Registro não encontrado!");
+            }
+
+            return cliente;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
     public List<Cliente> findAll() throws SQLException {
         List<Cliente> clientes = new ArrayList<>();
         try (Connection conexao = new ConnectionFactory().getConnection()) {
