@@ -110,12 +110,7 @@ public class ClienteDao implements BaseDao<Cliente> {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                Cliente c = new Cliente();
-                c.setIdCliente(resultSet.getLong(1));
-                c.setNmCliente(resultSet.getString(2));
-                c.setNrCpf(resultSet.getString(3));
-
-                resultado.add(c);
+                resultado.add(buildCliente(resultSet));
             }
 
         } catch (SQLException e) {
@@ -152,14 +147,12 @@ public class ClienteDao implements BaseDao<Cliente> {
             PreparedStatement statement = conexao.prepareStatement(query.toString());
             statement.setLong(1, idCliente);
 
-            ResultSet resultado = statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery();
 
             Cliente cliente = new Cliente();
 
-            if (resultado.next()) {
-                cliente.setIdCliente(resultado.getLong(1));
-                cliente.setNmCliente(resultado.getString(2));
-                cliente.setNrCpf(resultado.getString(3));
+            if (resultSet.next()) {
+                cliente = buildCliente(resultSet);
             } else {
                 throw new RuntimeException("Registro não encontrado!");
             }
@@ -180,15 +173,10 @@ public class ClienteDao implements BaseDao<Cliente> {
 
             PreparedStatement statement = conexao.prepareStatement(query.toString());
 
-            ResultSet resultado = statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery();
 
-            while (resultado.next()) {
-                Cliente cliente = new Cliente();
-                cliente.setIdCliente(resultado.getLong(1));
-                cliente.setNmCliente(resultado.getString(2));
-                cliente.setNrCpf(resultado.getString(3));
-
-                clientes.add(cliente);
+            while (resultSet.next()) {
+                clientes.add(buildCliente(resultSet));
             }
 
         } catch (SQLException e) {
@@ -201,5 +189,14 @@ public class ClienteDao implements BaseDao<Cliente> {
     // Util
     private Connection getConnection() throws SQLException {
         return ConnectionFactory.getConnection();
+    }
+
+    private Cliente buildCliente(ResultSet resultSet) throws SQLException {
+        Cliente cliente = new Cliente();
+        cliente.setIdCliente(resultSet.getLong(1));
+        cliente.setNmCliente(resultSet.getString(2));
+        cliente.setNrCpf(resultSet.getString(3));
+
+        return cliente;
     }
 }

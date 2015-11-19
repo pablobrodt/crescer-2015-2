@@ -94,17 +94,11 @@ public class PedidoDao implements BaseDao<Pedido> {
             ClienteDao clienteDao = new ClienteDao();
 
             if (resultSet.next()) {
-                Long resultIdPedido = resultSet.getLong(1);
                 Long resultIdCliente = resultSet.getLong(2);
-                String resultDsPedido = resultSet.getString(3);
 
                 Cliente cliente = clienteDao.load(resultIdCliente);
 
-                Pedido pedido = new Pedido(cliente);
-                pedido.setIdPedido(resultIdPedido);
-                pedido.setDsPedido(resultDsPedido);
-
-                return pedido;
+                return buildPedido(cliente, resultSet);
             } else {
                 throw new RuntimeException("Registro não encontrado!");
             }
@@ -176,17 +170,11 @@ public class PedidoDao implements BaseDao<Pedido> {
             ClienteDao clienteDao = new ClienteDao();
 
             while (resultSet.next()) {
-                Long resultIdPedido = resultSet.getLong(1);
                 Long resultIdCliente = resultSet.getLong(2);
-                String resultDsPedido = resultSet.getString(3);
 
                 Cliente cliente = clienteDao.load(resultIdCliente);
 
-                Pedido p = new Pedido(cliente);
-                p.setIdPedido(resultIdPedido);
-                p.setDsPedido(resultDsPedido);
-
-                resultado.add(p);
+                resultado.add(buildPedido(cliente, resultSet));
             }
 
         } catch (SQLException e) {
@@ -212,17 +200,11 @@ public class PedidoDao implements BaseDao<Pedido> {
             ClienteDao clienteDao = new ClienteDao();
 
             while (resultSet.next()) {
-                Long resultIdPedido = resultSet.getLong(1);
                 Long resultIdCliente = resultSet.getLong(2);
-                String resultDsPedido = resultSet.getString(3);
 
                 Cliente cliente = clienteDao.load(resultIdCliente);
 
-                Pedido pedido = new Pedido(cliente);
-                pedido.setIdPedido(resultIdPedido);
-                pedido.setDsPedido(resultDsPedido);
-
-                pedidos.add(pedido);
+                pedidos.add(buildPedido(cliente, resultSet));
             }
 
         } catch (SQLException e) {
@@ -235,5 +217,13 @@ public class PedidoDao implements BaseDao<Pedido> {
     // Util
     private Connection getConnection() throws SQLException {
         return ConnectionFactory.getConnection();
+    }
+
+    private Pedido buildPedido(Cliente cliente, ResultSet resultSet) throws SQLException {
+        Pedido pedido = new Pedido(cliente);
+        pedido.setIdPedido(resultSet.getLong(1));
+        pedido.setDsPedido(resultSet.getString(3));
+
+        return pedido;
     }
 }
