@@ -49,6 +49,15 @@ public class Cidade {
 		this.uf = uf;
 	}
 	
-	
+	@Override
+	public boolean equals(Object obj){
+		Cidade cidadeComparada = (Cidade)obj;
+		
+		boolean mesmoId = this.idCidade == cidadeComparada.getIdCidade();
+		boolean mesmoNome = this.nome == cidadeComparada.getNome();
+		boolean mesmaUF = this.uf == cidadeComparada.getUf();
+		
+		return (mesmoId && mesmoNome && mesmaUF);
+	}
 	
 }
