@@ -36,15 +36,15 @@ public class Item {
 	@Basic(optional = false)
 	private double peso;
 	
-	@Column(name = "ValorUnitario")
+	@Column(name = "VALORUnitario")
 	@Basic(optional = false)
 	private BigDecimal valorUnitario;
 	
-	@Column(name = "ValorDesconto")
+	@Column(name = "VALORDesconto")
 	@Basic(optional = false)
 	private BigDecimal valorDesconto;
 	
-	@Column(name = "ValorTotal")
+	@Column(name = "VALORTotal")
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
