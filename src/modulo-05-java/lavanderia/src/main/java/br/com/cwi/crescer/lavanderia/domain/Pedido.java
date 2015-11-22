@@ -19,24 +19,24 @@ public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	private int idPedido;
-	private int idCliente;
+	private Long idPedido;
+	private Long idCliente;
 	private Date dataInclusao;
 	private Date dataentrega;
 	private BigDecimal valor;
 	private String situacao;
 	
 	
-	public int getIdPedido() {
+	public Long getIdPedido() {
 		return idPedido;
 	}
-	public void setIdPedido(int idPedido) {
+	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
-	public int getIdCliente() {
+	public Long getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(int idCliente) {
+	public void setIdCliente(Long idCliente) {
 		this.idCliente = idCliente;
 	}
 	public Date getDataInclusao() {
