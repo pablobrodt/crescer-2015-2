@@ -22,11 +22,11 @@ public class Cidade {
 	@Column(name = "IDCidade")
 	private Long idCidade;
 	
-	@Column(name="Nome")
+	@Column(name = "Nome")
 	@Basic(optional = false)
 	private String nome;
 	
-	@Column(name="UF")
+	@Column(name = "UF")
 	@Basic(optional = false)
 	private String uf;
 	
