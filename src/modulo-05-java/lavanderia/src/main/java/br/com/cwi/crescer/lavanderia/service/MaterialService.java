@@ -12,7 +12,7 @@ public class MaterialService {
 	private MaterialDao materialDao;
 	
 	@Autowired
-	public MaterialService(MaterialDao materialdao){
+	public MaterialService(MaterialDao materialDao){
 		super();
 		this.materialDao = materialDao;
 	}
