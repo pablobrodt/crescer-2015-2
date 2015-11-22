@@ -22,7 +22,7 @@ public class CidadeController {
 	@RequestMapping("/Cidade/")
 	public String index(Model model){
 		
-		Cidade c = cs.buscarCidade(1L);
+		Cidade c = cs.findById(1L);
 		
 		model.addAttribute("Cidade", c.getNome());
 		model.addAttribute("UF", c.getUf());

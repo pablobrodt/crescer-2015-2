@@ -17,7 +17,7 @@ public class CidadeService {
 		this.cidadeDao = cidadeDao;
 	}
 	
-	public Cidade buscarCidade(Long id){
+	public Cidade findById(Long id){
 		return this.cidadeDao.findById(id);
 	}
 }	
