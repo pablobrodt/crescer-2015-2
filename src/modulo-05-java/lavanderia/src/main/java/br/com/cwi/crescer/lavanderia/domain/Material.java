@@ -1,4 +1,6 @@
 package br.com.cwi.crescer.lavanderia.domain;
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +18,11 @@ public class Material {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
+	@Column(name = "IDMaterial")
 	private Long idMaterial;
+	
+	@Column(name = "Descricao")
+	@Basic(optional = false)
 	private String descricao;
 	
 	public Long getIdMaterial() {
