@@ -1,5 +1,21 @@
 package br.com.cwi.crescer.lavanderia.dao;
 
-public class MaterialDao {
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
+
+import br.com.cwi.crescer.lavanderia.domain.Material;
+
+@Repository
+public class MaterialDao implements IBaseDao<Material> {
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Override
+	public Material findById(Long id) {
+		return em.find(Material.class, id);
+	}
 
 }
