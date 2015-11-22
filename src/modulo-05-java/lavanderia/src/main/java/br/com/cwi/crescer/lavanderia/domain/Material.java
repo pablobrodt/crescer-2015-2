@@ -16,13 +16,13 @@ public class Material {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	private int idMaterial;
+	private Long idMaterial;
 	private String descricao;
 	
-	public int getIdMaterial() {
+	public Long getIdMaterial() {
 		return idMaterial;
 	}
-	public void setIdMaterial(int idMaterial) {
+	public void setIdMaterial(Long idMaterial) {
 		this.idMaterial = idMaterial;
 	}
 	public String getDescricao() {
