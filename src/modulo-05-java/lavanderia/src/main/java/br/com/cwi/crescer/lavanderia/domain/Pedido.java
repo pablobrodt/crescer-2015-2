@@ -2,6 +2,9 @@ package br.com.cwi.crescer.lavanderia.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,11 +22,25 @@ public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
+	@Column(name = "IDPedido")
 	private Long idPedido;
+	
+	@Column(name = "IDCliente")
+	@Basic(optional = false)
 	private Long idCliente;
+	
+	@Column(name = "DataInclusao")
+	@Basic(optional = false)
 	private Date dataInclusao;
+	
+	@Column(name = "DataEntrega")
 	private Date dataentrega;
+	
+	@Column(name = "Valor")
+	@Basic(optional = false)
 	private BigDecimal valor;
+	
+	@Column(name = "Situacao")
 	private String situacao;
 	
 	
