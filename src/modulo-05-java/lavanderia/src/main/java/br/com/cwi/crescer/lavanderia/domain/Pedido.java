@@ -62,10 +62,10 @@ public class Pedido {
 	public void setDataInclusao(Date dataInclusao) {
 		this.dataInclusao = dataInclusao;
 	}
-	public Date getDataentrega() {
+	public Date getDataEntrega() {
 		return dataEntrega;
 	}
-	public void setDataentrega(Date dataentrega) {
+	public void setDataEntrega(Date dataentrega) {
 		this.dataEntrega = dataentrega;
 	}
 	public BigDecimal getValor() {
