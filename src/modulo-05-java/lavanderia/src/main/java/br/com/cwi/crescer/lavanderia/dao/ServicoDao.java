@@ -15,7 +15,6 @@ public class ServicoDao implements IBaseDao<Servico> {
 	
 	@Override
 	public Servico findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Servico.class, id);
 	}
 }
