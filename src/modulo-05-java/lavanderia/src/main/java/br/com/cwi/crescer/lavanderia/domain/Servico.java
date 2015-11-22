@@ -16,14 +16,14 @@ public class Servico {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	private int idServico;
+	private Long idServico;
 	private String descricao;
 	
 	
-	public int getIdServico() {
+	public Long getIdServico() {
 		return idServico;
 	}
-	public void setIdServico(int idServico) {
+	public void setIdServico(Long idServico) {
 		this.idServico = idServico;
 	}
 	public String getDescricao() {
