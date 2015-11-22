@@ -21,34 +21,34 @@ public class Item {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	@Column(name="IDItem")
+	@Column(name = "IDItem")
 	private Long idItem;
 	
-	@Column(name="IDPedido")
+	@Column(name = "IDPedido")
 	@Basic(optional = false)
 	private Long idPedido;
 	
-	@Column(name="IDProduto")
+	@Column(name = "IDProduto")
 	@Basic(optional = false)
 	private Long idProduto;
 	
-	@Column(name="Peso")
+	@Column(name = "Peso")
 	@Basic(optional = false)
 	private double peso;
 	
-	@Column(name="ValorUnitario")
+	@Column(name = "ValorUnitario")
 	@Basic(optional = false)
 	private BigDecimal valorUnitario;
 	
-	@Column(name="ValorDesconto")
+	@Column(name = "ValorDesconto")
 	@Basic(optional = false)
 	private BigDecimal valorDesconto;
 	
-	@Column(name="ValorTotal")
+	@Column(name = "ValorTotal")
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
-	@Column(name="Situacao")
+	@Column(name = "Situacao")
 	private String situacao;
 	
 	
