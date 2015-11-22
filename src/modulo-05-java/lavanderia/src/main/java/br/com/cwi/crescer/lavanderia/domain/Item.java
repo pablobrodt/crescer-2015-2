@@ -2,22 +2,53 @@ package br.com.cwi.crescer.lavanderia.domain;
 
 import java.math.BigDecimal;
 
-public class Item {
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Item")
+@SequenceGenerator(name = Item.SEQUENCE_NAME,
+sequenceName = Item.SEQUENCE_NAME)
+public class Item {
+	
+	public static final String SEQUENCE_NAME = "SEQ_Item";
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
+	@Column(name="IDItem")
 	private Long idItem;
 	
+	@Column(name="IDPedido")
+	@Basic(optional = false)
 	private Long idPedido;
 	
+	@Column(name="IDProduto")
+	@Basic(optional = false)
 	private Long idProduto;
-
+	
+	@Column(name="Peso")
+	@Basic(optional = false)
 	private double peso;
-
+	
+	@Column(name="ValorUnitario")
+	@Basic(optional = false)
 	private BigDecimal valorUnitario;
-
+	
+	@Column(name="ValorDesconto")
+	@Basic(optional = false)
 	private BigDecimal valorDesconto;
-
+	
+	@Column(name="ValorTotal")
+	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
+	@Column(name="Situacao")
 	private String situacao;
 	
 	
