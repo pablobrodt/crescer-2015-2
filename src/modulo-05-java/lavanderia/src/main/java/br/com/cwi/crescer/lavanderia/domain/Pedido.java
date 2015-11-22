@@ -34,7 +34,7 @@ public class Pedido {
 	private Date dataInclusao;
 	
 	@Column(name = "DataEntrega")
-	private Date dataentrega;
+	private Date dataEntrega;
 	
 	@Column(name = "Valor")
 	@Basic(optional = false)
@@ -63,10 +63,10 @@ public class Pedido {
 		this.dataInclusao = dataInclusao;
 	}
 	public Date getDataentrega() {
-		return dataentrega;
+		return dataEntrega;
 	}
 	public void setDataentrega(Date dataentrega) {
-		this.dataentrega = dataentrega;
+		this.dataEntrega = dataentrega;
 	}
 	public BigDecimal getValor() {
 		return valor;
