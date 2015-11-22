@@ -17,5 +17,4 @@ public class ProdutoDao implements IBaseDao<Produto>{
 	public Produto findById(Long id) {
 		return em.find(Produto.class, id);
 	}
-	
 }
