@@ -18,30 +18,30 @@ public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	@Column(name="IDCliente")
+	@Column(name = "IDCliente")
 	private Long idCliente;
 	
-	@Column(name="Nome")
+	@Column(name = "Nome")
 	@Basic(optional = false)
 	private String nome;
 	
-	@Column(name="CPF")
+	@Column(name = "CPF")
 	@Basic(optional = false)
 	private String cpf;
 	
-	@Column(name="Email")
+	@Column(name = "Email")
 	private String email;
 	
-	@Column(name="Endereco")
+	@Column(name = "Endereco")
 	private String endereco;
 	
-	@Column(name="Bairro")
+	@Column(name = "Bairro")
 	private String bairro;
 	
-	@Column(name="IDCidade")
+	@Column(name = "IDCidade")
 	private Long idCidade;
 	
-	@Column(name="Situacao")
+	@Column(name = "Situacao")
 	private String situacao;
 	
 	
