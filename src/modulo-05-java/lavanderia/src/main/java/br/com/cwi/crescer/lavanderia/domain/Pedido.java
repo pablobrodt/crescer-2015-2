@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Pedido")
@@ -29,11 +31,13 @@ public class Pedido {
 	@Basic(optional = false)
 	private Long idCliente;
 	
-	@Column(name = "DataInclusao")
+	@Column(name = "DATAInclusao")
+	@Temporal(TemporalType.DATE)
 	@Basic(optional = false)
 	private Date dataInclusao;
 	
-	@Column(name = "DataEntrega")
+	@Column(name = "DATAEntrega")
+	@Temporal(TemporalType.DATE)
 	private Date dataEntrega;
 	
 	@Column(name = "Valor")
