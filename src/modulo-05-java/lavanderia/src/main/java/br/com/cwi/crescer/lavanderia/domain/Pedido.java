@@ -2,27 +2,41 @@ package br.com.cwi.crescer.lavanderia.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Pedido")
+@SequenceGenerator(name = Pedido.SEQUENCE_NAME,
+sequenceName = Pedido.SEQUENCE_NAME)
 public class Pedido {
 	
-	private Long idPedido;
-	private Long idCliente;
+	public static final String SEQUENCE_NAME = "SEQ_Pedido";
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
+	private int idPedido;
+	private int idCliente;
 	private Date dataInclusao;
 	private Date dataentrega;
 	private BigDecimal valor;
 	private String situacao;
 	
 	
-	public Long getIdPedido() {
+	public int getIdPedido() {
 		return idPedido;
 	}
-	public void setIdPedido(Long idPedido) {
+	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
 	}
-	public Long getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(Long idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
 	public Date getDataInclusao() {
