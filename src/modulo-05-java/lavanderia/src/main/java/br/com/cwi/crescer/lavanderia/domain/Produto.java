@@ -18,27 +18,27 @@ public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
-	private int idProduto;
-	private int idServico;
-	private int idMaterial;
+	private Long idProduto;
+	private Long idServico;
+	private Long idMaterial;
 	private BigDecimal valor;
 	
-	public int getIdProduto() {
+	public Long getIdProduto() {
 		return idProduto;
 	}
-	public void setIdProduto(int idProduto) {
+	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-	public int getIdServico() {
+	public Long getIdServico() {
 		return idServico;
 	}
-	public void setIdServico(int idServico) {
+	public void setIdServico(Long idServico) {
 		this.idServico = idServico;
 	}
-	public int getIdMaterial() {
+	public Long getIdMaterial() {
 		return idMaterial;
 	}
-	public void setIdMaterial(int idMaterial) {
+	public void setIdMaterial(Long idMaterial) {
 		this.idMaterial = idMaterial;
 	}
 	public BigDecimal getValor() {
