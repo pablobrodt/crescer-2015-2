@@ -31,4 +31,16 @@ public class ItemDaoTest extends AbstractInfrastructureTest{
             Assert.assertEquals(SituacaoItem.PENDENTE, item.getSituacao());
         }
     }
+    
+    @Test
+    public void buscaPorIdDeveRetornarItemComProduto(){
+        Item item = itemDAO.findById(1L);
+        Assert.assertNotNull(item.getProduto());
+    }
+    
+    @Test
+    public void buscaPorIdDeveRetornarItemComPedido(){
+        Item item = itemDAO.findById(1L);
+        Assert.assertNotNull(item.getPedido());
+    }
 }
