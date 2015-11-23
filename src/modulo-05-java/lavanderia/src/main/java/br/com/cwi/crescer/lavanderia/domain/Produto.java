@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -35,6 +36,9 @@ public class Produto {
 	@JoinColumn(name = "IDMaterial")
 	@Basic(optional = false)
 	private Material material;
+	
+	@OneToOne(mappedBy = "produto")
+	private Item item;
 	
 	@Column(name = "Valor")
 	@Basic(optional = false)
@@ -63,6 +67,12 @@ public class Produto {
 	}
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
+	}
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
 	}
 	
 	

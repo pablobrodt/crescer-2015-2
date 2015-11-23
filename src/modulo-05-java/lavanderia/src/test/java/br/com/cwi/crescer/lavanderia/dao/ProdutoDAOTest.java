@@ -19,14 +19,20 @@ public class ProdutoDAOTest extends AbstractInfrastructureTest {
     }
     
     @Test
-    public void produtoDeveTerServico(){
+    public void buscaPorIdDeveRetornarProdutoComServico(){
     	Produto produto = produtoDAO.findById(1L);
     	Assert.assertNotNull(produto.getServico());
     }
     
     @Test
-    public void produtoDeveTerMaterial(){
+    public void buscaPorIdDeveRetornarProcutoComMaterial(){
     	Produto produto = produtoDAO.findById(1L);
     	Assert.assertNotNull(produto.getMaterial());
+    }
+    
+    @Test
+    public void buscaPorIdDeveRetornarProcutoComItem(){
+    	Produto produto = produtoDAO.findById(1L);
+    	Assert.assertNotNull(produto.getItem());
     }
 }
