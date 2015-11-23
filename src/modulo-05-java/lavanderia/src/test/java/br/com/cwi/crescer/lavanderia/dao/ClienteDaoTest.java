@@ -22,13 +22,13 @@ public class ClienteDaoTest extends AbstractInfrastructureTest{
     }
     
     @Test
-    public void clienteDeveTerCidade() throws Exception {
+    public void buscaPorIdDeveRetornarClienteComCidade() throws Exception {
         Cliente cliente = clienteDAO.findById(1L);
         Assert.assertNotNull(cliente.getCidade());
     }
     
     @Test
-    public void clienteDeveTerPedidos(){
+    public void buscaPorIdDeveRetornarClienteComPedidos(){
     	Cliente cliente = clienteDAO.findById(1L);
     	Assert.assertNotNull(cliente.getPedidos());
     }
