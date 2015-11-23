@@ -8,11 +8,9 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.lavanderia.domain.Cidade;
 
 @Repository
-public class CidadeDao implements IBaseDao<Cidade>{
+public class CidadeDao extends AbstractDao implements IBaseDao<Cidade>{
 	
-	@PersistenceContext
-	private EntityManager em;
-
+	@Override
 	public Cidade findById(Long id) {
 		return em.find(Cidade.class, id);
 	}

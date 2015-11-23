@@ -11,11 +11,8 @@ import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
 @Repository
-public class PedidoDao implements IBaseDao<Pedido> {
-	
-	@PersistenceContext
-	private EntityManager em;
-	
+public class PedidoDao extends AbstractDao implements IBaseDao<Pedido> {
+
 	@Override
 	public Pedido findById(Long id) {
 		return em.find(Pedido.class, id);

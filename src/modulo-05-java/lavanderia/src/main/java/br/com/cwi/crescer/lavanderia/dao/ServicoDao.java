@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.lavanderia.domain.Servico;
 
 @Repository
-public class ServicoDao implements IBaseDao<Servico> {
-	
-	@PersistenceContext
-	private EntityManager em;
+public class ServicoDao extends AbstractDao implements IBaseDao<Servico> {
 	
 	@Override
 	public Servico findById(Long id) {

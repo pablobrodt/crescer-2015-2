@@ -13,10 +13,7 @@ import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 @Repository
-public class ItemDao implements IBaseDao<Item>{
-	
-	@PersistenceContext
-	private EntityManager em;
+public class ItemDao extends AbstractDao implements IBaseDao<Item>{
 	
 	@Override
 	public Item findById(Long id) {

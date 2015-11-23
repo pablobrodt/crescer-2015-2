@@ -11,11 +11,8 @@ import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 @Repository
-public class ClienteDao implements IBaseDao<Cliente>{
+public class ClienteDao extends AbstractDao implements IBaseDao<Cliente>{
 	
-	@PersistenceContext
-	private EntityManager em;
-
 	@Override
 	public Cliente findById(Long id) {
 		return em.find(Cliente.class, id);
