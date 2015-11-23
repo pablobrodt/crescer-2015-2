@@ -2,6 +2,8 @@ package br.com.cwi.crescer.lavanderia.domain;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,29 +23,33 @@ public class Cliente {
 	@Column(name = "IDCliente")
 	private Long idCliente;
 	
-	@Column(name = "Nome")
+	@Column(name = "Nome", length = 70)
 	@Basic(optional = false)
 	private String nome;
 	
-	@Column(name = "CPF")
+	@Column(name = "CPF", length = 11)
 	@Basic(optional = false)
 	private String cpf;
 	
-	@Column(name = "Email")
+	@Column(name = "Email", length = 100)
 	private String email;
 	
-	@Column(name = "Endereco")
+	@Column(name = "Endereco", length = 50)
 	private String endereco;
 	
-	@Column(name = "Bairro")
+	@Column(name = "Bairro", length = 50)
 	private String bairro;
 	
 	@Column(name = "IDCidade")
 	private Long idCidade;
 	
-	@Column(name = "Situacao")
-	private String situacao;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "Situacao", length = 1)
+	private SituacaoCliente situacao;
 	
+	public static enum SituacaoCliente{
+		ATIVO, INATIVO;
+	}
 	
 	public Long getIdCliente() {
 		return idCliente;
@@ -87,10 +93,10 @@ public class Cliente {
 	public void setIdCidade(Long idCidade) {
 		this.idCidade = idCidade;
 	}
-	public String getSituacao() {
+	public SituacaoCliente getSituacao() {
 		return situacao;
 	}
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoCliente situacao) {
 		this.situacao = situacao;
 	}
 	

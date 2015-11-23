@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,7 +34,7 @@ public class Pedido {
 	private Long idCliente;
 	
 	@Column(name = "DATAInclusao")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Basic(optional = false)
 	private Date dataInclusao;
 	
@@ -44,9 +46,13 @@ public class Pedido {
 	@Basic(optional = false)
 	private BigDecimal valor;
 	
-	@Column(name = "Situacao")
-	private String situacao;
-	
+	@Enumerated(EnumType.ORDINAL)
+    @Column(name = "Situacao", length = 1)
+    private SituacaoPedido situacao;
+
+    public static enum SituacaoPedido {
+        PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
+    }
 	
 	public Long getIdPedido() {
 		return idPedido;
@@ -78,10 +84,10 @@ public class Pedido {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public String getSituacao() {
+	public SituacaoPedido getSituacao() {
 		return situacao;
 	}
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoPedido situacao) {
 		this.situacao = situacao;
 	}
 	 

@@ -11,22 +11,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Cidade")
-@SequenceGenerator(name = Cidade.SEQUENCE_NAME,
-sequenceName = Cidade.SEQUENCE_NAME)
 public class Cidade {
 	
-	public static final String SEQUENCE_NAME = "SEQ_Cidade";
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDCidade")
 	private Long idCidade;
 	
-	@Column(name = "Nome")
+	@Column(name = "Nome", length = 50)
 	@Basic(optional = false)
 	private String nome;
 	
-	@Column(name = "UF")
+	@Column(name = "UF", length = 2)
 	@Basic(optional = false)
 	private String uf;
 	

@@ -21,7 +21,7 @@ public class Material {
 	@Column(name = "IDMaterial")
 	private Long idMaterial;
 	
-	@Column(name = "Descricao")
+	@Column(name = "Descricao", length = 30)
 	@Basic(optional = false)
 	private String descricao;
 	

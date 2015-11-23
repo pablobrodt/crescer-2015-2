@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,7 +36,7 @@ public class Item {
 	
 	@Column(name = "Peso")
 	@Basic(optional = false)
-	private double peso;
+	private BigDecimal peso;
 	
 	@Column(name = "VALORUnitario")
 	@Basic(optional = false)
@@ -48,9 +50,13 @@ public class Item {
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
 	
-	@Column(name = "Situacao")
-	private String situacao;
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "Situacao", length = 1)
+	private SituacaoItem situacao;
 	
+	public static enum SituacaoItem {
+        PENDENTE, PROCESSANDO, PROCESSADO
+    }
 	
 	public Long getIdItem() {
 		return idItem;
@@ -70,10 +76,10 @@ public class Item {
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-	public double getPeso() {
+	public BigDecimal getPeso() {
 		return peso;
 	}
-	public void setPeso(double peso) {
+	public void setPeso(BigDecimal peso) {
 		this.peso = peso;
 	}
 	public BigDecimal getValorUnitario() {
@@ -94,12 +100,10 @@ public class Item {
 	public void setValorTotal(BigDecimal valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	public String getSituacao() {
+	public SituacaoItem getSituacao() {
 		return situacao;
 	}
-	public void setSituacao(String situacao) {
+	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
 	}
-	
-	
 }
