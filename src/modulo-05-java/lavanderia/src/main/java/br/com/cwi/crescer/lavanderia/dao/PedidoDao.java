@@ -19,7 +19,7 @@ public class PedidoDao extends AbstractDao implements IBaseDao<Pedido> {
 	}
 	
 	public List<Pedido> findBySituacao(SituacaoPedido situacao){
-		return em.createQuery("FROM Pedido p WHERE p.Situacao = :situacao", Pedido.class)
+		return em.createQuery("FROM Pedido p WHERE p.situacao = :situacao", Pedido.class)
 				.setParameter("situacao", situacao)
 				.getResultList();
 	}

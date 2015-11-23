@@ -19,7 +19,7 @@ public class ClienteDao extends AbstractDao implements IBaseDao<Cliente>{
 	}
 	
 	public List<Cliente> findBySituacao(SituacaoCliente situacao){
-		return em.createQuery("FROM Cliente c WHERE c.Situacao = :situacao", Cliente.class)
+		return em.createQuery("FROM Cliente c WHERE c.situacao = :situacao", Cliente.class)
 				.setParameter("situacao", situacao)
 				.getResultList();
 	}

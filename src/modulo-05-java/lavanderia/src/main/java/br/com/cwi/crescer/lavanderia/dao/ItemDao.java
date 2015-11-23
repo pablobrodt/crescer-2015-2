@@ -21,7 +21,7 @@ public class ItemDao extends AbstractDao implements IBaseDao<Item>{
 	}
 	
 	public List<Item> findBySituacao(SituacaoItem situacao){
-		return em.createQuery("FROM Item i WHERE i.Situacao = :situacao", Item.class)
+		return em.createQuery("FROM Item i WHERE i.situacao = :situacao", Item.class)
 				.setParameter("situacao", situacao)
 				.getResultList();				
 	}
