@@ -9,6 +9,7 @@ public class ClienteDTO {
 	private String endereco;
 	private String bairro;
 	private Long idCidade;
+	private String cep;
 
 	public Long getId() {
 		return id;
@@ -65,6 +66,10 @@ public class ClienteDTO {
 	public void setIdCidade(Long idCidade) {
 		this.idCidade = idCidade;
 	}
-	
-	
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
 }

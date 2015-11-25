@@ -61,6 +61,10 @@
 						<td th:text="*{endereco}">endereco</td>
 					</tr>
 					<tr>
+						<td>Cep:</td>
+						<td th:text="*{cep}">cep</td>
+					</tr>
+					<tr>
 						<td>Cidade:</td>
 						<td th:each="c : ${cidades}" th:if="${c.id} == *{idCidade}" th:text="${c.nome}">
 							cidade

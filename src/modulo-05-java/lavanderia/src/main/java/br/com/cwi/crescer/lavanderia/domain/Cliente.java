@@ -52,6 +52,9 @@ public class Cliente {
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos;
 	
+	@Column(name = "Cep")
+	private String cep;
+	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "Situacao", length = 1)
 	private SituacaoCliente situacao;
@@ -107,6 +110,12 @@ public class Cliente {
 	}
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+	public String getCep() {
+		return cep;
+	}
+	public void setCep(String cep) {
+		this.cep = cep;
 	}
 	public SituacaoCliente getSituacao() {
 		return situacao;

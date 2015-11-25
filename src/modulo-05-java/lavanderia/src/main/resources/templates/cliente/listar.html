@@ -51,9 +51,9 @@
 						<td th:text="${cliente.nome}">Exibe Nome</td>
 						<td th:text="${cliente.cpf}">Exibe Cpf</td>
 						<td th:text="${cliente.email}">Exibe Email</td>
-						<td><a th:href="@{|/Clientes/${cliente.id}|}">Detalhes</a></td>
-						<td><a th:href="@{|/Clientes/Editar/${cliente.id}|}">Editar</a></td>
-						<td><a th:href="@{|/Clientes/Remover/${cliente.id}|}">Remover</a></td>
+						<td><a class="btn btn-success" th:href="@{|/Clientes/${cliente.id}|}">Detalhes</a></td>
+						<td><a class="btn btn-warning" th:href="@{|/Clientes/Editar/${cliente.id}|}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="@{|/Clientes/Remover/${cliente.id}|}">Remover</a></td>
 					</tr>
 				</table>
 			</div>
