@@ -11,9 +11,8 @@ import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
 @Repository
-public class PedidoDao extends AbstractDao implements IBaseDao<Pedido> {
+public class PedidoDao extends AbstractDao {
 
-	@Override
 	public Pedido findById(Long id) {
 		return em.find(Pedido.class, id);
 	}

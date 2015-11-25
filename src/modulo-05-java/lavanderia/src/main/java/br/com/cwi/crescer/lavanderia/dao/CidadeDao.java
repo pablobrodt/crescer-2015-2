@@ -11,9 +11,8 @@ import br.com.cwi.crescer.lavanderia.domain.Cidade;
 import br.com.cwi.crescer.lavanderia.dto.CidadeDTO;
 
 @Repository
-public class CidadeDao extends AbstractDao implements IBaseDao<Cidade>{
+public class CidadeDao extends AbstractDao {
 	
-	@Override
 	public Cidade findById(Long id) {
 		return em.find(Cidade.class, id);
 	}
@@ -21,5 +20,4 @@ public class CidadeDao extends AbstractDao implements IBaseDao<Cidade>{
 	public List<Cidade> findAll() {
 		return em.createQuery("FROM Cidade", Cidade.class).getResultList();
 	}
-
 }

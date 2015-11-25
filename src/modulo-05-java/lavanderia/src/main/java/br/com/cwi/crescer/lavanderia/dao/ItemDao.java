@@ -13,9 +13,8 @@ import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 @Repository
-public class ItemDao extends AbstractDao implements IBaseDao<Item>{
-	
-	@Override
+public class ItemDao extends AbstractDao {
+
 	public Item findById(Long id) {
 		return em.find(Item.class, id);
 	}

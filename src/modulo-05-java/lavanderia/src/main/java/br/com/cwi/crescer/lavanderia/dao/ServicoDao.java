@@ -8,9 +8,8 @@ import org.springframework.stereotype.Repository;
 import br.com.cwi.crescer.lavanderia.domain.Servico;
 
 @Repository
-public class ServicoDao extends AbstractDao implements IBaseDao<Servico> {
+public class ServicoDao extends AbstractDao {
 	
-	@Override
 	public Servico findById(Long id) {
 		return em.find(Servico.class, id);
 	}

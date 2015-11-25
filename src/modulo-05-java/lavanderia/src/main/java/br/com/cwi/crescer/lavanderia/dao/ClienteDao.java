@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,9 +12,8 @@ import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 @Repository
-public class ClienteDao extends AbstractDao implements IBaseDao<Cliente>{
-	
-	@Override
+public class ClienteDao extends AbstractDao{
+
 	public Cliente findById(Long id) {
 		return em.find(Cliente.class, id);
 	}
@@ -23,4 +23,15 @@ public class ClienteDao extends AbstractDao implements IBaseDao<Cliente>{
 				.setParameter("situacao", situacao)
 				.getResultList();
 	}
+	
+    @Transactional
+    public Cliente save(Cliente cliente) {
+
+        if (cliente.getIdCliente() == null) {
+            em.persist(cliente);
+            return cliente;
+        }
+
+        return em.merge(cliente);
+    }
 }
