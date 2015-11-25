@@ -1,14 +1,15 @@
 package br.com.cwi.crescer.lavanderia.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.cwi.crescer.lavanderia.dao.CidadeDao;
 import br.com.cwi.crescer.lavanderia.dao.ClienteDao;
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
+import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
 import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 
@@ -16,10 +17,12 @@ import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 public class ClienteService {
 	
 	private ClienteDao clienteDao;
+	private CidadeDao cidadeDao;
 	
 	@Autowired
-	public ClienteService(ClienteDao clienteDao){
+	public ClienteService(ClienteDao clienteDao, CidadeDao cidadeDao){
 		this.clienteDao = clienteDao;
+		this.cidadeDao = cidadeDao;
 	}
 	
 	public Cliente findById(Long id){
@@ -32,5 +35,14 @@ public class ClienteService {
 		List<ClienteResumoDTO> dtos = ClienteMapper.toClienteResumoDtoList(clientes);
 		
 		return dtos;
+	}
+
+	public void update(ClienteDTO dto) {
+		
+		Cliente entity = this.clienteDao.findById(dto.getId());
+		ClienteMapper.merge(dto,  entity);
+		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
+		
+		this.clienteDao.save(entity);
 	}
 }

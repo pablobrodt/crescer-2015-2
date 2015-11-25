@@ -10,7 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.dto.CidadeDTO;
+import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.mapper.CidadeMapper;
 import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 import br.com.cwi.crescer.lavanderia.service.CidadeService;
@@ -37,6 +39,17 @@ public class ClienteController {
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public ModelAndView exibe(@PathVariable("id") Long id){
 		return new ModelAndView("cliente/exibe", "cliente", ClienteMapper.toDTO(this.clienteService.findById(id)));
+	}
+	
+	@RequestMapping(path = "/Editar/{id}", method = RequestMethod.GET)
+	public ModelAndView viewEditar(@PathVariable("id") Long id){
+		return new ModelAndView("cliente/editar", "cliente", ClienteMapper.toDTO(clienteService.findById(id)));
+	}
+	
+	@RequestMapping(path = "/Editar", method = RequestMethod.POST)
+	public ModelAndView editar(ClienteDTO dto){
+		this.clienteService.update(dto);
+		return new ModelAndView("redirect:/Clientes");
 	}
 	
 	@ModelAttribute("cidades")
