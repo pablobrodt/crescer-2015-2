@@ -52,6 +52,17 @@ public class ClienteController {
 		return new ModelAndView("redirect:/Clientes");
 	}
 	
+	@RequestMapping(path = "/Novo", method = RequestMethod.GET)
+	public ModelAndView viewIncluir(){
+		return new ModelAndView("cliente/incluir", "cliente", new ClienteDTO());
+	}
+	
+	@RequestMapping(path = "/Novo", method = RequestMethod.POST)
+	public ModelAndView incluir(ClienteDTO dto){
+		this.clienteService.insert(dto);
+		return new ModelAndView("redirect:/Clientes");
+	}
+	
 	@ModelAttribute("cidades")
     public List<CidadeDTO> comboCidades() {
         return CidadeMapper.toDtoList(cidadeService.findAll());

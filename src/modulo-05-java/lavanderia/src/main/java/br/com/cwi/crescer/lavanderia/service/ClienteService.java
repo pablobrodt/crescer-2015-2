@@ -45,4 +45,13 @@ public class ClienteService {
 		
 		this.clienteDao.save(entity);
 	}
+
+	public void insert(ClienteDTO dto) {
+		Cliente entity = new Cliente();
+		ClienteMapper.merge(dto,  entity);
+		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
+		entity.setSituacao(SituacaoCliente.ATIVO);
+		
+		this.clienteDao.save(entity);
+	}
 }
