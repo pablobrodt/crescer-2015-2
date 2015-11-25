@@ -56,6 +56,9 @@ public class ClienteService {
 	}
 
 	public void delete(Long id) {
-		this.clienteDao.delete(id);
+		ClienteDTO dto = ClienteMapper.toDTO(findById(id));
+		dto.setSituacao(SituacaoCliente.INATIVO);
+		
+		update(dto);
 	}
 }
