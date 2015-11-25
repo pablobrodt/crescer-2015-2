@@ -63,6 +63,17 @@ public class ClienteController {
 		return new ModelAndView("redirect:/Clientes");
 	}
 	
+	@RequestMapping(path = "/Remover/{id}", method = RequestMethod.GET)
+	public ModelAndView viewRemover(@PathVariable("id") Long id){
+		return new ModelAndView("cliente/remover", "cliente", ClienteMapper.toDTO(this.clienteService.findById(id)));
+	}
+	
+	@RequestMapping(path = "/Remover", method = RequestMethod.POST)
+	public ModelAndView remover(ClienteDTO dto){
+		this.clienteService.delete(dto);
+		return new ModelAndView("redirect:/Clientes");
+	}
+	
 	@ModelAttribute("cidades")
     public List<CidadeDTO> comboCidades() {
         return CidadeMapper.toDtoList(cidadeService.findAll());
