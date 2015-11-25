@@ -11,7 +11,7 @@ import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
 
 public class ClienteMapper {
 	
-	public static Cliente toEntitu(ClienteDTO clienteDTO){
+	public static Cliente toEntity(ClienteDTO clienteDTO){
 		Cliente cliente = new Cliente();
 		cliente.setIdCliente(clienteDTO.getId());
 		cliente.setNome(clienteDTO.getNome());

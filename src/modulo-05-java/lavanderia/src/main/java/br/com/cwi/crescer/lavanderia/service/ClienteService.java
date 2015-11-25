@@ -55,11 +55,7 @@ public class ClienteService {
 		this.clienteDao.save(entity);
 	}
 
-	public void delete(ClienteDTO dto) {
-		Cliente entity = new Cliente();
-		ClienteMapper.merge(dto,  entity);
-		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
-		
-		this.clienteDao.delete(entity);
+	public void delete(Long id) {
+		this.clienteDao.delete(id);
 	}
 }

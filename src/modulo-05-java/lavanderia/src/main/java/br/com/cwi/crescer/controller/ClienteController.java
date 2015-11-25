@@ -70,7 +70,7 @@ public class ClienteController {
 	
 	@RequestMapping(path = "/Remover", method = RequestMethod.POST)
 	public ModelAndView remover(ClienteDTO dto){
-		this.clienteService.delete(dto);
+		this.clienteService.delete(dto.getId());
 		return new ModelAndView("redirect:/Clientes");
 	}
 	
