@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Item")
 @SequenceGenerator(name = Item.SEQUENCE_NAME,
-sequenceName = Item.SEQUENCE_NAME)
+sequenceName = Item.SEQUENCE_NAME, initialValue = 1, allocationSize = 1)
 public class Item {
 	
 	public static final String SEQUENCE_NAME = "SEQ_Item";

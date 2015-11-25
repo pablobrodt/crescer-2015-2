@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "Pedido")
 @SequenceGenerator(name = Pedido.SEQUENCE_NAME,
-sequenceName = Pedido.SEQUENCE_NAME)
+sequenceName = Pedido.SEQUENCE_NAME, initialValue = 1, allocationSize = 1)
 public class Pedido {
 	
 	public static final String SEQUENCE_NAME = "SEQ_Pedido";
