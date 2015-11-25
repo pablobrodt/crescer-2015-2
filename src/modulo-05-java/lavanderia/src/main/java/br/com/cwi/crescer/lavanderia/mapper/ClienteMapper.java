@@ -1,7 +1,13 @@
 package br.com.cwi.crescer.lavanderia.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.cwi.crescer.lavanderia.domain.Cidade;
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
+import br.com.cwi.crescer.lavanderia.dto.CidadeDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
+import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
 
 public class ClienteMapper {
 	
@@ -38,5 +44,15 @@ public class ClienteMapper {
 		entity.setBairro(dto.getBairro());
 		
 		return entity;
+	}
+	
+	public static List<ClienteResumoDTO> toClienteResumoDtoList(List<Cliente> entityList){
+		
+		List<ClienteResumoDTO> listDTO = new ArrayList<ClienteResumoDTO>();
+		for (Cliente entity : entityList) {
+			listDTO.add(new ClienteResumoDTO(entity));
+		}
+		
+		return listDTO;
 	}
 }

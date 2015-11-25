@@ -10,6 +10,7 @@ import br.com.cwi.crescer.lavanderia.dao.ClienteDao;
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
+import br.com.cwi.crescer.lavanderia.mapper.ClienteMapper;
 
 @Service
 public class ClienteService {
@@ -18,7 +19,6 @@ public class ClienteService {
 	
 	@Autowired
 	public ClienteService(ClienteDao clienteDao){
-		super();
 		this.clienteDao = clienteDao;
 	}
 	
@@ -29,11 +29,7 @@ public class ClienteService {
 	public List<ClienteResumoDTO> findAllActive() {
 		List<Cliente> clientes = clienteDao.findBySituacao(SituacaoCliente.ATIVO);
 		
-		List<ClienteResumoDTO> dtos = new ArrayList<ClienteResumoDTO>();
-		
-		for (Cliente cliente : clientes) {
-			dtos.add(new ClienteResumoDTO(cliente));
-		}
+		List<ClienteResumoDTO> dtos = ClienteMapper.toClienteResumoDtoList(clientes);
 		
 		return dtos;
 	}
