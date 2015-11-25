@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -69,8 +70,11 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(path = "/Remover", method = RequestMethod.POST)
-	public ModelAndView remover(ClienteDTO dto){
+	public ModelAndView remover(ClienteDTO dto, final RedirectAttributes redirectAttributes){
 		this.clienteService.delete(dto.getId());
+		
+		redirectAttributes.addFlashAttribute("mensagem", "Removido com sucesso!");
+		
 		return new ModelAndView("redirect:/Clientes");
 	}
 	
