@@ -9,17 +9,16 @@ import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.service.ItemService;
 
 @Controller
+@RequestMapping("/Itens")
 public class ItemController {
 
 	private ItemService is;
 	
 	@Autowired
 	public ItemController(ItemService itemService){
-		super();
 		this.is = itemService;
 	}
 	
-	@RequestMapping("/Item/")
 	public String index(Model model){
 		
 		Item item = this.is.findById(1L);

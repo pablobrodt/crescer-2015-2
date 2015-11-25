@@ -9,17 +9,17 @@ import br.com.cwi.crescer.lavanderia.domain.Produto;
 import br.com.cwi.crescer.lavanderia.service.ProdutoService;
 
 @Controller
+@RequestMapping("/Produtos")
 public class ProdutoController {
 
 	private ProdutoService ps;
 	
 	@Autowired
 	public ProdutoController(ProdutoService produtoService){
-		super();
 		this.ps = produtoService;
 	}
 	
-	@RequestMapping("/Produto/")
+	
 	public String index(Model model){
 		
 		Produto produto = this.ps.findById(1L);

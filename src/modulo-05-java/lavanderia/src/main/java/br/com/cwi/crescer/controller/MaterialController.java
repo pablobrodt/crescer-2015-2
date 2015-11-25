@@ -9,17 +9,17 @@ import br.com.cwi.crescer.lavanderia.domain.Material;
 import br.com.cwi.crescer.lavanderia.service.MaterialService;
 
 @Controller
+@RequestMapping("/Materiais")
 public class MaterialController {
 
 	private MaterialService ms;
 	
 	@Autowired
 	public MaterialController(MaterialService materialService){
-		super();
 		this.ms = materialService;
 	}
 	
-	@RequestMapping("/Material/")
+	
 	public String index(Model model){
 		
 		Material material = this.ms.findById(1L);

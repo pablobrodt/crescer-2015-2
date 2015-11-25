@@ -9,17 +9,16 @@ import br.com.cwi.crescer.lavanderia.domain.Cidade;
 import br.com.cwi.crescer.lavanderia.service.CidadeService;
 
 @Controller
+@RequestMapping("/Cidades")
 public class CidadeController {
 	
 	private CidadeService cs;
 	
 	@Autowired
 	public CidadeController(CidadeService cidadeService){
-		super();
 		this.cs = cidadeService;
 	}
 	
-	@RequestMapping("/Cidade/")
 	public String index(Model model){
 		
 		Cidade c = cs.findById(1L);

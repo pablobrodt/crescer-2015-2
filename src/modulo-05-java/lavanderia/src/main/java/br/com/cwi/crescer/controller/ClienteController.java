@@ -2,35 +2,32 @@ package br.com.cwi.crescer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
-import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.service.ClienteService;
 
 @Controller
+@RequestMapping("/Clientes")
 public class ClienteController {
 	
 	private ClienteService cs;
 	
 	@Autowired
 	public ClienteController(ClienteService clienteService){
-		super();
 		this.cs = clienteService;
 	}
 	
-	@RequestMapping("/Cliente/")
-	public String index(Model model){
-		
-		Cliente cliente = this.cs.findById(1L);
-		
-		model.addAttribute("Nome", cliente.getNome());
-		model.addAttribute("Cpf", cliente.getCpf());
-		model.addAttribute("Endereco", cliente.getEndereco());
-		model.addAttribute("Bairro", cliente.getBairro());
-		model.addAttribute("Email", cliente.getEmail());
-		
-		return "cliente/index";
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView listar(){
+		return new ModelAndView("cliente/listar", "clientes", cs.findAllActive());
+	}
+	
+	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
+	public ModelAndView exibe(@PathVariable("id") Long id){
+		return new ModelAndView("cliente.exibe", "cliente", cs.findById(id));
 	}
 	
 }
