@@ -8,7 +8,7 @@ import br.com.cwi.crescer.lavanderia.dto.CidadeDTO;
 
 public class CidadeMapper {
 	
-	public static List<CidadeDTO> toListCidadeDTO(List<Cidade> entityList){
+	public static List<CidadeDTO> toDtoList(List<Cidade> entityList){
 		
 		List<CidadeDTO> listDTO = new ArrayList<CidadeDTO>();
 		for (Cidade entity : entityList) {

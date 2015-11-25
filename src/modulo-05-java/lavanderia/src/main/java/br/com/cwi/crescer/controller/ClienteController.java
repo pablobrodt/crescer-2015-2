@@ -41,6 +41,6 @@ public class ClienteController {
 	
 	@ModelAttribute("cidades")
     public List<CidadeDTO> comboCidades() {
-        return CidadeMapper.toListCidadeDTO(cidadeService.findAll());
+        return CidadeMapper.toDtoList(cidadeService.findAll());
     }
 }
