@@ -56,9 +56,9 @@ public class ClienteService {
 	}
 
 	public void delete(Long id) {
-		ClienteDTO dto = ClienteMapper.toDTO(findById(id));
-		dto.setSituacao(SituacaoCliente.INATIVO);
+		Cliente entity = findById(id);
+		entity.setSituacao(SituacaoCliente.INATIVO);
 		
-		update(dto);
+		this.clienteDao.save(entity);
 	}
 }

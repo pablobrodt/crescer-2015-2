@@ -20,7 +20,6 @@ public class ClienteMapper {
 		cliente.setEndereco(clienteDTO.getEndereco());
 		cliente.setBairro(clienteDTO.getBairro());
 		cliente.setCep(clienteDTO.getCep());
-		cliente.setSituacao(clienteDTO.getSituacao());
 		
 		return cliente;
 	}
@@ -35,7 +34,6 @@ public class ClienteMapper {
 		clienteDTO.setBairro(cliente.getBairro());
 		clienteDTO.setIdCidade(cliente.getCidade().getIdCidade());
 		clienteDTO.setCep(cliente.getCep());
-		clienteDTO.setSituacao(cliente.getSituacao());
 		
 		return clienteDTO;
 	}
@@ -47,7 +45,6 @@ public class ClienteMapper {
 		entity.setEndereco(dto.getEndereco());
 		entity.setBairro(dto.getBairro());
 		entity.setCep(dto.getCep());
-		entity.setSituacao(dto.getSituacao());
 		
 		return entity;
 	}
