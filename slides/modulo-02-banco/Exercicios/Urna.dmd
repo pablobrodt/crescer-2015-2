@@ -1,9 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Urna" id="C3C23518-EC5F-8ADE-C6CF-D8B371E46C51" version="3.5">
-<createdBy>pablo.brodt</createdBy>
-<createdTime>2015-10-08 16:16:03 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>Urna</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>C3C23518-EC5F-8ADE-C6CF-D8B371E46C51</designId>
-</OSDM_Design>
