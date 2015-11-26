@@ -53,6 +53,8 @@ public class ClienteController {
 	public ModelAndView editar(@Valid @ModelAttribute("cliente") ClienteDTO dto,
 	        					BindingResult result,
 	        					final RedirectAttributes redirectAttributes){
+		
+		redirectAttributes.addFlashAttribute("mensagem", "Alterado com sucesso!");
 								
 		if (result.hasErrors()) {
 		    return new ModelAndView("cliente/editar");
@@ -71,7 +73,9 @@ public class ClienteController {
 	public ModelAndView incluir(@Valid @ModelAttribute("cliente") ClienteDTO dto,
 								BindingResult result,
 								final RedirectAttributes redirectAttributes){
-			
+		
+		redirectAttributes.addFlashAttribute("mensagem", "Inserido com sucesso!");
+		
 		if (result.hasErrors()) {
 		return new ModelAndView("cliente/incluir");
 		}
