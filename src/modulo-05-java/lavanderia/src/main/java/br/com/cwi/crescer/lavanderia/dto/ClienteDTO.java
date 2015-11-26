@@ -1,15 +1,39 @@
 package br.com.cwi.crescer.lavanderia.dto;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
+
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 public class ClienteDTO {
 	
 	private Long id;
+	
+	@NotNull
+	@NotBlank
+	@Length(max = 70)
 	private String nome;
+	
+	@NotNull
+	@NotBlank
+	@Length(min = 11, max = 11)
+	@CPF
 	private String cpf;
+	
+	@Email
+	@Length(max = 100)
 	private String email;
+	
+	@Length(max = 50)
 	private String endereco;
+	
+	@Length(max = 50)
 	private String bairro;
+	
 	private Long idCidade;
 	private String cep;
 	private SituacaoCliente situacao;
