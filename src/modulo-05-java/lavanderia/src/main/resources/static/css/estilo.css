@@ -1,0 +1,22 @@
+.footer{
+	height: 150px;
+	background-color: #F8F8F8;
+}
+
+.img-sm{
+	width: 50px;
+	heigth: 50px;
+}
+
+.img-xs{
+	width: 25px;
+	heigth: 25px;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+.justify{
+	text-align: justify;
+}
