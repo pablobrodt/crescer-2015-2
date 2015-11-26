@@ -10,7 +10,37 @@
 	<section layout:fragment="content">
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				<h1 th:text="${mensagem}">Index</h1>
+				<div class="page-header">
+					<h1 th:text="${mensagem}"></h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-2">
+				<div class="row">
+					<div class="col-lg-12">
+						<article>
+							<h2 class="inline-block">
+								<img class="img-sm" th:src="@{/images/qualidade.png}" />
+								Qualidade
+							</h2>	
+							<p class="justify">A Lavanderia Crescer conta com as recentes tecnologias e técnicas de lavagem, garantindo os melhores níveis de qualidade e oferecendo aos nossos clientes a agilidade e segurança desejadas.</p>
+						</article>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-12">
+						<article>
+							<h2 class="inline-block">
+								<img class="img-sm" th:src="@{/images/leaf.png}" />
+								Meio-Ambiente
+							</h2>
+							<p class="justify">A Lavanderia Crescer acredita no compromisso com o meio ambiente, por isso foi buscar o mais avançado e conhecido sistema de limpeza do mundo, o Wet Cleaning. Seu processo computadorizado, munido de sensores e dosadores especiais, limpa e hidrata a roupa sem danificá-la. Esse recurso dispensa também o uso de solventes à base de petróleo, pois utiliza a água como agente de limpeza. Além disso, adota produtos biodegradáveis que não agridem o meio ambiente e evitam a bioacumulação nas espécies aquáticas. O sistema ainda colabora por não provocar chuvas ácidas e por diminuir os impactos do efeito estufa.</p>
+						</article>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

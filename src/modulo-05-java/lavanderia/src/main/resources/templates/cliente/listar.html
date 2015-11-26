@@ -9,7 +9,7 @@
 <body>
 	<section layout:fragment="content" th:if="${not #lists.isEmpty(clientes)}">
 	
-		<div th:if="#{mensagem}" th:class="alert-success" th:text="${mensagem}"></div>
+		<div th:if="${mensagem}" th:classappend="alert-success"  th:class="alert " th:text="${mensagem}"></div>
 	
 		<div class="row">
 			<div class="col-lg-12">
@@ -28,9 +28,21 @@
 						<td th:text="${cliente.nome}">Exibe Nome</td>
 						<td th:text="${cliente.cpf}">Exibe Cpf</td>
 						<td th:text="${cliente.email}">Exibe Email</td>
-						<td><a class="btn btn-success" th:href="@{|/Clientes/${cliente.id}|}">Detalhes</a></td>
-						<td><a class="btn btn-warning" th:href="@{|/Clientes/Editar/${cliente.id}|}">Editar</a></td>
-						<td><a class="btn btn-danger" th:href="@{|/Clientes/Remover/${cliente.id}|}">Remover</a></td>
+						<td>
+							<a th:href="@{|/Clientes/${cliente.id}|}">
+								<img class="img-xs" th:src="@{/images/details.png}" />
+							</a>
+						</td>
+						<td>
+							<a th:href="@{|/Clientes/Editar/${cliente.id}|}">
+								<img class="img-xs" th:src="@{/images/edit.png}" />
+							</a>
+						</td>
+						<td>
+							<a th:href="@{|/Clientes/Remover/${cliente.id}|}">
+								<img class="img-xs" th:src="@{/images/remove.png}" />
+							</a>
+						</td>
 					</tr>
 				</table>
 			</div>
