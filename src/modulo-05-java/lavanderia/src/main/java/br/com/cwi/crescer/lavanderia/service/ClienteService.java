@@ -38,7 +38,6 @@ public class ClienteService {
 	}
 
 	public void update(ClienteDTO dto) {
-		
 		Cliente entity = this.clienteDao.findById(dto.getId());
 		ClienteMapper.merge(dto,  entity);
 		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
