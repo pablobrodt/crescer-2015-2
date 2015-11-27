@@ -34,6 +34,7 @@ public class ClienteMapper {
 		clienteDTO.setBairro(cliente.getBairro());
 		clienteDTO.setIdCidade(cliente.getCidade().getIdCidade());
 		clienteDTO.setCep(cliente.getCep());
+		clienteDTO.setSituacao(cliente.getSituacao());
 		
 		return clienteDTO;
 	}

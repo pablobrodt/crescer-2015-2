@@ -37,18 +37,18 @@ public class ClienteController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listar(){
-		return new ModelAndView("cliente/listar", "clientes", this.clienteService.findAllActive());
+		return new ModelAndView("cliente/listar", "clientes", this.clienteService.findAll());
 	}
 	
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public ModelAndView exibe(@PathVariable("id") Long id){
-		return new ModelAndView("cliente/exibe", "cliente", ClienteMapper.toDTO(this.clienteService.findById(id)));
+		return new ModelAndView("cliente/exibe", "cliente", this.clienteService.findById(id));
 	}
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(path = "/Editar/{id}", method = RequestMethod.GET)
 	public ModelAndView viewEditar(@PathVariable("id") Long id){
-		return new ModelAndView("cliente/editar", "cliente", ClienteMapper.toDTO(clienteService.findById(id)));
+		return new ModelAndView("cliente/editar", "cliente", clienteService.findById(id));
 	}
 	
 	@PreAuthorize("hasRole('ADMIN')")
@@ -89,7 +89,7 @@ public class ClienteController {
 	
 	@RequestMapping(path = "/Remover/{id}", method = RequestMethod.GET)
 	public ModelAndView viewRemover(@PathVariable("id") Long id){
-		return new ModelAndView("cliente/remover", "cliente", ClienteMapper.toDTO(this.clienteService.findById(id)));
+		return new ModelAndView("cliente/remover", "cliente", this.clienteService.findById(id));
 	}
 	
 	@RequestMapping(path = "/Remover", method = RequestMethod.POST)

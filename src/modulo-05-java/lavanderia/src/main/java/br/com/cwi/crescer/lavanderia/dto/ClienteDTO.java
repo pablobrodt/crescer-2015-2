@@ -105,4 +105,8 @@ public class ClienteDTO {
 	public void setSituacao(SituacaoCliente situacao) {
 		this.situacao = situacao;
 	}
+	
+	public boolean getAtivo(){
+		return this.situacao == SituacaoCliente.ATIVO;
+	}
 }
