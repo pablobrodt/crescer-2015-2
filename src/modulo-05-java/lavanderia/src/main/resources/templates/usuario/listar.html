@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="@{/master}">
+<head>
+<meta charset="UTF-8" />
+<title>Usuarios Ativos</title>
+</head>
+<body>
+	<section layout:fragment="content" th:if="${not #lists.isEmpty(usuarios)}">
+	
+		<div th:if="${mensagem}" th:class="'col-lg-4 col-lg-offset-4 alert alert-success alert-dismissible fade in over'">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+			  <span aria-hidden="true" >x</span>
+			</button>
+			<strong th:text="${mensagem}"></strong>
+		</div>
+	
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-4">
+				<div class="table-responsive">
+					<table id="listausuarios" class="table table-responsive table-striped">
+						<tr>
+							<th>Username</th>
+							<th>Situação</th>
+						</tr>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuario.userName}">Nome de usuario</td>
+							<td th:text="${usuario.enabled}">Exibe situacao</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
