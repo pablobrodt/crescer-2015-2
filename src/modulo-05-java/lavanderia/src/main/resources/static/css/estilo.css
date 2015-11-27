@@ -3,6 +3,11 @@
 	background-color: #F8F8F8;
 }
 
+.img-md-wd{
+	width: 400px;
+	height: 300px;
+}
+
 .img-sm{
 	width: 50px;
 	heigth: 50px;
@@ -19,4 +24,18 @@
 
 .justify{
 	text-align: justify;
+}
+
+.over{
+	position: absolute;
+	top: 15px;
+	z-index: 2;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
 }

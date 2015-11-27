@@ -9,42 +9,49 @@
 <body>
 	<section layout:fragment="content" th:if="${not #lists.isEmpty(clientes)}">
 	
-		<div th:if="${mensagem}" th:classappend="alert-success"  th:class="alert " th:text="${mensagem}"></div>
+		<div th:if="${mensagem}" th:class="'col-lg-4 col-lg-offset-4 alert alert-success alert-dismissible fade in over'">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+			  <span aria-hidden="true" >x</span>
+			</button>
+			<strong th:text="${mensagem}"></strong>
+		</div>
 	
 		<div class="row">
 			<div class="col-lg-12">
-				<table class="table table-responsive table-striped">
-					<tr>
-						<th>Código</th>
-						<th>Nome</th>
-						<th>Cpf</th>
-						<th>Email</th>
-						<th>Detalhes</th>
-						<th>Editar</th>
-						<th>Remover</th>
-					</tr>
-					<tr th:each="cliente : ${clientes}">
-						<td th:text="${cliente.id}">Exibe Código</td>
-						<td th:text="${cliente.nome}">Exibe Nome</td>
-						<td th:text="${cliente.cpf}">Exibe Cpf</td>
-						<td th:text="${cliente.email}">Exibe Email</td>
-						<td>
-							<a th:href="@{|/Clientes/${cliente.id}|}">
-								<img class="img-xs" th:src="@{/images/details.png}" />
-							</a>
-						</td>
-						<td>
-							<a th:href="@{|/Clientes/Editar/${cliente.id}|}">
-								<img class="img-xs" th:src="@{/images/edit.png}" />
-							</a>
-						</td>
-						<td>
-							<a th:href="@{|/Clientes/Remover/${cliente.id}|}">
-								<img class="img-xs" th:src="@{/images/remove.png}" />
-							</a>
-						</td>
-					</tr>
-				</table>
+				<div class="table-responsive">
+					<table id="listaclientes" class="table table-responsive table-striped">
+						<tr>
+							<th>Código</th>
+							<th>Nome</th>
+							<th>Cpf</th>
+							<th>Email</th>
+							<th>Detalhes</th>
+							<th>Editar</th>
+							<th>Remover</th>
+						</tr>
+						<tr th:each="cliente : ${clientes}">
+							<td th:text="${cliente.id}">Exibe Código</td>
+							<td th:text="${cliente.nome}">Exibe Nome</td>
+							<td th:text="${cliente.cpf}">Exibe Cpf</td>
+							<td th:text="${cliente.email}">Exibe Email</td>
+							<td>
+								<a th:href="@{|/Clientes/${cliente.id}|}">
+									<img class="img-xs" th:src="@{/images/details.png}" />
+								</a>
+							</td>
+							<td>
+								<a th:href="@{|/Clientes/Editar/${cliente.id}|}">
+									<img class="img-xs" th:src="@{/images/edit.png}" />
+								</a>
+							</td>
+							<td>
+								<a th:href="@{|/Clientes/Remover/${cliente.id}|}">
+									<img class="img-xs" th:src="@{/images/remove.png}" />
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</section>
