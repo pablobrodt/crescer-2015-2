@@ -37,12 +37,13 @@ public class Produto {
 	@Basic(optional = false)
 	private Material material;
 	
-	@OneToOne(mappedBy = "produto")
-	private Item item;
-	
 	@Column(name = "Valor")
 	@Basic(optional = false)
 	private BigDecimal valor;
+	
+	@Column(name = "Prazo")
+	@Basic(optional = false)
+	private Long prazo;
 	
 	public Long getIdProduto() {
 		return idProduto;
@@ -68,12 +69,10 @@ public class Produto {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-	public Item getItem() {
-		return item;
+	public Long getPrazo() {
+		return prazo;
 	}
-	public void setItem(Item item) {
-		this.item = item;
+	public void setPrazo(Long prazo) {
+		this.prazo = prazo;
 	}
-	
-	
 }

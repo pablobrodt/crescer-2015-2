@@ -50,58 +50,97 @@ public class Pedido {
 	@Temporal(TemporalType.DATE)
 	private Date dataEntrega;
 	
-	@Column(name = "Valor")
+	@Column(name = "VALORBruto")
 	@Basic(optional = false)
-	private BigDecimal valor;
+	private BigDecimal valorBruto;
 	
 	@Enumerated(EnumType.ORDINAL)
     @Column(name = "Situacao", length = 1)
     private SituacaoPedido situacao;
+	
+	@Column(name="VALORDesconto", length = 12)
+	private BigDecimal valorDesconto;
+	
+	@Column(name="VALORFinal", length = 12)
+	private BigDecimal valorFinal;
 
     public static enum SituacaoPedido {
         PENDENTE, PROCESSANDO, PROCESSADO, ENCERRADO, CANCELADO
     }
-	
+
 	public Long getIdPedido() {
 		return idPedido;
 	}
+
 	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
+
 	public Cliente getCliente() {
 		return cliente;
 	}
+
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Date getDataInclusao() {
-		return dataInclusao;
-	}
-	public void setDataInclusao(Date dataInclusao) {
-		this.dataInclusao = dataInclusao;
-	}
-	public Date getDataEntrega() {
-		return dataEntrega;
-	}
-	public void setDataEntrega(Date dataentrega) {
-		this.dataEntrega = dataentrega;
-	}
-	public BigDecimal getValor() {
-		return valor;
-	}
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
-	public SituacaoPedido getSituacao() {
-		return situacao;
-	}
-	public void setSituacao(SituacaoPedido situacao) {
-		this.situacao = situacao;
-	}
+
 	public List<Item> getItens() {
 		return itens;
 	}
+
 	public void setItens(List<Item> itens) {
 		this.itens = itens;
+	}
+
+	public Date getDataInclusao() {
+		return dataInclusao;
+	}
+
+	public void setDataInclusao(Date dataInclusao) {
+		this.dataInclusao = dataInclusao;
+	}
+
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
+
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+
+	public BigDecimal getValorBruto() {
+		return valorBruto;
+	}
+
+	public void setValorBruto(BigDecimal valorBruto) {
+		this.valorBruto = valorBruto;
+	}
+
+	public SituacaoPedido getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoPedido situacao) {
+		this.situacao = situacao;
+	}
+
+	public BigDecimal getValorDesconto() {
+		return valorDesconto;
+	}
+
+	public void setValorDesconto(BigDecimal valorDesconto) {
+		this.valorDesconto = valorDesconto;
+	}
+
+	public BigDecimal getValorFinal() {
+		return valorFinal;
+	}
+
+	public void setValorFinal(BigDecimal valorFinal) {
+		this.valorFinal = valorFinal;
+	}
+
+	public static String getSequenceName() {
+		return SEQUENCE_NAME;
 	}
 }
