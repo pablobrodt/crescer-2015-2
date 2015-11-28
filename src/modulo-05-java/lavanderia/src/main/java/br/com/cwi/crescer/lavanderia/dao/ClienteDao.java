@@ -18,6 +18,11 @@ public class ClienteDao extends AbstractDao{
 		return em.find(Cliente.class, id);
 	}
 	
+	public List<Cliente> findAll(){
+		return em.createQuery("FROM Cliente c", Cliente.class)
+				.getResultList();
+	}
+	
 	public List<Cliente> findBySituacao(SituacaoCliente situacao){
 		return em.createQuery("FROM Cliente c WHERE c.situacao = :situacao", Cliente.class)
 				.setParameter("situacao", situacao)

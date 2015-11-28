@@ -25,8 +25,8 @@ public class ClienteService {
 		this.cidadeDao = cidadeDao;
 	}
 	
-	public Cliente findById(Long id){
-		return clienteDao.findById(id);
+	public ClienteDTO findById(Long id){
+		return ClienteMapper.toDTO(this.clienteDao.findById(id));
 	}
 
 	public List<ClienteResumoDTO> findAllActive() {
@@ -36,6 +36,14 @@ public class ClienteService {
 		
 		return dtos;
 	}
+	
+	public List<ClienteResumoDTO> findAll() {
+		List<Cliente> clientes = clienteDao.findAll();
+		
+		List<ClienteResumoDTO> dtos = ClienteMapper.toClienteResumoDtoList(clientes);
+		
+		return dtos;
+	} 
 
 	public void update(ClienteDTO dto) {
 		Cliente entity = this.clienteDao.findById(dto.getId());
@@ -55,7 +63,7 @@ public class ClienteService {
 	}
 
 	public void delete(Long id) {
-		Cliente entity = findById(id);
+		Cliente entity = ClienteMapper.toEntity(findById(id));
 		entity.setSituacao(SituacaoCliente.INATIVO);
 		
 		this.clienteDao.save(entity);

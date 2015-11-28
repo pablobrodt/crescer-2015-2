@@ -48,6 +48,12 @@
 						<td>Bairro:</td>
 						<td th:text="*{bairro}">bairro</td>
 					</tr>
+					<tr>
+						<td>Situação:</td>
+						<td>
+							<span class="label" th:classappend="*{ativo} ? 'label-success' : 'label-danger'" th:text="*{situacao}">Exibe Situação</span>
+						</td>
+					</tr>
 				</table>
 			</div>
 		</div>

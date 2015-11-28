@@ -21,21 +21,21 @@
 				<div class="table-responsive">
 					<table id="listaclientes" class="table table-responsive table-striped">
 						<tr>
-							<th>Código</th>
 							<th>Nome</th>
 							<th>Cpf</th>
-							<th>Email</th>
+							<th>Situação</th>
 							<th>Detalhes</th>
 							<th>Editar</th>
 							<th>Remover</th>
 						</tr>
 						<tr th:each="cliente : ${clientes}">
-							<td th:text="${cliente.id}">Exibe Código</td>
 							<td th:text="${cliente.nome}">Exibe Nome</td>
 							<td th:text="${cliente.cpf}">Exibe Cpf</td>
-							<td th:text="${cliente.email}">Exibe Email</td>
 							<td>
-								<a th:href="@{|/Clientes/${cliente.id}|}">
+								<span class="label" th:classappend="${cliente.ativo} ? 'label-success' : 'label-danger'" th:text="${cliente.situacao}">Exibe Situação</span>
+							</td>
+							<td>
+								<a th:href="@{|/Clientes/Detalhes/${cliente.id}|}">
 									<img class="img-xs" th:src="@{/images/details.png}" />
 								</a>
 							</td>
