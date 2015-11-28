@@ -2,7 +2,6 @@ package br.com.cwi.crescer.lavanderia.dto;
 
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
-import br.com.cwi.crescer.lavanderia.domain.Usuario.SituacaoUsuario;
 
 public class ClienteResumoDTO {
 	
