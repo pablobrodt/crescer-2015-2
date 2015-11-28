@@ -24,6 +24,13 @@ public class Item {
 	
 	public static final String SEQUENCE_NAME = "SEQ_Item";
 	
+	public Item(){
+	}
+	
+	public Item(Produto produto) {
+		this.valorUnitario = produto.getValor();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQUENCE_NAME)
 	@Column(name = "IDItem")
@@ -111,4 +118,9 @@ public class Item {
 	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
 	}
+	
+	public Long getPrazo(){
+		return this.produto.getPrazo();
+	}
+	
 }
