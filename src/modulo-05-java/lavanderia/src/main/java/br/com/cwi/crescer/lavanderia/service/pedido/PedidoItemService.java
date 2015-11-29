@@ -3,9 +3,12 @@ package br.com.cwi.crescer.lavanderia.service.pedido;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
 
+@Service
 class PedidoItemService {
 	
 	public BigDecimal obterValorTotalDeItens(Pedido entity) {
