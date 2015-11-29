@@ -6,11 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.cwi.crescer.lavanderia.AbstractInfrastructureTest;
+import br.com.cwi.crescer.lavanderia.AbstractTest;
 import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
 
-public class ItemDaoTest extends AbstractInfrastructureTest{
+public class ItemDaoTest extends AbstractTest{
 	
     @Autowired
     private ItemDao itemDAO;

@@ -6,11 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.cwi.crescer.lavanderia.AbstractInfrastructureTest;
+import br.com.cwi.crescer.lavanderia.AbstractTest;
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
-public class PedidoDAOTest extends AbstractInfrastructureTest {
+public class PedidoDAOTest extends AbstractTest {
 
     @Autowired
     private PedidoDao pedidoDAO;

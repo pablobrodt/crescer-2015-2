@@ -4,10 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.cwi.crescer.lavanderia.AbstractInfrastructureTest;
+import br.com.cwi.crescer.lavanderia.AbstractTest;
 import br.com.cwi.crescer.lavanderia.domain.Produto;
 
-public class ProdutoDAOTest extends AbstractInfrastructureTest {
+public class ProdutoDAOTest extends AbstractTest {
 
     @Autowired
     private ProdutoDao produtoDAO;

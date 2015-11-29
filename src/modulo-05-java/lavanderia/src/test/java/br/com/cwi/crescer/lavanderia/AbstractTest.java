@@ -10,5 +10,5 @@ import br.com.cwi.crescer.LavanderiaApplication;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(LavanderiaApplication.class)
 @WebAppConfiguration
-public abstract class AbstractInfrastructureTest {
+public abstract class AbstractTest {
 }
