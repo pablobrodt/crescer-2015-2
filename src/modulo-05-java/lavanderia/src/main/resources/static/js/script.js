@@ -15,7 +15,7 @@ $(document).ready(function(){
 		    	$("#comboMaterial").append(option);
 		    	
 		    	for(var i = 0; i < data.length; i++){
-		    		var option = $('<option></option>').attr("value", data[i].material.idMaterial)
+		    		var option = $('<option></option>').attr("value", data[i].material.id)
 		    											.text(data[i].material.descricao);
 		    		$("#comboMaterial").append(option);
 		    	}
@@ -33,11 +33,11 @@ $(document).ready(function(){
 			    type: 'GET',
 			    dataType: "json",
 			    success: function(data){ 
-			    	$("#idProduto").val(data.idProduto);
+			    	$("#produto").val(data.idProduto);
 			    }
 			});
 		}else{
-			$("#idProduto").val(0);
+			$("#produto").val(0);
 		}
 	}
 	
