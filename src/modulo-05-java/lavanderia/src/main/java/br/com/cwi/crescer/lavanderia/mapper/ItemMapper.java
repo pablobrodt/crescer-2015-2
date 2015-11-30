@@ -15,7 +15,6 @@ public class ItemMapper {
 		entity.setProduto(ProdutoMapper.toEntity(dto.getProduto()));
 		entity.setPeso(dto.getPeso());
 		entity.setValorUnitario(dto.getValorUnitario());
-		entity.setValorDesconto(dto.getValorDesconto());
 		entity.setValorTotal(dto.getValorTotal());
 		
 		return entity;
@@ -28,7 +27,6 @@ public class ItemMapper {
 		dto.setProduto(ProdutoMapper.toDTO(entity.getProduto()));
 		dto.setPeso(entity.getPeso());
 		dto.setValorUnitario(entity.getValorUnitario());
-		dto.setValorDesconto(entity.getValorDesconto());
 		dto.setValorTotal(entity.getValorTotal());
 		
 		return dto;

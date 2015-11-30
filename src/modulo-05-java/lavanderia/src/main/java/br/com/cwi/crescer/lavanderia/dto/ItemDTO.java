@@ -11,7 +11,6 @@ public class ItemDTO {
 	private ProdutoDTO produto;
 	private BigDecimal peso;
 	private BigDecimal valorUnitario;
-	private BigDecimal valorDesconto;
 	private BigDecimal valorTotal;
 	private SituacaoItem situacao;
 	
@@ -45,12 +44,6 @@ public class ItemDTO {
 	}
 	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
-	}
-	public BigDecimal getValorDesconto() {
-		return valorDesconto;
-	}
-	public void setValorDesconto(BigDecimal valorDesconto) {
-		this.valorDesconto = valorDesconto;
 	}
 	public BigDecimal getValorTotal() {
 		return valorTotal;

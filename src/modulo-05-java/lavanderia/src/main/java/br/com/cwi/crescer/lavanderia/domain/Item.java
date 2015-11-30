@@ -54,10 +54,6 @@ public class Item {
 	@Basic(optional = false)
 	private BigDecimal valorUnitario;
 	
-	@Column(name = "VALORDesconto")
-	@Basic(optional = false)
-	private BigDecimal valorDesconto;
-	
 	@Column(name = "VALORTotal")
 	@Basic(optional = false)
 	private BigDecimal valorTotal;
@@ -99,12 +95,6 @@ public class Item {
 	}
 	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
-	}
-	public BigDecimal getValorDesconto() {
-		return valorDesconto;
-	}
-	public void setValorDesconto(BigDecimal valorDesconto) {
-		this.valorDesconto = valorDesconto;
 	}
 	public BigDecimal getValorTotal() {
 		return valorTotal;
