@@ -11,6 +11,10 @@ import br.com.cwi.crescer.lavanderia.dao.PedidoDao;
 import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
+import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
+import br.com.cwi.crescer.lavanderia.dto.PedidoDTO;
+import br.com.cwi.crescer.lavanderia.mapper.PedidoMapper;
+import br.com.cwi.crescer.lavanderia.service.ClienteService;
 
 @Service
 public class PedidoService {
@@ -18,6 +22,7 @@ public class PedidoService {
 	private PedidoDao pedidoDao;
 	private PedidoItemService pedidoItemService;
 	private PedidoDescontoService pedidoDescontoService;
+	private ClienteService clienteService;
 	
 	@Autowired
 	public PedidoService(PedidoDao pedidoDao){
@@ -30,7 +35,7 @@ public class PedidoService {
 		return this.pedidoDao.findById(id);
 	}
 
-	private void calcularValorBruto(Pedido entity){
+	public void calcularValorBruto(Pedido entity){
 		entity.setValorBruto(pedidoItemService.obterValorTotalDeItens(entity));
 	}
 	
@@ -54,6 +59,21 @@ public class PedidoService {
 		entity.setValorFinal(entity.getValorBruto().subtract(entity.getValorDesconto()));
 	}
 	
+	public PedidoDTO create(ClienteDTO clienteDto) throws Exception {
+		PedidoDTO dto = new PedidoDTO();
+		dto.setCliente(clienteDto);
+		return save(dto);
+	}
+	
+	public PedidoDTO save(PedidoDTO dto) throws Exception{
+		dto.setDataInclusao(Calendar.getInstance().getTime());
+		dto.setSituacao(SituacaoPedido.PENDENTE);
+		Pedido entity = PedidoMapper.toEntity(dto);
+		calcularTotalPedido(entity);
+		return PedidoMapper.toDTO(this.pedidoDao.save(entity));
+	}
+	
+	// TODO: Refatorar: A PedidoItemService poderia retornar o maior prazo dentre os itens 
 	public void estimarEntregaPedido(Pedido entity){
 		Long dias = 0L;
 		for (Item item : entity.getItens()) {
