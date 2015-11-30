@@ -10,6 +10,7 @@ import br.com.cwi.crescer.lavanderia.dao.ProdutoDao;
 import br.com.cwi.crescer.lavanderia.domain.Produto;
 import br.com.cwi.crescer.lavanderia.dto.MaterialDTO;
 import br.com.cwi.crescer.lavanderia.dto.ProdutoDTO;
+import br.com.cwi.crescer.lavanderia.mapper.ProdutoMapper;
 
 @Service
 public class ProdutoService {
@@ -28,12 +29,12 @@ public class ProdutoService {
 	public List<ProdutoDTO> findByServico(Long idServico) {
 		List<ProdutoDTO> produtos = new ArrayList<>();
 		for (Produto produto : this.produtoDao.findByServico(idServico)) {
-			produtos.add(new ProdutoDTO(produto));
+			produtos.add(ProdutoMapper.toDTO(produto));
 		}
 		return produtos;
 	}
 
 	public ProdutoDTO findByServicoMaterial(Long idServico, Long idMaterial) {
-		return new ProdutoDTO(this.produtoDao.findByServicoMaterial(idServico, idMaterial));
+		return ProdutoMapper.toDTO(this.produtoDao.findByServicoMaterial(idServico, idMaterial));
 	}
 }
