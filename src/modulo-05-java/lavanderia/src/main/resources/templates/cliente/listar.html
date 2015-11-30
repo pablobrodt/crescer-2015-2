@@ -35,18 +35,18 @@
 								<span class="label" th:classappend="${cliente.ativo} ? 'label-success' : 'label-danger'" th:text="${cliente.situacao}">Exibe Situação</span>
 							</td>
 							<td>
-								<a th:href="@{|/Clientes/Detalhes/${cliente.id}|}">
-									<img class="img-xs" th:src="@{/images/details.png}" />
+								<a class="btn btn-primary" th:href="@{|/Clientes/Detalhes/${cliente.id}|}">
+									Detalhes
 								</a>
 							</td>
 							<td>
-								<a th:href="@{|/Clientes/Editar/${cliente.id}|}">
-									<img class="img-xs" th:src="@{/images/edit.png}" />
+								<a class="btn btn-warning" th:href="@{|/Clientes/Editar/${cliente.id}|}">
+									Editar
 								</a>
 							</td>
 							<td>
-								<a th:href="@{|/Clientes/Remover/${cliente.id}|}">
-									<img class="img-xs" th:src="@{/images/remove.png}" />
+								<a class="btn btn-success" th:href="@{|/Pedidos/Novo/${cliente.id}|}">
+									Novo Pedido
 								</a>
 							</td>
 						</tr>
