@@ -9,20 +9,12 @@ import br.com.cwi.crescer.lavanderia.domain.Servico;
 public class ProdutoDTO {
 	
 	private Long idProduto;
-	private Servico servico;
-	private Material material;
+	private ServicoDTO servico;
+	private MaterialDTO material;
 	private BigDecimal valor;
 	private Long prazo;
 	
 	public ProdutoDTO(){
-	}
-	
-	public ProdutoDTO(Produto entity){
-		this.idProduto = entity.getIdProduto();
-		this.servico = entity.getServico();
-		this.material = entity.getMaterial();
-		this.valor = entity.getValor();
-		this.prazo = entity.getPrazo();
 	}
 	
 	public Long getIdProduto() {
@@ -31,16 +23,16 @@ public class ProdutoDTO {
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-	public Servico getServico() {
+	public ServicoDTO getServico() {
 		return servico;
 	}
-	public void setServico(Servico servico) {
+	public void setServico(ServicoDTO servico) {
 		this.servico = servico;
 	}
-	public Material getMaterial() {
+	public MaterialDTO getMaterial() {
 		return material;
 	}
-	public void setMaterial(Material material) {
+	public void setMaterial(MaterialDTO material) {
 		this.material = material;
 	}
 	public BigDecimal getValor() {
