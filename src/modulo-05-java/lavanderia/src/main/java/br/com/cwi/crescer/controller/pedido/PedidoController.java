@@ -14,7 +14,7 @@ import br.com.cwi.crescer.lavanderia.service.pedido.PedidoService;
 @RequestMapping(PedidoUrl.BASE)
 public class PedidoController {
 	
-	private PedidoService pedidoService;
+	protected PedidoService pedidoService;
 	
 	@Autowired
 	public PedidoController(PedidoService pedidoService){

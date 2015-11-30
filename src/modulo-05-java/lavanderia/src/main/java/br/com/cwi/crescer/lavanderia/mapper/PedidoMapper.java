@@ -5,7 +5,7 @@ import br.com.cwi.crescer.lavanderia.dto.PedidoDTO;
 
 public class PedidoMapper {
 	
-	public Pedido toEntity(PedidoDTO dto){
+	public static Pedido toEntity(PedidoDTO dto){
 		Pedido entity = new Pedido();
 		entity.setIdPedido(dto.getIdPedido());
 		entity.setCliente(ClienteMapper.toEntity(dto.getCliente()));
@@ -20,7 +20,7 @@ public class PedidoMapper {
 		return entity;
 	}
 	
-	public PedidoDTO toDTO(Pedido entity){
+	public static PedidoDTO toDTO(Pedido entity){
 		PedidoDTO dto = new PedidoDTO();
 		dto.setIdPedido(entity.getIdPedido());
 		dto.setCliente(ClienteMapper.toDTO(entity.getCliente()));
