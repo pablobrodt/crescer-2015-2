@@ -14,8 +14,10 @@ class PedidoItemService {
 	public BigDecimal obterValorTotalDeItens(Pedido entity) {
 		BigDecimal total = new BigDecimal(0);
 		
-		for (Item item : entity.getItens()) {
-			total = total.add(item.getValorTotal());
+		if(!entity.getItens().isEmpty()){
+			for (Item item : entity.getItens()) {
+				total = total.add(item.getValorTotal());
+			}
 		}
 		
 		return total;
