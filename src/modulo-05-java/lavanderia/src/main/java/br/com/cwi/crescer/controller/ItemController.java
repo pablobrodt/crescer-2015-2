@@ -17,7 +17,6 @@ import br.com.cwi.crescer.lavanderia.dto.ItemDTO;
 import br.com.cwi.crescer.lavanderia.dto.MaterialDTO;
 import br.com.cwi.crescer.lavanderia.dto.PedidoDTO;
 import br.com.cwi.crescer.lavanderia.dto.ServicoDTO;
-import br.com.cwi.crescer.lavanderia.mapper.CidadeMapper;
 import br.com.cwi.crescer.lavanderia.service.ItemService;
 import br.com.cwi.crescer.lavanderia.service.MaterialService;
 import br.com.cwi.crescer.lavanderia.service.ServicoService;
@@ -26,7 +25,7 @@ import br.com.cwi.crescer.lavanderia.service.ServicoService;
 @RequestMapping(ItemUrl.BASE)
 public class ItemController {
 
-	private ItemService is;
+	private ItemService itemService;
 	private ServicoService servicoService;
 	private MaterialService materialService;
 	
@@ -34,7 +33,7 @@ public class ItemController {
 	
 	@Autowired
 	public ItemController(ItemService itemService, ServicoService servicoService, MaterialService materialService){
-		this.is = itemService;
+		this.itemService = itemService;
 		this.servicoService = servicoService;
 		this.materialService = materialService;
 		this.itens = new ArrayList<>();
