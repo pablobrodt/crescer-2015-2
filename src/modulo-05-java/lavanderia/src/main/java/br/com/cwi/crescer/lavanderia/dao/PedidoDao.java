@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Pedido;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
@@ -22,4 +24,15 @@ public class PedidoDao extends AbstractDao {
 				.setParameter("situacao", situacao)
 				.getResultList();
 	}
+
+    @Transactional
+    public Pedido save(Pedido pedido) {
+
+        if (pedido.getIdPedido() == null) {
+            em.persist(pedido);
+            return pedido;
+        }
+
+        return em.merge(pedido);
+    }
 }

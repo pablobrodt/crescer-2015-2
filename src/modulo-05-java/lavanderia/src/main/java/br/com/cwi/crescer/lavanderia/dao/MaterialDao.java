@@ -1,7 +1,6 @@
 package br.com.cwi.crescer.lavanderia.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +13,7 @@ public class MaterialDao extends AbstractDao {
 		return em.find(Material.class, id);
 	}
 
+	public List<Material> findAll() {
+		return em.createQuery("FROM Material").getResultList();
+	}
 }
