@@ -1,6 +1,7 @@
 package br.com.cwi.crescer.lavanderia.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -41,6 +42,10 @@ public class PedidoDTO {
 	
 	private BigDecimal valorFinal;
 
+	public PedidoDTO(){
+		this.itens = new ArrayList<ItemDTO>();
+	}
+	
 	public Long getIdPedido() {
 		return idPedido;
 	}
@@ -111,5 +116,9 @@ public class PedidoDTO {
 
 	public void setValorFinal(BigDecimal valorFinal) {
 		this.valorFinal = valorFinal;
+	}
+	
+	public void addItem(ItemDTO item){
+		this.itens.add(item);
 	}
 }
