@@ -3,13 +3,17 @@ package br.com.cwi.crescer.lavanderia.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.cwi.crescer.lavanderia.domain.Cidade;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
-import br.com.cwi.crescer.lavanderia.dto.CidadeDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
+import br.com.cwi.crescer.lavanderia.service.CidadeService;
 
 public class ClienteMapper {
+	
+	@Autowired
+	private static CidadeService cidadeService;
 	
 	public static Cliente toEntity(ClienteDTO clienteDTO){
 		Cliente cliente = new Cliente();
@@ -19,6 +23,7 @@ public class ClienteMapper {
 		cliente.setEmail(clienteDTO.getEmail());
 		cliente.setEndereco(clienteDTO.getEndereco());
 		cliente.setBairro(clienteDTO.getBairro());
+		cliente.setCidade(CidadeMapper.toEntity(clienteDTO.getCidade()));
 		cliente.setCep(clienteDTO.getCep());
 		cliente.setSituacao(clienteDTO.getSituacao());
 		
@@ -33,7 +38,7 @@ public class ClienteMapper {
 		clienteDTO.setEmail(cliente.getEmail());
 		clienteDTO.setEndereco(cliente.getEndereco());
 		clienteDTO.setBairro(cliente.getBairro());
-		clienteDTO.setIdCidade(cliente.getCidade().getIdCidade());
+		clienteDTO.setCidade(CidadeMapper.toDTI(cliente.getCidade()));
 		clienteDTO.setCep(cliente.getCep());
 		clienteDTO.setSituacao(cliente.getSituacao());
 		

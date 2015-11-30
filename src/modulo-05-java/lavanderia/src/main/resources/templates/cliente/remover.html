@@ -41,7 +41,7 @@
 							</div>
 							<div class="col-lg-6">
 								<label>Cidade:</label>
-								<select class="form-control" th:field="*{idCidade}" disabled="true">
+								<select class="form-control" th:field="*{cidade.id}" disabled="true">
 					                <option th:each="c : ${cidades}" th:text="${c.nome}" th:value="${c.id}" >Cidade</option>
 					            </select>
 							</div>

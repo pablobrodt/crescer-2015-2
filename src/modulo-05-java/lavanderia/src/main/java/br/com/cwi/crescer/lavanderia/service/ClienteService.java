@@ -48,7 +48,7 @@ public class ClienteService {
 	public void update(ClienteDTO dto) {
 		Cliente entity = this.clienteDao.findById(dto.getId());
 		ClienteMapper.merge(dto,  entity);
-		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
+		entity.setCidade(this.cidadeDao.findById(dto.getCidade().getId()));
 		
 		this.clienteDao.save(entity);
 	}
@@ -56,7 +56,7 @@ public class ClienteService {
 	public void insert(ClienteDTO dto) {
 		Cliente entity = new Cliente();
 		ClienteMapper.merge(dto,  entity);
-		entity.setCidade(this.cidadeDao.findById(dto.getIdCidade()));
+		entity.setCidade(this.cidadeDao.findById(dto.getCidade().getId()));
 		entity.setSituacao(SituacaoCliente.ATIVO);
 		
 		this.clienteDao.save(entity);

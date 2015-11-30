@@ -40,7 +40,7 @@
 					</tr>
 					<tr>
 						<td>Cidade:</td>
-						<td th:each="c : ${cidades}" th:if="${c.id} == *{idCidade}" th:text="${c.nome}">
+						<td th:each="c : ${cidades}" th:if="${c.id} == *{cidade.id}" th:text="${c.nome}">
 							cidade
 				        </td>
 					</tr>

@@ -34,7 +34,7 @@ public class ClienteDTO {
 	@Length(max = 50)
 	private String bairro;
 	
-	private Long idCidade;
+	private CidadeDTO cidade;
 	private String cep;
 	private SituacaoCliente situacao;
 
@@ -86,12 +86,11 @@ public class ClienteDTO {
 		this.bairro = bairro;
 	}
 
-	public Long getIdCidade() {
-		return idCidade;
+	public CidadeDTO getCidade() {
+		return cidade;
 	}
-
-	public void setIdCidade(Long idCidade) {
-		this.idCidade = idCidade;
+	public void setCidade(CidadeDTO cidade) {
+		this.cidade = cidade;
 	}
 	public String getCep() {
 		return cep;
