@@ -47,14 +47,19 @@
 						          </ul>
 						        </li>
 							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								<!--  <li>
-									<label class="navbar-text" th:if="${#authentication.name} != 'anonymousUser'" th:text="${#authentication.name}"></label>
-								</li>-->
+							<ul class="nav navbar-nav navbar-right" th:if="${#authentication.name} != 'anonymousUser'">
+								<li >
+									<label class="navbar-text" th:text="${#authentication.name}"></label>
+								</li>
 								<li>
-						        	<form class="navbar-form" th:action="@{/logout}" method="post">
+						        	<form th:if="${#authentication}" class="navbar-form" th:action="@{/logout}" method="post">
 									  <input class="btn btn-link" type="submit" value="Sair" />
 									</form>
+						        </li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right" th:if="${#authentication.name} == 'anonymousUser'">
+								<li>
+						        	<a class="btn btn-default" th:href="@{/login}">Login</a>
 						        </li>
 							</ul>
 						</div>
