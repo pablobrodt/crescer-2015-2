@@ -3,7 +3,6 @@ package br.com.cwi.crescer.controller.cliente;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cwi.crescer.controller.urlmapper.ClienteUrl;
+import br.com.cwi.crescer.exception.Mensagem;
+import br.com.cwi.crescer.exception.Mensagem.TipoMensagem;
 import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.service.CidadeService;
 import br.com.cwi.crescer.lavanderia.service.ClienteService;
@@ -39,13 +40,13 @@ public class ClienteEditaController extends ClienteController{
 	        					BindingResult result,
 	        					final RedirectAttributes redirectAttributes){
 		
-		redirectAttributes.addFlashAttribute("mensagem", "Alterado com sucesso!");
+		redirectAttributes.addFlashAttribute("mensagem", new Mensagem("Alterado com sucesso!", TipoMensagem.ERROR));
 								
 		if (result.hasErrors()) {
 		    return new ModelAndView("cliente/editar");
 		}
 		
 		this.clienteService.update(dto);
-		return new ModelAndView("redirect:/Clientes");
+		return new ModelAndView("redirect:"+ClienteUrl.LISTA);
 	}
 }
