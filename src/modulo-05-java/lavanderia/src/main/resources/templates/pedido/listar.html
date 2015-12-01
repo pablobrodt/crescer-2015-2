@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="@{/master}">
+<head>
+<meta charset="UTF-8" />
+<title>Lista de Pedidos</title>
+</head>
+<body>
+	<section layout:fragment="content" th:if="${not #lists.isEmpty(pedidos)}">
+	
+		<div th:if="${mensagem}" th:class="'col-lg-4 col-lg-offset-4 alert alert-success alert-dismissible fade in over'">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+			  <span aria-hidden="true" >x</span>
+			</button>
+			<strong th:text="${mensagem}"></strong>
+		</div>
+	
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table class="table table-responsive table-striped">
+						<tr>
+							<th>Cliente</th>
+							<th>Cpf</th>
+							<th>Data Inclusão</th>
+							<th>Valor</th>
+							<th>Situação</th>
+							<th>Operações</th>
+						</tr>
+						<tr th:each="pedido : ${pedidos}">
+							<td th:text="${pedido.nomeCliente}">Nome</td>
+							<td th:text="${pedido.cpfCliente}">Cpf</td>
+							<td th:text="${pedido.dataInclusao}">Data Inclusão</td>
+							<td>R$ <span th:text="${pedido.valorTotal}">Valor</span></td>
+							<td th:text="${pedido.situacao}">Situação</td>
+							<td>
+								<a class="btn btn-primary" th:href="@{|/Pedidos/Detalhe/${pedido.id}|}">
+									Detalhes
+								</a>
+								<a class="btn btn-danger" href="#">
+									Cancelar
+								</a>
+								<a th:if="${pedido.isProcessado()}" class="btn btn-success" href="#">
+									Encerrar
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
