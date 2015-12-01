@@ -8,4 +8,5 @@ public class PedidoUrl {
 	public static final String DETALHE = BASE + "/Detalhe";
 	public static final String PROCESSAR = BASE + "/Processar";
 	public static final String CANCELAR = BASE + "/Cancelar";
+	public static final String ENCERRAR = BASE + "/Encerrar";
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="master">
+<head>
+<meta charset="UTF-8" />
+<title>Encerrar Pedido</title>
+</head>
+<body>
+	<section layout:fragment="content" th:object="${pedido}">
+	
+		<div class="row">
+			<div class="col-lg-5 text-left col-lg-offset-1">
+				<h2>
+					<span class="label label-default" th:text="*{cliente.nome}">Nome Cliente</span>
+				</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1">
+				<table class="table table-striped">
+					<tr>
+						<th class="text-center">IDItem</th>
+						<th class="text-center">IDProduto</th>
+						<th class="text-center">Peso</th>
+						<th class="text-center">Valor Total</th>
+						<th class="text-center">Situacao</th>
+					</tr>
+					<tr class="text-center" th:each="item : *{itens}">
+						<td th:text="${item.idItem}"></td>
+						<td th:text="${item.produto.servico.descricao} + '/' + ${item.produto.material.descricao}"></td>
+						<td><span th:text="${item.peso}"></span> Kg</td>
+						<td>R$ <span th:text="${item.valorTotal}"></span></td>
+						<td th:text="${item.situacao}"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-lg-6 text-left">
+						<div class="row">
+							<div class="col-lg-12">Valor Bruto:<span th:text="*{valorBruto}"></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">Valor Desconto:<span th:text="*{valorDesconto}"></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">Valor Final:<span th:text="*{valorFinal}"></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">Situação:<span th:text="*{situacao}"></span></div>
+						</div>
+					</div>
+					<div class="col-lg-6 text-right">
+						<form th:action="@{/Pedidos/Encerrar/}" method="post">
+							<input type="hidden" th:field="${pedido.idPedido}" />
+							<input type="submit" th:class="'btn btn-success btn-lg'" value="Encerrar Pedido" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

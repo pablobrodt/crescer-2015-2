@@ -12,6 +12,7 @@ import br.com.cwi.crescer.exception.PedidoDescontoException;
 import br.com.cwi.crescer.exception.PedidoException;
 import br.com.cwi.crescer.exception.PedidoJaProcessadoException;
 import br.com.cwi.crescer.exception.ProcessoJaIniciadoException;
+import br.com.cwi.crescer.exception.SomenteProdutosProcessadosPodemSerCanceladosException;
 import br.com.cwi.crescer.lavanderia.dao.PedidoDao;
 import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
@@ -120,12 +121,12 @@ public class PedidoService {
 		setSituacaoPedido(id, SituacaoPedido.CANCELADO);
 	}
 	
-	public void retirarPedido(Long id) throws Exception{
+	public void encerrarPedido(Long id) throws PedidoException{
 		Pedido entity = PedidoMapper.toEntity(findById(id));
 		if(entity.getSituacao() == SituacaoPedido.PROCESSADO){
 			setSituacaoPedido(id, SituacaoPedido.ENCERRADO);
 		}else{
-			throw new Exception("Somente pedidos já processados podem ser encerrados.");
+			throw new SomenteProdutosProcessadosPodemSerCanceladosException();
 		}
 	}
 	
