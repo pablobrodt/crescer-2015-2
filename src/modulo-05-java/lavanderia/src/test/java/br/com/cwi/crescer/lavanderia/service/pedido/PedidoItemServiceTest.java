@@ -36,12 +36,15 @@ public class PedidoItemServiceTest extends AbstractTest{
 		
 		Item item1 = new Item(produto1);
 		item1.setPeso(new BigDecimal(1));
+		item1.setValorUnitario(new BigDecimal(7));
 		
 		Item item2 = new Item(produto2);
 		item2.setPeso(new BigDecimal(1));
+		item2.setValorUnitario(new BigDecimal(7));
 		
 		Item item3 = new Item(produto3);
 		item3.setPeso(new BigDecimal(1));
+		item3.setValorUnitario(new BigDecimal(7));
 		
 		ArrayList<Item> itens = new ArrayList<>();
 		itens.add(item1);
@@ -78,12 +81,15 @@ public class PedidoItemServiceTest extends AbstractTest{
 		
 		Item item1 = new Item(produto1);
 		item1.setPeso(new BigDecimal(2));
+		item1.setValorUnitario(new BigDecimal(50));
 		
 		Item item2 = new Item(produto2);
 		item2.setPeso(new BigDecimal(4));
+		item2.setValorUnitario(new BigDecimal(5));
 		
 		Item item3 = new Item(produto3);
 		item3.setPeso(new BigDecimal(1));
+		item3.setValorUnitario(new BigDecimal(3.12));
 		
 		ArrayList<Item> itens = new ArrayList<>();
 		itens.add(item1);

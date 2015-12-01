@@ -23,4 +23,9 @@ public class ClienteListaController extends ClienteController{
 	public ModelAndView listar(){
 		return new ModelAndView("cliente/listar", "clientes", this.clienteService.findAll());
 	}
+	
+	@RequestMapping(path = "/Ativos", method = RequestMethod.GET)
+	public ModelAndView listarAtivos(){
+		return new ModelAndView("cliente/listar", "clientes", this.clienteService.findAllActive());
+	}
 }

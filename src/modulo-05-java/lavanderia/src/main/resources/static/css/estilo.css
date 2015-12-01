@@ -1,3 +1,7 @@
+section{
+	min-height: 500px;
+}
+
 .footer{
 	height: 150px;
 	background-color: #F8F8F8;

@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.cwi.crescer.controller.urlmapper.ClienteUrl;
+import br.com.cwi.crescer.exception.Mensagem;
+import br.com.cwi.crescer.exception.Mensagem.TipoMensagem;
 import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.service.CidadeService;
 import br.com.cwi.crescer.lavanderia.service.ClienteService;
@@ -34,13 +36,13 @@ public class ClienteNovoController extends ClienteController{
 								BindingResult result,
 								final RedirectAttributes redirectAttributes){
 		
-		redirectAttributes.addFlashAttribute("mensagem", "Inserido com sucesso!");
+		redirectAttributes.addFlashAttribute("mensagem", new Mensagem("Inserido com sucesso!", TipoMensagem.SUCCESS));
 		
 		if (result.hasErrors()) {
 		return new ModelAndView("cliente/incluir");
 		}
 
 		this.clienteService.insert(dto);
-		return new ModelAndView("redirect:/Clientes");
+		return new ModelAndView("redirect:"+ClienteUrl.LISTA);
 	}
 }

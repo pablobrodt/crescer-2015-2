@@ -145,6 +145,7 @@ public class PedidoServiceTest extends AbstractTest {
 		
 		Item item1 = new Item(produto1);
 		item1.setPeso(new BigDecimal(1));
+		item1.setValorUnitario(new BigDecimal(100));
 		
 		ArrayList<Item> itens = new ArrayList<>();
 		itens.add(item1);
@@ -179,6 +180,7 @@ public class PedidoServiceTest extends AbstractTest {
 				
 				Item item1 = new Item(produto1);
 				item1.setPeso(new BigDecimal(2));
+				item1.setValorUnitario(new BigDecimal(100));
 				
 				ArrayList<Item> itens = new ArrayList<>();
 				itens.add(item1);
