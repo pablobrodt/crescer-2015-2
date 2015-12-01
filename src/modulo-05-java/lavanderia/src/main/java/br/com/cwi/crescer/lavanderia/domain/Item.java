@@ -28,7 +28,7 @@ public class Item {
 	}
 	
 	public Item(Produto produto) {
-		this.valorUnitario = produto.getValor();
+		this.produto = produto;
 	}
 
 	@Id
@@ -63,7 +63,7 @@ public class Item {
 	private SituacaoItem situacao;
 	
 	public static enum SituacaoItem {
-        PENDENTE, PROCESSANDO, PROCESSADO
+        PENDENTE, PROCESSADO
     }
 	
 	public Long getIdItem() {
@@ -113,4 +113,7 @@ public class Item {
 		return this.produto.getPrazo();
 	}
 	
+	public void tornarPendente(){
+		this.situacao = SituacaoItem.PENDENTE;
+	}
 }
