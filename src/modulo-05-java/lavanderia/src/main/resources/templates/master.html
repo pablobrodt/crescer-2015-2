@@ -39,11 +39,18 @@
 						            <li><a th:href="@{/Clientes/Listar}">Lista</a></li>
 						          </ul>
 						        </li>
+						        <li class="dropdown">
+						          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pedido<span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						          <li><a th:href="@{/Clientes/Listar/Ativos}">Novo</a></li>
+						            <li><a th:href="@{/Pedidos/Listar}">Lista</a></li>
+						          </ul>
+						        </li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
-								<li>
+								<!--  <li>
 									<label class="navbar-text" th:if="${#authentication.name} != 'anonymousUser'" th:text="${#authentication.name}"></label>
-								</li>
+								</li>-->
 								<li>
 						        	<form class="navbar-form" th:action="@{/logout}" method="post">
 									  <input class="btn btn-link" type="submit" value="Sair" />
@@ -56,6 +63,14 @@
 			</div>
 		</div>
 	</header>
+			
+		<div th:if="${mensagem}" th:class="'col-lg-4 col-lg-offset-4 alert alert-success alert-dismissible fade in over'">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+			  <span aria-hidden="true" >x</span>
+			</button>
+			<strong th:text="${mensagem.texto}"></strong>
+		</div>
+		
 	<section class="section" layout:fragment="content">
 
 	</section>
