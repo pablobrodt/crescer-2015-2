@@ -2,10 +2,10 @@ package br.com.cwi.crescer.controller.pedido;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,5 +36,17 @@ public class PedidoCancelarController extends PedidoController{
 		}
 		
 		return new ModelAndView("pedido/cancelar", "pedido", dto);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public ModelAndView cancelar(@ModelAttribute("pedido") PedidoDTO dto,
+								 RedirectAttributes redirectAttribute){
+		try {
+			pedidoService.cancelarPedido(dto.getIdPedido());
+		} catch (PedidoException e) {
+			redirectAttribute.addFlashAttribute("mensagem", e.getMensagem());
+			return new ModelAndView("redirect:"+PedidoUrl.CANCELAR+"/"+dto.getIdPedido());
+		}
+		return new ModelAndView("redirect:"+PedidoUrl.LISTA);
 	}
 }

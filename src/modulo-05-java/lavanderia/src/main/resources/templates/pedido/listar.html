@@ -38,7 +38,7 @@
 								<a class="btn btn-primary" th:href="@{|/Pedidos/Detalhe/${pedido.id}|}">
 									Detalhes
 								</a>
-								<a class="btn btn-danger" th:href="@{|/Pedidos/Cancelar/${pedido.id}|}">
+								<a th:if="${!pedido.isCancelado()}" class="btn btn-danger" th:href="@{|/Pedidos/Cancelar/${pedido.id}|}">
 									Cancelar
 								</a>
 								<a th:if="${pedido.isProcessado()}" class="btn btn-success" href="#">
