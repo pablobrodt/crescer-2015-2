@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1">
+			<div class="col-lg-9 col-lg-offset-1">
 				<table class="table table-striped">
 					<tr>
 						<th class="text-center">IDItem</th>
@@ -30,13 +30,31 @@
 						<th class="text-center">Valor Total</th>
 						<th></th>
 					</tr>
-					<tr th:each="item : *{itens}">
-						<td th:text="${item.id}"></td>
-						<td th:text="${item.produto}"></td>
-						<td th:text="${item.peso}"></td>
-						<td></td>
+					<tr class="text-center" th:each="item : *{itens}">
+						<td th:text="${item.idItem}"></td>
+						<td th:text="${item.produto.servico.descricao} + '/' + ${item.produto.material.descricao}"></td>
+						<td th:text="${item.peso} + Kg"></td>
+						<td>R$ <span th:text="${item.valorTotal}"></span></td>
 					</tr>
 				</table>
+				<div class="row">
+					<div class="col-lg-5 col-lg-offset-1">
+						<div class="row">
+							<div class="col-lg-10 col-lg-offset-1">Valor Bruto:<span th:text="*{valorBruto}"></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-10 col-lg-offset-1">Valor Desconto:<span th:text="*{valorDesconto}"></span></div>
+						</div>
+						<div class="row">
+							<div class="col-lg-10 col-lg-offset-1">Valor Final:<span th:text="*{valorFinal}"></span></div>
+						</div>
+					</div>
+					<div class="col-lg-5 col-lg-offset-1">
+						<h2>
+							<a class="label label-primary" href="#">Processar Pedido</a>
+						</h2>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
