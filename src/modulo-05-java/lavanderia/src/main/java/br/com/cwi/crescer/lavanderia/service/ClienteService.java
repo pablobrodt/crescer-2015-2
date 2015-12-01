@@ -37,6 +37,14 @@ public class ClienteService {
 		return dtos;
 	}
 	
+	public List<ClienteResumoDTO> findByNeme(String nome) {
+		List<Cliente> clientes = clienteDao.findByNome(nome);
+		
+		List<ClienteResumoDTO> dtos = ClienteMapper.toClienteResumoDtoList(clientes);
+		
+		return dtos;
+	}
+	
 	public List<ClienteResumoDTO> findAll() {
 		List<Cliente> clientes = clienteDao.findAll();
 		

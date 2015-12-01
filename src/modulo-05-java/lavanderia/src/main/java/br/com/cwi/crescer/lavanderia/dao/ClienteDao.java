@@ -2,8 +2,6 @@ package br.com.cwi.crescer.lavanderia.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -26,6 +24,12 @@ public class ClienteDao extends AbstractDao{
 	public List<Cliente> findBySituacao(SituacaoCliente situacao){
 		return em.createQuery("FROM Cliente c WHERE c.situacao = :situacao", Cliente.class)
 				.setParameter("situacao", situacao)
+				.getResultList();
+	}
+	
+	public List<Cliente> findByNome(String nome) {
+		return em.createQuery("FROM Cliente c WHERE c.nome LIKE :nome", Cliente.class)
+				.setParameter("nome", nome+"%")
 				.getResultList();
 	}
 	
