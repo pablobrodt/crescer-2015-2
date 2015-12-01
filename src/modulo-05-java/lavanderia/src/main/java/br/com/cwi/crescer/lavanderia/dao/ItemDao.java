@@ -2,15 +2,12 @@ package br.com.cwi.crescer.lavanderia.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.domain.Item;
 import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
-import br.com.cwi.crescer.lavanderia.domain.Cliente.SituacaoCliente;
 
 @Repository
 public class ItemDao extends AbstractDao {
@@ -23,5 +20,15 @@ public class ItemDao extends AbstractDao {
 		return em.createQuery("FROM Item i WHERE i.situacao = :situacao", Item.class)
 				.setParameter("situacao", situacao)
 				.getResultList();				
+	}
+	
+	@Transactional
+	public Item save(Item entity) {
+		if(entity.getIdItem() == null){
+			em.persist(entity);
+			return entity;
+		}else{
+			return em.merge(entity);
+		}
 	}
 }
