@@ -3,17 +3,11 @@ package br.com.cwi.crescer.lavanderia.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import br.com.cwi.crescer.lavanderia.domain.Cliente;
 import br.com.cwi.crescer.lavanderia.dto.ClienteDTO;
 import br.com.cwi.crescer.lavanderia.dto.ClienteResumoDTO;
-import br.com.cwi.crescer.lavanderia.service.CidadeService;
 
 public class ClienteMapper {
-	
-	@Autowired
-	private static CidadeService cidadeService;
 	
 	public static Cliente toEntity(ClienteDTO clienteDTO){
 		Cliente cliente = new Cliente();
