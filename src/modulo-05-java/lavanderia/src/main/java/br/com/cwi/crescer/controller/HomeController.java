@@ -14,10 +14,6 @@ public class HomeController {
     @RequestMapping("/")
     public ModelAndView index(RedirectAttributes attr) {
 
-        String mensagem = "Bem Vindo, Lavanderia Crescer";
-        
-        attr.addFlashAttribute("mensagem", new Mensagem(mensagem, TipoMensagem.SUCCESS));
-
         return new ModelAndView("index");
     }
 }
