@@ -31,7 +31,7 @@
 						<tr th:each="pedido : ${pedidos}">
 							<td th:text="${pedido.nomeCliente}">Nome</td>
 							<td th:text="${pedido.cpfCliente}">Cpf</td>
-							<td th:text="${pedido.dataInclusao}">Data Inclusão</td>
+							<td th:text="${#dates.format(pedido.dataInclusao, 'dd/MM/yyyy')}">Data Inclusão</td>
 							<td>R$ <span th:text="${pedido.valorTotal}">Valor</span></td>
 							<td th:text="${pedido.situacao}">Situação</td>
 							<td>
