@@ -17,7 +17,7 @@ public class PedidoDao extends AbstractDao {
 	}
 	
 	public List<Pedido> findAll() {
-		return em.createQuery("FROM Pedido")
+		return em.createQuery("FROM Pedido", Pedido.class)
 				.getResultList();
 	}
 	
