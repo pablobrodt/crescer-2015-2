@@ -1,4 +1,4 @@
-package br.com.cwi.crescer.controller;
+package br.com.cwi.crescer.controller.item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,37 +20,26 @@ import br.com.cwi.crescer.lavanderia.dto.ServicoDTO;
 import br.com.cwi.crescer.lavanderia.service.ItemService;
 import br.com.cwi.crescer.lavanderia.service.MaterialService;
 import br.com.cwi.crescer.lavanderia.service.ServicoService;
+import br.com.cwi.crescer.lavanderia.service.pedido.PedidoService;
 
 @Controller
 @RequestMapping(ItemUrl.BASE)
 public class ItemController {
 
-	private ItemService itemService;
+	protected ItemService itemService;
 	private ServicoService servicoService;
 	private MaterialService materialService;
+	protected PedidoService pedidoService;
 	
 	private ArrayList<ItemDTO> itens;
 	
 	@Autowired
-	public ItemController(ItemService itemService, ServicoService servicoService, MaterialService materialService){
+	public ItemController(ItemService itemService, ServicoService servicoService, MaterialService materialService, PedidoService pedidoService){
 		this.itemService = itemService;
 		this.servicoService = servicoService;
 		this.materialService = materialService;
+		this.pedidoService = pedidoService;
 		this.itens = new ArrayList<>();
-	}
-	
-	@RequestMapping("/Novo")
-	public ModelAndView viewNovo(){
-		return new ModelAndView("item/novo", "item", new ItemDTO());
-	}
-	
-	@RequestMapping(path = "/Novo", method = RequestMethod.POST)
-	public ModelAndView adicionarItem(HttpServletRequest request, @ModelAttribute("item") ItemDTO dto){
-		PedidoDTO pedido = (PedidoDTO)request.getSession().getAttribute("pedido");
-		
-		
-		pedido.addItem(dto);
-		return new ModelAndView("pedido/novo", "pedido", pedido);
 	}
 	
 	@ModelAttribute("servicos")
