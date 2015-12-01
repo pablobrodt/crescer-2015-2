@@ -26,7 +26,8 @@
 			            </select>
 					</div>
 				<form class="form" th:action="@{/Itens/Novo}" method="post" th:object="${item}">
-					<input type="hidden" th:field="*{idProduto}" />
+					<input type="hidden" id="produto" th:field="*{produto.idProduto}" />
+					<input type="hidden" th:field="*{pedido}" />
 					<div class="form-group">
 						<label class="control-label">Peso:</label>
 						<input class="form-control" th:field="*{peso}" type="text" placeholder="Nome" />
