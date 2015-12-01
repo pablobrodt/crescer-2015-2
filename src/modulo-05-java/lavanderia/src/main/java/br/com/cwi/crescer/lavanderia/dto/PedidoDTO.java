@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
 import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 
 public class PedidoDTO {
@@ -28,7 +29,6 @@ public class PedidoDTO {
 	@NotNull
 	@NotBlank
 	private Date dataInclusao;
-	
 	
 	private Date dataEntrega;
 	
@@ -120,5 +120,29 @@ public class PedidoDTO {
 	
 	public void addItem(ItemDTO item){
 		this.itens.add(item);
+	}
+	
+	public boolean isPendente(){
+		return this.situacao == SituacaoPedido.PENDENTE;
+	}
+	
+	public boolean isProcessando(){
+		return this.situacao == SituacaoPedido.PROCESSANDO;
+	}
+	
+	public boolean isCancelado(){
+		return this.situacao == SituacaoPedido.CANCELADO;
+	}
+	
+	public boolean isProcessado(){
+		return this.situacao == SituacaoPedido.PROCESSADO;
+	}
+	
+	public boolean temItensPendentes(){
+		boolean retorno = false;
+		for (ItemDTO itemDTO : itens) {
+			retorno = itemDTO.getSituacao() == SituacaoItem.PENDENTE;
+		}
+		return retorno;
 	}
 }

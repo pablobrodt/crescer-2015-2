@@ -3,17 +3,24 @@ package br.com.cwi.crescer.lavanderia.dto;
 import java.math.BigDecimal;
 
 import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
+import br.com.cwi.crescer.lavanderia.domain.Pedido;
 
 public class ItemDTO {
 	
 	private Long idItem;
-	private PedidoDTO pedido;
+	private Long pedido;
 	private ProdutoDTO produto;
 	private BigDecimal peso;
 	private BigDecimal valorUnitario;
 	private BigDecimal valorTotal;
 	private SituacaoItem situacao;
 	
+	public ItemDTO(){
+	}
+	
+	public ItemDTO(ProdutoDTO produtoDTO){
+		this.produto = produtoDTO;
+	}
 	
 	public Long getIdItem() {
 		return idItem;
@@ -21,10 +28,10 @@ public class ItemDTO {
 	public void setIdItem(Long idItem) {
 		this.idItem = idItem;
 	}
-	public PedidoDTO getPedido() {
+	public Long getPedido() {
 		return pedido;
 	}
-	public void setPedido(PedidoDTO pedido) {
+	public void setPedido(Long pedido) {
 		this.pedido = pedido;
 	}
 	public ProdutoDTO getProduto() {
@@ -56,5 +63,9 @@ public class ItemDTO {
 	}
 	public void setSituacao(SituacaoItem situacao) {
 		this.situacao = situacao;
+	}
+	
+	public boolean isPendente(){
+		return situacao == SituacaoItem.PENDENTE;
 	}
 }
