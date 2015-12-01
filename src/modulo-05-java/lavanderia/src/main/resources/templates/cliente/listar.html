@@ -30,7 +30,7 @@
 							<th>Situação</th>
 							<th>Detalhes</th>
 							<th>Editar</th>
-							<th>Remover</th>
+							<th>Efetuar Pedido</th>
 						</tr>
 						<tr th:each="cliente : ${clientes}">
 							<td th:text="${cliente.nome}">Exibe Nome</td>
@@ -49,7 +49,7 @@
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-success" th:href="@{|/Pedidos/Novo/${cliente.id}|}">
+								<a th:if="${cliente.ativo}" class="btn btn-success" th:href="@{|/Pedidos/Novo/${cliente.id}|}">
 									Novo Pedido
 								</a>
 							</td>
