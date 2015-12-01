@@ -3,6 +3,7 @@ package br.com.cwi.crescer.controller.cliente;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,13 +29,13 @@ public class ClienteEditaController extends ClienteController{
 		super(clienteService, cidadeService);
 	}
 
-	//@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public ModelAndView viewEditar(@PathVariable("id") Long id){
 		return new ModelAndView("cliente/editar", "cliente", this.clienteService.findById(id));
 	}
 	
-	//@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView editar(@Valid @ModelAttribute("cliente") ClienteDTO dto,
 	        					BindingResult result,

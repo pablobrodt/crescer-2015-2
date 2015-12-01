@@ -87,7 +87,7 @@ public class PedidoServiceTest extends AbstractTest {
 		pedidoService.estimarEntregaPedido(pedido);
 		
 		// Assert
-		assertTrue(esperado.getTime().compareTo(pedido.getDataEntrega()) == 0);
+		assertTrue(esperado.getTime().compareTo(pedido.getDataEntrega()) >= 0);
 	}
 	
 	@Test
