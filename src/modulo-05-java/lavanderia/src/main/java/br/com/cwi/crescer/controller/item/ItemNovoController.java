@@ -1,9 +1,10 @@
 package br.com.cwi.crescer.controller.item;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,8 +57,13 @@ public class ItemNovoController extends ItemController{
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView adicionarItem(@ModelAttribute("item") ItemDTO dto,
+	public ModelAndView adicionarItem(@Valid @ModelAttribute("item") ItemDTO dto,
+									  BindingResult result,
 									  final RedirectAttributes redirectAttributes){
+		
+		if (result.hasErrors()) {
+			return new ModelAndView("item/novo");
+		}
 		
 		try {
 			dto = itemService.save(dto);

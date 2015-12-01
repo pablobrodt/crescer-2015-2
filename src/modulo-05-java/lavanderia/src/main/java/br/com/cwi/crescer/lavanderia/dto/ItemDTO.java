@@ -2,15 +2,27 @@ package br.com.cwi.crescer.lavanderia.dto;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.NumberFormat;
+
 import br.com.cwi.crescer.lavanderia.domain.Item.SituacaoItem;
-import br.com.cwi.crescer.lavanderia.domain.Pedido;
 
 public class ItemDTO {
 	
 	private Long idItem;
+	
+	@NotNull
 	private Long pedido;
+	
+	@NotNull
 	private ProdutoDTO produto;
+	
+	@NotNull
+	@NumberFormat
 	private BigDecimal peso;
+	
 	private BigDecimal valorUnitario;
 	private BigDecimal valorTotal;
 	private SituacaoItem situacao;

@@ -12,6 +12,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.cwi.crescer.controller.urlmapper.PedidoUrl;
 import br.com.cwi.crescer.exception.AbstractException;
 import br.com.cwi.crescer.exception.PedidoException;
+import br.com.cwi.crescer.exception.SomenteProdutosProcessadosPodemSerCanceladosException;
+import br.com.cwi.crescer.lavanderia.domain.Pedido.SituacaoPedido;
 import br.com.cwi.crescer.lavanderia.dto.PedidoDTO;
 import br.com.cwi.crescer.lavanderia.service.pedido.PedidoService;
 
@@ -31,6 +33,7 @@ public class PedidoEncerrarController extends PedidoController{
 		
 		try {
 			dto = pedidoService.findById(id);
+			verificaSituacaoPedido(dto);
 		} catch (PedidoException e) {
 			redirectAttributes.addFlashAttribute("mensagem", e.getMensagem());
 			return new ModelAndView("redirect:"+PedidoUrl.LISTA);
@@ -42,13 +45,23 @@ public class PedidoEncerrarController extends PedidoController{
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView cancelar(@ModelAttribute("pedido") PedidoDTO dto,
 								 RedirectAttributes redirectAttribute){
+		
+		
 		try {
+			dto = pedidoService.findById(dto.getIdPedido());
+			verificaSituacaoPedido(dto);
 			pedidoService.encerrarPedido(dto.getIdPedido());
 		} catch (PedidoException e) {
 			redirectAttribute.addFlashAttribute("mensagem", e.getMensagem());
 			return new ModelAndView("redirect:"+PedidoUrl.ENCERRAR+"/"+dto.getIdPedido());
 		}
 		return new ModelAndView("redirect:"+PedidoUrl.LISTA);
+	}
+	
+	private void verificaSituacaoPedido(PedidoDTO dto) throws SomenteProdutosProcessadosPodemSerCanceladosException{
+		if(dto.getSituacao() != SituacaoPedido.PROCESSADO){
+			throw new SomenteProdutosProcessadosPodemSerCanceladosException();
+		}
 	}
 	
 }
